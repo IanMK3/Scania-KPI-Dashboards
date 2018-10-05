@@ -1,0 +1,518 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1400,
+  "model": {
+    "culture": "en-GB",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/sgbsql01 database windows net;KPI_Dashboards",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "sgbsql01.database.windows.net",
+            "database": "KPI_Dashboards"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "options": {},
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "sgbsql01_reader",
+          "EncryptConnection": true
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "dim Branch",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "Branch Code",
+            "dataType": "string",
+            "sourceColumn": "Branch Code"
+          },
+          {
+            "name": "Branch",
+            "dataType": "string",
+            "sourceColumn": "Branch"
+          },
+          {
+            "name": "Depot",
+            "dataType": "int64",
+            "sourceColumn": "Depot"
+          },
+          {
+            "name": "Branch Type",
+            "dataType": "string",
+            "sourceColumn": "Branch Type"
+          },
+          {
+            "name": "DW_DateCreated",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateCreated"
+          },
+          {
+            "name": "DW_DateModified",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateModified"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    dim_Branch = Source{[Schema=\"dim\",Item=\"Branch\"]}[Data]",
+                "in",
+                "    dim_Branch"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim Date",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "Year Name",
+            "dataType": "string",
+            "sourceColumn": "Year Name"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month"
+          },
+          {
+            "name": "Month Name",
+            "dataType": "string",
+            "sourceColumn": "Month Name"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "Quarter Name",
+            "dataType": "string",
+            "sourceColumn": "Quarter Name"
+          },
+          {
+            "name": "Quarter Year Name",
+            "dataType": "string",
+            "sourceColumn": "Quarter Year Name"
+          },
+          {
+            "name": "Week Start Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Week Start Date"
+          },
+          {
+            "name": "Week Name",
+            "dataType": "string",
+            "sourceColumn": "Week Name"
+          },
+          {
+            "name": "Day Name",
+            "dataType": "string",
+            "sourceColumn": "Day Name"
+          },
+          {
+            "name": "Day",
+            "dataType": "int64",
+            "sourceColumn": "Day"
+          },
+          {
+            "name": "Short Day Name",
+            "dataType": "string",
+            "sourceColumn": "Short Day Name"
+          },
+          {
+            "name": "Short Month Name",
+            "dataType": "string",
+            "sourceColumn": "Short Month Name"
+          },
+          {
+            "name": "Day Of Week",
+            "dataType": "int64",
+            "sourceColumn": "Day Of Week"
+          },
+          {
+            "name": "Year Month",
+            "dataType": "int64",
+            "sourceColumn": "Year Month"
+          },
+          {
+            "name": "Is Scottish Public Holiday",
+            "dataType": "boolean",
+            "sourceColumn": "Is Scottish Public Holiday"
+          },
+          {
+            "name": "Is English Public Holiday",
+            "dataType": "boolean",
+            "sourceColumn": "Is English Public Holiday"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    dim_Date = Source{[Schema=\"dim\",Item=\"Date\"]}[Data]",
+                "in",
+                "    dim_Date"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim Depot",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "PoSCompany",
+            "dataType": "string",
+            "sourceColumn": "PoSCompany"
+          },
+          {
+            "name": "BK_Depot",
+            "dataType": "int64",
+            "sourceColumn": "BK_Depot"
+          },
+          {
+            "name": "Depot",
+            "dataType": "string",
+            "sourceColumn": "Depot"
+          },
+          {
+            "name": "Depot Number",
+            "dataType": "string",
+            "sourceColumn": "Depot Number"
+          },
+          {
+            "name": "Cost Centre",
+            "dataType": "string",
+            "sourceColumn": "Cost Centre"
+          },
+          {
+            "name": "Depot Type",
+            "dataType": "string",
+            "sourceColumn": "Depot Type"
+          },
+          {
+            "name": "Depot Status",
+            "dataType": "string",
+            "sourceColumn": "Depot Status"
+          },
+          {
+            "name": "Region",
+            "dataType": "int64",
+            "sourceColumn": "Region"
+          },
+          {
+            "name": "Post Code",
+            "dataType": "string",
+            "sourceColumn": "Post Code"
+          },
+          {
+            "name": "DW_DateCreated",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateCreated"
+          },
+          {
+            "name": "DW_DateModified",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateModified"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    dim_Depot = Source{[Schema=\"dim\",Item=\"Depot\"]}[Data]",
+                "in",
+                "    dim_Depot"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim Region",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "BK_Region",
+            "dataType": "string",
+            "sourceColumn": "BK_Region"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region"
+          },
+          {
+            "name": "Region Type",
+            "dataType": "string",
+            "sourceColumn": "Region Type"
+          },
+          {
+            "name": "VSBCompany",
+            "dataType": "string",
+            "sourceColumn": "VSBCompany"
+          },
+          {
+            "name": "RMRisk",
+            "dataType": "string",
+            "sourceColumn": "RMRisk"
+          },
+          {
+            "name": "DW_DateCreated",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateCreated"
+          },
+          {
+            "name": "DW_DateModified",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateModified"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    dim_Region = Source{[Schema=\"dim\",Item=\"Region\"]}[Data]",
+                "in",
+                "    dim_Region"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact Budget",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "Nominal Code",
+            "dataType": "int64",
+            "sourceColumn": "Nominal Code"
+          },
+          {
+            "name": "Branch",
+            "dataType": "int64",
+            "sourceColumn": "Branch"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "Budget",
+            "dataType": "double",
+            "sourceColumn": "Budget"
+          },
+          {
+            "name": "DW_CreatedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_CreatedDate"
+          },
+          {
+            "name": "DW_ModifiedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_ModifiedDate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    fact_Budget = Source{[Schema=\"fact\",Item=\"Budget\"]}[Data]",
+                "in",
+                "    fact_Budget"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact Revenue",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "Nominal Code",
+            "dataType": "int64",
+            "sourceColumn": "Nominal Code"
+          },
+          {
+            "name": "Nominal",
+            "dataType": "string",
+            "sourceColumn": "Nominal"
+          },
+          {
+            "name": "Branch",
+            "dataType": "int64",
+            "sourceColumn": "Branch"
+          },
+          {
+            "name": "Branch Code",
+            "dataType": "string",
+            "sourceColumn": "Branch Code"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "Revenue",
+            "dataType": "double",
+            "sourceColumn": "Revenue"
+          },
+          {
+            "name": "DW_DateCreated",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateCreated"
+          },
+          {
+            "name": "DW_DateModified",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateModified"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    fact_Revenue = Source{[Schema=\"fact\",Item=\"Revenue\"]}[Data]",
+                "in",
+                "    fact_Revenue"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "639c963e-d4e4-49d7-9dc1-e665d3563299",
+        "fromTable": "dim Branch",
+        "fromColumn": "Depot",
+        "toTable": "dim Depot",
+        "toColumn": "ID"
+      },
+      {
+        "name": "74972a1b-323d-4d61-88cf-001358241b66",
+        "fromTable": "fact Revenue",
+        "fromColumn": "Branch",
+        "toTable": "dim Branch",
+        "toColumn": "ID"
+      },
+      {
+        "name": "d63528b1-1888-48d0-b802-43492ed2af86",
+        "fromTable": "dim Depot",
+        "fromColumn": "Region",
+        "toTable": "dim Region",
+        "toColumn": "ID"
+      },
+      {
+        "name": "90a960af-82ad-4846-8bfb-2e268ac7dc01",
+        "fromTable": "fact Revenue",
+        "fromColumn": "Date",
+        "toTable": "dim Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "f300d030-ff8e-4365-98c8-69e19c6df833",
+        "fromTable": "fact Budget",
+        "fromColumn": "Date",
+        "toTable": "dim Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "0f5a49eb-5dbd-4c83-a618-7111bf143c45",
+        "fromTable": "fact Budget",
+        "fromColumn": "Branch",
+        "toTable": "dim Branch",
+        "toColumn": "ID",
+        "crossFilteringBehavior": "bothDirections"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "500"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

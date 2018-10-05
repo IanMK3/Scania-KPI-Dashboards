@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Scania CSV Ingest", "Scania CSV Ingest\Scania CSV Ingest.dtproj", "{F9D43030-CE80-4AA5-B9D2-2054C4B6A652}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9D43030-CE80-4AA5-B9D2-2054C4B6A652}.Development|Default.ActiveCfg = Development
+		{F9D43030-CE80-4AA5-B9D2-2054C4B6A652}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1107198-0AA2-4ECA-8872-4F05B56F5F35}
+	EndGlobalSection
+EndGlobal

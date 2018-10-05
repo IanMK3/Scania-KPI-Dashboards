@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Scania DW Load", "Scania DW Load\Scania DW Load.dtproj", "{5129640A-2C30-4204-97C8-74B136CF338F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5129640A-2C30-4204-97C8-74B136CF338F}.Development|Default.ActiveCfg = Development
+		{5129640A-2C30-4204-97C8-74B136CF338F}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1BB09516-F309-4D7E-9766-E44140B63D90}
+	EndGlobalSection
+EndGlobal
