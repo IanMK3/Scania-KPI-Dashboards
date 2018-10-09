@@ -1,6 +1,6 @@
 {
   "name": "KPI Project_DailyDoc",
-  "compatibilityLevel": 1200,
+  "compatibilityLevel": 1400,
   "model": {
     "culture": "en-GB",
     "dataSources": [
@@ -507,6 +507,7 @@
             "name": "CurrentMonth",
             "dataType": "boolean",
             "isDataTypeInferred": true,
+            "isHidden": true,
             "expression": [
               " Var CurrentMonth= month(Today())",
               "Var CurrentYear= year(Today())",
@@ -519,6 +520,7 @@
             "name": "PreviousMonth",
             "dataType": "boolean",
             "isDataTypeInferred": true,
+            "isHidden": true,
             "expression": [
               "Var CurrentMonth= month(Today())",
               "Var CurrentYear= year(Today())",
@@ -1779,18 +1781,21 @@
           {
             "name": "ID",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ID",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Depot",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "Depot",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Date",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "Date",
             "formatString": "General Date",
             "sourceProviderType": "DBDate"
@@ -1804,6 +1809,7 @@
           {
             "name": "DW_CreatedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_CreatedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
@@ -1811,6 +1817,7 @@
           {
             "name": "DW_ModifiedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_ModifiedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
@@ -3122,67 +3129,149 @@
         "measures": [
           {
             "name": "TotalSales",
-            "expression": "ROUND(CALCULATE(SUM(Revenue[Revenue]))*(-1),0)"
+            "expression": "ROUND(CALCULATE(SUM(Revenue[Revenue]))*(-1),0)",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "FrontCounterSalesMargin",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Front Counter\")"
+            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Front Counter\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "FrontCounterSalesMargin %",
-            "expression": "DIVIDE([FrontCounterSalesMargin],[FrontCounterSales])"
+            "expression": "(DIVIDE([FrontCounterSalesMargin],[FrontCounterSales]))",
+            "formatString": "0.00%;-0.00%;0.00%"
           },
           {
             "name": "BackCounterSales",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Back Counter\",NominalCode[Nominal Type]=\"Sales\")"
+            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Back Counter\",NominalCode[Nominal Type]=\"Sales\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "BackCounterSalesMargin",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Back Counter\")"
+            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Back Counter\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "LabourSales",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Labour\",NominalCode[Nominal Type]=\"Sales\")"
+            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Labour\",NominalCode[Nominal Type]=\"Sales\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "LabourSalesMargin",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Labour\")"
+            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Labour\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "OtherSales",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Other\",NominalCode[Nominal Type]=\"Sales\")"
+            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Other\",NominalCode[Nominal Type]=\"Sales\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "OtherSalesMargin",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Other\")"
+            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Other\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "BackCounterSalesMargin %",
-            "expression": "DIVIDE([BackCounterSalesMargin],[BackCounterSales])"
+            "expression": "((DIVIDE([BackCounterSalesMargin],[BackCounterSales])))",
+            "formatString": "0.00%;-0.00%;0.00%"
           },
           {
             "name": "FrontCounterSales",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Front Counter\",NominalCode[Nominal Type]=\"Sales\")"
+            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Front Counter\",NominalCode[Nominal Type]=\"Sales\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "LabourSalesMargin %",
-            "expression": "DIVIDE([LabourSalesMargin],[LabourSales])"
+            "expression": "((DIVIDE([LabourSalesMargin],[LabourSales])))",
+            "formatString": "0.00%;-0.00%;0.00%"
           },
           {
             "name": "OtherSalesMargin %",
-            "expression": "DIVIDE([OtherSalesMargin],[OtherSales])"
+            "expression": "((DIVIDE([OtherSalesMargin],[OtherSales])))",
+            "formatString": "0.00%;-0.00%;0.00%"
           },
           {
             "name": "PartsSales",
-            "expression": "[FrontCounterSales]+[BackCounterSales]"
+            "expression": "[FrontCounterSales]+[BackCounterSales]",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "PartsSalesMargin",
-            "expression": "[FrontCounterSalesMargin]+[BackCounterSalesMargin]"
+            "expression": "[FrontCounterSalesMargin]+[BackCounterSalesMargin]",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "PartsSalesMargin %",
-            "expression": "DIVIDE([PartsSalesMargin],[PartsSales])"
+            "expression": "DIVIDE([PartsSalesMargin],[PartsSales])",
+            "formatString": "0.00%;-0.00%;0.00%"
           },
           {
             "name": "ElapsedWorkingDaysInMonth",
@@ -3219,55 +3308,16 @@
             ]
           },
           {
-            "name": "ObsolescenceStockValue",
-            "expression": "CALCULATE(SUM(Obsolescence[Stock Value]))"
-          },
-          {
             "name": "RecoveryRate",
             "expression": "ROUND((DIVIDE([LabourSales],[WorkShopSoldHours])),2)"
           },
           {
-            "name": "RegionalProducedHoursAgainstFlxBudget %",
-            "expression": "ROUND((DIVIDE([WorkShopProducedHours],[HoursFlxBudget])),1)"
-          },
-          {
-            "name": "HoursInvoicedAgainstFlxBudget %",
-            "expression": "ROUND((DIVIDE([WorkShopSoldHours],[HoursFlxBudget])),1)"
-          },
-          {
-            "name": "CurrentWip",
-            "expression": "ROUND((CALCULATE(SUM(WorkInProgress[WIP Labour]))),0)"
-          },
-          {
-            "name": "**30_LastDayInvoiced",
-            "expression": [
-              "CALCULATE([WorkShopSoldHours],'Date'[Date]=TODAY()-1)",
-              "                                       -CALCULATE([WorkShopSoldHours],'Date'[Date]=TODAY()-2)"
-            ]
-          },
-          {
-            "name": "WipTarget",
-            "expression": "DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])*3"
-          },
-          {
-            "name": "WipDays",
-            "expression": "DIVIDE([CurrentWIP],[Target])"
-          },
-          {
             "name": "PartsPerHoursSold",
-            "expression": "DIVIDE([WorkShopSoldHours],[PartsSales])"
+            "expression": "ROUND((DIVIDE([WorkShopSoldHours],[PartsSales])),2)"
           },
           {
             "name": "PartsSalesPerformanceAgainstPartsTotBudget %",
-            "expression": "DIVIDE([PartsSales],[PartsBudget])"
-          },
-          {
-            "name": "WorhShopHoursPerformanceAgainstTotBudget",
-            "expression": "DIVIDE([WorkShopSoldHours],[HoursBudget])"
-          },
-          {
-            "name": "HoursProducedPerformanceAgainstFlxBudget",
-            "expression": "DIVIDE([WorkShopProducedHours],[HoursFlxBudget])"
+            "expression": "((DIVIDE([PartsSales],[PartsBudget])))"
           },
           {
             "name": "FrontCounterSalesPerformanceAgainstFxBudget",
@@ -3276,17 +3326,6 @@
           {
             "name": "WorkdaysInMonth",
             "expression": "CALCULATE(MAX(DepotWorkingDays[Working Days]))"
-          },
-          {
-            "name": "QueryAmountOutstanding",
-            "expression": [
-              "",
-              "\tvar MaxDate = MAX('Date'[Date])",
-              "\tRETURN CALCULATE(",
-              "\t\t\t\tSUM(OutstandingQuery[Outstanding Amount]),",
-              "\t\t\t\tDATESBETWEEN('Date'[Date],DATE(2000,1,1),MaxDate)",
-              "\t\t\t)"
-            ]
           }
         ],
         "annotations": [
@@ -3582,6 +3621,38 @@
             "sourceColumn": "DW_ModifiedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "type": "calculated",
+            "name": "Query Age",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "Var CurrentMonth= MONTH(Today())",
+              "VAR CurrentYear= YEAR(Today())",
+              "",
+              "VAR MaxDate1= CALCULATE(",
+              "                    Max('Date'[Date]), ",
+              "                    filter(",
+              "                            all('Date'[Date]),",
+              "                             month('Date'[Date]) =CurrentMonth && Year('Date'[Date]) =CurrentYear",
+              "                    )",
+              ")",
+              "return DATEDIFF(OutstandingQuery[Query Date],MAXDate1,DAY)"
+            ]
+          },
+          {
+            "name": "System Match Number",
+            "dataType": "string",
+            "sourceColumn": "System Match Number"
+          },
+          {
+            "type": "calculated",
+            "name": "Query Age(Months)",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "DATEDIFF(OutstandingQuery[Query Date],Today(),MONTH)"
           }
         ],
         "partitions": [
@@ -3589,282 +3660,123 @@
             "name": "OutstandingQuery",
             "dataView": "full",
             "source": {
-              "query": " SELECT [fact].[OutstandingQuery].[ID],[fact].[OutstandingQuery].[Branch],[fact].[OutstandingQuery].[Account],[fact].[OutstandingQuery].[Document Number],[fact].[OutstandingQuery].[Company],[fact].[OutstandingQuery].[Date],[fact].[OutstandingQuery].[Outstanding Amount],[fact].[OutstandingQuery].[Query Reason],[fact].[OutstandingQuery].[Query Date],[fact].[OutstandingQuery].[Reference],[fact].[OutstandingQuery].[Complete],[fact].[OutstandingQuery].[Completed Date],[fact].[OutstandingQuery].[DW_CreatedDate],[fact].[OutstandingQuery].[DW_ModifiedDate] FROM [fact].[OutstandingQuery] ",
+              "query": "SELECT [fact].[OutstandingQuery].[ID],[fact].[OutstandingQuery].[Branch],[fact].[OutstandingQuery].[Account],[fact].[OutstandingQuery].[Document Number],[fact].[OutstandingQuery].[Company],[fact].[OutstandingQuery].[Date],[fact].[OutstandingQuery].[Outstanding Amount],[fact].[OutstandingQuery].[Query Reason],[fact].[OutstandingQuery].[Query Date],[fact].[OutstandingQuery].[Reference],[fact].[OutstandingQuery].[Complete],[fact].[OutstandingQuery].[Completed Date],[fact].[OutstandingQuery].[DW_CreatedDate],[fact].[OutstandingQuery].[DW_ModifiedDate] ,[fact].[OutstandingQuery].[System Match Number] FROM [fact].[OutstandingQuery]",
               "dataSource": "SqlServerConn"
             },
             "annotations": [
               {
-                "name": "TableWidgetSerialization",
-                "value": [
-                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
-                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
-                  "  <ColumnSuggestedType />",
-                  "  <ColumnFormat />",
-                  "  <ColumnAccuracy />",
-                  "  <ColumnCurrencySymbol />",
-                  "  <ColumnPositivePattern />",
-                  "  <ColumnNegativePattern />",
-                  "  <ColumnWidths>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ID</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>41</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Branch</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>63</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Account</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>69</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>System Match Number</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>137</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Document Number</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>118</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Company</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>75</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>53</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Outstanding Amount</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>129</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Query Reason</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>99</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Query Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>86</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Reference</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>80</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Complete</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>75</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Completed Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>107</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DW_CreatedDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>115</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DW_ModifiedDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>116</int>",
-                  "      </value>",
-                  "    </item>",
-                  "  </ColumnWidths>",
-                  "  <ColumnDisplayIndex>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ID</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>0</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Branch</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>1</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Account</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>2</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>System Match Number</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>3</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Document Number</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>4</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Company</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>5</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>6</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Outstanding Amount</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>7</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Query Reason</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>8</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Query Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>9</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Reference</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>10</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Complete</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>11</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Completed Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>12</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DW_CreatedDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>13</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DW_ModifiedDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>14</int>",
-                  "      </value>",
-                  "    </item>",
-                  "  </ColumnDisplayIndex>",
-                  "  <ColumnFrozen />",
-                  "  <ColumnChecked>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>System Match Number</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <boolean>false</boolean>",
-                  "      </value>",
-                  "    </item>",
-                  "  </ColumnChecked>",
-                  "  <ColumnFilter />",
-                  "  <SelectionFilter />",
-                  "  <FilterParameters />",
-                  "  <IsSortDescending>false</IsSortDescending>",
-                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
-                ]
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [fact].[OutstandingQuery].[ID],[fact].[OutstandingQuery].[Branch],[fact].[OutstandingQuery].[Account],[fact].[OutstandingQuery].[Document Number],[fact].[OutstandingQuery].[Company],[fact].[OutstandingQuery].[Date],[fact].[OutstandingQuery].[Outstanding Amount],[fact].[OutstandingQuery].[Query Reason],[fact].[OutstandingQuery].[Query Date],[fact].[OutstandingQuery].[Reference],[fact].[OutstandingQuery].[Complete],[fact].[OutstandingQuery].[Completed Date],[fact].[OutstandingQuery].[DW_CreatedDate],[fact].[OutstandingQuery].[DW_ModifiedDate] ,[fact].[OutstandingQuery].[System Match Number] FROM [fact].[OutstandingQuery]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "QueryAmountOutstanding",
+            "expression": [
+              "",
+              "\tvar MaxDate = MAX('Date'[Date])",
+              "\tRETURN CALCULATE(",
+              "\t\t\t\tSUM(OutstandingQuery[Outstanding Amount]),",
+              "\t\t\t\tDATESBETWEEN('Date'[Date],DATE(2000,1,1),MaxDate)",
+              "\t\t\t)"
+            ],
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query Count (Current Month)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(OutstandingQuery[System Match Number]),OutstandingQuery[Query Age(Months)]=0)"
+          },
+          {
+            "name": "Query Count (1 Month OD)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(OutstandingQuery[System Match Number]),OutstandingQuery[Query Age(Months)]=1)"
+          },
+          {
+            "name": "Query Count (2 Months OD)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(OutstandingQuery[System Match Number]),OutstandingQuery[Query Age(Months)]=2)"
+          },
+          {
+            "name": "Query Count (3 Months OD)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(OutstandingQuery[System Match Number]),OutstandingQuery[Query Age(Months)]=3)"
+          },
+          {
+            "name": "Query Count (4 Months + OD)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(OutstandingQuery[System Match Number]),OutstandingQuery[Query Age(Months)]>=4)"
+          },
+          {
+            "name": "Query Amount(Current Month OD)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(OutstandingQuery[Outstanding Amount]),OutstandingQuery[Query Age(Months)] =0)"
+            ],
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query Amount(1 Month OD)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(OutstandingQuery[Outstanding Amount]),OutstandingQuery[Query Age(Months)] =1)"
+            ],
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query Amount(2 Months OD)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(OutstandingQuery[Outstanding Amount]),OutstandingQuery[Query Age(Months)] =2)"
+            ],
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query Amount(3 Months OD)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(OutstandingQuery[Outstanding Amount]),OutstandingQuery[Query Age(Months)] =3)"
+            ],
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query Amount(4 Months + OD)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(OutstandingQuery[Outstanding Amount]),OutstandingQuery[Query Age(Months)] >=4)"
+            ],
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
               }
             ]
           }
@@ -3872,7 +3784,7 @@
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
-            "value": " SELECT [fact].[OutstandingQuery].[ID],[fact].[OutstandingQuery].[Branch],[fact].[OutstandingQuery].[Account],[fact].[OutstandingQuery].[Document Number],[fact].[OutstandingQuery].[Company],[fact].[OutstandingQuery].[Date],[fact].[OutstandingQuery].[Outstanding Amount],[fact].[OutstandingQuery].[Query Reason],[fact].[OutstandingQuery].[Query Date],[fact].[OutstandingQuery].[Reference],[fact].[OutstandingQuery].[Complete],[fact].[OutstandingQuery].[Completed Date],[fact].[OutstandingQuery].[DW_CreatedDate],[fact].[OutstandingQuery].[DW_ModifiedDate] FROM [fact].[OutstandingQuery] "
+            "value": "SELECT [fact].[OutstandingQuery].[ID],[fact].[OutstandingQuery].[Branch],[fact].[OutstandingQuery].[Account],[fact].[OutstandingQuery].[Document Number],[fact].[OutstandingQuery].[Company],[fact].[OutstandingQuery].[Date],[fact].[OutstandingQuery].[Outstanding Amount],[fact].[OutstandingQuery].[Query Reason],[fact].[OutstandingQuery].[Query Date],[fact].[OutstandingQuery].[Reference],[fact].[OutstandingQuery].[Complete],[fact].[OutstandingQuery].[Completed Date],[fact].[OutstandingQuery].[DW_CreatedDate],[fact].[OutstandingQuery].[DW_ModifiedDate] ,[fact].[OutstandingQuery].[System Match Number] FROM [fact].[OutstandingQuery]"
           },
           {
             "name": "_TM_ExtProp_DbTableName",
@@ -3883,317 +3795,53 @@
             "value": "fact"
           },
           {
-            "name": "TableWidgetSerialization",
-            "value": [
-              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
-              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
-              "  <ColumnSuggestedType />",
-              "  <ColumnFormat />",
-              "  <ColumnAccuracy />",
-              "  <ColumnCurrencySymbol />",
-              "  <ColumnPositivePattern />",
-              "  <ColumnNegativePattern />",
-              "  <ColumnWidths>",
-              "    <item>",
-              "      <key>",
-              "        <string>ID</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>41</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Branch</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>63</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Account</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>69</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>System Match Number</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>137</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Document Number</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>118</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Company</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>75</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>53</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Outstanding Amount</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>129</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Query Reason</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>99</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Query Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>86</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Reference</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>80</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Complete</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>75</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Completed Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>107</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>DW_CreatedDate</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>115</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>DW_ModifiedDate</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>116</int>",
-              "      </value>",
-              "    </item>",
-              "  </ColumnWidths>",
-              "  <ColumnDisplayIndex>",
-              "    <item>",
-              "      <key>",
-              "        <string>ID</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>0</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Branch</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>1</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Account</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>2</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>System Match Number</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>3</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Document Number</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>4</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Company</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>5</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>6</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Outstanding Amount</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>7</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Query Reason</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>8</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Query Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>9</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Reference</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>10</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Complete</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>11</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Completed Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>12</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>DW_CreatedDate</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>13</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>DW_ModifiedDate</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>14</int>",
-              "      </value>",
-              "    </item>",
-              "  </ColumnDisplayIndex>",
-              "  <ColumnFrozen />",
-              "  <ColumnChecked>",
-              "    <item>",
-              "      <key>",
-              "        <string>System Match Number</string>",
-              "      </key>",
-              "      <value>",
-              "        <boolean>false</boolean>",
-              "      </value>",
-              "    </item>",
-              "  </ColumnChecked>",
-              "  <ColumnFilter />",
-              "  <SelectionFilter />",
-              "  <FilterParameters />",
-              "  <IsSortDescending>false</IsSortDescending>",
-              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
-            ]
+            "name": "QueryEditorSerialization",
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [fact].[OutstandingQuery].[ID],[fact].[OutstandingQuery].[Branch],[fact].[OutstandingQuery].[Account],[fact].[OutstandingQuery].[Document Number],[fact].[OutstandingQuery].[Company],[fact].[OutstandingQuery].[Date],[fact].[OutstandingQuery].[Outstanding Amount],[fact].[OutstandingQuery].[Query Reason],[fact].[OutstandingQuery].[Query Date],[fact].[OutstandingQuery].[Reference],[fact].[OutstandingQuery].[Complete],[fact].[OutstandingQuery].[Completed Date],[fact].[OutstandingQuery].[DW_CreatedDate],[fact].[OutstandingQuery].[DW_ModifiedDate] ,[fact].[OutstandingQuery].[System Match Number] FROM [fact].[OutstandingQuery]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
           }
         ]
       },
       {
         "name": "WorkInProgress",
-        "isHidden": true,
         "columns": [
           {
             "name": "ID",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ID",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Depot",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "Depot",
             "sourceProviderType": "Integer"
           },
           {
             "name": "WIP Number",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "WIP Number",
             "sourceProviderType": "Char"
           },
           {
             "name": "WIP Type",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "WIP Type",
             "sourceProviderType": "Integer"
           },
           {
             "name": "WIP Status",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "WIP Status",
             "sourceProviderType": "Char"
           },
           {
             "name": "Date",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "Date",
             "formatString": "General Date",
             "sourceProviderType": "DBDate"
@@ -4201,6 +3849,7 @@
           {
             "name": "In Date",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "In Date",
             "formatString": "General Date",
             "sourceProviderType": "DBDate"
@@ -4208,72 +3857,84 @@
           {
             "name": "Registration",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Registration",
             "sourceProviderType": "Char"
           },
           {
             "name": "Company",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "Company",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Account",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Account",
             "sourceProviderType": "Char"
           },
           {
             "name": "WIP Parts",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "WIP Parts",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Parts Line",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Parts Line",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "WIP Labour",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "WIP Labour",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Labour Line",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Labour Line",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "WIP Hours",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "WIP Hours",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "WIP Sublet",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "WIP Sublet",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "WIP Total",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "WIP Total",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Notes",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Notes",
             "sourceProviderType": "Char"
           },
           {
             "name": "Complete",
             "dataType": "boolean",
+            "isHidden": true,
             "sourceColumn": "Complete",
             "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
             "sourceProviderType": "Boolean"
@@ -4281,6 +3942,7 @@
           {
             "name": "Completed Date",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "Completed Date",
             "formatString": "General Date",
             "sourceProviderType": "DBDate"
@@ -4288,12 +3950,14 @@
           {
             "name": "Source",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Source",
             "sourceProviderType": "Char"
           },
           {
             "name": "DW_CreatedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_CreatedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
@@ -4301,9 +3965,30 @@
           {
             "name": "DW_ModifiedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_ModifiedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "type": "calculated",
+            "name": "WIP Age",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "Var CurrentMonth= MONTH(Today())",
+              "VAR CurrentYear= YEAR(Today())",
+              "",
+              "VAR MaxDate1= CALCULATE(",
+              "                    Max('Date'[Date]), ",
+              "                    filter(",
+              "                            all('Date'[Date]),",
+              "                             month('Date'[Date]) =CurrentMonth && Year('Date'[Date]) =CurrentYear",
+              "                    )",
+              ")",
+              "return DATEDIFF(WorkInProgress[In Date],MAXDate1,DAY)"
+            ]
           }
         ],
         "partitions": [
@@ -4733,6 +4418,36 @@
                 ]
               }
             ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "CurrentWip",
+            "expression": "ROUND((CALCULATE(SUM(WorkInProgress[WIP Labour]))),0)"
+          },
+          {
+            "name": "Target",
+            "expression": "DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])"
+          },
+          {
+            "name": "WipDays",
+            "expression": "DIVIDE([CurrentWIP],[Target])"
+          },
+          {
+            "name": "WipTarget",
+            "expression": "DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])*3"
+          },
+          {
+            "name": "WIP Count (Age 0-30 days)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(WorkInProgress[WIP Number]),WorkInProgress[WIP Age] <=30)"
+          },
+          {
+            "name": "WIP Count (Age 31-60 days)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(WorkInProgress[WIP Number]),WorkInProgress[WIP Age] >30 && WorkInProgress[WIP Age] <=60)"
+          },
+          {
+            "name": "WIP Count (Age > 60 days)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(WorkInProgress[WIP Number]),WorkInProgress[WIP Age] >60)"
           }
         ],
         "annotations": [
@@ -5173,18 +4888,21 @@
           {
             "name": "ID",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ID",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Branch",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "Branch",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Date",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "Date",
             "formatString": "General Date",
             "sourceProviderType": "DBDate"
@@ -5192,12 +4910,14 @@
           {
             "name": "Budget",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Budget",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "DW_CreatedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_CreatedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
@@ -5205,6 +4925,7 @@
           {
             "name": "DW_ModifiedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_ModifiedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
@@ -5352,7 +5073,7 @@
             "expression": "DIVIDE([HoursBudget],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]"
           },
           {
-            "name": "HoursToDoBudget1",
+            "name": "HoursToDoBudget",
             "expression": "[HoursBudget]-[WorkShopSoldHours]"
           },
           {
@@ -5501,18 +5222,21 @@
           {
             "name": "ID",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ID",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Depot",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "Depot",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Date",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "Date",
             "formatString": "General Date",
             "sourceProviderType": "DBDate"
@@ -5520,36 +5244,42 @@
           {
             "name": "Sold",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Sold",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Taken",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Taken",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Attended",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Attended",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Idle",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Idle",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Produced",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Produced",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Category",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Category",
             "sourceProviderType": "Char"
           }
@@ -5844,10 +5574,6 @@
             "expression": "CALCULATE(SUM(UtilizationStats[Attended]),UtilizationStats[Category]=\"WorkShop\")"
           },
           {
-            "name": "Target",
-            "expression": "DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])"
-          },
-          {
             "name": "BodyShopSoldHours",
             "expression": "ROUND((CALCULATE(SUM(UtilizationStats[Sold]),UtilizationStats[Category]=\"BodyShop\")),0)"
           },
@@ -5861,11 +5587,42 @@
           },
           {
             "name": "Utilisation%",
-            "expression": "ROUND((DIVIDE([WorkShopProducedHours],[WorkShopAttendedHours])),2)"
+            "expression": "(DIVIDE([WorkShopProducedHours],[WorkShopAttendedHours]))",
+            "formatString": "0.00%;-0.00%;0.00%"
           },
           {
             "name": "Efficiency %",
-            "expression": "ROUND((DIVIDE([WorkShopSoldHours],[WorkShopTakenHours])),2)"
+            "expression": "DIVIDE([WorkShopSoldHours],[WorkShopTakenHours])",
+            "formatString": "0.00%;-0.00%;0.00%"
+          },
+          {
+            "name": "HoursInvoicedAgainstFlxBudget %",
+            "expression": "(DIVIDE([WorkShopSoldHours],[HoursFlxBudget]))",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "HoursProducedPerformanceAgainstFlxBudget",
+            "expression": "DIVIDE([WorkShopProducedHours],[HoursFlxBudget])"
+          },
+          {
+            "name": "WorhShopHoursPerformanceAgainstTotBudget",
+            "expression": "DIVIDE([WorkShopSoldHours],[HoursBudget])"
+          },
+          {
+            "name": "RegionalProducedHoursAgainstFlxBudget %",
+            "expression": "((DIVIDE([WorkShopProducedHours],[HoursFlxBudget])))",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "**30_LastDayInvoiced0",
+            "expression": [
+              "CALCULATE([WorkShopSoldHours],'Date'[Date]=TODAY()-1)",
+              "                                       -CALCULATE([WorkShopSoldHours],'Date'[Date]=TODAY()-2)"
+            ]
+          },
+          {
+            "name": "NetLabourRate",
+            "expression": "ROUND((DIVIDE([LabourSales],[WorkShopAttendedHours])),2)"
           }
         ],
         "annotations": [
@@ -6130,24 +5887,28 @@
           {
             "name": "ID",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ID",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Nominal Code",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "Nominal Code",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Branch",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "Branch",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Date",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "Date",
             "formatString": "General Date",
             "sourceProviderType": "WChar"
@@ -6155,12 +5916,14 @@
           {
             "name": "Budget",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Budget",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "DW_CreatedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_CreatedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
@@ -6168,6 +5931,7 @@
           {
             "name": "DW_ModifiedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_ModifiedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
@@ -6324,75 +6088,195 @@
         "measures": [
           {
             "name": "SalesBudget",
-            "expression": "ROUND(CALCULATE(SUM(Budget[Budget]))*(-1),0)"
+            "expression": "ROUND(CALCULATE(SUM(Budget[Budget]))*(-1),0)",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "OtherSalesBudget",
-            "expression": "CALCULATE([SalesBudget],NominalCode[Nominal Category]=\"Other\",NominalCode[Nominal Type]=\"Sales\")"
+            "expression": "CALCULATE([SalesBudget],NominalCode[Nominal Category]=\"Other\",NominalCode[Nominal Type]=\"Sales\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "LabourSalesBudget",
-            "expression": "CALCULATE([SalesBudget],NominalCode[Nominal Category]=\"Labour\",NominalCode[Nominal Type]=\"Sales\")"
+            "expression": "CALCULATE([SalesBudget],NominalCode[Nominal Category]=\"Labour\",NominalCode[Nominal Type]=\"Sales\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "PartsBudget",
-            "expression": "[FrontCounterSalesBudget]+[BackCounterSalesBudget]"
+            "expression": "[FrontCounterSalesBudget]+[BackCounterSalesBudget]",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "BackCounterSalesBudget",
-            "expression": "CALCULATE([SalesBudget],NominalCode[Nominal Category]=\"Back Counter\",NominalCode[Nominal Type]=\"Sales\")"
+            "expression": "CALCULATE([SalesBudget],NominalCode[Nominal Category]=\"Back Counter\",NominalCode[Nominal Type]=\"Sales\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "FrontCounterSalesBudget",
-            "expression": "CALCULATE([SalesBudget],NominalCode[Nominal Category]=\"Front Counter\",NominalCode[Nominal Type]=\"Sales\")"
+            "expression": "CALCULATE([SalesBudget],NominalCode[Nominal Category]=\"Front Counter\",NominalCode[Nominal Type]=\"Sales\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "SalesFlxBudget",
-            "expression": "CALCULATE(DIVIDE([SalesBudget],[WorkdaysInMonth]))*[ElapsedWorkingDaysInMonth]"
+            "expression": "CALCULATE(DIVIDE([SalesBudget],[WorkdaysInMonth]))*[ElapsedWorkingDaysInMonth]",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "FrontCounterSalesFlxBudget",
-            "expression": "DIVIDE([FrontCounterSalesBudget],[WorkdaysInMonth])*[ElapsedWorkingDaysInMonth]"
+            "expression": "DIVIDE([FrontCounterSalesBudget],[WorkdaysInMonth])*[ElapsedWorkingDaysInMonth]",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "FrontCounterSalesMarginFlxBudget",
-            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Front Counter\")"
+            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Front Counter\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "PartsFlxBudget",
-            "expression": "DIVIDE([PartsBudget],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]"
+            "expression": "DIVIDE([PartsBudget],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "PartsSales vs FlxBudget %",
-            "expression": "DIVIDE([PartsSales],[PartsFlxBudget])"
+            "expression": "DIVIDE([PartsSales],[PartsFlxBudget])",
+            "formatString": "0.00%;-0.00%;0.00%"
           },
           {
             "name": "TurnOverToDoBudget",
-            "expression": "[PartsSales]-[PartsBudget]"
+            "expression": "[PartsSales]-[PartsBudget]",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "BackCounterSalesMarginFlxBudget",
-            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Back Counter\")"
+            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Back Counter\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "BackCounterSalesFlxBudget",
-            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Back Counter\",NominalCode[Nominal Type]=\"Sales\")"
+            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Back Counter\",NominalCode[Nominal Type]=\"Sales\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "LabourSalesFlxBudget",
-            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Labour\",NominalCode[Nominal Type]=\"Sales\")"
+            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Labour\",NominalCode[Nominal Type]=\"Sales\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "LabourSalesMarginFlxBudget",
-            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Labour\")"
+            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Labour\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "OtherSalesFlxBudget",
-            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Other\",NominalCode[Nominal Type]=\"Sales\")"
+            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Other\",NominalCode[Nominal Type]=\"Sales\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "OtherSalesMarginFlxBudget",
-            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Other\")"
+            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Other\")",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           }
         ],
         "annotations": [
@@ -6552,36 +6436,42 @@
           {
             "name": "ID",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ID",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Depot",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "Depot",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Depot Code",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Depot Code",
             "sourceProviderType": "Char"
           },
           {
             "name": "Part",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "Part",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Part Number",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Part Number",
             "sourceProviderType": "Char"
           },
           {
             "name": "Date",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "Date",
             "formatString": "General Date",
             "sourceProviderType": "WChar"
@@ -6589,42 +6479,49 @@
           {
             "name": "Obsolescence Category",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "Obsolescence Category",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Obsolescence Value",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Obsolescence Value",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Stock Value",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Stock Value",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Obsolescence Quantity",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Obsolescence Quantity",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Surcharge Value",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Surcharge Value",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Obsolescence Surcharge",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Obsolescence Surcharge",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Complete",
             "dataType": "boolean",
+            "isHidden": true,
             "sourceColumn": "Complete",
             "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
             "sourceProviderType": "Boolean"
@@ -6632,12 +6529,14 @@
           {
             "name": "Completed Date",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Completed Date",
             "sourceProviderType": "WChar"
           },
           {
             "name": "DW_CreatedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_CreatedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
@@ -6645,6 +6544,7 @@
           {
             "name": "DW_ModifiedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_ModifiedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
@@ -6940,6 +6840,16 @@
                 ]
               }
             ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "ObsolescenceStockValue",
+            "expression": "CALCULATE(SUM(Obsolescence[Stock Value]))"
+          },
+          {
+            "name": "ObsolescenceValue",
+            "expression": "ROUND((CALCULATE(SUM(Obsolescence[Obsolescence Value]))),2)"
           }
         ],
         "annotations": [
@@ -7243,36 +7153,42 @@
           {
             "name": "ID",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ID",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Invoice Number",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Invoice Number",
             "sourceProviderType": "Char"
           },
           {
             "name": "Document Type",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Document Type",
             "sourceProviderType": "Char"
           },
           {
             "name": "Depot",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "Depot",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Depot Cost Centre",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Depot Cost Centre",
             "sourceProviderType": "Char"
           },
           {
             "name": "Date",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "Date",
             "formatString": "General Date",
             "sourceProviderType": "WChar"
@@ -7280,42 +7196,49 @@
           {
             "name": "Total Amount",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Total Amount",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Outstanding Amount",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Outstanding Amount",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Invoice Date",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Invoice Date",
             "sourceProviderType": "WChar"
           },
           {
             "name": "Due Date",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Due Date",
             "sourceProviderType": "WChar"
           },
           {
             "name": "Reference",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Reference",
             "sourceProviderType": "Char"
           },
           {
             "name": "Miscellaneous Reference",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Miscellaneous Reference",
             "sourceProviderType": "Char"
           },
           {
             "name": "Complete",
             "dataType": "boolean",
+            "isHidden": true,
             "sourceColumn": "Complete",
             "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
             "sourceProviderType": "Boolean"
@@ -7323,12 +7246,14 @@
           {
             "name": "Completed Date",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Completed Date",
             "sourceProviderType": "WChar"
           },
           {
             "name": "DW_CreatedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_CreatedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
@@ -7336,9 +7261,30 @@
           {
             "name": "DW_ModifiedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_ModifiedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "type": "calculated",
+            "name": "Cash Outstanding Age",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "Var CurrentMonth= MONTH(Today())",
+              "VAR CurrentYear= YEAR(Today())",
+              "",
+              "VAR MaxDate1= CALCULATE(",
+              "                    Max('Date'[Date]), ",
+              "                    filter(",
+              "                            all('Date'[Date]),",
+              "                             month('Date'[Date]) =CurrentMonth && Year('Date'[Date]) =CurrentYear",
+              "                    )",
+              ")",
+              "return DATEDIFF(CashSaleOutstandingAmount[Invoice Date],MAXDate1,DAY)"
+            ]
           }
         ],
         "partitions": [
@@ -7349,6 +7295,73 @@
               "query": " SELECT [fact].[CashSaleOutstandingAmount].* FROM [fact].[CashSaleOutstandingAmount] ",
               "dataSource": "SqlServerConn"
             }
+          }
+        ],
+        "measures": [
+          {
+            "name": "CashSalesOutstandingAmount",
+            "expression": "ROUND((CALCULATE(SUM(CashSaleOutstandingAmount[Outstanding Amount]))),2)",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Cash Outstanding Count (Age 0-30 days)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CashSaleOutstandingAmount[Invoice Number]),CashSaleOutstandingAmount[Cash Outstanding Age] <=30)"
+          },
+          {
+            "name": "Cash Outstanding Count (Age 31-60 days)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CashSaleOutstandingAmount[Invoice Number]),CashSaleOutstandingAmount[Cash Outstanding Age]>30 && CashSaleOutstandingAmount[Cash Outstanding Age]<=60)"
+          },
+          {
+            "name": "Cash Outstanding Count (Age> 60 days)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CashSaleOutstandingAmount[Invoice Number]),CashSaleOutstandingAmount[Cash Outstanding Age] > 60)"
+          },
+          {
+            "name": "Cash Outstanding Amount(Age 0-30 days)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(CashSaleOutstandingAmount[Outstanding Amount]), CashSaleOutstandingAmount[Cash Outstanding Age] <=30)"
+            ],
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Cash Outstanding Amount(Age 31-60 days)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(CashSaleOutstandingAmount[Outstanding Amount]), CashSaleOutstandingAmount[Cash Outstanding Age] >31 && CashSaleOutstandingAmount[Cash Outstanding Age] <=60)"
+            ],
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Cash Outstanding Amount(Age > 60 days)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(CashSaleOutstandingAmount[Outstanding Amount]), CashSaleOutstandingAmount[Cash Outstanding Age] >60)"
+            ],
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           }
         ],
         "annotations": [
@@ -7372,30 +7385,35 @@
           {
             "name": "ID",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ID",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Invoice Number",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Invoice Number",
             "sourceProviderType": "Char"
           },
           {
             "name": "Document Type",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Document Type",
             "sourceProviderType": "Char"
           },
           {
             "name": "Depot",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "Depot",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Date",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "Date",
             "formatString": "General Date",
             "sourceProviderType": "WChar"
@@ -7403,36 +7421,42 @@
           {
             "name": "Total Amount",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Total Amount",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Outstanding Amount",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Outstanding Amount",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Invoice Date",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Invoice Date",
             "sourceProviderType": "WChar"
           },
           {
             "name": "Due Date",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Due Date",
             "sourceProviderType": "WChar"
           },
           {
             "name": "Reference",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Reference",
             "sourceProviderType": "Char"
           },
           {
             "name": "Complete",
             "dataType": "boolean",
+            "isHidden": true,
             "sourceColumn": "Complete",
             "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
             "sourceProviderType": "Boolean"
@@ -7440,12 +7464,14 @@
           {
             "name": "Completed Date",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Completed Date",
             "sourceProviderType": "WChar"
           },
           {
             "name": "DW_CreatedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_CreatedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
@@ -7453,9 +7479,30 @@
           {
             "name": "DW_ModifiedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_ModifiedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "type": "calculated",
+            "name": "Warrant Age",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "Var CurrentMonth= MONTH(Today())",
+              "VAR CurrentYear= YEAR(Today())",
+              "",
+              "VAR MaxDate1= CALCULATE(",
+              "                    Max('Date'[Date]), ",
+              "                    filter(",
+              "                            all('Date'[Date]),",
+              "                             month('Date'[Date]) =CurrentMonth && Year('Date'[Date]) =CurrentYear",
+              "                    )",
+              ")",
+              "return DATEDIFF(WarrantyOutstandingAmount[Invoice Date],MAXDate1,DAY)"
+            ]
           }
         ],
         "partitions": [
@@ -7466,6 +7513,62 @@
               "query": " SELECT [fact].[WarrantyOutstandingAmount].* FROM [fact].[WarrantyOutstandingAmount] ",
               "dataSource": "SqlServerConn"
             }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Warranty Count (0-30 days)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(WarrantyOutstandingAmount[Invoice Number]),WarrantyOutstandingAmount[Warrant Age] <=30)"
+          },
+          {
+            "name": "Warranty Count (Age 31-60 days)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(WarrantyOutstandingAmount[Invoice Number]),WarrantyOutstandingAmount[Warrant Age] >30 && WarrantyOutstandingAmount[Warrant Age] <=60 )"
+          },
+          {
+            "name": "Warranty Count (Age > 60 days)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(WarrantyOutstandingAmount[Invoice Number]),WarrantyOutstandingAmount[Warrant Age] >30 && WarrantyOutstandingAmount[Warrant Age]>60 )"
+          },
+          {
+            "name": "Outstanding Warranty Amount(Age 0-30 days)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(WarrantyOutstandingAmount[Outstanding Amount]), WarrantyOutstandingAmount[Warrant Age] <=30)"
+            ],
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Outstanding Warranty Amount(Age 31-60 days)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(WarrantyOutstandingAmount[Outstanding Amount]), WarrantyOutstandingAmount[Warrant Age] >30 && WarrantyOutstandingAmount[Warrant Age] <=60)"
+            ],
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Outstanding Warranty Amount(Age > 60 days)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(WarrantyOutstandingAmount[Outstanding Amount]), WarrantyOutstandingAmount[Warrant Age] >60)"
+            ],
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           }
         ],
         "annotations": [
@@ -7480,6 +7583,496 @@
           {
             "name": "_TM_ExtProp_DbSchemaName",
             "value": "fact"
+          }
+        ]
+      },
+      {
+        "name": "CurrentRevenueDate",
+        "columns": [
+          {
+            "name": "Revenue Refresh Date",
+            "dataType": "string",
+            "sourceColumn": "Revenue Refresh Date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CurrentRevenueDate",
+            "dataView": "full",
+            "source": {
+              "query": "SELECT * FROM [report].[CurrentRevenueDate]",
+              "dataSource": "SqlServerConn"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [report].[CurrentRevenueDate]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "SELECT * FROM [report].[CurrentRevenueDate]"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CurrentRevenueDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [report].[CurrentRevenueDate]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+          }
+        ]
+      },
+      {
+        "name": "CashSaleOutstandingDate",
+        "columns": [
+          {
+            "name": "Cash Sale Outstanding Date",
+            "dataType": "string",
+            "sourceColumn": "Cash Sale Outstanding Date",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CashSaleOutstandingDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [report].[CashSaleOutstandingDate].* FROM [report].[CashSaleOutstandingDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [report].[CashSaleOutstandingDate].* FROM [report].[CashSaleOutstandingDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CashSaleOutstandingDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          }
+        ]
+      },
+      {
+        "name": "CurrentUtilizationStatsDate",
+        "columns": [
+          {
+            "name": "Utilization Stats Date",
+            "dataType": "string",
+            "sourceColumn": "Utilization Stats Date",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CurrentUtilizationStatsDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [report].[CurrentUtilizationStatsDate].* FROM [report].[CurrentUtilizationStatsDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [report].[CurrentUtilizationStatsDate].* FROM [report].[CurrentUtilizationStatsDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CurrentUtilizationStatsDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          }
+        ]
+      },
+      {
+        "name": "CurrentWIPRefreshDate",
+        "columns": [
+          {
+            "name": "Work In Progress Refresh Date",
+            "dataType": "string",
+            "sourceColumn": "Work In Progress Refresh Date",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CurrentWIPRefreshDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [report].[CurrentWIPRefreshDate].* FROM [report].[CurrentWIPRefreshDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [report].[CurrentWIPRefreshDate].* FROM [report].[CurrentWIPRefreshDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CurrentWIPRefreshDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          }
+        ]
+      },
+      {
+        "name": "DOTYDate",
+        "columns": [
+          {
+            "name": "DOTY Date",
+            "dataType": "string",
+            "sourceColumn": "DOTY Date",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DOTYDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [report].[DOTYDate].* FROM [report].[DOTYDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [report].[DOTYDate].* FROM [report].[DOTYDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DOTYDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          }
+        ]
+      },
+      {
+        "name": "ObsolescenceRefreshDate",
+        "columns": [
+          {
+            "name": "Obsolescence Refresh Date",
+            "dataType": "string",
+            "sourceColumn": "Obsolescence Refresh Date",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ObsolescenceRefreshDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [report].[ObsolescenceRefreshDate].* FROM [report].[ObsolescenceRefreshDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [report].[ObsolescenceRefreshDate].* FROM [report].[ObsolescenceRefreshDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "ObsolescenceRefreshDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          }
+        ]
+      },
+      {
+        "name": "OutstandingCreditRefreshDate",
+        "columns": [
+          {
+            "name": "Outstanding Credit Refresh Date",
+            "dataType": "string",
+            "sourceColumn": "Outstanding Credit Refresh Date",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "OutstandingCreditRefreshDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [report].[OutstandingCreditRefreshDate].* FROM [report].[OutstandingCreditRefreshDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [report].[OutstandingCreditRefreshDate].* FROM [report].[OutstandingCreditRefreshDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "OutstandingCreditRefreshDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          }
+        ]
+      },
+      {
+        "name": "OutstandingQueryRefreshDate",
+        "columns": [
+          {
+            "name": "Outstanding Query Refresh Date",
+            "dataType": "string",
+            "sourceColumn": "Outstanding Query Refresh Date",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "OutstandingQueryRefreshDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [report].[OutstandingQueryRefreshDate].* FROM [report].[OutstandingQueryRefreshDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [report].[OutstandingQueryRefreshDate].* FROM [report].[OutstandingQueryRefreshDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "OutstandingQueryRefreshDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          }
+        ]
+      },
+      {
+        "name": "PartsOutstandingPaymentRefreshDate",
+        "columns": [
+          {
+            "name": "Parts Outstanding Payment Refresh Date",
+            "dataType": "string",
+            "sourceColumn": "Parts Outstanding Payment Refresh Date",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "PartsOutstandingPaymentRefreshDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [report].[PartsOutstandingPaymentRefreshDate].* FROM [report].[PartsOutstandingPaymentRefreshDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [report].[PartsOutstandingPaymentRefreshDate].* FROM [report].[PartsOutstandingPaymentRefreshDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "PartsOutstandingPaymentRefreshDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          }
+        ]
+      },
+      {
+        "name": "SubletOutstandingPaymentRefreshDate",
+        "columns": [
+          {
+            "name": "Sublet Outstanding PaymentRefresh Date",
+            "dataType": "string",
+            "sourceColumn": "Sublet Outstanding PaymentRefresh Date",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SubletOutstandingPaymentRefreshDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [report].[SubletOutstandingPaymentRefreshDate].* FROM [report].[SubletOutstandingPaymentRefreshDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [report].[SubletOutstandingPaymentRefreshDate].* FROM [report].[SubletOutstandingPaymentRefreshDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "SubletOutstandingPaymentRefreshDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          }
+        ]
+      },
+      {
+        "name": "SubletOutstandingPaymentRefreshDate 1",
+        "columns": [
+          {
+            "name": "Sublet Outstanding PaymentRefresh Date",
+            "dataType": "string",
+            "sourceColumn": "Sublet Outstanding PaymentRefresh Date",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SubletOutstandingPaymentRefreshDate 1",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [report].[SubletOutstandingPaymentRefreshDate].* FROM [report].[SubletOutstandingPaymentRefreshDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [report].[SubletOutstandingPaymentRefreshDate].* FROM [report].[SubletOutstandingPaymentRefreshDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "SubletOutstandingPaymentRefreshDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          }
+        ]
+      },
+      {
+        "name": "WarrantyOutstandingRefreshDate",
+        "columns": [
+          {
+            "name": "Warranty Outstanding Refresh Date",
+            "dataType": "string",
+            "sourceColumn": "Warranty Outstanding Refresh Date",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "WarrantyOutstandingRefreshDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [report].[WarrantyOutstandingRefreshDate].* FROM [report].[WarrantyOutstandingRefreshDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [report].[WarrantyOutstandingRefreshDate].* FROM [report].[WarrantyOutstandingRefreshDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "WarrantyOutstandingRefreshDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          }
+        ]
+      },
+      {
+        "name": "QueryReasonCode",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Query Reason Code",
+            "dataType": "string",
+            "sourceColumn": "Query Reason Code",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Query Reason",
+            "dataType": "string",
+            "sourceColumn": "Query Reason",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DW_CreatedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_CreatedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "DW_ModifedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_ModifedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "QueryReasonCode",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dim].[QueryReasonCode].* FROM [dim].[QueryReasonCode] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dim].[QueryReasonCode].* FROM [dim].[QueryReasonCode] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "QueryReasonCode"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dim"
           }
         ]
       }
@@ -7654,6 +8247,13 @@
         "fromColumn": "Date",
         "toTable": "Date",
         "toColumn": "Date"
+      },
+      {
+        "name": "04d07f51-7459-4bb4-a0f8-4dab61914145",
+        "fromTable": "OutstandingQuery",
+        "fromColumn": "Query Reason",
+        "toTable": "QueryReasonCode",
+        "toColumn": "ID"
       }
     ],
     "roles": [
@@ -8181,7 +8781,7 @@
     "annotations": [
       {
         "name": "ClientCompatibilityLevel",
-        "value": "400"
+        "value": "500"
       }
     ]
   }

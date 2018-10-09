@@ -12,3 +12,17 @@ C:\Vamsi\Scania\src\Scania-KPI-Dashboard\SSAS\KPI Project_DailyDoc\KPI Project_D
 C:\Vamsi\Scania\src\Scania-KPI-Dashboard\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.asdatabase
 C:\Vamsi\Scania\src\Scania-KPI-Dashboard\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.deploymentoptions
 C:\Vamsi\Scania\src\Scania-KPI-Dashboard\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.deploymenttargets
+C:\Scania-KPI-Dashboards\Src\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\bin\Model.asdatabase
+C:\Scania-KPI-Dashboards\Src\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\bin\Model.deploymenttargets
+C:\Scania-KPI-Dashboards\Src\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\bin\Model.deploymentoptions
+C:\Scania-KPI-Dashboards\Src\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\KPI Project_DailyDoc.smproj.CoreCompileInputs.cache
+C:\Scania-KPI-Dashboards\Src\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.asdatabase
+C:\Scania-KPI-Dashboards\Src\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.deploymentoptions
+C:\Scania-KPI-Dashboards\Src\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.deploymenttargets
+C:\Vamsi\Scania\src\Scania-KPI-Dashboards\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\bin\Model.asdatabase
+C:\Vamsi\Scania\src\Scania-KPI-Dashboards\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\bin\Model.deploymenttargets
+C:\Vamsi\Scania\src\Scania-KPI-Dashboards\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\bin\Model.deploymentoptions
+C:\Vamsi\Scania\src\Scania-KPI-Dashboards\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\KPI Project_DailyDoc.smproj.CoreCompileInputs.cache
+C:\Vamsi\Scania\src\Scania-KPI-Dashboards\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.asdatabase
+C:\Vamsi\Scania\src\Scania-KPI-Dashboards\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.deploymentoptions
+C:\Vamsi\Scania\src\Scania-KPI-Dashboards\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.deploymenttargets

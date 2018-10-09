@@ -12,8 +12,8 @@
   DTS:ObjectName="Import Dimensions From Staging"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="92"
-  DTS:VersionGUID="{E036F3A3-C4F6-4BF4-A90A-6A607E2059B3}">
+  DTS:VersionBuild="93"
+  DTS:VersionGUID="{56139025-5EB5-4E86-9AAD-60A9BA57990C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -176,7 +176,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -218,7 +218,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -266,7 +266,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Merge Branches"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -296,7 +296,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Truncate tmp Branch"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1361,7 +1361,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1403,7 +1403,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1451,7 +1451,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Merge Working Days"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1481,7 +1481,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Truncate tmp Working Days"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2134,7 +2134,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2176,7 +2176,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2224,7 +2224,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Merge Nominal Codes"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2254,7 +2254,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Truncate tmp Nominal Code"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2389,7 +2389,7 @@ where [refTable].[PosCompany] = ?</property>
                           refId="Package\Load Nominal Codes\Staging - Get Nominal Code\DW - Insert into temp table.Inputs[OLE DB Destination Input].Columns[Nominal Type]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="500"
                           cachedName="Nominal Type"
                           externalMetadataColumnId="Package\Load Nominal Codes\Staging - Get Nominal Code\DW - Insert into temp table.Inputs[OLE DB Destination Input].ExternalColumns[Nominal Type]"
                           lineageId="Package\Load Nominal Codes\Staging - Get Nominal Code\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nominal Type]" />
@@ -2578,7 +2578,7 @@ where [refTable].[PosCompany] = ?</property>
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Load Nominal Codes\Staging - Get Nominal Code\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nominal Type]"
-                          length="50"
+                          length="500"
                           lineageId="Package\Load Nominal Codes\Staging - Get Nominal Code\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nominal Type]"
                           name="Nominal Type"
                           truncationRowDisposition="FailComponent" />
@@ -2613,7 +2613,7 @@ where [refTable].[PosCompany] = ?</property>
                           refId="Package\Load Nominal Codes\Staging - Get Nominal Code\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nominal Type]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="500"
                           name="Nominal Type" />
                       </externalMetadataColumns>
                     </output>
@@ -2654,7 +2654,7 @@ where [refTable].[PosCompany] = ?</property>
                           refId="Package\Load Nominal Codes\Staging - Get Nominal Code\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nominal Type]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="500"
                           lineageId="Package\Load Nominal Codes\Staging - Get Nominal Code\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nominal Type]"
                           name="Nominal Type" />
                         <outputColumn
@@ -3923,13 +3923,13 @@ where [refTable].[PosCompany] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="208,41.6"
-          Id="Package\Load Nominal Codes\Staging - Get Nominal Code\DW - Insert into temp table"
-          TopLeft="139.428573803026,220.847061920826" />
-        <NodeLayout
           Size="149.6,41.6"
           Id="Package\Load Nominal Codes\Staging - Get Nominal Code\OLE DB Source"
           TopLeft="195.4285747567,118.49411873669" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Load Nominal Codes\Staging - Get Nominal Code\DW - Insert into temp table"
+          TopLeft="139.428573803026,220.847061920826" />
         <EdgeLayout
           Id="Package\Load Nominal Codes\Staging - Get Nominal Code.Paths[OLE DB Source Output]"
           TopLeft="270.2285747567,160.09411873669">

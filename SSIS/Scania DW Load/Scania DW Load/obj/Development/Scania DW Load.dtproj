@@ -122,10 +122,10 @@
                 <SSIS:Property SSIS:Name="Name">Import Dimensions From Staging</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">92</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">93</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{E036F3A3-C4F6-4BF4-A90A-6A607E2059B3}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{56139025-5EB5-4E86-9AAD-60A9BA57990C}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
