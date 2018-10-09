@@ -3585,8 +3585,14 @@
             "name": "Query Date",
             "dataType": "dateTime",
             "sourceColumn": "Query Date",
-            "formatString": "General Date",
-            "sourceProviderType": "DBDate"
+            "formatString": "Short Date",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Reference",
@@ -8075,6 +8081,323 @@
             "value": "dim"
           }
         ]
+      },
+      {
+        "name": "OutstandingCredit",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Depot",
+            "dataType": "int64",
+            "sourceColumn": "Depot",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Depot Code",
+            "dataType": "string",
+            "sourceColumn": "Depot Code",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Credit Date",
+            "dataType": "string",
+            "sourceColumn": "Credit Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Date",
+            "dataType": "string",
+            "sourceColumn": "Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Part",
+            "dataType": "int64",
+            "sourceColumn": "Part",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "GRN",
+            "dataType": "string",
+            "sourceColumn": "GRN",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "PO Number",
+            "dataType": "string",
+            "sourceColumn": "PO Number",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Line Number",
+            "dataType": "string",
+            "sourceColumn": "Line Number",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Quantity",
+            "dataType": "int64",
+            "sourceColumn": "Quantity",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Parts Value",
+            "dataType": "double",
+            "sourceColumn": "Parts Value",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Surcharge",
+            "dataType": "double",
+            "sourceColumn": "Surcharge",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Total",
+            "dataType": "double",
+            "sourceColumn": "Total",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Supplier",
+            "dataType": "string",
+            "sourceColumn": "Supplier",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Credit State",
+            "dataType": "string",
+            "sourceColumn": "Credit State",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Complete",
+            "dataType": "boolean",
+            "sourceColumn": "Complete",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "Boolean"
+          },
+          {
+            "name": "Completed Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Completed Date",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "DW_ModifiedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_ModifiedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "DW_CreatedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_CreatedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "type": "calculated",
+            "name": "Credit Age",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "Var CurrentMonth= MONTH(Today())",
+              "VAR CurrentYear= YEAR(Today())",
+              "",
+              "VAR MaxDate1= CALCULATE(",
+              "                    Max('Date'[Date]), ",
+              "                    filter(",
+              "                            all('Date'[Date]),",
+              "                             month('Date'[Date]) =CurrentMonth && Year('Date'[Date]) =CurrentYear",
+              "                    )",
+              ")",
+              "return DATEDIFF(OutstandingCredit[Credit Date],MAXDate1,DAY)"
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "Credit Age (Months)",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "DATEDIFF(OutstandingCredit[Credit Date],Today(),MONTH)"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "OutstandingCredit",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [fact].[OutstandingCredit].* FROM [fact].[OutstandingCredit] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Credit Count (Current Month OD)",
+            "expression": "0+COUNTROWS(FILTER(GROUPBY(OutstandingCredit,OutstandingCredit[PO Number],OutstandingCredit[Depot],OutstandingCredit[Line Number],OutstandingCredit[GRN],OutstandingCredit[Credit Age (Months)]),OutstandingCredit[Credit Age (Months)]=0))"
+          },
+          {
+            "name": "Credit Count (1 Month OD)",
+            "expression": "0+COUNTROWS(FILTER(GROUPBY(OutstandingCredit,OutstandingCredit[PO Number],OutstandingCredit[Depot],OutstandingCredit[Line Number],OutstandingCredit[GRN],OutstandingCredit[Credit Age (Months)]),OutstandingCredit[Credit Age (Months)]=1))"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [fact].[OutstandingCredit].* FROM [fact].[OutstandingCredit] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "OutstandingCredit"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "fact"
+          }
+        ]
+      },
+      {
+        "name": "Part",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "BK_Part",
+            "dataType": "int64",
+            "sourceColumn": "BK_Part",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Part Number",
+            "dataType": "string",
+            "sourceColumn": "Part Number",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Franchise",
+            "dataType": "string",
+            "sourceColumn": "Franchise",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Short Part Number",
+            "dataType": "string",
+            "sourceColumn": "Short Part Number",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Description",
+            "dataType": "string",
+            "sourceColumn": "Description",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Product Group",
+            "dataType": "string",
+            "sourceColumn": "Product Group",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Discount Group",
+            "dataType": "string",
+            "sourceColumn": "Discount Group",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Commercial Group",
+            "dataType": "string",
+            "sourceColumn": "Commercial Group",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Franchise Description",
+            "dataType": "string",
+            "sourceColumn": "Franchise Description",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Franchise Address",
+            "dataType": "string",
+            "sourceColumn": "Franchise Address",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Parts Solutions Item",
+            "dataType": "string",
+            "sourceColumn": "Parts Solutions Item",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Reporting Group",
+            "dataType": "string",
+            "sourceColumn": "Reporting Group",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Product Area",
+            "dataType": "string",
+            "sourceColumn": "Product Area",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DW_DateCreated",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateCreated",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "DW_DateModified",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateModified",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Part",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dim].[Part].* FROM [dim].[Part] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dim].[Part].* FROM [dim].[Part] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Part"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dim"
+          }
+        ]
       }
     ],
     "relationships": [
@@ -8253,6 +8576,27 @@
         "fromTable": "OutstandingQuery",
         "fromColumn": "Query Reason",
         "toTable": "QueryReasonCode",
+        "toColumn": "ID"
+      },
+      {
+        "name": "c8416846-e8cf-4419-92a2-5b81a68b19a0",
+        "fromTable": "OutstandingCredit",
+        "fromColumn": "Depot",
+        "toTable": "Depot",
+        "toColumn": "ID"
+      },
+      {
+        "name": "7da8397d-cb00-432d-8d64-36c974dec983",
+        "fromTable": "OutstandingCredit",
+        "fromColumn": "Date",
+        "toTable": "Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "482ad906-1f6d-442f-9635-180e9b00ab92",
+        "fromTable": "OutstandingCredit",
+        "fromColumn": "Part",
+        "toTable": "Part",
         "toColumn": "ID"
       }
     ],
