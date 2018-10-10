@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Scania DW Load</Name>
-    <LastWriteTime>2018-10-01T14:07:28.2319505Z</LastWriteTime>
+    <LastWriteTime>2018-10-09T07:45:30.7151865Z</LastWriteTime>
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -28,7 +28,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Import Master.dtsx</Name>
-      <LastWriteTime>2018-10-01T16:32:17.9028588Z</LastWriteTime>
+      <LastWriteTime>2018-10-09T08:34:11.7417192Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

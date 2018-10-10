@@ -12,8 +12,8 @@
   DTS:ObjectName="Import Master"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{BB4144AE-5716-45E5-82EC-BAF41217BDDA}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{F564B986-3219-4113-A167-F8344092C0AD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -1039,6 +1039,14 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Audit - End Batch"
+          TopLeft="551.757143042039,774.3" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Audit - End Package"
+          TopLeft="318.757143042039,774.3" />
+        <NodeLayout
           Size="165.6,41.6"
           Id="Package\Audit - Start Batch"
           TopLeft="54.3571430420388,5.49999999999995" />
@@ -1110,58 +1118,6 @@
           Id="Package\Execute Import Dimensions from BI"
           TopLeft="28.3571430420388,209.5" />
         <NodeLayout
-          Size="172.8,41.6"
-          Id="Package\Audit - End Package"
-          TopLeft="318.757143042039,774.3" />
-        <NodeLayout
-          Size="160.8,41.6"
-          Id="Package\Audit - End Batch"
-          TopLeft="551.757143042039,774.3" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="137.157143042039,47.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="137.157143042039,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="157.6,42.4"
           Id="Package\Execute Import Dimensions from staging\Audit - End Task"
           TopLeft="41.9,209.5" />
@@ -1224,20 +1180,44 @@
           Size="241.6,350.4"
           Id="Package\Execute Import Dimensions from staging"
           TopLeft="16.3571430420391,619.9" />
+        <NodeLayout
+          Size="157.6,42.4"
+          Id="Package\Execute Import Facts 2 from staging\Audit - End Task"
+          TopLeft="17.9,209.5" />
+        <NodeLayout
+          Size="162.4,42.4"
+          Id="Package\Execute Import Facts 2 from staging\Audit - Start Task"
+          TopLeft="15.5,5.50000000000005" />
+        <NodeLayout
+          Size="230.4,41.6"
+          Id="Package\Execute Import Facts 2 from staging\Import Dimensions from staging"
+          TopLeft="5.5,108.511764714462" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="137.157143042039,559.9">
+          Id="Package\Execute Import Facts 2 from staging.PrecedenceConstraints[Constraint]"
+          TopLeft="96.7,47.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="24,60.6117647144621"
               Start="0,0"
-              End="0,52.5">
+              End="24,53.1117647144621">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,26.305882357231" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.305882357231"
+                    Point2="0,30.305882357231"
+                    Point3="4,30.305882357231" />
+                  <mssgle:LineSegment
+                    End="20,30.305882357231" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20,30.305882357231"
+                    Point2="24,30.305882357231"
+                    Point3="24,34.305882357231" />
+                  <mssgle:LineSegment
+                    End="24,53.1117647144621" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1246,6 +1226,47 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Execute Import Facts 2 from staging.PrecedenceConstraints[Constraint 1]"
+          TopLeft="120.7,150.111764714462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24,59.3882352855379"
+              Start="0,0"
+              End="-24,51.8882352855379">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6941176427689" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.6941176427689"
+                    Point2="0,29.6941176427689"
+                    Point3="-4,29.6941176427689" />
+                  <mssgle:LineSegment
+                    End="-20,29.6941176427689" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20,29.6941176427689"
+                    Point2="-24,29.6941176427689"
+                    Point3="-24,33.6941176427689" />
+                  <mssgle:LineSegment
+                    End="-24,51.8882352855379" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="274.4,307.2"
+          Size="274.4,350.4"
+          Id="Package\Execute Import Facts 2 from staging"
+          TopLeft="321.785715482673,1030.3" />
         <NodeLayout
           Size="157.6,42.4"
           Id="Package\Execute Import Facts from staging\Audit - End Task"
@@ -1333,44 +1354,20 @@
           Size="221.6,350.4"
           Id="Package\Execute Import Facts from staging"
           TopLeft="0.357142769560681,1104.55882313474" />
-        <NodeLayout
-          Size="157.6,42.4"
-          Id="Package\Execute Import Facts 2 from staging\Audit - End Task"
-          TopLeft="17.9,209.5" />
-        <NodeLayout
-          Size="162.4,42.4"
-          Id="Package\Execute Import Facts 2 from staging\Audit - Start Task"
-          TopLeft="15.5,5.50000000000005" />
-        <NodeLayout
-          Size="230.4,41.6"
-          Id="Package\Execute Import Facts 2 from staging\Import Dimensions from staging"
-          TopLeft="5.5,108.511764714462" />
         <EdgeLayout
-          Id="Package\Execute Import Facts 2 from staging.PrecedenceConstraints[Constraint]"
-          TopLeft="96.7,47.9">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="137.157143042039,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="24,60.6117647144621"
+              EndConnector="0,60"
               Start="0,0"
-              End="24,53.1117647144621">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.305882357231" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.305882357231"
-                    Point2="0,30.305882357231"
-                    Point3="4,30.305882357231" />
-                  <mssgle:LineSegment
-                    End="20,30.305882357231" />
-                  <mssgle:CubicBezierSegment
-                    Point1="20,30.305882357231"
-                    Point2="24,30.305882357231"
-                    Point3="24,34.305882357231" />
-                  <mssgle:LineSegment
-                    End="24,53.1117647144621" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1380,31 +1377,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Execute Import Facts 2 from staging.PrecedenceConstraints[Constraint 1]"
-          TopLeft="120.7,150.111764714462">
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="137.157143042039,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-24,59.3882352855379"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="-24,51.8882352855379">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.6941176427689" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.6941176427689"
-                    Point2="0,29.6941176427689"
-                    Point3="-4,29.6941176427689" />
-                  <mssgle:LineSegment
-                    End="-20,29.6941176427689" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-20,29.6941176427689"
-                    Point2="-24,29.6941176427689"
-                    Point3="-24,33.6941176427689" />
-                  <mssgle:LineSegment
-                    End="-24,51.8882352855379" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1413,13 +1398,28 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="240.8,307.2"
-          Size="274.4,350.4"
-          Id="Package\Execute Import Facts 2 from staging"
-          TopLeft="321.785715482673,1030.3" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="137.157143042039,559.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="137.157143042039,970.3">

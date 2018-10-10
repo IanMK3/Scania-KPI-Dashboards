@@ -6492,7 +6492,6 @@
           {
             "name": "Obsolescence Value",
             "dataType": "double",
-            "isHidden": true,
             "sourceColumn": "Obsolescence Value",
             "sourceProviderType": "Numeric"
           },
@@ -6851,11 +6850,14 @@
         "measures": [
           {
             "name": "ObsolescenceStockValue",
-            "expression": "CALCULATE(SUM(Obsolescence[Stock Value]))"
-          },
-          {
-            "name": "ObsolescenceValue",
-            "expression": "ROUND((CALCULATE(SUM(Obsolescence[Obsolescence Value]))),2)"
+            "expression": "CALCULATE(SUM(Obsolescence[Stock Value]))",
+            "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           }
         ],
         "annotations": [
@@ -8398,6 +8400,154 @@
             "value": "dim"
           }
         ]
+      },
+      {
+        "name": "Depot 1",
+        "columns": [
+          {
+            "name": "Branch Code",
+            "dataType": "string",
+            "sourceColumn": "Branch Code",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Branch",
+            "dataType": "string",
+            "sourceColumn": "Branch",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "PoSCompany",
+            "dataType": "string",
+            "sourceColumn": "PoSCompany",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Depot",
+            "dataType": "string",
+            "sourceColumn": "Depot",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Cost Centre",
+            "dataType": "string",
+            "sourceColumn": "Cost Centre",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Depot Number",
+            "dataType": "string",
+            "sourceColumn": "Depot Number",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Depot Type",
+            "dataType": "string",
+            "sourceColumn": "Depot Type",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Depot Status",
+            "dataType": "string",
+            "sourceColumn": "Depot Status",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Region Type",
+            "dataType": "string",
+            "sourceColumn": "Region Type",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "VSBCompany",
+            "dataType": "string",
+            "sourceColumn": "VSBCompany",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "RMRisk",
+            "dataType": "string",
+            "sourceColumn": "RMRisk",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DepotId",
+            "dataType": "int64",
+            "sourceColumn": "DepotId"
+          },
+          {
+            "name": "RegionID",
+            "dataType": "int64",
+            "sourceColumn": "RegionID"
+          },
+          {
+            "name": "BranchId",
+            "dataType": "int64",
+            "sourceColumn": "BranchId"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Depot 1",
+            "dataView": "full",
+            "source": {
+              "query": "SELECT [report].[Depot].* FROM [report].[Depot]",
+              "dataSource": "SqlServerConn"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [report].[Depot].* FROM [report].[Depot]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hierarchy1",
+            "levels": [
+              {
+                "name": "Region",
+                "ordinal": 0,
+                "column": "Region"
+              },
+              {
+                "name": "Depot",
+                "ordinal": 1,
+                "column": "Depot"
+              },
+              {
+                "name": "Branch",
+                "ordinal": 2,
+                "column": "Branch"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "SELECT [report].[Depot].* FROM [report].[Depot]"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Depot"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [report].[Depot].* FROM [report].[Depot]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+          }
+        ]
       }
     ],
     "relationships": [
@@ -8598,6 +8748,13 @@
         "fromColumn": "Part",
         "toTable": "Part",
         "toColumn": "ID"
+      },
+      {
+        "name": "9fc3d660-b635-4ec3-878a-6b674ae77a52",
+        "fromTable": "OutstandingQuery",
+        "fromColumn": "Branch",
+        "toTable": "Depot 1",
+        "toColumn": "BranchId"
       }
     ],
     "roles": [
