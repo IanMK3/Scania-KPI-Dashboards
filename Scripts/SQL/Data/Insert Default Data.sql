@@ -1,6 +1,4 @@
 
-USE [Scania_DW1]
-GO
 
 INSERT INTO [dim].[ObsolescenceCategory]
 ([ID],[Obsolescence Category],[Obsolescence Description],[DW_CreatedDate],[DW_ModifiedDate])

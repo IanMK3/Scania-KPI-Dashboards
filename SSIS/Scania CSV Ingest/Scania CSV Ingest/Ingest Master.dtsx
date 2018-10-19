@@ -12,8 +12,8 @@
   DTS:ObjectName="Ingest BB0 BB1 B14 and BAS CSVs From Blob Storage"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="199"
-  DTS:VersionGUID="{D02D7DF5-AA27-4481-810B-35202C09DA4C}">
+  DTS:VersionBuild="200"
+  DTS:VersionGUID="{130CA4C4-8DAA-4F5C-AA0C-DDA2B6A7EC84}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -69,7 +69,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B85CDA06-9CB4-4761-BD68-8864A862FCDC}"
-          SQLTask:SqlStatementSource="exec audit.EndPackage ?,''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="exec audit.EndBatch ?,''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::BatchId"

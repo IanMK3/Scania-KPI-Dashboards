@@ -26,3 +26,10 @@ C:\Vamsi\Scania\src\Scania-KPI-Dashboards\SSAS\KPI Project_DailyDoc\KPI Project_
 C:\Vamsi\Scania\src\Scania-KPI-Dashboards\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.asdatabase
 C:\Vamsi\Scania\src\Scania-KPI-Dashboards\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.deploymentoptions
 C:\Vamsi\Scania\src\Scania-KPI-Dashboards\SSAS\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.deploymenttargets
+C:\KPI-Dashboard-DailyDoc\SSAS\OLAP\KPI Project_DailyDoc\KPI Project_DailyDoc\KPI Project_DailyDoc\bin\Model.asdatabase
+C:\KPI-Dashboard-DailyDoc\SSAS\OLAP\KPI Project_DailyDoc\KPI Project_DailyDoc\KPI Project_DailyDoc\bin\Model.deploymenttargets
+C:\KPI-Dashboard-DailyDoc\SSAS\OLAP\KPI Project_DailyDoc\KPI Project_DailyDoc\KPI Project_DailyDoc\bin\Model.deploymentoptions
+C:\KPI-Dashboard-DailyDoc\SSAS\OLAP\KPI Project_DailyDoc\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\KPI Project_DailyDoc.smproj.CoreCompileInputs.cache
+C:\KPI-Dashboard-DailyDoc\SSAS\OLAP\KPI Project_DailyDoc\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.asdatabase
+C:\KPI-Dashboard-DailyDoc\SSAS\OLAP\KPI Project_DailyDoc\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.deploymentoptions
+C:\KPI-Dashboard-DailyDoc\SSAS\OLAP\KPI Project_DailyDoc\KPI Project_DailyDoc\KPI Project_DailyDoc\obj\Development\Model.deploymenttargets

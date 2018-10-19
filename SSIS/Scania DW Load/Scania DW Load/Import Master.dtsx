@@ -12,8 +12,8 @@
   DTS:ObjectName="Import Master"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{F564B986-3219-4113-A167-F8344092C0AD}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{B4746EB4-C17F-47D2-B507-9F5D6DD6510E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -51,7 +51,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B897BE24-9FC5-444E-A33F-731729C77908}"
-          SQLTask:SqlStatementSource="exec audit.EndPackage ?,''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="exec audit.EndBatch ?,''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::BatchId"

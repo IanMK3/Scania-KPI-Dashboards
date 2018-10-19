@@ -12,8 +12,8 @@
   DTS:ObjectName="Import Dimensions From Staging"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="179"
-  DTS:VersionGUID="{02D12A0E-DD55-4E2C-A56F-11789F60FCAF}">
+  DTS:VersionBuild="181"
+  DTS:VersionGUID="{415E8C57-978F-4DE1-A91D-C4410BCAFF4D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -48,7 +48,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Audit - End Package"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -72,7 +72,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Audit - Start Package"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -242,7 +242,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="6">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -284,7 +284,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Log invalid file date error"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -308,7 +308,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -356,7 +356,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Get Max BodyshopStats Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -400,7 +400,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Merge BodyshopStats"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -436,7 +436,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Truncate tmp BodyshopStats"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -7028,7 +7028,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Get Distinct File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -7050,7 +7050,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Validate File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -7222,7 +7222,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -7264,7 +7264,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -7312,7 +7312,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Merge Budget"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -7342,7 +7342,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Truncate tmp Budget"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9433,7 +9433,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9476,7 +9476,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Log invalid file date error"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9500,7 +9500,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9548,7 +9548,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Get Max CashSaleOutstandingAmount Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9592,7 +9592,7 @@ where [refTable].[Nominal] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Merge CashSaleOutstandingAmount"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -9628,7 +9628,7 @@ where [refTable].[Nominal] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Truncate tmp CashSaleOutstandingAmount"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -12441,7 +12441,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Get Distinct File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -12470,7 +12470,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Validate File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -12626,7 +12626,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -12668,7 +12668,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -12716,7 +12716,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Merge SoldHoursBudget"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -12746,7 +12746,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Truncate tmp SoldHoursBudget"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -13930,7 +13930,7 @@ where [refTable].[Branch Code Integer] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -13973,7 +13973,7 @@ where [refTable].[Branch Code Integer] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Log invalid file date error"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -13997,7 +13997,7 @@ where [refTable].[Branch Code Integer] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -14045,7 +14045,7 @@ where [refTable].[Branch Code Integer] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Get Max Revenue Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -14089,7 +14089,7 @@ where [refTable].[Branch Code Integer] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Merge Revenue"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -14119,7 +14119,7 @@ where [refTable].[Branch Code Integer] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Truncate tmp revenue"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -16715,14 +16715,14 @@ where [refTable].[Nominal] = ?</property>
                       startId="Package\Load Revenue\Foreach File Date\Staging - Get Revenue\Lookup Branch Codes.Outputs[Lookup Match Output]" />
                     <path
                       refId="Package\Load Revenue\Foreach File Date\Staging - Get Revenue.Paths[Lookup No Match Output1]"
-                      endId="Package\Load Revenue\Foreach File Date\Staging - Get Revenue\Multicast 1.Inputs[Multicast Input 1]"
-                      name="Lookup No Match Output"
-                      startId="Package\Load Revenue\Foreach File Date\Staging - Get Revenue\Lookup Branch Codes.Outputs[Lookup No Match Output]" />
-                    <path
-                      refId="Package\Load Revenue\Foreach File Date\Staging - Get Revenue.Paths[Lookup No Match Output]"
                       endId="Package\Load Revenue\Foreach File Date\Staging - Get Revenue\Multicast.Inputs[Multicast Input 1]"
                       name="Lookup No Match Output"
                       startId="Package\Load Revenue\Foreach File Date\Staging - Get Revenue\Lookup Nominal Codes.Outputs[Lookup No Match Output]" />
+                    <path
+                      refId="Package\Load Revenue\Foreach File Date\Staging - Get Revenue.Paths[Lookup No Match Output]"
+                      endId="Package\Load Revenue\Foreach File Date\Staging - Get Revenue\Multicast 1.Inputs[Multicast Input 1]"
+                      name="Lookup No Match Output"
+                      startId="Package\Load Revenue\Foreach File Date\Staging - Get Revenue\Lookup Branch Codes.Outputs[Lookup No Match Output]" />
                     <path
                       refId="Package\Load Revenue\Foreach File Date\Staging - Get Revenue.Paths[Multicast Output 1]"
                       endId="Package\Load Revenue\Foreach File Date\Staging - Get Revenue\Add unknown Nominal code.Inputs[Derived Column Input]"
@@ -16809,7 +16809,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Get Distinct File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -16838,7 +16838,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Validate File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -17058,7 +17058,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="9">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -17101,7 +17101,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Log invalid file date error"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="7">
+          DTS:ThreadHint="10">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -17125,7 +17125,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="9">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -17173,7 +17173,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Get MaxUtilizationStats Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="9">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -17217,7 +17217,7 @@ where [refTable].[Nominal] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Merge UtilizationStats"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="9">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -17253,7 +17253,7 @@ where [refTable].[Nominal] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Truncate tmp UtilizationStats"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="9">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -17459,12 +17459,12 @@ where [refTable].[Nominal] = ?</property>
                           synchronousInputId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Unknown Depot.Inputs[Derived Column Input]">
                           <outputColumns>
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Unknown Depot.Outputs[Derived Column Output].Columns[Depot]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Unknown Depot.Outputs[Derived Column Output].Columns[Depot ID]"
                               dataType="i4"
                               errorOrTruncationOperation="Computation"
                               errorRowDisposition="FailComponent"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Unknown Depot.Outputs[Derived Column Output].Columns[Depot]"
-                              name="Depot"
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Unknown Depot.Outputs[Derived Column Output].Columns[Depot ID]"
+                              name="Depot ID"
                               truncationRowDisposition="FailComponent">
                               <properties>
                                 <property
@@ -17663,7 +17663,7 @@ where [refTable].[Nominal] = ?</property>
                             <inputColumn
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Audit - Insert into Error.Inputs[OLE DB Destination Input].Columns[Error Message]"
                               cachedDataType="wstr"
-                              cachedLength="47"
+                              cachedLength="34"
                               cachedName="Error Message"
                               externalMetadataColumnId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Audit - Insert into Error.Inputs[OLE DB Destination Input].ExternalColumns[Error Message]"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Error Message]" />
@@ -17818,6 +17818,7 @@ where [refTable].[Nominal] = ?</property>
                               errorRowDisposition="RedirectRow"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived sold]"
                               name="Derived sold"
+                              scale="2"
                               truncationRowDisposition="RedirectRow">
                               <properties>
                                 <property
@@ -17838,6 +17839,7 @@ where [refTable].[Nominal] = ?</property>
                               errorRowDisposition="RedirectRow"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived taken]"
                               name="Derived taken"
+                              scale="2"
                               truncationRowDisposition="RedirectRow">
                               <properties>
                                 <property
@@ -17858,6 +17860,7 @@ where [refTable].[Nominal] = ?</property>
                               errorRowDisposition="RedirectRow"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived attended]"
                               name="Derived attended"
+                              scale="2"
                               truncationRowDisposition="RedirectRow">
                               <properties>
                                 <property
@@ -17878,6 +17881,7 @@ where [refTable].[Nominal] = ?</property>
                               errorRowDisposition="RedirectRow"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived idle]"
                               name="Derived idle"
+                              scale="2"
                               truncationRowDisposition="RedirectRow">
                               <properties>
                                 <property
@@ -17898,6 +17902,7 @@ where [refTable].[Nominal] = ?</property>
                               errorRowDisposition="RedirectRow"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived produced]"
                               name="Derived produced"
+                              scale="2"
                               truncationRowDisposition="RedirectRow">
                               <properties>
                                 <property
@@ -18015,37 +18020,42 @@ where [refTable].[Nominal] = ?</property>
                               cachedDataType="dbDate"
                               cachedName="FileDate"
                               externalMetadataColumnId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].ExternalColumns[FileDate]"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[FileDate]" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[FileDate]" />
                             <inputColumn
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].Columns[Derived sold]"
                               cachedDataType="decimal"
                               cachedName="Derived sold"
+                              cachedScale="2"
                               externalMetadataColumnId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].ExternalColumns[sold]"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived sold]" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived sold]" />
                             <inputColumn
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].Columns[Derived taken]"
                               cachedDataType="decimal"
                               cachedName="Derived taken"
+                              cachedScale="2"
                               externalMetadataColumnId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].ExternalColumns[taken]"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived taken]" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived taken]" />
                             <inputColumn
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].Columns[Derived attended]"
                               cachedDataType="decimal"
                               cachedName="Derived attended"
+                              cachedScale="2"
                               externalMetadataColumnId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].ExternalColumns[attended]"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived attended]" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived attended]" />
                             <inputColumn
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].Columns[Derived idle]"
                               cachedDataType="decimal"
                               cachedName="Derived idle"
+                              cachedScale="2"
                               externalMetadataColumnId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].ExternalColumns[idle]"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived idle]" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived idle]" />
                             <inputColumn
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].Columns[Derived produced]"
                               cachedDataType="decimal"
                               cachedName="Derived produced"
+                              cachedScale="2"
                               externalMetadataColumnId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].ExternalColumns[produced]"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived produced]" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived produced]" />
                             <inputColumn
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].Columns[Category]"
                               cachedCodepage="1252"
@@ -18053,13 +18063,13 @@ where [refTable].[Nominal] = ?</property>
                               cachedLength="8"
                               cachedName="Category"
                               externalMetadataColumnId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].ExternalColumns[Category]"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Category]" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Category]" />
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].Columns[Depot]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].Columns[Depot ID]"
                               cachedDataType="i4"
-                              cachedName="Depot"
+                              cachedName="Depot ID"
                               externalMetadataColumnId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].ExternalColumns[Depot]"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Depot]" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Depot ID]" />
                             <inputColumn
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].Columns[depot]"
                               cachedCodepage="1252"
@@ -18067,7 +18077,7 @@ where [refTable].[Nominal] = ?</property>
                               cachedLength="50"
                               cachedName="depot"
                               externalMetadataColumnId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\DW - Insert into temp table.Inputs[OLE DB Destination Input].ExternalColumns[Depot Code]"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[depot]" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[depot]" />
                           </inputColumns>
                           <externalMetadataColumns
                             isUsed="True">
@@ -18260,11 +18270,11 @@ where [refTable].[PosCompany] = ?</property>
                           synchronousInputId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Lookup Depot.Inputs[Lookup Input]">
                           <outputColumns>
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Lookup Depot.Outputs[Lookup Match Output].Columns[Depot]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Lookup Depot.Outputs[Lookup Match Output].Columns[Depot ID]"
                               dataType="i4"
                               errorOrTruncationOperation="Copy Column"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Lookup Depot.Outputs[Lookup Match Output].Columns[Depot]"
-                              name="Depot"
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Lookup Depot.Outputs[Lookup Match Output].Columns[Depot ID]"
+                              name="Depot ID"
                               truncationRowDisposition="FailComponent">
                               <properties>
                                 <property
@@ -18812,6 +18822,7 @@ where [refTable].[PosCompany] = ?</property>
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Inputs[Union All Input 1].Columns[Derived sold]"
                               cachedDataType="decimal"
                               cachedName="Derived sold"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived sold]">
                               <properties>
                                 <property
@@ -18825,6 +18836,7 @@ where [refTable].[PosCompany] = ?</property>
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Inputs[Union All Input 1].Columns[Derived taken]"
                               cachedDataType="decimal"
                               cachedName="Derived taken"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived taken]">
                               <properties>
                                 <property
@@ -18838,6 +18850,7 @@ where [refTable].[PosCompany] = ?</property>
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Inputs[Union All Input 1].Columns[Derived attended]"
                               cachedDataType="decimal"
                               cachedName="Derived attended"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived attended]">
                               <properties>
                                 <property
@@ -18851,6 +18864,7 @@ where [refTable].[PosCompany] = ?</property>
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Inputs[Union All Input 1].Columns[Derived idle]"
                               cachedDataType="decimal"
                               cachedName="Derived idle"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived idle]">
                               <properties>
                                 <property
@@ -18864,6 +18878,7 @@ where [refTable].[PosCompany] = ?</property>
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Inputs[Union All Input 1].Columns[Derived produced]"
                               cachedDataType="decimal"
                               cachedName="Derived produced"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived produced]">
                               <properties>
                                 <property
@@ -19013,20 +19028,6 @@ where [refTable].[PosCompany] = ?</property>
                                   name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Category]}</property>
                               </properties>
                             </inputColumn>
-                            <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Inputs[Union All Input 2].Columns[Error Message]"
-                              cachedDataType="wstr"
-                              cachedLength="47"
-                              cachedName="Error Message"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Data Conversion Error Message.Outputs[Derived Column Output].Columns[Error Message]">
-                              <properties>
-                                <property
-                                  containsID="true"
-                                  dataType="System.Int32"
-                                  description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Error Message]}</property>
-                              </properties>
-                            </inputColumn>
                           </inputColumns>
                           <externalMetadataColumns />
                         </input>
@@ -19101,31 +19102,36 @@ where [refTable].[PosCompany] = ?</property>
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Derived sold]"
                               dataType="decimal"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Derived sold]"
-                              name="Derived sold" />
+                              name="Derived sold"
+                              scale="2" />
                             <outputColumn
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Derived taken]"
                               dataType="decimal"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Derived taken]"
-                              name="Derived taken" />
+                              name="Derived taken"
+                              scale="2" />
                             <outputColumn
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Derived attended]"
                               dataType="decimal"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Derived attended]"
-                              name="Derived attended" />
+                              name="Derived attended"
+                              scale="2" />
                             <outputColumn
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Derived idle]"
                               dataType="decimal"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Derived idle]"
-                              name="Derived idle" />
+                              name="Derived idle"
+                              scale="2" />
                             <outputColumn
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Derived produced]"
                               dataType="decimal"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Derived produced]"
-                              name="Derived produced" />
+                              name="Derived produced"
+                              scale="2" />
                             <outputColumn
                               refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Error Message]"
                               dataType="wstr"
-                              length="47"
+                              length="34"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1].Columns[Error Message]"
                               name="Error Message" />
                           </outputColumns>
@@ -19134,19 +19140,19 @@ where [refTable].[PosCompany] = ?</property>
                       </outputs>
                     </component>
                     <component
-                      refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2"
+                      refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1"
                       componentClassID="Microsoft.UnionAll"
                       contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
                       description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
-                      name="Union All 2"
+                      name="Union All 1"
                       version="1">
                       <inputs>
                         <input
-                          refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1]"
+                          refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1]"
                           name="Union All Input 1">
                           <inputColumns>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[FileDate]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[FileDate]"
                               cachedDataType="dbDate"
                               cachedName="FileDate"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Staging -  Get UtilizationStats.Outputs[OLE DB Source Output].Columns[FileDate]">
@@ -19155,11 +19161,11 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[FileDate]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[FileDate]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[sold]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[sold]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="50"
@@ -19170,11 +19176,11 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[sold]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[sold]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[taken]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[taken]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="50"
@@ -19185,11 +19191,11 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[taken]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[taken]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[attended]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[attended]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="50"
@@ -19200,11 +19206,11 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[attended]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[attended]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[idle]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[idle]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="50"
@@ -19215,11 +19221,11 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[idle]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[idle]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[produced]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[produced]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="50"
@@ -19230,11 +19236,11 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[produced]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[produced]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[Category]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[Category]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="8"
@@ -19245,89 +19251,94 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Category]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Category]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[Derived sold]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[Derived sold]"
                               cachedDataType="decimal"
                               cachedName="Derived sold"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived sold]">
                               <properties>
                                 <property
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived sold]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived sold]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[Derived taken]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[Derived taken]"
                               cachedDataType="decimal"
                               cachedName="Derived taken"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived taken]">
                               <properties>
                                 <property
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived taken]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived taken]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[Derived attended]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[Derived attended]"
                               cachedDataType="decimal"
                               cachedName="Derived attended"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived attended]">
                               <properties>
                                 <property
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived attended]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived attended]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[Derived idle]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[Derived idle]"
                               cachedDataType="decimal"
                               cachedName="Derived idle"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived idle]">
                               <properties>
                                 <property
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived idle]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived idle]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[Derived produced]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[Derived produced]"
                               cachedDataType="decimal"
                               cachedName="Derived produced"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived produced]">
                               <properties>
                                 <property
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived produced]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived produced]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[Depot]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[Depot ID]"
                               cachedDataType="i4"
-                              cachedName="Depot"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Lookup Depot.Outputs[Lookup Match Output].Columns[Depot]">
+                              cachedName="Depot ID"
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Lookup Depot.Outputs[Lookup Match Output].Columns[Depot ID]">
                               <properties>
                                 <property
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Depot]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Depot ID]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1].Columns[depot]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1].Columns[depot]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="50"
@@ -19338,19 +19349,19 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[depot]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[depot]}</property>
                               </properties>
                             </inputColumn>
                           </inputColumns>
                           <externalMetadataColumns />
                         </input>
                         <input
-                          refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2]"
+                          refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2]"
                           hasSideEffects="true"
                           name="Union All Input 2">
                           <inputColumns>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[FileDate]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2].Columns[FileDate]"
                               cachedDataType="dbDate"
                               cachedName="FileDate"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Staging -  Get UtilizationStats.Outputs[OLE DB Source Output].Columns[FileDate]">
@@ -19359,11 +19370,11 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[FileDate]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[FileDate]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[sold]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2].Columns[sold]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="50"
@@ -19374,11 +19385,11 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[sold]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[sold]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[taken]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2].Columns[taken]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="50"
@@ -19389,11 +19400,11 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[taken]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[taken]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[attended]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2].Columns[attended]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="50"
@@ -19404,11 +19415,11 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[attended]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[attended]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[idle]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2].Columns[idle]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="50"
@@ -19419,11 +19430,11 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[idle]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[idle]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[produced]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2].Columns[produced]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="50"
@@ -19434,11 +19445,11 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[produced]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[produced]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[Category]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2].Columns[Category]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="8"
@@ -19449,107 +19460,97 @@ where [refTable].[PosCompany] = ?</property>
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Category]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Category]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[Derived sold]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2].Columns[Derived sold]"
                               cachedDataType="decimal"
                               cachedName="Derived sold"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived sold]">
                               <properties>
                                 <property
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived sold]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived sold]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[Derived taken]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2].Columns[Derived taken]"
                               cachedDataType="decimal"
                               cachedName="Derived taken"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived taken]">
                               <properties>
                                 <property
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived taken]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived taken]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[Derived attended]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2].Columns[Derived attended]"
                               cachedDataType="decimal"
                               cachedName="Derived attended"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived attended]">
                               <properties>
                                 <property
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived attended]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived attended]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[Derived idle]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2].Columns[Derived idle]"
                               cachedDataType="decimal"
                               cachedName="Derived idle"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived idle]">
                               <properties>
                                 <property
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived idle]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived idle]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[Derived produced]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2].Columns[Derived produced]"
                               cachedDataType="decimal"
                               cachedName="Derived produced"
+                              cachedScale="2"
                               lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Data Conversion.Outputs[Data Conversion Output].Columns[Derived produced]">
                               <properties>
                                 <property
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived produced]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived produced]}</property>
                               </properties>
                             </inputColumn>
                             <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[Depot]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2].Columns[Depot ID]"
                               cachedDataType="i4"
-                              cachedName="Depot"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Unknown Depot.Outputs[Derived Column Output].Columns[Depot]">
+                              cachedName="Depot ID"
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Unknown Depot.Outputs[Derived Column Output].Columns[Depot ID]">
                               <properties>
                                 <property
                                   containsID="true"
                                   dataType="System.Int32"
                                   description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Depot]}</property>
-                              </properties>
-                            </inputColumn>
-                            <inputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2].Columns[depot]"
-                              cachedCodepage="1252"
-                              cachedDataType="str"
-                              cachedLength="50"
-                              cachedName="depot"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Staging -  Get UtilizationStats.Outputs[OLE DB Source Output].Columns[depot]">
-                              <properties>
-                                <property
-                                  containsID="true"
-                                  dataType="System.Int32"
-                                  description="Output column lineage ID"
-                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[depot]}</property>
+                                  name="OutputColumnLineageID">#{Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Depot ID]}</property>
                               </properties>
                             </inputColumn>
                           </inputColumns>
                           <externalMetadataColumns />
                         </input>
                         <input
-                          refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 3]"
+                          refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 3]"
                           dangling="true"
                           hasSideEffects="true"
                           name="Union All Input 3">
@@ -19558,92 +19559,97 @@ where [refTable].[PosCompany] = ?</property>
                       </inputs>
                       <outputs>
                         <output
-                          refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1]"
+                          refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1]"
                           name="Union All Output 1">
                           <outputColumns>
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[FileDate]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[FileDate]"
                               dataType="dbDate"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[FileDate]"
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[FileDate]"
                               name="FileDate" />
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[sold]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[sold]"
                               codePage="1252"
                               dataType="str"
                               length="50"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[sold]"
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[sold]"
                               name="sold" />
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[taken]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[taken]"
                               codePage="1252"
                               dataType="str"
                               length="50"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[taken]"
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[taken]"
                               name="taken" />
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[attended]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[attended]"
                               codePage="1252"
                               dataType="str"
                               length="50"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[attended]"
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[attended]"
                               name="attended" />
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[idle]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[idle]"
                               codePage="1252"
                               dataType="str"
                               length="50"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[idle]"
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[idle]"
                               name="idle" />
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[produced]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[produced]"
                               codePage="1252"
                               dataType="str"
                               length="50"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[produced]"
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[produced]"
                               name="produced" />
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Category]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Category]"
                               codePage="1252"
                               dataType="str"
                               length="8"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Category]"
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Category]"
                               name="Category" />
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived sold]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived sold]"
                               dataType="decimal"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived sold]"
-                              name="Derived sold" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived sold]"
+                              name="Derived sold"
+                              scale="2" />
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived taken]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived taken]"
                               dataType="decimal"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived taken]"
-                              name="Derived taken" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived taken]"
+                              name="Derived taken"
+                              scale="2" />
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived attended]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived attended]"
                               dataType="decimal"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived attended]"
-                              name="Derived attended" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived attended]"
+                              name="Derived attended"
+                              scale="2" />
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived idle]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived idle]"
                               dataType="decimal"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived idle]"
-                              name="Derived idle" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived idle]"
+                              name="Derived idle"
+                              scale="2" />
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived produced]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived produced]"
                               dataType="decimal"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Derived produced]"
-                              name="Derived produced" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Derived produced]"
+                              name="Derived produced"
+                              scale="2" />
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Depot]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Depot ID]"
                               dataType="i4"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[Depot]"
-                              name="Depot" />
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[Depot ID]"
+                              name="Depot ID" />
                             <outputColumn
-                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[depot]"
+                              refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[depot]"
                               codePage="1252"
                               dataType="str"
                               length="50"
-                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1].Columns[depot]"
+                              lineageId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1].Columns[depot]"
                               name="depot" />
                           </outputColumns>
                           <externalMetadataColumns />
@@ -19669,22 +19675,22 @@ where [refTable].[PosCompany] = ?</property>
                       startId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Date.Outputs[Derived Column Output]" />
                     <path
                       refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Derived Column Output1]"
-                      endId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 2]"
-                      name="Derived Column Output"
-                      startId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Unknown Depot.Outputs[Derived Column Output]" />
-                    <path
-                      refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Derived Column Output2]"
                       endId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Inputs[Union All Input 1]"
                       name="Derived Column Output"
                       startId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Unknown Depot Error Message.Outputs[Derived Column Output]" />
                     <path
-                      refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Derived Column Output3]"
+                      refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Derived Column Output2]"
                       endId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Inputs[Union All Input 2]"
                       name="Derived Column Output"
                       startId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Data Conversion Error Message.Outputs[Derived Column Output]" />
                     <path
+                      refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Derived Column Output3]"
+                      endId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 2]"
+                      name="Derived Column Output"
+                      startId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Unknown Depot.Outputs[Derived Column Output]" />
+                    <path
                       refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Lookup Match Output]"
-                      endId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Inputs[Union All Input 1]"
+                      endId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Inputs[Union All Input 1]"
                       name="Lookup Match Output"
                       startId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Lookup Depot.Outputs[Lookup Match Output]" />
                     <path
@@ -19719,14 +19725,14 @@ where [refTable].[PosCompany] = ?</property>
                       startId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Row Count 1.Outputs[Row Count Output 1]" />
                     <path
                       refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Union All Output 1]"
+                      endId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Row Count 1.Inputs[Row Count Input 1]"
+                      name="Union All Output 1"
+                      startId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1.Outputs[Union All Output 1]" />
+                    <path
+                      refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Union All Output 11]"
                       endId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Row Count.Inputs[Row Count Input 1]"
                       name="Union All Output 1"
                       startId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All.Outputs[Union All Output 1]" />
-                    <path
-                      refId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Union All Output 11]"
-                      endId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Row Count 1.Inputs[Row Count Input 1]"
-                      name="Union All Output 1"
-                      startId="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2.Outputs[Union All Output 1]" />
                   </paths>
                 </pipeline>
               </DTS:ObjectData>
@@ -19768,7 +19774,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Get Distinct File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="9">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -19797,7 +19803,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Validate File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="7">
+          DTS:ThreadHint="10">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -20017,7 +20023,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="9">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -20060,7 +20066,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Log invalid file date error"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="8">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -20084,7 +20090,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="9">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -20132,7 +20138,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Get Max WarrantyOutstandingAmount Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="9">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -20176,7 +20182,7 @@ where [refTable].[PosCompany] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Merge WarrantyOutstandingAmount"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="9">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -20212,7 +20218,7 @@ where [refTable].[PosCompany] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Truncate tmp WarrantyOutstandingAmount"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="9">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -22899,7 +22905,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Get Distinct File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="9">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -22928,7 +22934,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Validate File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="8">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -23149,7 +23155,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -23191,7 +23197,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Log invalid file date error"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="8">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -23215,7 +23221,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -23263,7 +23269,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Get MaxWorkshopStats Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -23307,7 +23313,7 @@ where [refTable].[Cost Centre] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Merge WorkshopStats"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="7">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -23343,7 +23349,7 @@ where [refTable].[Cost Centre] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Truncate tmp WorkshopStats"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="7">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -29935,7 +29941,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Get Distinct File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -29957,7 +29963,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Validate File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -30144,7 +30150,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -30186,7 +30192,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -34577,9 +34583,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -34613,9 +34617,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -34673,9 +34675,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -34709,9 +34709,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -34733,9 +34731,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -34769,9 +34765,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -34793,9 +34787,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -34829,9 +34821,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -34865,9 +34855,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -34901,9 +34889,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -34937,49 +34923,11 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Revenue\Foreach File Date\Staging - Get Revenue.Paths[Lookup No Match Output1]"
-          TopLeft="247.633333333333,656.699999999999">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-96.3333333333333,59.9999999999999"
-              Start="0,0"
-              End="-96.3333333333333,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.31718061674" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.31718061674"
-                    Point2="0,24.31718061674"
-                    Point3="-4,24.31718061674" />
-                  <mssgle:LineSegment
-                    End="-92.3333333333333,24.31718061674" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-92.3333333333333,24.31718061674"
-                    Point2="-96.3333333333333,24.31718061674"
-                    Point3="-96.3333333333333,28.31718061674" />
-                  <mssgle:LineSegment
-                    End="-96.3333333333333,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-103.973053385417,29.31718061674,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Revenue\Foreach File Date\Staging - Get Revenue.Paths[Lookup No Match Output]"
           TopLeft="246.7,250.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -35011,6 +34959,42 @@ where [refTable].[PosCompany] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-101.10638671875,29.6317948717949,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Revenue\Foreach File Date\Staging - Get Revenue.Paths[Lookup No Match Output]"
+          TopLeft="247.633333333333,656.699999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-96.3333333333333,59.9999999999999"
+              Start="0,0"
+              End="-96.3333333333333,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.31718061674" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.31718061674"
+                    Point2="0,24.31718061674"
+                    Point3="-4,24.31718061674" />
+                  <mssgle:LineSegment
+                    End="-92.3333333333333,24.31718061674" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-92.3333333333333,24.31718061674"
+                    Point2="-96.3333333333333,24.31718061674"
+                    Point3="-96.3333333333333,28.31718061674" />
+                  <mssgle:LineSegment
+                    End="-96.3333333333333,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-103.973053385417,29.31718061674,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -35117,9 +35101,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35153,9 +35135,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35189,9 +35169,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35225,9 +35203,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -35327,10 +35303,6 @@ where [refTable].[PosCompany] = ?</property>
           Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Unknown Depot Error Message"
           TopLeft="408.1,413.5" />
         <NodeLayout
-          Size="121.6,42.4"
-          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All"
-          TopLeft="470.5,515.9" />
-        <NodeLayout
           Size="176,42.4"
           Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Unknown Depot"
           TopLeft="171.3,413.5" />
@@ -35351,10 +35323,6 @@ where [refTable].[PosCompany] = ?</property>
           Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Row Count 1"
           TopLeft="207.2,567.2" />
         <NodeLayout
-          Size="130.4,42.4"
-          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 2"
-          TopLeft="45.1,515.9" />
-        <NodeLayout
           Size="122.4,42.4"
           Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Add Date"
           TopLeft="470.1,720.7" />
@@ -35374,66 +35342,6 @@ where [refTable].[PosCompany] = ?</property>
           Size="189.6,42.4"
           Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Audit - Insert into Error"
           TopLeft="436.5,823.1" />
-        <EdgeLayout
-          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Union All Output 11]"
-          TopLeft="175.5,537.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="31.7000000000001,50.8999999999998"
-              Start="0,0"
-              End="24.2000000000001,50.8999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="11.85,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11.85,0"
-                    Point2="15.85,0"
-                    Point3="15.85,4" />
-                  <mssgle:LineSegment
-                    End="15.85,46.8999999999998" />
-                  <mssgle:CubicBezierSegment
-                    Point1="15.85,46.8999999999998"
-                    Point2="15.85,50.8999999999998"
-                    Point3="19.85,50.8999999999998" />
-                  <mssgle:LineSegment
-                    End="24.2000000000001,50.8999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Union All Output 1]"
-          TopLeft="531.3,558.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Row Count Output 11]"
           TopLeft="207.2,593.6">
@@ -35459,9 +35367,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35483,9 +35389,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35507,9 +35411,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35543,9 +35445,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35579,9 +35479,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35621,138 +35519,6 @@ where [refTable].[PosCompany] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Lookup Match Output]"
-          TopLeft="88.6333333333333,251.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,264"
-              Start="0,0"
-              End="0,256.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,256.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,122.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Derived Column Output3]"
-          TopLeft="840.3,455.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-290.066666666667,60.0000000000001"
-              Start="0,0"
-              End="-290.066666666667,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5324675324676" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5324675324676"
-                    Point2="0,35.5324675324676"
-                    Point3="-4,35.5324675324676" />
-                  <mssgle:LineSegment
-                    End="-286.066666666667,35.5324675324676" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-286.066666666667,35.5324675324676"
-                    Point2="-290.066666666667,35.5324675324676"
-                    Point3="-290.066666666667,39.5324675324676" />
-                  <mssgle:LineSegment
-                    End="-290.066666666667,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Derived Column Output2]"
-          TopLeft="531.3,455.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-18.9333333333334,60.0000000000001"
-              Start="0,0"
-              End="-18.9333333333334,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5324675324676" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5324675324676"
-                    Point2="0,35.5324675324676"
-                    Point3="-4,35.5324675324676" />
-                  <mssgle:LineSegment
-                    End="-14.9333333333334,35.5324675324676" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-14.9333333333334,35.5324675324676"
-                    Point2="-18.9333333333334,35.5324675324676"
-                    Point3="-18.9333333333334,39.5324675324676" />
-                  <mssgle:LineSegment
-                    End="-18.9333333333334,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Derived Column Output1]"
-          TopLeft="259.3,455.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-128.6,60.0000000000001"
-              Start="0,0"
-              End="-128.6,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5636363636364" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5636363636364"
-                    Point2="0,35.5636363636364"
-                    Point3="-4,35.5636363636364" />
-                  <mssgle:LineSegment
-                    End="-124.6,35.5636363636364" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-124.6,35.5636363636364"
-                    Point2="-128.6,35.5636363636364"
-                    Point3="-128.6,39.5636363636364" />
-                  <mssgle:LineSegment
-                    End="-128.6,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Derived Column Output]"
           TopLeft="531.3,763.1">
           <EdgeLayout.Curve>
@@ -35771,9 +35537,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35807,9 +35571,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -35848,6 +35610,220 @@ where [refTable].[PosCompany] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All"
+          TopLeft="534.628580410627,486.87059470444" />
+        <EdgeLayout
+          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Derived Column Output1]"
+          TopLeft="531.3,455.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.3285804106266,30.97059470444"
+              Start="0,0"
+              End="63.3285804106266,23.47059470444">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.48529735222" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.48529735222"
+                    Point2="0,15.48529735222"
+                    Point3="4,15.48529735222" />
+                  <mssgle:LineSegment
+                    End="59.3285804106266,15.48529735222" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.3285804106266,15.48529735222"
+                    Point2="63.3285804106266,15.48529735222"
+                    Point3="63.3285804106266,19.48529735222" />
+                  <mssgle:LineSegment
+                    End="63.3285804106266,23.47059470444" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Derived Column Output2]"
+          TopLeft="840.3,455.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-227.004752922707,30.97059470444"
+              Start="0,0"
+              End="-227.004752922707,23.47059470444">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.337852127629" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.337852127629"
+                    Point2="0,18.337852127629"
+                    Point3="-4,18.337852127629" />
+                  <mssgle:LineSegment
+                    End="-223.004752922707,18.337852127629" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-223.004752922707,18.337852127629"
+                    Point2="-227.004752922707,18.337852127629"
+                    Point3="-227.004752922707,22.337852127629" />
+                  <mssgle:LineSegment
+                    End="-227.004752922707,23.47059470444" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats\Union All 1"
+          TopLeft="90.1714294667147,484.56471008644" />
+        <EdgeLayout
+          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Lookup Match Output]"
+          TopLeft="87.3666666666667,251.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47.3380961333813,232.66471008644"
+              Start="0,0"
+              End="47.3380961333813,225.16471008644">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,112.140665821227" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,112.140665821227"
+                    Point2="0,116.140665821227"
+                    Point3="4,116.140665821227" />
+                  <mssgle:LineSegment
+                    End="43.3380961333813,116.140665821227" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.3380961333813,116.140665821227"
+                    Point2="47.3380961333813,116.140665821227"
+                    Point3="47.3380961333813,120.140665821227" />
+                  <mssgle:LineSegment
+                    End="47.3380961333813,225.16471008644" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-24.5223386520593,121.140665821227,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Derived Column Output3]"
+          TopLeft="259.3,455.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-84.0619038666187,28.6647100864398"
+              Start="0,0"
+              End="-84.0619038666187,21.1647100864398">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.9890842707436" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.9890842707436"
+                    Point2="0,16.9890842707436"
+                    Point3="-4,16.9890842707436" />
+                  <mssgle:LineSegment
+                    End="-80.0619038666187,16.9890842707436" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-80.0619038666187,16.9890842707436"
+                    Point2="-84.0619038666187,16.9890842707436"
+                    Point3="-84.0619038666187,20.9890842707436" />
+                  <mssgle:LineSegment
+                    End="-84.0619038666187,21.1647100864398" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Union All Output 1]"
+          TopLeft="154.971429466715,526.16471008644">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121.828570533285,41.0352899135603"
+              Start="0,0"
+              End="121.828570533285,33.5352899135603">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5176449567801" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5176449567801"
+                    Point2="0,20.5176449567801"
+                    Point3="4,20.5176449567801" />
+                  <mssgle:LineSegment
+                    End="117.828570533285,20.5176449567801" />
+                  <mssgle:CubicBezierSegment
+                    Point1="117.828570533285,20.5176449567801"
+                    Point2="121.828570533285,20.5176449567801"
+                    Point3="121.828570533285,24.5176449567801" />
+                  <mssgle:LineSegment
+                    End="121.828570533285,33.5352899135603" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load UtilizationStats\Foreach File Date\Staging - Get UtilizationStats.Paths[Union All Output 11]"
+          TopLeft="594.628580410627,528.47059470444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-63.3285804106267,89.8294052955599"
+              Start="0,0"
+              End="-63.3285804106267,82.3294052955599">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.91470264778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.91470264778"
+                    Point2="0,44.91470264778"
+                    Point3="-4,44.91470264778" />
+                  <mssgle:LineSegment
+                    End="-59.3285804106267,44.91470264778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-59.3285804106267,44.91470264778"
+                    Point2="-63.3285804106267,44.91470264778"
+                    Point3="-63.3285804106267,48.91470264778" />
+                  <mssgle:LineSegment
+                    End="-63.3285804106267,82.3294052955599" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -35878,7 +35854,20 @@ where [refTable].[PosCompany] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

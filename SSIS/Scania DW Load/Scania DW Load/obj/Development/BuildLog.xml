@@ -2,33 +2,33 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Scania DW Load</Name>
-    <LastWriteTime>2018-10-09T07:45:30.7151865Z</LastWriteTime>
+    <LastWriteTime>2018-10-18T11:35:46.032271Z</LastWriteTime>
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Import Dimensions From Staging.dtsx</Name>
-      <LastWriteTime>2018-10-05T20:57:51.0139867Z</LastWriteTime>
+      <LastWriteTime>2018-10-18T10:47:18.0436775Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Import Facts From Staging.dtsx</Name>
-      <LastWriteTime>2018-10-03T11:14:59.541405Z</LastWriteTime>
+      <LastWriteTime>2018-10-18T22:35:08.4729098Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Import Dimensions From BI.dtsx</Name>
-      <LastWriteTime>2018-10-01T09:37:38.2771092Z</LastWriteTime>
+      <LastWriteTime>2018-10-18T10:55:25.5568571Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Import Facts 2 From Staging.dtsx</Name>
-      <LastWriteTime>2018-10-03T11:20:59.6556335Z</LastWriteTime>
+      <LastWriteTime>2018-10-18T10:55:26.5404734Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Import Master.dtsx</Name>
-      <LastWriteTime>2018-10-09T08:34:11.7417192Z</LastWriteTime>
+      <LastWriteTime>2018-10-18T10:57:42.5680664Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

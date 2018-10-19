@@ -1,0 +1,7 @@
+C:\Vamsi\Scania\src\Scania-KPI-Dashboard\SSAS\KPI_Dashboarsd\KPI_Dashboarsd\bin\Model.asdatabase
+C:\Vamsi\Scania\src\Scania-KPI-Dashboard\SSAS\KPI_Dashboarsd\KPI_Dashboarsd\bin\Model.deploymenttargets
+C:\Vamsi\Scania\src\Scania-KPI-Dashboard\SSAS\KPI_Dashboarsd\KPI_Dashboarsd\bin\Model.deploymentoptions
+C:\Vamsi\Scania\src\Scania-KPI-Dashboard\SSAS\KPI_Dashboarsd\KPI_Dashboarsd\obj\Development\KPI_Dashboarsd.smproj.CoreCompileInputs.cache
+C:\Vamsi\Scania\src\Scania-KPI-Dashboard\SSAS\KPI_Dashboarsd\KPI_Dashboarsd\obj\Development\Model.asdatabase
+C:\Vamsi\Scania\src\Scania-KPI-Dashboard\SSAS\KPI_Dashboarsd\KPI_Dashboarsd\obj\Development\Model.deploymentoptions
+C:\Vamsi\Scania\src\Scania-KPI-Dashboard\SSAS\KPI_Dashboarsd\KPI_Dashboarsd\obj\Development\Model.deploymenttargets
