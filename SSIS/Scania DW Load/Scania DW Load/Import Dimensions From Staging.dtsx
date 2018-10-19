@@ -12,8 +12,8 @@
   DTS:ObjectName="Import Dimensions From Staging"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="94"
-  DTS:VersionGUID="{231741B3-490D-4A02-8C87-14829A4F0A50}">
+  DTS:VersionBuild="96"
+  DTS:VersionGUID="{337E0835-7FA7-49F3-8845-D6A314380BCC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -176,7 +176,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -218,7 +218,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -266,7 +266,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Merge Branches"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -296,7 +296,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Truncate tmp Branch"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2134,7 +2134,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2176,7 +2176,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2224,7 +2224,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Merge Nominal Codes"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2254,7 +2254,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Truncate tmp Nominal Code"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2273,6 +2273,23 @@ where [refTable].[PosCompany] = ?</property>
                 SQLTask:DataType="3"
                 SQLTask:ParameterSize="-1" />
             </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Nominal Codes\DW - Update Nominal Codes"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{FD2F71E6-AFE5-4CE1-9F93-3F117412EB12}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DW - Update Nominal Codes"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B897BE24-9FC5-444E-A33F-731729C77908}"
+              SQLTask:SqlStatementSource="exec  etl.UpdateNominalGroups" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -2714,10 +2731,18 @@ where [refTable].[PosCompany] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Load Nominal Codes.PrecedenceConstraints[Constraint 3]"
           DTS:CreationName=""
-          DTS:DTSID="{DDE22AA8-743E-4F13-A5B4-8601946485FC}"
+          DTS:DTSID="{1FA3550B-408F-4E48-919C-7D85CA3592C6}"
           DTS:From="Package\Load Nominal Codes\DW - Merge Nominal Codes"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Load Nominal Codes\DW - Update Nominal Codes" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Nominal Codes.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{960FD8D3-9C86-4021-BDF6-CAE38D5F7582}"
+          DTS:From="Package\Load Nominal Codes\DW - Update Nominal Codes"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
           DTS:To="Package\Load Nominal Codes\Audit - End Task" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
@@ -3251,7 +3276,7 @@ where [refTable].[PosCompany] = ?</property>
         <NodeLayout
           Size="157.6,42.4"
           Id="Package\Load Nominal Codes\Audit - End Task"
-          TopLeft="45.5,412.700000000001" />
+          TopLeft="43.7857142565202,439.617647436334" />
         <NodeLayout
           Size="162.4,42.4"
           Id="Package\Load Nominal Codes\Audit - Start Task"
@@ -3318,14 +3343,46 @@ where [refTable].[PosCompany] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="212.8,41.6"
+          Id="Package\Load Nominal Codes\DW - Update Nominal Codes"
+          TopLeft="81.7142884001441,367.529415067917" />
+        <EdgeLayout
+          Id="Package\Load Nominal Codes.PrecedenceConstraints[Constraint 3]"
+          TopLeft="228.7,331.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-40.585711599856,35.6294150679171"
+              Start="0,0"
+              End="-40.585711599856,28.1294150679171">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-36.585711599856,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-36.585711599856,0"
+                    Point2="-40.585711599856,0"
+                    Point3="-40.585711599856,4" />
+                  <mssgle:LineSegment
+                    End="-40.585711599856,28.1294150679171" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3335,19 +3392,31 @@ where [refTable].[PosCompany] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Nominal Codes.PrecedenceConstraints[Constraint 3]"
-          TopLeft="124.3,352.7">
+          Id="Package\Load Nominal Codes.PrecedenceConstraints[Constraint 4]"
+          TopLeft="188.114288400144,409.129415067917">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="-65.5285741436239,30.4882323684172"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="-65.5285741436239,22.9882323684172">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,11.2441161842086" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.2441161842086"
+                    Point2="0,15.2441161842086"
+                    Point3="-4,15.2441161842086" />
+                  <mssgle:LineSegment
+                    End="-61.5285741436239,15.2441161842086" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-61.5285741436239,15.2441161842086"
+                    Point2="-65.5285741436239,15.2441161842086"
+                    Point3="-65.5285741436239,19.2441161842086" />
+                  <mssgle:LineSegment
+                    End="-65.5285741436239,22.9882323684172" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3359,8 +3428,8 @@ where [refTable].[PosCompany] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="248.8,510.4"
-          Size="248.8,553.6"
+          PanelSize="299.2,536.8"
+          Size="299.2,580"
           Id="Package\Load Nominal Codes"
           TopLeft="77.1000000000001,314.3" />
         <NodeLayout
@@ -3406,9 +3475,9 @@ where [refTable].[PosCompany] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="95.4285714188401,60.611764714462"
+              EndConnector="107.42857141884,60.611764714462"
               Start="0,0"
-              End="95.4285714188401,53.111764714462">
+              End="107.42857141884,53.111764714462">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -3419,13 +3488,13 @@ where [refTable].[PosCompany] = ?</property>
                     Point2="0,20.4769475386696"
                     Point3="4,20.4769475386696" />
                   <mssgle:LineSegment
-                    End="91.4285714188401,20.4769475386696" />
+                    End="103.42857141884,20.4769475386696" />
                   <mssgle:CubicBezierSegment
-                    Point1="91.4285714188401,20.4769475386696"
-                    Point2="95.4285714188401,20.4769475386696"
-                    Point3="95.4285714188401,24.4769475386696" />
+                    Point1="103.42857141884,20.4769475386696"
+                    Point2="107.42857141884,20.4769475386696"
+                    Point3="107.42857141884,24.4769475386696" />
                   <mssgle:LineSegment
-                    End="95.4285714188401,53.111764714462" />
+                    End="107.42857141884,53.111764714462" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3436,18 +3505,30 @@ where [refTable].[PosCompany] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="201.5,867.9">
+          TopLeft="213.5,894.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.3882352855377"
+              EndConnector="-12.0000000000001,32.9882352855381"
               Start="0,0"
-              End="0,51.8882352855377">
+              End="-12.0000000000001,25.4882352855381">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.8882352855377" />
+                    End="0,12.494117642769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.494117642769"
+                    Point2="0,16.494117642769"
+                    Point3="-4,16.494117642769" />
+                  <mssgle:LineSegment
+                    End="-8.00000000000011,16.494117642769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.00000000000011,16.494117642769"
+                    Point2="-12.0000000000001,16.494117642769"
+                    Point3="-12.0000000000001,20.494117642769" />
+                  <mssgle:LineSegment
+                    End="-12.0000000000001,25.4882352855381" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3847,9 +3928,7 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3927,7 +4006,7 @@ where [refTable].[PosCompany] = ?</property>
     design-time-name="Package\Load Nominal Codes\Staging - Get Nominal Code">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Load Nominal Codes\Staging - Get Nominal Code\OLE DB Source"
@@ -3967,7 +4046,9 @@ where [refTable].[PosCompany] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
