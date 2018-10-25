@@ -3132,7 +3132,7 @@
         "measures": [
           {
             "name": "TotalSales",
-            "expression": "CALCULATE(SUM(Revenue[Revenue]))*(-1)",
+            "expression": "0+CALCULATE(SUM(Revenue[Revenue]))*(-1)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -3159,7 +3159,7 @@
           },
           {
             "name": "BackCounterSales",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Back Counter\",NominalCode[Nominal Type]=\"Sales\")",
+            "expression": "0+CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Back Counter\",NominalCode[Nominal Type]=\"Sales\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -3230,7 +3230,7 @@
           },
           {
             "name": "FrontCounterSales",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Front Counter\",NominalCode[Nominal Type]=\"Sales\")",
+            "expression": "0+CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Front Counter\",NominalCode[Nominal Type]=\"Sales\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -4255,7 +4255,7 @@
           },
           {
             "name": "WorkShopProducedHours",
-            "expression": "(CALCULATE(SUM(UtilizationStats[Produced]),UtilizationStats[Category]=\"WorkShop\"))",
+            "expression": "(CALCULATE(SUM(UtilizationStats[Produced])))",
             "formatString": "0"
           },
           {
@@ -4276,7 +4276,7 @@
           },
           {
             "name": "WorkShopSoldHours",
-            "expression": "(CALCULATE(SUM(UtilizationStats[Sold]),UtilizationStats[Category]=\"WorkShop\"))",
+            "expression": "(CALCULATE(SUM(UtilizationStats[Sold])))",
             "formatString": "0"
           },
           {
@@ -4314,6 +4314,13 @@
             "expression": [
               "CALCULATE([WorkShopSoldHours],'Date'[Date]=TODAY()-1)",
               "                                       -CALCULATE([WorkShopSoldHours],'Date'[Date]=TODAY()-2)"
+            ],
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
             ]
           },
           {
@@ -4383,7 +4390,7 @@
           },
           {
             "name": "Produced Hours Last Year",
-            "expression": "CALCULATE([WorkShopProducedHours],'Date'[Year]=YEAR(TODAY())-1)"
+            "expression": "CALCULATE(SUM(UtilizationStats[Produced]),'Date'[Year]=YEAR(TODAY())-1)"
           }
         ],
         "annotations": [
@@ -4947,7 +4954,7 @@
             ]
           },
           {
-            "name": "PartsFlxBudget",
+            "name": "Parts Sales FlxBudget",
             "expression": "DIVIDE([PartsBudget],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -4959,7 +4966,7 @@
           },
           {
             "name": "PartsSales vs FlxBudget %",
-            "expression": "DIVIDE([PartsSales],[PartsFlxBudget])",
+            "expression": "DIVIDE([PartsSales],[Parts Sales FlxBudget])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -5031,6 +5038,28 @@
           {
             "name": "OtherSalesMarginFlxBudget",
             "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Other\")",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Copy of BackCounterSalesMarginFlxBudget",
+            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Back Counter\" && NominalCode[Nominal Category]=\"Front Counter\")",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Copy of Parts Margin FlxBudget",
+            "expression": "CALCULATE((DIVIDE([PartsSalesMargin],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -5192,758 +5221,6 @@
         ]
       },
       {
-        "name": "Obsolescence",
-        "columns": [
-          {
-            "name": "ID",
-            "dataType": "int64",
-            "isHidden": true,
-            "sourceColumn": "ID",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "Depot",
-            "dataType": "int64",
-            "isHidden": true,
-            "sourceColumn": "Depot",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "Depot Code",
-            "dataType": "string",
-            "isHidden": true,
-            "sourceColumn": "Depot Code",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "Part",
-            "dataType": "int64",
-            "isHidden": true,
-            "sourceColumn": "Part",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "Part Number",
-            "dataType": "string",
-            "isHidden": true,
-            "sourceColumn": "Part Number",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "Date",
-            "dataType": "dateTime",
-            "isHidden": true,
-            "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
-          },
-          {
-            "name": "Obsolescence Category",
-            "dataType": "int64",
-            "isHidden": true,
-            "sourceColumn": "Obsolescence Category",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "Obsolescence Value",
-            "dataType": "double",
-            "sourceColumn": "Obsolescence Value",
-            "sourceProviderType": "Numeric"
-          },
-          {
-            "name": "Stock Value",
-            "dataType": "double",
-            "isHidden": true,
-            "sourceColumn": "Stock Value",
-            "sourceProviderType": "Numeric"
-          },
-          {
-            "name": "Obsolescence Quantity",
-            "dataType": "double",
-            "isHidden": true,
-            "sourceColumn": "Obsolescence Quantity",
-            "sourceProviderType": "Numeric"
-          },
-          {
-            "name": "Surcharge Value",
-            "dataType": "double",
-            "isHidden": true,
-            "sourceColumn": "Surcharge Value",
-            "sourceProviderType": "Numeric"
-          },
-          {
-            "name": "Obsolescence Surcharge",
-            "dataType": "double",
-            "isHidden": true,
-            "sourceColumn": "Obsolescence Surcharge",
-            "sourceProviderType": "Numeric"
-          },
-          {
-            "name": "Complete",
-            "dataType": "boolean",
-            "isHidden": true,
-            "sourceColumn": "Complete",
-            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
-            "sourceProviderType": "Boolean"
-          },
-          {
-            "name": "Completed Date",
-            "dataType": "string",
-            "isHidden": true,
-            "sourceColumn": "Completed Date",
-            "sourceProviderType": "WChar"
-          },
-          {
-            "name": "DW_CreatedDate",
-            "dataType": "dateTime",
-            "isHidden": true,
-            "sourceColumn": "DW_CreatedDate",
-            "formatString": "General Date",
-            "sourceProviderType": "DBTimeStamp"
-          },
-          {
-            "name": "DW_ModifiedDate",
-            "dataType": "dateTime",
-            "isHidden": true,
-            "sourceColumn": "DW_ModifiedDate",
-            "formatString": "General Date",
-            "sourceProviderType": "DBTimeStamp"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "Obsolescence",
-            "dataView": "full",
-            "source": {
-              "query": " SELECT [fact].[Obsolescence].* FROM [fact].[Obsolescence] ",
-              "dataSource": "SqlServerConn"
-            },
-            "annotations": [
-              {
-                "name": "TableWidgetSerialization",
-                "value": [
-                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
-                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
-                  "  <ColumnSuggestedType />",
-                  "  <ColumnFormat />",
-                  "  <ColumnAccuracy />",
-                  "  <ColumnCurrencySymbol />",
-                  "  <ColumnPositivePattern />",
-                  "  <ColumnNegativePattern />",
-                  "  <ColumnWidths>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ID</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>41</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Depot</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>59</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Depot Code</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>87</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Part</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>50</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Part Number</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>90</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>53</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Obsolescence Category</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>144</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Obsolescence Value</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>125</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Stock Value</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>85</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Obsolescence Quantity</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>141</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Surcharge Value</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>108</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Obsolescence Surcharge</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>148</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Complete</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>75</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Completed Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>107</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DW_CreatedDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>115</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DW_ModifiedDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>116</int>",
-                  "      </value>",
-                  "    </item>",
-                  "  </ColumnWidths>",
-                  "  <ColumnDisplayIndex>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ID</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>0</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Depot</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>1</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Depot Code</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>2</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Part</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>3</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Part Number</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>4</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>5</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Obsolescence Category</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>6</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Obsolescence Value</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>7</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Stock Value</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>8</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Obsolescence Quantity</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>9</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Surcharge Value</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>10</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Obsolescence Surcharge</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>11</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Complete</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>12</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Completed Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>13</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DW_CreatedDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>14</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DW_ModifiedDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>15</int>",
-                  "      </value>",
-                  "    </item>",
-                  "  </ColumnDisplayIndex>",
-                  "  <ColumnFrozen />",
-                  "  <ColumnChecked />",
-                  "  <ColumnFilter />",
-                  "  <SelectionFilter />",
-                  "  <FilterParameters />",
-                  "  <IsSortDescending>false</IsSortDescending>",
-                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
-                ]
-              }
-            ]
-          }
-        ],
-        "measures": [
-          {
-            "name": "Stock Adjustment Budget 1",
-            "expression": "CALCULATE(SUM(Budget[Budget]),NominalCode[Nominal Category]=\"Stock Adjustment\")",
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          },
-          {
-            "name": "ObsolescenceBudget1",
-            "expression": "CALCULATE(SUM(Budget[Budget]),NominalCode[Nominal Category]=\"Obsolesence\")",
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          },
-          {
-            "name": "ObsolescenceValue",
-            "expression": "CALCULATE(SUM(Obsolescence[Obsolescence Value]))",
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          },
-          {
-            "name": "Stock Adjustment Value",
-            "expression": "CALCULATE(SUM(Obsolescence[Stock Value]))",
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          }
-        ],
-        "annotations": [
-          {
-            "name": "_TM_ExtProp_QueryDefinition",
-            "value": " SELECT [fact].[Obsolescence].* FROM [fact].[Obsolescence] "
-          },
-          {
-            "name": "_TM_ExtProp_DbTableName",
-            "value": "Obsolescence"
-          },
-          {
-            "name": "_TM_ExtProp_DbSchemaName",
-            "value": "fact"
-          },
-          {
-            "name": "TableWidgetSerialization",
-            "value": [
-              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
-              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
-              "  <ColumnSuggestedType />",
-              "  <ColumnFormat />",
-              "  <ColumnAccuracy />",
-              "  <ColumnCurrencySymbol />",
-              "  <ColumnPositivePattern />",
-              "  <ColumnNegativePattern />",
-              "  <ColumnWidths>",
-              "    <item>",
-              "      <key>",
-              "        <string>ID</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>41</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Depot</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>59</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Depot Code</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>87</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Part</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>50</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Part Number</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>90</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>53</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Obsolescence Category</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>144</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Obsolescence Value</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>125</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Stock Value</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>85</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Obsolescence Quantity</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>141</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Surcharge Value</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>108</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Obsolescence Surcharge</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>148</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Complete</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>75</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Completed Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>107</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>DW_CreatedDate</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>115</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>DW_ModifiedDate</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>116</int>",
-              "      </value>",
-              "    </item>",
-              "  </ColumnWidths>",
-              "  <ColumnDisplayIndex>",
-              "    <item>",
-              "      <key>",
-              "        <string>ID</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>0</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Depot</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>1</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Depot Code</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>2</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Part</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>3</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Part Number</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>4</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>5</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Obsolescence Category</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>6</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Obsolescence Value</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>7</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Stock Value</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>8</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Obsolescence Quantity</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>9</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Surcharge Value</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>10</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Obsolescence Surcharge</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>11</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Complete</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>12</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Completed Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>13</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>DW_CreatedDate</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>14</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>DW_ModifiedDate</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>15</int>",
-              "      </value>",
-              "    </item>",
-              "  </ColumnDisplayIndex>",
-              "  <ColumnFrozen />",
-              "  <ColumnChecked />",
-              "  <ColumnFilter />",
-              "  <SelectionFilter />",
-              "  <FilterParameters />",
-              "  <IsSortDescending>false</IsSortDescending>",
-              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
-            ]
-          }
-        ]
-      },
-      {
         "name": "WarrantyOutstandingAmount",
         "columns": [
           {
@@ -6081,7 +5358,7 @@
         ],
         "measures": [
           {
-            "name": "Warranty Count (0-30 days)",
+            "name": "Warranty Count 2(0-30 days)",
             "expression": "0+CALCULATE(DISTINCTCOUNT(WarrantyOutstandingAmount[Invoice Number]),WarrantyOutstandingAmount[Warrant Age] <=30)"
           },
           {
@@ -6093,7 +5370,7 @@
             "expression": "0+CALCULATE(DISTINCTCOUNT(WarrantyOutstandingAmount[Invoice Number]),WarrantyOutstandingAmount[Warrant Age] >30 && WarrantyOutstandingAmount[Warrant Age]>60 )"
           },
           {
-            "name": "Outstanding Warranty Amount(Age 0-30 days)",
+            "name": "Outstanding Warranty Amount1(Age 0-30 days)",
             "expression": [
               "0+",
               " CALCULATE( SUM(WarrantyOutstandingAmount[Outstanding Amount]), WarrantyOutstandingAmount[Warrant Age] <=30)"
@@ -6107,7 +5384,7 @@
             ]
           },
           {
-            "name": "Outstanding Warranty Amount(Age 31-60 days)",
+            "name": "Outstanding Warranty Amount1(Age 31-60 days)",
             "expression": [
               "0+",
               " CALCULATE( SUM(WarrantyOutstandingAmount[Outstanding Amount]), WarrantyOutstandingAmount[Warrant Age] >30 && WarrantyOutstandingAmount[Warrant Age] <=60)"
@@ -7515,6 +6792,14 @@
           {
             "name": "Stock Adjustment Budget",
             "expression": "CALCULATE(SUM(Budget[Budget]),NominalCode[Nominal Category]=\"Stock Adjustment\")"
+          },
+          {
+            "name": "Stock Adjustment Value",
+            "expression": "CALCULATE(SUM(CurrentObsolescence[Stock Value]))"
+          },
+          {
+            "name": "ObsolescenceValue",
+            "expression": "CALCULATE(SUM(CurrentObsolescence[Obsolescence Value]))"
           }
         ],
         "annotations": [
@@ -7729,6 +7014,27 @@
                 "name": "Format",
                 "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
               }
+            ]
+          },
+          {
+            "name": "Outstanding Credit Amount(Age 0-30 days)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(CurrentOutstandingCredit[Parts Value]),CurrentOutstandingCredit[Credit Age]<30)"
+            ]
+          },
+          {
+            "name": "Outstanding Credit Amount(Age 31-60 days)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(CurrentOutstandingCredit[Parts Value]),CurrentOutstandingCredit[Credit Age]>30 && CurrentOutstandingCredit[Credit Age]<=60)"
+            ]
+          },
+          {
+            "name": "Outstanding Credit Amount(Age >60 days)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(CurrentOutstandingCredit[Parts Value]),CurrentOutstandingCredit[Credit Age]>60)"
             ]
           }
         ],
@@ -9423,6 +8729,135 @@
             ]
           }
         ]
+      },
+      {
+        "name": "CurrentWarrantyOutstandingAmount",
+        "columns": [
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date",
+            "formatString": "General Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Invoice Number",
+            "dataType": "string",
+            "sourceColumn": "Invoice Number",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Document Type",
+            "dataType": "string",
+            "sourceColumn": "Document Type",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Depot",
+            "dataType": "int64",
+            "sourceColumn": "Depot",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Total Amount",
+            "dataType": "double",
+            "sourceColumn": "Total Amount",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Outstanding Amount",
+            "dataType": "double",
+            "sourceColumn": "Outstanding Amount",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Invoice Date",
+            "dataType": "string",
+            "sourceColumn": "Invoice Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Due Date",
+            "dataType": "string",
+            "sourceColumn": "Due Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Reference",
+            "dataType": "string",
+            "sourceColumn": "Reference",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Complete",
+            "dataType": "boolean",
+            "sourceColumn": "Complete",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "Boolean"
+          },
+          {
+            "name": "Completed Date",
+            "dataType": "string",
+            "sourceColumn": "Completed Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Warranty Age",
+            "dataType": "int64",
+            "sourceColumn": "Warranty Age",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Warranty Age(Months)",
+            "dataType": "int64",
+            "sourceColumn": "Warranty Age(Months)",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CurrentWarrantyOutstandingAmount",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [report].[CurrentWarrantyOutstandingAmount].* FROM [report].[CurrentWarrantyOutstandingAmount] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Warranty Count (0-30 days)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentWarrantyOutstandingAmount[Invoice Number]),CurrentWarrantyOutstandingAmount[Warranty Age]<=30)"
+          },
+          {
+            "name": "Outstanding Warranty Amount2(Age 0-30 days)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(CurrentWarrantyOutstandingAmount[Outstanding Amount]), CurrentWarrantyOutstandingAmount[Warranty Age] <=30)"
+            ]
+          },
+          {
+            "name": "Outstanding Warranty Amount(Age 31-60 days)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(CurrentWarrantyOutstandingAmount[Outstanding Amount]), CurrentWarrantyOutstandingAmount[Warranty Age]  >30 && CurrentWarrantyOutstandingAmount[Warranty Age] <=60)"
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [report].[CurrentWarrantyOutstandingAmount].* FROM [report].[CurrentWarrantyOutstandingAmount] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CurrentWarrantyOutstandingAmount"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "report"
+          }
+        ]
       }
     ],
     "relationships": [
@@ -9520,20 +8955,6 @@
       {
         "name": "8bfa0e36-9c9d-4b87-ae14-582023cf1cd3",
         "fromTable": "DepotWorkingDays",
-        "fromColumn": "Date",
-        "toTable": "Date",
-        "toColumn": "Date"
-      },
-      {
-        "name": "bc5f0eb8-951e-43d6-bd19-45f8cef85e11",
-        "fromTable": "Obsolescence",
-        "fromColumn": "Depot",
-        "toTable": "Depot",
-        "toColumn": "ID"
-      },
-      {
-        "name": "b64fafa8-91dd-4844-9089-43aa94a4a664",
-        "fromTable": "Obsolescence",
         "fromColumn": "Date",
         "toTable": "Date",
         "toColumn": "Date"
@@ -9656,6 +9077,20 @@
         "fromTable": "CurrentOutstandingQueries",
         "fromColumn": "Branch",
         "toTable": "Branch",
+        "toColumn": "ID"
+      },
+      {
+        "name": "aebe0f14-fe29-4f4d-b30c-1373287ff56a",
+        "fromTable": "CurrentWarrantyOutstandingAmount",
+        "fromColumn": "Date",
+        "toTable": "Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "389de119-66fb-4c19-9e8d-8973a17fa793",
+        "fromTable": "CurrentWarrantyOutstandingAmount",
+        "fromColumn": "Depot",
+        "toTable": "Depot",
         "toColumn": "ID"
       }
     ],
