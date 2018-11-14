@@ -385,8 +385,14 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "DBDate"
+            "formatString": "Short Date",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Year",
@@ -438,8 +444,14 @@
             "dataType": "dateTime",
             "isHidden": true,
             "sourceColumn": "Week Start Date",
-            "formatString": "General Date",
-            "sourceProviderType": "DBDate"
+            "formatString": "Short Date",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Week Name",
@@ -1799,8 +1811,14 @@
             "dataType": "dateTime",
             "isHidden": true,
             "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "DBDate"
+            "formatString": "Short Date",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Working Days",
@@ -2905,8 +2923,14 @@
             "dataType": "dateTime",
             "isHidden": true,
             "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "DBDate"
+            "formatString": "Short Date",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Revenue",
@@ -3181,7 +3205,7 @@
           },
           {
             "name": "LabourSales",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Labour\",NominalCode[Nominal Type]=\"Sales\")",
+            "expression": "0+CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Labour\",NominalCode[Nominal Type]=\"Sales\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -3203,7 +3227,7 @@
           },
           {
             "name": "OtherSales",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Other\",NominalCode[Nominal Type]=\"Sales\")",
+            "expression": "0+CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Other\",NominalCode[Nominal Type]=\"Sales\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -3251,7 +3275,7 @@
           },
           {
             "name": "PartsSales",
-            "expression": "[FrontCounterSales]+[BackCounterSales]",
+            "expression": "0+[FrontCounterSales]+[BackCounterSales]",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -3315,7 +3339,7 @@
             "expression": "ROUND((DIVIDE([LabourSales],[WorkShopSoldHours])),2)"
           },
           {
-            "name": "PartsPerHoursSold",
+            "name": "Parts Per Hour Sold",
             "expression": "(DIVIDE([WorkShopSoldHours],[PartsSales]))",
             "formatString": "0.00"
           },
@@ -3359,11 +3383,37 @@
           },
           {
             "name": "WorkdaysInMonth LY",
-            "expression": "CALCULATE(MAX(DepotWorkingDays[Working Days]),'Date'[Month]=MONTH(TODAY()-1),'Date'[Year]=YEAR(TODAY()-1))"
+            "expression": "CALCULATE(MAX(DepotWorkingDays[Working Days]),'Date'[Month]=MONTH(TODAY()),'Date'[Year]=YEAR(TODAY()-1))"
           },
           {
             "name": "Recovery Rate Budget",
-            "expression": "ROUND((DIVIDE([LabourSalesBudget],SoldHoursBudget[SoldHoursBudget])),2)"
+            "expression": "ROUND((DIVIDE([LabourSalesBudget],SoldHoursBudget[HoursBudget])),2)"
+          },
+          {
+            "name": "BackCounterSalesPerformanceAgaistFlxBudget",
+            "expression": "DIVIDE([BackCounterSales],[BackCounterSalesFlxBudget])"
+          },
+          {
+            "name": "FrontCounterSalesStatus",
+            "expression": "0+IF([FrontCounterSales]>[FrontCounterSalesBudget],1,0)"
+          },
+          {
+            "name": "Doc Summary",
+            "expression": "\"SALES SUMMARY\""
+          },
+          {
+            "name": "Front Counter Sales Performance Against Front Counter Budget %",
+            "expression": "((DIVIDE([FrontCounterSales],[FrontCounterSalesBudget])))",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Back Counter Sales Performance Against Back Counter Budget %",
+            "expression": "((DIVIDE([BackCounterSales],[BackCounterSalesBudget])))",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Recoverate Colour",
+            "expression": "SWITCH(TRUE(),[RecoveryRate]>[Recovery Rate Budget],1,0)"
           }
         ],
         "annotations": [
@@ -3588,8 +3638,14 @@
             "dataType": "dateTime",
             "isHidden": true,
             "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "DBDate"
+            "formatString": "Short Date",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Budget",
@@ -3751,26 +3807,22 @@
           {
             "name": "HoursBudget",
             "expression": "CALCULATE(SUM(SoldHoursBudget[Budget]))",
-            "formatString": "0"
+            "formatString": "#,0"
           },
           {
             "name": "HoursFlxBudget",
             "expression": "DIVIDE([HoursBudget],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]",
-            "formatString": "0"
+            "formatString": "#,0"
           },
           {
             "name": "HoursToDoBudget",
             "expression": "[HoursBudget]-[WorkShopSoldHours]",
-            "formatString": "0"
+            "formatString": "#,0"
           },
           {
-            "name": "DailyTarget",
-            "expression": "0+DIVIDE([HoursBudget],[WorkdaysInMonth])",
-            "formatString": "0"
-          },
-          {
-            "name": "SoldHoursBudget",
-            "expression": "CALCULATE(SUM(SoldHoursBudget[Budget]),UtilizationStats[Category]=\"Workshop\")"
+            "name": "Daily Target",
+            "expression": "DIVIDE(SoldHoursBudget[HoursBudget]-[WorkShopSoldHours],[WorkdaysInMonth]-[ElapsedWorkingDaysInMonth])",
+            "formatString": "#,0"
           }
         ],
         "annotations": [
@@ -3930,8 +3982,14 @@
             "dataType": "dateTime",
             "isHidden": true,
             "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "DBDate"
+            "formatString": "Short Date",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Sold",
@@ -4256,28 +4314,32 @@
           {
             "name": "WorkShopProducedHours",
             "expression": "(CALCULATE(SUM(UtilizationStats[Produced])))",
-            "formatString": "0"
+            "formatString": "#,0"
           },
           {
             "name": "WorkShopTakenHours",
-            "expression": "CALCULATE(SUM(UtilizationStats[Taken]),UtilizationStats[Category]=\"WorkShop\")"
+            "expression": "CALCULATE(SUM(UtilizationStats[Taken]))",
+            "formatString": "0"
           },
           {
             "name": "WorkShopAttendedHours",
-            "expression": "CALCULATE(SUM(UtilizationStats[Attended]),UtilizationStats[Category]=\"WorkShop\")"
+            "expression": "CALCULATE(SUM(UtilizationStats[Attended]))",
+            "formatString": "0"
           },
           {
             "name": "BodyShopSoldHours",
-            "expression": "(CALCULATE(SUM(UtilizationStats[Sold]),UtilizationStats[Category]=\"BodyShop\"))"
+            "expression": "(CALCULATE(SUM(UtilizationStats[Sold]),UtilizationStats[Category]=\"BodyShop\"))",
+            "formatString": "0"
           },
           {
-            "name": "BodyShopProducedHours",
-            "expression": "(CALCULATE(SUM(UtilizationStats[Produced]),UtilizationStats[Category]=\"BodyShop\"))"
+            "name": "BodyShopProducedHours1",
+            "expression": "(CALCULATE(SUM(UtilizationStats[Produced]),UtilizationStats[Category]=\"BodyShop\"))",
+            "formatString": "0"
           },
           {
             "name": "WorkShopSoldHours",
             "expression": "(CALCULATE(SUM(UtilizationStats[Sold])))",
-            "formatString": "0"
+            "formatString": "#,0"
           },
           {
             "name": "Utilisation%",
@@ -4300,6 +4362,11 @@
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
+            "name": "WorhShopHoursPerformanceAgainstFlxBudget",
+            "expression": "DIVIDE([WorkShopSoldHours],[HoursFlxBudget])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
             "name": "RegionalProducedHoursAgainstFlxBudget %",
             "expression": "((DIVIDE([WorkShopProducedHours],[HoursFlxBudget])))",
             "formatString": "0.0%;-0.0%;0.0%"
@@ -4308,22 +4375,6 @@
             "name": "NetLabourRate",
             "expression": "(DIVIDE([LabourSales],[WorkShopAttendedHours]))",
             "formatString": "0"
-          },
-          {
-            "name": "WorhShopHoursPerformanceAgainstFlxBudget",
-            "expression": "DIVIDE([WorkShopSoldHours],[HoursFlxBudget])",
-            "formatString": "0.0%;-0.0%;0.0%"
-          },
-          {
-            "name": "LastDayInvoiced",
-            "expression": "CALCULATE([WorkShopSoldHours],'Date'[Date]=TODAY()-1)",
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
           },
           {
             "name": "HoursProducedAgainstFlxBudget %",
@@ -4381,13 +4432,34 @@
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "WorhShopHoursPerformanceAgainstTotalBudget",
+            "name": "WorkShop Sold Hours Against Total Budget",
             "expression": "DIVIDE([WorkShopSoldHours],[HoursBudget])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Produced Hours Last Year",
-            "expression": "CALCULATE(SUM(UtilizationStats[Produced]),all('Date'[Date]),month('Date'[Date])=month(TODAY()) && year('Date'[Date])=YEAR(TODAY())-1)"
+            "expression": "CALCULATE(SUM(UtilizationStats[Produced]),all('Date'[Date]),month('Date'[Date])=month(TODAY()) && year('Date'[Date])=YEAR(TODAY())-1)",
+            "formatString": "#,0"
+          },
+          {
+            "name": "LastDayInvoiced",
+            "expression": "CALCULATE([WorkShopSoldHours],'Date'[Date]=TODAY()-1)",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Work Shop Hours X",
+            "expression": "[WorkShopSoldHours]+[WorkShopProducedHours]",
+            "formatString": "0"
+          },
+          {
+            "name": "Work X",
+            "expression": "DIVIDE([Work Shop Hours X],SoldHoursBudget[HoursBudget])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "WorkShop Produced Hours Against Total Budget",
+            "expression": "DIVIDE([WorkShopProducedHours],[HoursBudget])",
+            "formatString": "0.0%;-0.0%;0.0%"
           }
         ],
         "annotations": [
@@ -4675,8 +4747,14 @@
             "dataType": "dateTime",
             "isHidden": true,
             "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Budget",
@@ -4951,6 +5029,17 @@
             ]
           },
           {
+            "name": "Parts Sales FlxBudget",
+            "expression": "DIVIDE([PartsBudget],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
             "name": "PartsSales vs FlxBudget %",
             "expression": "DIVIDE([PartsSales],[Parts Sales FlxBudget])",
             "formatString": "0.0%;-0.0%;0.0%"
@@ -5033,30 +5122,8 @@
             ]
           },
           {
-            "name": "Parts Sales FlxBudget",
-            "expression": "DIVIDE([PartsBudget],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]",
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          },
-          {
-            "name": "Copy of BackCounterSalesMarginFlxBudget",
-            "expression": "CALCULATE([SalesFlxBudget],NominalCode[Nominal Category]=\"Back Counter\" && NominalCode[Nominal Category]=\"Front Counter\")",
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          },
-          {
-            "name": "Copy of Parts Margin FlxBudget",
-            "expression": "CALCULATE((DIVIDE([PartsSalesMargin],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]))",
+            "name": "Parts Margin Flx Budget",
+            "expression": "[FrontCounterSalesMarginFlxBudget]+[BackCounterSalesMarginFlxBudget]",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -5218,230 +5285,19 @@
         ]
       },
       {
-        "name": "WarrantyOutstandingAmount",
-        "columns": [
-          {
-            "name": "ID",
-            "dataType": "int64",
-            "isHidden": true,
-            "sourceColumn": "ID",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "Invoice Number",
-            "dataType": "string",
-            "isHidden": true,
-            "sourceColumn": "Invoice Number",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "Document Type",
-            "dataType": "string",
-            "isHidden": true,
-            "sourceColumn": "Document Type",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "Depot",
-            "dataType": "int64",
-            "isHidden": true,
-            "sourceColumn": "Depot",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "Date",
-            "dataType": "dateTime",
-            "isHidden": true,
-            "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
-          },
-          {
-            "name": "Total Amount",
-            "dataType": "double",
-            "isHidden": true,
-            "sourceColumn": "Total Amount",
-            "sourceProviderType": "Numeric"
-          },
-          {
-            "name": "Outstanding Amount",
-            "dataType": "double",
-            "isHidden": true,
-            "sourceColumn": "Outstanding Amount",
-            "sourceProviderType": "Numeric"
-          },
-          {
-            "name": "Invoice Date",
-            "dataType": "string",
-            "isHidden": true,
-            "sourceColumn": "Invoice Date",
-            "sourceProviderType": "WChar"
-          },
-          {
-            "name": "Due Date",
-            "dataType": "string",
-            "isHidden": true,
-            "sourceColumn": "Due Date",
-            "sourceProviderType": "WChar"
-          },
-          {
-            "name": "Reference",
-            "dataType": "string",
-            "isHidden": true,
-            "sourceColumn": "Reference",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "Complete",
-            "dataType": "boolean",
-            "isHidden": true,
-            "sourceColumn": "Complete",
-            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
-            "sourceProviderType": "Boolean"
-          },
-          {
-            "name": "Completed Date",
-            "dataType": "string",
-            "isHidden": true,
-            "sourceColumn": "Completed Date",
-            "sourceProviderType": "WChar"
-          },
-          {
-            "name": "DW_CreatedDate",
-            "dataType": "dateTime",
-            "isHidden": true,
-            "sourceColumn": "DW_CreatedDate",
-            "formatString": "General Date",
-            "sourceProviderType": "DBTimeStamp"
-          },
-          {
-            "name": "DW_ModifiedDate",
-            "dataType": "dateTime",
-            "isHidden": true,
-            "sourceColumn": "DW_ModifiedDate",
-            "formatString": "General Date",
-            "sourceProviderType": "DBTimeStamp"
-          },
-          {
-            "type": "calculated",
-            "name": "Warrant Age",
-            "dataType": "int64",
-            "isDataTypeInferred": true,
-            "expression": [
-              "",
-              "Var CurrentMonth= MONTH(Today())",
-              "VAR CurrentYear= YEAR(Today())",
-              "",
-              "VAR MaxDate1= CALCULATE(",
-              "                    Max('Date'[Date]), ",
-              "                    filter(",
-              "                            all('Date'[Date]),",
-              "                             month('Date'[Date]) =CurrentMonth && Year('Date'[Date]) =CurrentYear",
-              "                    )",
-              ")",
-              "return DATEDIFF(WarrantyOutstandingAmount[Invoice Date],MAXDate1,DAY)"
-            ]
-          }
-        ],
-        "partitions": [
-          {
-            "name": "WarrantyOutstandingAmount",
-            "dataView": "full",
-            "source": {
-              "query": " SELECT [fact].[WarrantyOutstandingAmount].* FROM [fact].[WarrantyOutstandingAmount] ",
-              "dataSource": "SqlServerConn"
-            }
-          }
-        ],
-        "measures": [
-          {
-            "name": "Warranty Count (Age 31-60 days)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(WarrantyOutstandingAmount[Invoice Number]),WarrantyOutstandingAmount[Warrant Age] >30 && WarrantyOutstandingAmount[Warrant Age] <=60 )"
-          },
-          {
-            "name": "Warranty Count (Age > 60 days)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(WarrantyOutstandingAmount[Invoice Number]),WarrantyOutstandingAmount[Warrant Age] >30 && WarrantyOutstandingAmount[Warrant Age]>60 )"
-          },
-          {
-            "name": "Outstanding Warranty Amount(Age > 60 days)",
-            "expression": [
-              "0+",
-              " CALCULATE( SUM(WarrantyOutstandingAmount[Outstanding Amount]), WarrantyOutstandingAmount[Warrant Age] >60)"
-            ],
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          },
-          {
-            "name": "Warranty Amount OutStanding",
-            "expression": "CALCULATE(SUM(WarrantyOutstandingAmount[Outstanding Amount]))",
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          },
-          {
-            "name": "Warranty Count 2(0-30 days)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(WarrantyOutstandingAmount[Invoice Number]),WarrantyOutstandingAmount[Warrant Age] <=30)"
-          },
-          {
-            "name": "Outstanding Warranty Amount1(Age 0-30 days)",
-            "expression": [
-              "0+",
-              " CALCULATE( SUM(WarrantyOutstandingAmount[Outstanding Amount]), WarrantyOutstandingAmount[Warrant Age] <=30)"
-            ],
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          },
-          {
-            "name": "Outstanding Warranty Amount1(Age 31-60 days)",
-            "expression": [
-              "0+",
-              " CALCULATE( SUM(WarrantyOutstandingAmount[Outstanding Amount]), WarrantyOutstandingAmount[Warrant Age] >30 && WarrantyOutstandingAmount[Warrant Age] <=60)"
-            ],
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          }
-        ],
-        "annotations": [
-          {
-            "name": "_TM_ExtProp_QueryDefinition",
-            "value": " SELECT [fact].[WarrantyOutstandingAmount].* FROM [fact].[WarrantyOutstandingAmount] "
-          },
-          {
-            "name": "_TM_ExtProp_DbTableName",
-            "value": "WarrantyOutstandingAmount"
-          },
-          {
-            "name": "_TM_ExtProp_DbSchemaName",
-            "value": "fact"
-          }
-        ]
-      },
-      {
         "name": "CurrentRevenueDate",
         "columns": [
           {
             "name": "Revenue Refresh Date",
-            "dataType": "string",
-            "sourceColumn": "Revenue Refresh Date"
+            "dataType": "dateTime",
+            "sourceColumn": "Revenue Refresh Date",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -5484,9 +5340,16 @@
         "columns": [
           {
             "name": "Cash Sale Outstanding Date",
-            "dataType": "string",
+            "dataType": "dateTime",
             "sourceColumn": "Cash Sale Outstanding Date",
-            "sourceProviderType": "WChar"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -5519,9 +5382,16 @@
         "columns": [
           {
             "name": "Utilization Stats Date",
-            "dataType": "string",
+            "dataType": "dateTime",
             "sourceColumn": "Utilization Stats Date",
-            "sourceProviderType": "WChar"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -5554,9 +5424,16 @@
         "columns": [
           {
             "name": "Work In Progress Refresh Date",
-            "dataType": "string",
+            "dataType": "dateTime",
             "sourceColumn": "Work In Progress Refresh Date",
-            "sourceProviderType": "WChar"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -5624,9 +5501,16 @@
         "columns": [
           {
             "name": "Obsolescence Refresh Date",
-            "dataType": "string",
+            "dataType": "dateTime",
             "sourceColumn": "Obsolescence Refresh Date",
-            "sourceProviderType": "WChar"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -5659,9 +5543,16 @@
         "columns": [
           {
             "name": "Outstanding Credit Refresh Date",
-            "dataType": "string",
+            "dataType": "dateTime",
             "sourceColumn": "Outstanding Credit Refresh Date",
-            "sourceProviderType": "WChar"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -5694,9 +5585,16 @@
         "columns": [
           {
             "name": "Outstanding Query Refresh Date",
-            "dataType": "string",
+            "dataType": "dateTime",
             "sourceColumn": "Outstanding Query Refresh Date",
-            "sourceProviderType": "WChar"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -5729,9 +5627,16 @@
         "columns": [
           {
             "name": "Parts Outstanding Payment Refresh Date",
-            "dataType": "string",
+            "dataType": "dateTime",
             "sourceColumn": "Parts Outstanding Payment Refresh Date",
-            "sourceProviderType": "WChar"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -5764,9 +5669,16 @@
         "columns": [
           {
             "name": "Sublet Outstanding PaymentRefresh Date",
-            "dataType": "string",
+            "dataType": "dateTime",
             "sourceColumn": "Sublet Outstanding PaymentRefresh Date",
-            "sourceProviderType": "WChar"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -5799,9 +5711,16 @@
         "columns": [
           {
             "name": "Warranty Outstanding Refresh Date",
-            "dataType": "string",
+            "dataType": "dateTime",
             "sourceColumn": "Warranty Outstanding Refresh Date",
-            "sourceProviderType": "WChar"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -6181,8 +6100,14 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "WIP Hours",
@@ -6231,8 +6156,14 @@
             "name": "In Date",
             "dataType": "dateTime",
             "sourceColumn": "In Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "WIP Age",
@@ -6464,28 +6395,71 @@
         "measures": [
           {
             "name": "WIP Count (Age 0-30 days)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentWIP[WIP Number]),CurrentWIP[WIP Age] <=30)"
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentWIP[WIP Number]),CurrentWIP[WIP Age] <=30)",
+            "formatString": "#,0"
           },
           {
             "name": "WIP Count (Age > 60 days)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentWIP[WIP Number]),CurrentWip[WIP Age] >60)"
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentWIP[WIP Number]),CurrentWip[WIP Age] >60)",
+            "formatString": "#,0"
           },
           {
             "name": "Target",
             "expression": "DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])"
           },
           {
-            "name": "WIP Target",
-            "expression": "DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])*3",
-            "formatString": "0"
-          },
-          {
             "name": "WIP Days",
-            "expression": "IF( [Target]=0,0, DIVIDE(CALCULATE(SUM('CurrentWIP'[WIP Hours])),[Target]))"
+            "expression": "IF([Target]=0,0, DIVIDE(CALCULATE(SUM('CurrentWIP'[WIP Hours])),[Target]))"
           },
           {
             "name": "WIP Count (Age 31-60 days)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentWIP[WIP Number]),CurrentWIP[WIP Age] >30 && CurrentWIP[WIP Age] <=60)"
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentWIP[WIP Number]),CurrentWIP[WIP Age] >30 && CurrentWIP[WIP Age] <=60)",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Current WIP",
+            "expression": "CALCULATE(SUM(CurrentWIP[WIP Hours]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "**my Target",
+            "expression": [
+              "switch",
+              "\t\t(",
+              "\t\t  LASTNONBLANK ('Depot'[Depot],0),",
+              "\t\t\t\"Sheffield Body shop\",",
+              "\t\t   CALCULATE(CALCULATE(DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])*5,Depot[Depot]=\"sheffied body body\")",
+              "\t\t\t\t\t\t\t\t\t),",
+              "\t\t\t",
+              "\t\t\t\t\t\t[WIP Target]\t\t\t)"
+            ],
+            "formatString": "0"
+          },
+          {
+            "name": "Sheffield Body shop WIP Target",
+            "expression": [
+              "",
+              "                                    CALCULATE(DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])*5,FILTER('Region-Depot-Branch','Region-Depot-Branch'[Depot]=\"Sheffield body shop\"))"
+            ],
+            "formatString": "0"
+          },
+          {
+            "name": "WIP Target",
+            "expression": "IF(OR(ISBLANK([Sheffield Body shop WIP Target]),[Sheffield Body shop WIP Target]=0),DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3,[Sheffield Body shop WIP Target])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "BodyShopProducedHours",
+            "expression": "(CALCULATE(SUM(UtilizationStats[Produced]),UtilizationStats[Category]=\"BodyShop\"))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Copy of WIP Target",
+            "expression": [
+              "(IF(OR(ISBLANK([Sheffield Body shop WIP Target]),[Sheffield Body shop WIP Target]=0),DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3,",
+              "                                      DIVIDE([BodyShopProducedHours],[ElapsedWorkingDaysInMonth])*5))"
+            ],
+            "formatString": "#,0"
           }
         ],
         "annotations": [
@@ -6784,19 +6758,47 @@
         "measures": [
           {
             "name": "ObsolescenceBudget",
-            "expression": "CALCULATE(SUM(Budget[Budget]),NominalCode[Nominal Category]=\"Obsolesence\")"
+            "expression": "CALCULATE(SUM(Budget[Budget]),NominalCode[Nominal Category]=\"Obsolesence\")",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "Stock Adjustment Budget",
-            "expression": "CALCULATE(SUM(Budget[Budget]),NominalCode[Nominal Category]=\"Stock Adjustment\")"
+            "expression": "CALCULATE(SUM(Budget[Budget]),NominalCode[Nominal Category]=\"Stock Adjustment\")",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "Stock Adjustment Value",
-            "expression": "CALCULATE(SUM(CurrentObsolescence[Stock Value]))"
+            "expression": "CALCULATE(SUM(CurrentObsolescence[Stock Value]))",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "ObsolescenceValue",
-            "expression": "CALCULATE(SUM(CurrentObsolescence[Obsolescence Value]))"
+            "expression": "CALCULATE(SUM(CurrentObsolescence[Obsolescence Value]))",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           }
         ],
         "annotations": [
@@ -6834,8 +6836,14 @@
             "name": "Credit Date",
             "dataType": "dateTime",
             "sourceColumn": "Credit Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Credit State",
@@ -6949,7 +6957,7 @@
           },
           {
             "name": "Oustanding Credit Payment(Current Month OD)",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Parts Value]),CurrentOutstandingCredit[Credit Age(Months)]=0)",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]=0)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -6960,7 +6968,7 @@
           },
           {
             "name": "Oustanding Credit Payment(1  Month OD)",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Parts Value]),CurrentOutstandingCredit[Credit Age(Months)]=1)",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]=1)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -6971,7 +6979,7 @@
           },
           {
             "name": "Oustanding Credit Payment(2  Month OD)",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Parts Value]),CurrentOutstandingCredit[Credit Age(Months)]=2)",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]=2)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -6982,7 +6990,7 @@
           },
           {
             "name": "Oustanding Credit Payment(3  Month OD)",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Parts Value]),CurrentOutstandingCredit[Credit Age(Months)]=3)",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]=3)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -6993,7 +7001,7 @@
           },
           {
             "name": "Oustanding Credit Payment(4  Month OD+)",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Parts Value]),CurrentOutstandingCredit[Credit Age(Months)]>=4)",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]>=4)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -7004,7 +7012,7 @@
           },
           {
             "name": "Credit Value",
-            "expression": "CALCULATE(SUM(CurrentOutstandingCredit[Parts Value]))",
+            "expression": "CALCULATE(SUM(CurrentOutstandingCredit[Total]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -7017,21 +7025,42 @@
             "name": "Outstanding Credit Amount(Age 0-30 days)",
             "expression": [
               "0+",
-              " CALCULATE( SUM(CurrentOutstandingCredit[Parts Value]),CurrentOutstandingCredit[Credit Age]<30)"
+              " CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age]<30)"
+            ],
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
             ]
           },
           {
             "name": "Outstanding Credit Amount(Age 31-60 days)",
             "expression": [
               "0+",
-              " CALCULATE( SUM(CurrentOutstandingCredit[Parts Value]),CurrentOutstandingCredit[Credit Age]>30 && CurrentOutstandingCredit[Credit Age]<=60)"
+              " CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age]>30 && CurrentOutstandingCredit[Credit Age]<=60)"
+            ],
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
             ]
           },
           {
             "name": "Outstanding Credit Amount(Age >60 days)",
             "expression": [
               "0+",
-              " CALCULATE( SUM(CurrentOutstandingCredit[Parts Value]),CurrentOutstandingCredit[Credit Age]>60)"
+              " CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age]>60)"
+            ],
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
             ]
           }
         ],
@@ -7057,8 +7086,14 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Depot",
@@ -7076,8 +7111,14 @@
             "name": "GRN Date",
             "dataType": "dateTime",
             "sourceColumn": "GRN Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "PO Number",
@@ -7159,23 +7200,28 @@
         "measures": [
           {
             "name": "Parts Payment Count (0 Month OD)",
-            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingPartsPayment,CurrentOutstandingPartsPayment[PO Number],CurrentOutstandingPartsPayment[Depot],CurrentOutstandingPartsPayment[Line Number],CurrentOutstandingPartsPayment[GRN],CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=0))"
+            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingPartsPayment,CurrentOutstandingPartsPayment[PO Number],CurrentOutstandingPartsPayment[Depot],CurrentOutstandingPartsPayment[Line Number],CurrentOutstandingPartsPayment[GRN],CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=0))",
+            "formatString": "#,0"
           },
           {
             "name": "Parts Payment Count (1 Month OD)",
-            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingPartsPayment,CurrentOutstandingPartsPayment[PO Number],CurrentOutstandingPartsPayment[Depot],CurrentOutstandingPartsPayment[Line Number],CurrentOutstandingPartsPayment[GRN],CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=1))"
+            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingPartsPayment,CurrentOutstandingPartsPayment[PO Number],CurrentOutstandingPartsPayment[Depot],CurrentOutstandingPartsPayment[Line Number],CurrentOutstandingPartsPayment[GRN],CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=1))",
+            "formatString": "#,0"
           },
           {
             "name": "Parts Payment Count (2 Month OD)",
-            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingPartsPayment,CurrentOutstandingPartsPayment[PO Number],CurrentOutstandingPartsPayment[Depot],CurrentOutstandingPartsPayment[Line Number],CurrentOutstandingPartsPayment[GRN],CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=2))"
+            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingPartsPayment,CurrentOutstandingPartsPayment[PO Number],CurrentOutstandingPartsPayment[Depot],CurrentOutstandingPartsPayment[Line Number],CurrentOutstandingPartsPayment[GRN],CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=2))",
+            "formatString": "#,0"
           },
           {
             "name": "Parts Payment Count (3 Month OD)",
-            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingPartsPayment,CurrentOutstandingPartsPayment[PO Number],CurrentOutstandingPartsPayment[Depot],CurrentOutstandingPartsPayment[Line Number],CurrentOutstandingPartsPayment[GRN],CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=3))"
+            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingPartsPayment,CurrentOutstandingPartsPayment[PO Number],CurrentOutstandingPartsPayment[Depot],CurrentOutstandingPartsPayment[Line Number],CurrentOutstandingPartsPayment[GRN],CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=3))",
+            "formatString": "#,0"
           },
           {
             "name": "Parts Payment Count (4 Month OD+)",
-            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingPartsPayment,CurrentOutstandingPartsPayment[PO Number],CurrentOutstandingPartsPayment[Depot],CurrentOutstandingPartsPayment[Line Number],CurrentOutstandingPartsPayment[GRN],CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]>=4))"
+            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingPartsPayment,CurrentOutstandingPartsPayment[PO Number],CurrentOutstandingPartsPayment[Depot],CurrentOutstandingPartsPayment[Line Number],CurrentOutstandingPartsPayment[GRN],CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]>=4))",
+            "formatString": "#,0"
           },
           {
             "name": "Parts Payment Amount(Current Month OD)",
@@ -7266,8 +7312,14 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Branch",
@@ -7297,8 +7349,14 @@
             "name": "Query Date",
             "dataType": "dateTime",
             "sourceColumn": "Query Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Query Reason",
@@ -7351,27 +7409,39 @@
               "\t\t\t\tSUM(CurrentOutstandingQueries[Outstanding Amount]),",
               "\t\t\t\tDATESBETWEEN('Date'[Date],DATE(2000,1,1),MaxDate)",
               "\t\t\t)"
+            ],
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
             ]
           },
           {
             "name": "Query Count (Current Month)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingQueries[System Match Number]),CurrentOutstandingQueries[QueryAge(Months)]=0)"
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingQueries[System Match Number]),CurrentOutstandingQueries[QueryAge(Months)]=0)",
+            "formatString": "#,0"
           },
           {
             "name": "Query Count (1 Month OD)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingQueries[System Match Number]),CurrentOutstandingQueries[QueryAge(Months)]=1)"
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingQueries[System Match Number]),CurrentOutstandingQueries[QueryAge(Months)]=1)",
+            "formatString": "#,0"
           },
           {
             "name": "Query Count (2 Month OD)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingQueries[System Match Number]),CurrentOutstandingQueries[QueryAge(Months)]=2)"
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingQueries[System Match Number]),CurrentOutstandingQueries[QueryAge(Months)]=2)",
+            "formatString": "#,0"
           },
           {
             "name": "Query Count (3 Month OD)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingQueries[System Match Number]),CurrentOutstandingQueries[QueryAge(Months)]=3)"
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingQueries[System Match Number]),CurrentOutstandingQueries[QueryAge(Months)]=3)",
+            "formatString": "#,0"
           },
           {
             "name": "Query Count (4 Month OD+)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingQueries[System Match Number]),CurrentOutstandingQueries[QueryAge(Months)]>=4)"
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingQueries[System Match Number]),CurrentOutstandingQueries[QueryAge(Months)]>=4)",
+            "formatString": "#,0"
           },
           {
             "name": "Query Amount(Current Month OD)",
@@ -7451,8 +7521,14 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Depot",
@@ -7470,15 +7546,27 @@
             "name": "Due Date",
             "dataType": "dateTime",
             "sourceColumn": "Due Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Invoice Date",
             "dataType": "dateTime",
             "sourceColumn": "Invoice Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Invoice Number",
@@ -7769,15 +7857,18 @@
         "measures": [
           {
             "name": "Cash Outstanding Count (Age 0-30 days)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingCashSale[Invoice Number]),CurrentOutstandingCashSale[Cash OutStanding Age]<=30)"
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingCashSale[Invoice Number]),CurrentOutstandingCashSale[Cash OutStanding Age]<=30)",
+            "formatString": "#,0"
           },
           {
             "name": "Cash Outstanding Count (Age 31-60 days)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingCashSale[Invoice Number]),CurrentOutstandingCashSale[Cash OutStanding Age]>30 && CurrentOutstandingCashSale[Cash OutStanding Age]<=60)"
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingCashSale[Invoice Number]),CurrentOutstandingCashSale[Cash OutStanding Age]>30 && CurrentOutstandingCashSale[Cash OutStanding Age]<=60)",
+            "formatString": "#,0"
           },
           {
             "name": "Cash Outstanding Count (Age> 60 days)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingCashSale[Invoice Number]),CurrentOutstandingCashSale[Cash OutStanding Age]>60)"
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentOutstandingCashSale[Invoice Number]),CurrentOutstandingCashSale[Cash OutStanding Age]>60)",
+            "formatString": "#,0"
           },
           {
             "name": "Cash Outstanding Amount(Age 0-30 days)",
@@ -8071,8 +8162,14 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Depot",
@@ -8096,8 +8193,14 @@
             "name": "GRN Date",
             "dataType": "dateTime",
             "sourceColumn": "GRN Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "PO Line",
@@ -8395,23 +8498,28 @@
         "measures": [
           {
             "name": "SubletPayment Count (0 Month OD)",
-            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=0))"
+            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=0))",
+            "formatString": "#,0"
           },
           {
             "name": "SubletPayment Count (1 Month OD)",
-            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=1))"
+            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=1))",
+            "formatString": "#,0"
           },
           {
             "name": "SubletPayment Count (2 Month OD)",
-            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=2))"
+            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=2))",
+            "formatString": "#,0"
           },
           {
             "name": "SubletPayment Count (3 Month OD)",
-            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=3))"
+            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=3))",
+            "formatString": "#,0"
           },
           {
             "name": "SubletPayment Count (4 Month OD+)",
-            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]>=4))"
+            "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]>=4))",
+            "formatString": "#,0"
           },
           {
             "name": "Sublet Payment Amount(Current Month OD)",
@@ -8734,8 +8842,14 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Invoice Number",
@@ -8769,15 +8883,29 @@
           },
           {
             "name": "Invoice Date",
-            "dataType": "string",
+            "dataType": "dateTime",
             "sourceColumn": "Invoice Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Due Date",
-            "dataType": "string",
+            "dataType": "dateTime",
             "sourceColumn": "Due Date",
-            "sourceProviderType": "WChar"
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
           },
           {
             "name": "Reference",
@@ -8824,13 +8952,21 @@
         "measures": [
           {
             "name": "Warranty Count (0-30 days)",
-            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentWarrantyOutstandingAmount[Invoice Number]),CurrentWarrantyOutstandingAmount[Warranty Age]<=30)"
+            "expression": "0+CALCULATE(DISTINCTCOUNT(CurrentWarrantyOutstandingAmount[Invoice Number]),CurrentWarrantyOutstandingAmount[Warranty Age]<=30)",
+            "formatString": "#,0"
           },
           {
             "name": "Outstanding Warranty Amount(Age 0-30 days)",
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentWarrantyOutstandingAmount[Outstanding Amount]), CurrentWarrantyOutstandingAmount[Warranty Age] <=30)"
+            ],
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
             ]
           },
           {
@@ -8838,6 +8974,48 @@
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentWarrantyOutstandingAmount[Outstanding Amount]), CurrentWarrantyOutstandingAmount[Warranty Age]  >30 && CurrentWarrantyOutstandingAmount[Warranty Age] <=60)"
+            ],
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Warranty Count (Age 31-60 days)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(currentWarrantyOutstandingAmount[Invoice Number]),currentWarrantyOutstandingAmount[Warranty Age] >30 && currentWarrantyOutstandingAmount[Warranty Age] <=60 )",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Warranty Count (Age > 60 days)",
+            "expression": "0+CALCULATE(DISTINCTCOUNT(currentWarrantyOutstandingAmount[Invoice Number]),currentWarrantyOutstandingAmount[Warranty Age] >30 && currentWarrantyOutstandingAmount[Warranty Age]>60 )",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Outstanding Warranty Amount(Age > 60 days)",
+            "expression": [
+              "0+",
+              " CALCULATE( SUM(currentWarrantyOutstandingAmount[Outstanding Amount]),currentWarrantyOutstandingAmount[Warranty Age] >60)"
+            ],
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Warranty Amount OutStanding",
+            "expression": "CALCULATE(SUM(currentWarrantyOutstandingAmount[Outstanding Amount]))",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
             ]
           }
         ],
@@ -8853,6 +9031,198 @@
           {
             "name": "_TM_ExtProp_DbSchemaName",
             "value": "report"
+          }
+        ]
+      },
+      {
+        "name": "WasteCost",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Branch",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Branch",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NominalCode",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NominalCode",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "Date",
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "Complete",
+            "dataType": "boolean",
+            "isHidden": true,
+            "sourceColumn": "Complete",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "Boolean"
+          },
+          {
+            "name": "Completed date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "Completed date",
+            "formatString": "Short Date",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "Journal Ref",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Journal Ref",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Value",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Value",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Doc Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "Doc Date",
+            "formatString": "Short Date",
+            "sourceProviderType": "Char",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "Narrative",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Narrative",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "SL PL Acc Code",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "SL PL Acc Code",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "SL PL Account Name",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "SL PL Account Name",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Item number",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Item number",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Daybook number",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Daybook number",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Journal reference",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Journal reference",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Sequence number",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Sequence number",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DW_CreatedDate",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "DW_CreatedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "DW_ModifiedDate",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "DW_ModifiedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "WasteCost",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [fact].[WasteCost].* FROM [fact].[WasteCost] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Waste Cost",
+            "expression": "CALCULATE(SUM(WasteCost[Value]))",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [fact].[WasteCost].* FROM [fact].[WasteCost] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "WasteCost"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "fact"
           }
         ]
       }
@@ -8952,20 +9322,6 @@
       {
         "name": "8bfa0e36-9c9d-4b87-ae14-582023cf1cd3",
         "fromTable": "DepotWorkingDays",
-        "fromColumn": "Date",
-        "toTable": "Date",
-        "toColumn": "Date"
-      },
-      {
-        "name": "3059f349-3b0c-41bc-97ed-4e9b554286c5",
-        "fromTable": "WarrantyOutstandingAmount",
-        "fromColumn": "Depot",
-        "toTable": "Depot",
-        "toColumn": "ID"
-      },
-      {
-        "name": "2fe84d49-882f-4bfc-935f-5241a9d1a3dc",
-        "fromTable": "WarrantyOutstandingAmount",
         "fromColumn": "Date",
         "toTable": "Date",
         "toColumn": "Date"
@@ -9088,6 +9444,27 @@
         "fromTable": "CurrentWarrantyOutstandingAmount",
         "fromColumn": "Depot",
         "toTable": "Depot",
+        "toColumn": "ID"
+      },
+      {
+        "name": "a10dfc74-820d-4e58-bb0f-dff53e87073f",
+        "fromTable": "WasteCost",
+        "fromColumn": "Branch",
+        "toTable": "Branch",
+        "toColumn": "ID"
+      },
+      {
+        "name": "f9153c6c-d1e2-4f28-a946-af31e136f13f",
+        "fromTable": "WasteCost",
+        "fromColumn": "Date",
+        "toTable": "Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "fe53a18d-7002-4287-9742-aae9daaff3fc",
+        "fromTable": "WasteCost",
+        "fromColumn": "NominalCode",
+        "toTable": "NominalCode",
         "toColumn": "ID"
       }
     ],
@@ -9609,6 +9986,22 @@
           {
             "name": "Depot",
             "filterExpression": "Depot[Depot]=\"Washington\""
+          }
+        ]
+      },
+      {
+        "name": "All Regions",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "Stephen.Bufton@scania.com",
+            "memberId": "Stephen.Bufton@scania.com",
+            "identityProvider": "AzureAD"
+          },
+          {
+            "memberName": "Stephen.Williamson@scania.com",
+            "memberId": "Stephen.Williamson@scania.com",
+            "identityProvider": "AzureAD"
           }
         ]
       }
