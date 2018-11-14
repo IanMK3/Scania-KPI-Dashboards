@@ -1558,6 +1558,12 @@
             ]
           }
         ],
+        "measures": [
+          {
+            "name": "Selected Depot",
+            "expression": "SELECTEDVALUE('Region-Depot-Branch'[Depot])"
+          }
+        ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
@@ -2727,6 +2733,12 @@
             ]
           }
         ],
+        "measures": [
+          {
+            "name": "Selected Region",
+            "expression": "SELECTEDVALUE('Region-Depot-Branch'[Region])"
+          }
+        ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
@@ -3412,7 +3424,7 @@
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "Recoverate Colour",
+            "name": "Recovery Rate Colour",
             "expression": "SWITCH(TRUE(),[RecoveryRate]>[Recovery Rate Budget],1,0)"
           }
         ],

@@ -1558,6 +1558,12 @@
             ]
           }
         ],
+        "measures": [
+          {
+            "name": "Selected Depot",
+            "expression": "SELECTEDVALUE('Region-Depot-Branch'[Depot])"
+          }
+        ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
@@ -2725,6 +2731,12 @@
                 ]
               }
             ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Selected Region",
+            "expression": "SELECTEDVALUE('Region-Depot-Branch'[Region])"
           }
         ],
         "annotations": [
