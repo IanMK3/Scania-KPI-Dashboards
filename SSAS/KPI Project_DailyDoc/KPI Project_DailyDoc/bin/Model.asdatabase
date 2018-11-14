@@ -3426,6 +3426,17 @@
           {
             "name": "Recovery Rate Colour",
             "expression": "SWITCH(TRUE(),[RecoveryRate]>[Recovery Rate Budget],1,0)"
+          },
+          {
+            "name": "PartsSales1",
+            "expression": "0+CALCULATE([TotalSales],NominalCode[Nominal Type]=\"Sales\")"
+          },
+          {
+            "name": "PartsSales2",
+            "expression": [
+              "0+CALCULATE([TotalSales],AND(NominalCode[Nominal Category]<>\"labour\",NominalCode[Nominal Category]<>\"Other\"),AND(NominalCode[Nominal Category]<>\"Stock adjustment\",NominalCode[Nominal Category]<>\"Obsolesences\"),",
+              "AND(NominalCode[Nominal Category]<>\"Unknown\",NominalCode[Nominal Category]<>\" \"))"
+            ]
           }
         ],
         "annotations": [
@@ -6472,6 +6483,22 @@
               "                                      DIVIDE([BodyShopProducedHours],[ElapsedWorkingDaysInMonth])*5))"
             ],
             "formatString": "#,0"
+          },
+          {
+            "name": "WIP Target1",
+            "expression": "DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3+[Sheffield Body shop WIP Target]",
+            "formatString": "0"
+          },
+          {
+            "name": "WIP Target2",
+            "expression": "DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3"
+          },
+          {
+            "name": "wwww",
+            "expression": [
+              "SWITCH(TRUE(),VALUE(\"sheffield body shop\"),FORMAT(DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])*5,\"text\")",
+              "                                         ,FORMAT(\"\",\"text\"),FORMAT(DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])*0,\"text\"),FORMAT(DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])*3,\"text\"))"
+            ]
           }
         ],
         "annotations": [
@@ -10006,13 +10033,13 @@
         "modelPermission": "read",
         "members": [
           {
-            "memberName": "Stephen.Bufton@scania.com",
-            "memberId": "Stephen.Bufton@scania.com",
+            "memberName": "Sam.Moustrides@scania.com",
+            "memberId": "Sam.Moustrides@scania.com",
             "identityProvider": "AzureAD"
           },
           {
-            "memberName": "Stephen.Williamson@scania.com",
-            "memberId": "Stephen.Williamson@scania.com",
+            "memberName": "obj:d875fe44-f8fb-4093-96c5-4405957f3eb6@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:d875fe44-f8fb-4093-96c5-4405957f3eb6@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
             "identityProvider": "AzureAD"
           }
         ]
