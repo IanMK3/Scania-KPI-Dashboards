@@ -6492,13 +6492,6 @@
           {
             "name": "WIP Target2",
             "expression": "DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3"
-          },
-          {
-            "name": "wwww",
-            "expression": [
-              "SWITCH(TRUE(),VALUE(\"sheffield body shop\"),FORMAT(DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])*5,\"text\")",
-              "                                         ,FORMAT(\"\",\"text\"),FORMAT(DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])*0,\"text\"),FORMAT(DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])*3,\"text\"))"
-            ]
           }
         ],
         "annotations": [
