@@ -6855,8 +6855,14 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "General Date",
-            "sourceProviderType": "WChar"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           },
           {
             "name": "Depot",
@@ -7433,7 +7439,7 @@
         ],
         "measures": [
           {
-            "name": "QueryAmountOutstanding",
+            "name": "Query Amount Outstanding",
             "expression": [
               "",
               "\tvar MaxDate = MAX('Date'[Date])",
@@ -7930,6 +7936,17 @@
           {
             "name": "Cash Outstanding Amount(Age > 60 days)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCashSale[Outstanding Amount]),CurrentOutstandingCashSale[Cash OutStanding Age]>60)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Cash Sales Amount",
+            "expression": "CALCULATE(SUM(CurrentOutstandingCashSale[Outstanding Amount]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
