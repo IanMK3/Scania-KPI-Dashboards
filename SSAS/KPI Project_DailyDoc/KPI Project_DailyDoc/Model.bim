@@ -3406,8 +3406,8 @@
             "expression": "DIVIDE([BackCounterSales],[BackCounterSalesFlxBudget])"
           },
           {
-            "name": "FrontCounterSalesStatus",
-            "expression": "0+IF([FrontCounterSales]>[FrontCounterSalesBudget],1,0)"
+            "name": "FrontCounterSalesFormat",
+            "expression": "SWITCH(TRUE(),[FrontCounterSales]>[FrontCounterSalesFlxBudget],1,0)"
           },
           {
             "name": "Doc Summary",
@@ -3424,19 +3424,40 @@
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "Recovery Rate Colour",
+            "name": "Recovery Rate Format",
             "expression": "SWITCH(TRUE(),[RecoveryRate]>[Recovery Rate Budget],1,0)"
           },
           {
-            "name": "PartsSales1",
-            "expression": "0+CALCULATE([TotalSales],NominalCode[Nominal Type]=\"Sales\")"
+            "name": "BackCounterSalesFormat",
+            "expression": "SWITCH(TRUE(),[BackCounterSales]>[BackCounterSalesFlxBudget],1,0)"
           },
           {
-            "name": "PartsSales2",
-            "expression": [
-              "0+CALCULATE([TotalSales],AND(NominalCode[Nominal Category]<>\"labour\",NominalCode[Nominal Category]<>\"Other\"),AND(NominalCode[Nominal Category]<>\"Stock adjustment\",NominalCode[Nominal Category]<>\"Obsolesences\"),",
-              "AND(NominalCode[Nominal Category]<>\"Unknown\",NominalCode[Nominal Category]<>\" \"))"
-            ]
+            "name": "FrontCounterSalesMarginFormat",
+            "expression": "SWITCH(TRUE(),[FrontCounterSalesMargin]>[FrontCounterSalesMarginFlxBudget],1,0)"
+          },
+          {
+            "name": "BackCounterSalesMarginFormat",
+            "expression": "SWITCH(TRUE(),[BackCounterSalesMargin]>[BackCounterSalesMarginFlxBudget],1,0)"
+          },
+          {
+            "name": "PartsSalesMarginFormat",
+            "expression": "SWITCH(TRUE(),[PartsSalesMargin]>[Parts Margin Flx Budget],1,0)"
+          },
+          {
+            "name": "LabourSalesFormat",
+            "expression": "SWITCH(TRUE(),[LabourSales]>[LabourSalesFlxBudget],1,0)"
+          },
+          {
+            "name": "LabourSalesMarginFormat",
+            "expression": "SWITCH(TRUE(),[LabourSalesMargin]>[LabourSalesMarginFlxBudget],1,0)"
+          },
+          {
+            "name": "OtherSalesFormat",
+            "expression": "SWITCH(TRUE(),[OtherSales]>[OtherSalesFlxBudget],1,0)"
+          },
+          {
+            "name": "OtherSalesMarginFormat",
+            "expression": "SWITCH(TRUE(),[OtherSalesMargin]>[OtherSalesMarginFlxBudget],1,0)"
           }
         ],
         "annotations": [
@@ -4375,7 +4396,7 @@
             "formatString": "0.00%;-0.00%;0.00%"
           },
           {
-            "name": "HoursInvoicedAgainstFlxBudget %",
+            "name": "Invoiced Against FlxBudget %",
             "expression": "(DIVIDE([WorkShopSoldHours],[HoursFlxBudget]))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
@@ -4385,12 +4406,12 @@
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "WorhShopHoursPerformanceAgainstFlxBudget",
+            "name": "Workshop Sold Hours Against FlxBudget",
             "expression": "DIVIDE([WorkShopSoldHours],[HoursFlxBudget])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "RegionalProducedHoursAgainstFlxBudget %",
+            "name": "Workshop Produced Hours Against FlxBudget %",
             "expression": "((DIVIDE([WorkShopProducedHours],[HoursFlxBudget])))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
@@ -4400,58 +4421,58 @@
             "formatString": "0"
           },
           {
-            "name": "HoursProducedAgainstFlxBudget %",
+            "name": "Produced Against FlxBudget %",
             "expression": "(DIVIDE([WorkShopProducedHours],[HoursFlxBudget]))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "Scotland_WorkShopHoursPerformanceAgainstFlxBudget",
-            "expression": "CALCULATE([WorhShopHoursPerformanceAgainstFlxBudget],'Region-Depot-Branch'[Region]=\"Scotland\")",
+            "name": "Scotland_Workshop Sold Hours Against FlxBudget",
+            "expression": "CALCULATE([Workshop Sold Hours Against FlxBudget],'Region-Depot-Branch'[Region]=\"Scotland\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "SouthEast_WorkShopHoursPerformanceAgainstFlxBudget",
-            "expression": "CALCULATE([WorhShopHoursPerformanceAgainstFlxBudget],'Region-Depot-Branch'[Region]=\"South East\")",
+            "name": "SouthEast_Workshop Sold Hours Against FlxBudget",
+            "expression": "CALCULATE([Workshop Sold Hours Against FlxBudget],'Region-Depot-Branch'[Region]=\"South East\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "North_WorkShopHoursPerformanceAgainstFlxBudget",
-            "expression": "CALCULATE([WorhShopHoursPerformanceAgainstFlxBudget],'Region-Depot-Branch'[Region]=\"North\")",
+            "name": "North_Workshop Sold Hours Against FlxBudget",
+            "expression": "CALCULATE([Workshop Sold Hours Against FlxBudget],'Region-Depot-Branch'[Region]=\"North\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "East_WorkShopHoursPerformanceAgainstFlxBudget",
-            "expression": "CALCULATE([WorhShopHoursPerformanceAgainstFlxBudget],'Region-Depot-Branch'[Region]=\"East\")",
+            "name": "East_Workshop Sold Hours Against FlxBudget",
+            "expression": "CALCULATE([Workshop Sold Hours Against FlxBudget],'Region-Depot-Branch'[Region]=\"East\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "SouthWest_WorkShopHoursPerformanceAgainstFlxBudget",
-            "expression": "CALCULATE([WorhShopHoursPerformanceAgainstFlxBudget],'Region-Depot-Branch'[Region]=\"South West\")",
+            "name": "SouthWest_Workshop Sold Hours Against FlxBudget",
+            "expression": "CALCULATE([Workshop Sold Hours Against FlxBudget],'Region-Depot-Branch'[Region]=\"South West\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "East_RegionalProducedProducedHoursAgainstFlxBudget",
-            "expression": "CALCULATE([RegionalProducedHoursAgainstFlxBudget %],'Region-Depot-Branch'[Region]=\"East\")",
+            "name": "East_Workshop Produced Hours Against FlxBudget",
+            "expression": "CALCULATE([Workshop Produced Hours Against FlxBudget %],'Region-Depot-Branch'[Region]=\"East\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "North_RegionalProducedProducedHoursAgainstFlxBudget",
-            "expression": "CALCULATE([RegionalProducedHoursAgainstFlxBudget %],'Region-Depot-Branch'[Region]=\"North\")",
+            "name": "North_Workshop Produced Hours Against FlxBudget",
+            "expression": "CALCULATE([Workshop Produced Hours Against FlxBudget %],'Region-Depot-Branch'[Region]=\"North\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "Scotland_RegionalProducedProducedHoursAgainstFlxBudget",
-            "expression": "CALCULATE([RegionalProducedHoursAgainstFlxBudget %],'Region-Depot-Branch'[Region]=\"Scotland\")",
+            "name": "Scotland_Workshop Produced Hours Against FlxBudget",
+            "expression": "CALCULATE([Workshop Produced Hours Against FlxBudget %],'Region-Depot-Branch'[Region]=\"Scotland\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "SouthEast_RegionalProducedProducedHoursAgainstFlxBudget",
-            "expression": "CALCULATE([RegionalProducedHoursAgainstFlxBudget %],'Region-Depot-Branch'[Region]=\"South East\")",
+            "name": "SouthEast_Workshop Produced Hours Against FlxBudget",
+            "expression": "CALCULATE([Workshop Produced Hours Against FlxBudget %],'Region-Depot-Branch'[Region]=\"South East\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "SouthWest_RegionalProducedProducedHoursAgainstFlxBudget",
-            "expression": "CALCULATE([RegionalProducedHoursAgainstFlxBudget %],'Region-Depot-Branch'[Region]=\"South West\")",
+            "name": "SouthWest_Workshop Produced Hours Against FlxBudget",
+            "expression": "CALCULATE([Workshop Produced Hours Against FlxBudget %],'Region-Depot-Branch'[Region]=\"South West\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -4470,19 +4491,17 @@
             "formatString": "#,0"
           },
           {
-            "name": "Work Shop Hours X",
-            "expression": "[WorkShopSoldHours]+[WorkShopProducedHours]",
-            "formatString": "0"
-          },
-          {
-            "name": "Work X",
-            "expression": "DIVIDE([Work Shop Hours X],SoldHoursBudget[HoursBudget])",
-            "formatString": "0.0%;-0.0%;0.0%"
-          },
-          {
             "name": "WorkShop Produced Hours Against Total Budget",
             "expression": "DIVIDE([WorkShopProducedHours],[HoursBudget])",
             "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Invoiced Against FlxBudget % Format",
+            "expression": "SWITCH(TRUE(),[Invoiced Against FlxBudget %]>=100,1,0)"
+          },
+          {
+            "name": "Produced Against FlxBudget % Format",
+            "expression": "SWITCH(TRUE(),[Produced Against FlxBudget %]>=100,1,0)"
           }
         ],
         "annotations": [
@@ -5154,6 +5173,10 @@
                 "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
               }
             ]
+          },
+          {
+            "name": "PartsSales vs FlxBudgetFormat %",
+            "expression": "SWITCH(TRUE(),[PartsSales vs FlxBudget %]>=100,1,0)"
           }
         ],
         "annotations": [
@@ -6445,20 +6468,6 @@
             "formatString": "#,0"
           },
           {
-            "name": "**my Target",
-            "expression": [
-              "switch",
-              "\t\t(",
-              "\t\t  LASTNONBLANK ('Depot'[Depot],0),",
-              "\t\t\t\"Sheffield Body shop\",",
-              "\t\t   CALCULATE(CALCULATE(DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])*5,Depot[Depot]=\"sheffied body body\")",
-              "\t\t\t\t\t\t\t\t\t),",
-              "\t\t\t",
-              "\t\t\t\t\t\t[WIP Target]\t\t\t)"
-            ],
-            "formatString": "0"
-          },
-          {
             "name": "Sheffield Body shop WIP Target",
             "expression": [
               "",
@@ -6483,11 +6492,6 @@
               "                                      DIVIDE([BodyShopProducedHours],[ElapsedWorkingDaysInMonth])*5))"
             ],
             "formatString": "#,0"
-          },
-          {
-            "name": "WIP Target1",
-            "expression": "DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3+[Sheffield Body shop WIP Target]",
-            "formatString": "0"
           },
           {
             "name": "WIP Target2",
@@ -6994,7 +6998,7 @@
             "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingCredit,CurrentOutstandingCredit[PO Number],CurrentOutstandingCredit[Depot],CurrentOutstandingCredit[Line Number],CurrentOutstandingCredit[GRN],CurrentOutstandingCredit[Credit Age(Months)]),CurrentOutstandingCredit[Credit Age(Months)]>=4))"
           },
           {
-            "name": "Oustanding Credit Payment(Current Month OD)",
+            "name": "Credit (Current Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]=0)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -7005,7 +7009,7 @@
             ]
           },
           {
-            "name": "Oustanding Credit Payment(1  Month OD)",
+            "name": "Credit (1  Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]=1)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -7016,7 +7020,7 @@
             ]
           },
           {
-            "name": "Oustanding Credit Payment(2  Month OD)",
+            "name": "Credit (2  Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]=2)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -7027,7 +7031,7 @@
             ]
           },
           {
-            "name": "Oustanding Credit Payment(3  Month OD)",
+            "name": "Credit (3  Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]=3)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -7038,7 +7042,7 @@
             ]
           },
           {
-            "name": "Oustanding Credit Payment(4  Month OD+)",
+            "name": "Credit (4  Month OD+)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]>=4)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -7060,7 +7064,7 @@
             ]
           },
           {
-            "name": "Outstanding Credit Amount(Age 0-30 days)",
+            "name": "Credit (Age 0-30 days)",
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age]<30)"
@@ -7074,7 +7078,7 @@
             ]
           },
           {
-            "name": "Outstanding Credit Amount(Age 31-60 days)",
+            "name": "Credit (Age 31-60 days)",
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age]>30 && CurrentOutstandingCredit[Credit Age]<=60)"
@@ -7088,7 +7092,7 @@
             ]
           },
           {
-            "name": "Outstanding Credit Amount(Age >60 days)",
+            "name": "Credit (Age >60 days)",
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age]>60)"
@@ -8546,32 +8550,32 @@
         ],
         "measures": [
           {
-            "name": "SubletPayment Count (0 Month OD)",
+            "name": "Sublet Count (0 Month OD)",
             "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=0))",
             "formatString": "#,0"
           },
           {
-            "name": "SubletPayment Count (1 Month OD)",
+            "name": "Sublet Count (1 Month OD)",
             "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=1))",
             "formatString": "#,0"
           },
           {
-            "name": "SubletPayment Count (2 Month OD)",
+            "name": "Sublet Count (2 Month OD)",
             "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=2))",
             "formatString": "#,0"
           },
           {
-            "name": "SubletPayment Count (3 Month OD)",
+            "name": "Sublet Count (3 Month OD)",
             "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=3))",
             "formatString": "#,0"
           },
           {
-            "name": "SubletPayment Count (4 Month OD+)",
+            "name": "Sublet Count (4 Month OD+)",
             "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingSubletPayement,CurrentOutstandingSubletPayement[PO Number],CurrentOutstandingSubletPayement[Depot],CurrentOutstandingSubletPayement[GRN],CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]>=4))",
             "formatString": "#,0"
           },
           {
-            "name": "Sublet Payment Amount(Current Month OD)",
+            "name": "Sublet Amount (Current Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingSubletPayement[Value]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=0)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8582,7 +8586,7 @@
             ]
           },
           {
-            "name": "Sublet Payment Amount(1 Month OD)",
+            "name": "SubleT Amount (1 Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingSubletPayement[Value]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=1)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8593,7 +8597,7 @@
             ]
           },
           {
-            "name": "Sublet Payment Amount(2 Month OD)",
+            "name": "Sublet Amount (2 Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingSubletPayement[Value]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=2)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8604,7 +8608,7 @@
             ]
           },
           {
-            "name": "Sublet Payment Amount(3 Month OD)",
+            "name": "Sublet Amount (3 Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingSubletPayement[Value]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=3)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8615,7 +8619,7 @@
             ]
           },
           {
-            "name": "Sublet Payment Amount(4 Month OD+)",
+            "name": "Sublet Amount (4 Month OD+)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingSubletPayement[Value]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]>=4)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
