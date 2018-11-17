@@ -6486,16 +6486,8 @@
             "formatString": "#,0"
           },
           {
-            "name": "Copy of WIP Target",
-            "expression": [
-              "(IF(OR(ISBLANK([Sheffield Body shop WIP Target]),[Sheffield Body shop WIP Target]=0),DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3,",
-              "                                      DIVIDE([BodyShopProducedHours],[ElapsedWorkingDaysInMonth])*5))"
-            ],
-            "formatString": "#,0"
-          },
-          {
-            "name": "WIP Target2",
-            "expression": "DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3"
+            "name": "my stats",
+            "expression": "DIVIDE(SUMX(UtilizationStats,UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3"
           }
         ],
         "annotations": [
