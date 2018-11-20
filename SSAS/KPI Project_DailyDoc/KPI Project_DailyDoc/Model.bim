@@ -3566,6 +3566,11 @@
           {
             "name": "OtherSalesMarginFormat",
             "expression": "SWITCH(TRUE(),[OtherSalesMargin]>[OtherSalesMarginFlxBudget],1,0)"
+          },
+          {
+            "name": "Sold Hours Per Technician",
+            "expression": "DIVIDE(SUM(UtilizationStats[Sold]),SUM(BranchHeadCount[Headcount]))",
+            "formatString": "0"
           }
         ],
         "annotations": [
@@ -5284,7 +5289,7 @@
           },
           {
             "name": "PartsSales vs FlxBudgetFormat %",
-            "expression": "SWITCH(TRUE(),[PartsSales vs FlxBudget %]>=100,1,0)"
+            "expression": "SWITCH(TRUE(),[PartsSales vs FlxBudget %]>=1,1,0)"
           }
         ],
         "annotations": [
@@ -6583,7 +6588,7 @@
           {
             "name": "WIP Target",
             "expression": [
-              "IF(ISBLANK([BodyShopProducedHours1])",
+              "IF(ISBLANK([BodyShopProducedHours])",
               ",DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3",
               ",DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*5",
               ")"
@@ -7625,6 +7630,14 @@
                 "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
               }
             ]
+          },
+          {
+            "name": "Selected Depot_Credit",
+            "expression": "SELECTEDVALUE(CurrentOutstandingCredit[DepotName])"
+          },
+          {
+            "name": "Selected Region_Credit",
+            "expression": "SELECTEDVALUE(CurrentOutstandingCredit[Region])"
           }
         ],
         "annotations": [
@@ -8600,7 +8613,7 @@
             "formatString": "#,0"
           },
           {
-            "name": "Parts Amount (Current Month OD)",
+            "name": "Payment (Current Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingPartsPayment[Parts Value]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=0)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8611,7 +8624,7 @@
             ]
           },
           {
-            "name": "Parts Amount (1 Month OD)",
+            "name": "Payment (1 Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingPartsPayment[Parts Value]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=1)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8622,7 +8635,7 @@
             ]
           },
           {
-            "name": "Parts Amount (2 Month OD)",
+            "name": "Payment (2 Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingPartsPayment[Parts Value]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=2)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8633,7 +8646,7 @@
             ]
           },
           {
-            "name": "Parts Amount (3 Month OD)",
+            "name": "Payment (3 Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingPartsPayment[Parts Value]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=3)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8644,7 +8657,7 @@
             ]
           },
           {
-            "name": "Parts Amount (4 Month OD+)",
+            "name": "Payment (4 Month OD+)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingPartsPayment[Parts Value]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]>=4)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8664,6 +8677,14 @@
                 "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
               }
             ]
+          },
+          {
+            "name": "Selected Depot_PartsPayment",
+            "expression": "SELECTEDVALUE(CurrentOutstandingPartsPayment[DepotName])"
+          },
+          {
+            "name": "Selected Region_PartsPayment",
+            "expression": "SELECTEDVALUE(CurrentOutstandingPartsPayment[Region])"
           }
         ],
         "annotations": [
@@ -9510,7 +9531,7 @@
         ],
         "measures": [
           {
-            "name": "Query Amount Outstanding",
+            "name": "Query Outstanding",
             "expression": [
               "",
               "\tvar MaxDate = MAX('Date'[Date])",
@@ -9553,7 +9574,7 @@
             "formatString": "#,0"
           },
           {
-            "name": "Query Amount(Current Month OD)",
+            "name": "Query (Current Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=0)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -9564,7 +9585,7 @@
             ]
           },
           {
-            "name": "Query Amount(1  Month OD)",
+            "name": "Query (1  Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=1)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -9575,7 +9596,7 @@
             ]
           },
           {
-            "name": "Query Amount(2  Month OD)",
+            "name": "Query (2  Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=2)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -9586,7 +9607,7 @@
             ]
           },
           {
-            "name": "Query Amount(3  Month OD)",
+            "name": "Query (3  Month OD)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=3)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -9597,7 +9618,7 @@
             ]
           },
           {
-            "name": "Query Amount(4  Month OD+)",
+            "name": "Query (4  Month OD+)",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]>=4)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -9606,6 +9627,14 @@
                 "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
               }
             ]
+          },
+          {
+            "name": "Selected Depot_Queries",
+            "expression": "SELECTEDVALUE(CurrentOutstandingQueries[DepotName])"
+          },
+          {
+            "name": "Selected Region_Queries",
+            "expression": "SELECTEDVALUE(CurrentOutstandingQueries[Region])"
           }
         ],
         "annotations": [
@@ -10491,6 +10520,14 @@
                 "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
               }
             ]
+          },
+          {
+            "name": "Selected Depot_CashSales",
+            "expression": "SELECTEDVALUE(CurrentOutstandingCashSale[DepotName])"
+          },
+          {
+            "name": "Selected Region_CashSales",
+            "expression": "SELECTEDVALUE(CurrentOutstandingCashSale[Region])"
           }
         ],
         "annotations": [
@@ -11438,6 +11475,14 @@
                 "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
               }
             ]
+          },
+          {
+            "name": "Selected Depot_Sublet",
+            "expression": "SELECTEDVALUE(CurrentOutstandingSubletPayement[DepotName])"
+          },
+          {
+            "name": "Selected Region_Sublet",
+            "expression": "SELECTEDVALUE(CurrentOutstandingSubletPayement[Region])"
           }
         ],
         "annotations": [
@@ -12372,12 +12417,12 @@
             ]
           },
           {
-            "name": "Warranty Amount Select Depot",
-            "expression": "SELECTEDVALUE(CurrentWarrantyOutstandingAmount[DepotName])"
+            "name": "Selected Region_ Warranty",
+            "expression": "SELECTEDVALUE(CurrentWarrantyOutstandingAmount[Region])"
           },
           {
-            "name": "Warranty Amount Select Region",
-            "expression": "SELECTEDVALUE(CurrentWarrantyOutstandingAmount[Region])"
+            "name": "Selected Depot_Warranty",
+            "expression": "SELECTEDVALUE(CurrentWarrantyOutstandingAmount[DepotName])"
           }
         ],
         "annotations": [
@@ -12939,6 +12984,369 @@
             "value": "fact"
           }
         ]
+      },
+      {
+        "name": "BranchHeadCount",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Branch",
+            "dataType": "int64",
+            "sourceColumn": "Branch",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Headcount",
+            "dataType": "double",
+            "sourceColumn": "Headcount",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Branch Code",
+            "dataType": "int64",
+            "sourceColumn": "Branch Code",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DW_CreatedDate",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "DW_CreatedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "DW_ModifiedDate",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "DW_ModifiedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "BranchHeadCount",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [fact].[BranchHeadCount].* FROM [fact].[BranchHeadCount] ",
+              "dataSource": "SqlServerConn"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>41</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Branch</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>63</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>53</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Headcount</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>82</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Branch Code</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>91</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DW_CreatedDate</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>115</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DW_ModifiedDate</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>116</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Branch</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Headcount</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Branch Code</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DW_CreatedDate</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DW_ModifiedDate</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked />",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Headcount1",
+            "expression": "CALCULATE(SUM(BranchHeadCount[Headcount]))",
+            "formatString": "#,0"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [fact].[BranchHeadCount].* FROM [fact].[BranchHeadCount] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "BranchHeadCount"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "fact"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>41</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Branch</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>63</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>53</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Headcount</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>82</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Branch Code</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>91</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DW_CreatedDate</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>115</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DW_ModifiedDate</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>116</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Branch</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Headcount</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Branch Code</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DW_CreatedDate</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DW_ModifiedDate</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>6</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked />",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
       }
     ],
     "relationships": [
@@ -13179,6 +13587,20 @@
         "fromTable": "WasteCost",
         "fromColumn": "NominalCode",
         "toTable": "NominalCode",
+        "toColumn": "ID"
+      },
+      {
+        "name": "9cf301ed-9488-41e2-a3d5-a2c9e9057081",
+        "fromTable": "BranchHeadCount",
+        "fromColumn": "Date",
+        "toTable": "Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "5c6b5bd1-1b39-41ac-ac58-e81a337847f6",
+        "fromTable": "BranchHeadCount",
+        "fromColumn": "Branch",
+        "toTable": "Branch",
         "toColumn": "ID"
       }
     ],
