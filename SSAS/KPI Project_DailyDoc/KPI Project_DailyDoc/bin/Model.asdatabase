@@ -3386,12 +3386,12 @@
           {
             "name": "LabourSalesMargin %",
             "expression": "((DIVIDE([LabourSalesMargin],[LabourSales])))",
-            "formatString": "0.00%;-0.00%;0.00%"
+            "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "OtherSalesMargin %",
             "expression": "((DIVIDE([OtherSalesMargin],[OtherSales])))",
-            "formatString": "0.00%;-0.00%;0.00%"
+            "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "PartsSales",
@@ -3515,7 +3515,7 @@
           },
           {
             "name": "FrontCounterSalesFormat",
-            "expression": "SWITCH(TRUE(),[FrontCounterSales]>[FrontCounterSalesFlxBudget],1,0)"
+            "expression": "SWITCH(TRUE(),[FrontCounterSales]>=[FrontCounterSalesFlxBudget],1,0)"
           },
           {
             "name": "Doc Summary",
@@ -3533,44 +3533,60 @@
           },
           {
             "name": "Recovery Rate Format",
-            "expression": "SWITCH(TRUE(),[RecoveryRate]>[Recovery Rate Budget],1,0)"
+            "expression": "SWITCH(TRUE(),[RecoveryRate]>=[Recovery Rate Budget],1,0)"
           },
           {
             "name": "BackCounterSalesFormat",
-            "expression": "SWITCH(TRUE(),[BackCounterSales]>[BackCounterSalesFlxBudget],1,0)"
+            "expression": "SWITCH(TRUE(),[BackCounterSales]>=[BackCounterSalesFlxBudget],1,0)"
           },
           {
             "name": "FrontCounterSalesMarginFormat",
-            "expression": "SWITCH(TRUE(),[FrontCounterSalesMargin]>[FrontCounterSalesMarginFlxBudget],1,0)"
+            "expression": "SWITCH(TRUE(),[FrontCounterSalesMargin]>=[FrontCounterSalesMarginFlxBudget],1,0)"
           },
           {
             "name": "BackCounterSalesMarginFormat",
-            "expression": "SWITCH(TRUE(),[BackCounterSalesMargin]>[BackCounterSalesMarginFlxBudget],1,0)"
+            "expression": "SWITCH(TRUE(),[BackCounterSalesMargin]>=[BackCounterSalesMarginFlxBudget],1,0)"
           },
           {
             "name": "PartsSalesMarginFormat",
-            "expression": "SWITCH(TRUE(),[PartsSalesMargin]>[Parts Margin Flx Budget],1,0)"
+            "expression": "SWITCH(TRUE(),[PartsSalesMargin]>=[Parts Margin Flx Budget],1,0)"
           },
           {
             "name": "LabourSalesFormat",
-            "expression": "SWITCH(TRUE(),[LabourSales]>[LabourSalesFlxBudget],1,0)"
+            "expression": "SWITCH(TRUE(),[LabourSales]>=[LabourSalesFlxBudget],1,0)"
           },
           {
             "name": "LabourSalesMarginFormat",
-            "expression": "SWITCH(TRUE(),[LabourSalesMargin]>[LabourSalesMarginFlxBudget],1,0)"
+            "expression": "SWITCH(TRUE(),[LabourSalesMargin]>=[LabourSalesMarginFlxBudget],1,0)"
           },
           {
             "name": "OtherSalesFormat",
-            "expression": "SWITCH(TRUE(),[OtherSales]>[OtherSalesFlxBudget],1,0)"
+            "expression": "SWITCH(TRUE(),[OtherSales]>=[OtherSalesFlxBudget],1,0)"
           },
           {
             "name": "OtherSalesMarginFormat",
-            "expression": "SWITCH(TRUE(),[OtherSalesMargin]>[OtherSalesMarginFlxBudget],1,0)"
+            "expression": "SWITCH(TRUE(),[OtherSalesMargin]>=[OtherSalesMarginFlxBudget],1,0)"
           },
           {
             "name": "Sold Hours Per Technician",
             "expression": "DIVIDE(SUM(UtilizationStats[Sold]),SUM(BranchHeadCount[Headcount]))",
             "formatString": "0"
+          },
+          {
+            "name": "LabourSalesMargin%Format",
+            "expression": "SWITCH(TRUE(),[LabourSalesMargin %]>=DIVIDE([LabourSalesMarginFlxBudget],[LabourSalesFlxBudget]),1,0)"
+          },
+          {
+            "name": "OtherSalesMargin%Format",
+            "expression": "SWITCH(TRUE(),[OtherSalesMargin %]>=DIVIDE([OtherSalesMarginFlxBudget],[OtherSalesFlxBudget]),1,0)"
+          },
+          {
+            "name": "FrontCounterSalesMargin%Format",
+            "expression": "SWITCH(TRUE(),[FrontCounterSalesMargin %]>=DIVIDE([FrontCounterSalesMarginFlxBudget],[FrontCounterSalesFlxBudget]),1,0)"
+          },
+          {
+            "name": "BackCounterSalesMargin%Format",
+            "expression": "SWITCH(TRUE(),[BackCounterSalesMargin %]>=DIVIDE([BackCounterSalesMarginFlxBudget],[BackCounterSalesFlxBudget]),1,0)"
           }
         ],
         "annotations": [
@@ -4501,12 +4517,12 @@
           {
             "name": "Utilisation%",
             "expression": "(DIVIDE([WorkShopProducedHours],[WorkShopAttendedHours]))",
-            "formatString": "0.00%;-0.00%;0.00%"
+            "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Efficiency %",
             "expression": "DIVIDE([WorkShopSoldHours],[WorkShopTakenHours])",
-            "formatString": "0.00%;-0.00%;0.00%"
+            "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Invoiced Against FlxBudget %",
@@ -4615,6 +4631,10 @@
           {
             "name": "Produced Against FlxBudget % Format",
             "expression": "SWITCH(TRUE(),[Produced Against FlxBudget %]>=1,1,0)"
+          },
+          {
+            "name": "Efficiency%Format",
+            "expression": "SWITCH(TRUE(),[Efficiency %]>=1,1,0)"
           }
         ],
         "annotations": [
