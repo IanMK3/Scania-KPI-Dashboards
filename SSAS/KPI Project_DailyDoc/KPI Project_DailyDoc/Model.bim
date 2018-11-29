@@ -417,6 +417,7 @@
             "name": "Month Name",
             "dataType": "string",
             "sourceColumn": "Month Name",
+            "sortByColumn": "Month",
             "sourceProviderType": "Char"
           },
           {
@@ -3489,7 +3490,7 @@
           {
             "name": "Scotland_RegionalFrontCounterSalesAgainstFlxBudget",
             "expression": "CALCULATE([FrontCounterSalesPerformanceAgainstFxBudget],'Region-Depot-Branch'[Region]=\"Scotland\")",
-            "formatString": "0.0%;-0.0%;0.0%"
+            "formatString": "0%;-0%;0%"
           },
           {
             "name": "SouthEast_RegionalFrontCounterSalesAgainstFlxBudget",
@@ -3587,6 +3588,19 @@
           {
             "name": "BackCounterSalesMargin%Format",
             "expression": "SWITCH(TRUE(),[BackCounterSalesMargin %]>=DIVIDE([BackCounterSalesMarginFlxBudget],[BackCounterSalesFlxBudget]),1,0)"
+          },
+          {
+            "name": "Target Marker",
+            "expression": "DIVIDE([ElapsedWorkingDaysInMonth],[WorkdaysInMonth])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Doc Report",
+            "expression": "\"Doc Reports\""
+          },
+          {
+            "name": "Working Days Left In Month",
+            "expression": "CALCULATE([WorkdaysInMonth])-[ElapsedWorkingDaysInMonth]"
           }
         ],
         "annotations": [
@@ -5645,9 +5659,16 @@
         "columns": [
           {
             "name": "DOTY Date",
-            "dataType": "string",
+            "dataType": "dateTime",
             "sourceColumn": "DOTY Date",
-            "sourceProviderType": "WChar"
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -6614,6 +6635,10 @@
               ")"
             ],
             "formatString": "0"
+          },
+          {
+            "name": "Current WIP Format",
+            "expression": "SWITCH(TRUE(),CurrentWIP[Current WIP]>=CurrentWIP[WIP Target],1,0)"
           }
         ],
         "annotations": [
@@ -6996,12 +7021,12 @@
             "name": "Credit Date",
             "dataType": "dateTime",
             "sourceColumn": "Credit Date",
-            "formatString": "Short Date",
+            "formatString": "dd/MM/yyyy",
             "sourceProviderType": "WChar",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
           },
@@ -8083,12 +8108,12 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "Short Date",
+            "formatString": "dd/MM/yyyy",
             "sourceProviderType": "WChar",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
           },
@@ -8108,12 +8133,12 @@
             "name": "GRN Date",
             "dataType": "dateTime",
             "sourceColumn": "GRN Date",
-            "formatString": "Short Date",
+            "formatString": "dd/MM/yyyy",
             "sourceProviderType": "WChar",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
           },
@@ -9114,12 +9139,12 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "Short Date",
+            "formatString": "dd/MM/yyyy",
             "sourceProviderType": "WChar",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
           },
@@ -9151,12 +9176,12 @@
             "name": "Query Date",
             "dataType": "dateTime",
             "sourceColumn": "Query Date",
-            "formatString": "Short Date",
+            "formatString": "dd/MM/yyyy",
             "sourceProviderType": "WChar",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
           },
@@ -10000,12 +10025,12 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "Short Date",
+            "formatString": "dd/MM/yyyy",
             "sourceProviderType": "WChar",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
           },
@@ -10038,12 +10063,12 @@
             "name": "Invoice Date",
             "dataType": "dateTime",
             "sourceColumn": "Invoice Date",
-            "formatString": "Short Date",
+            "formatString": "dd/MM/yyyy",
             "sourceProviderType": "WChar",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
           },
@@ -10925,12 +10950,12 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "Short Date",
+            "formatString": "dd/MM/yyyy",
             "sourceProviderType": "WChar",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
           },
@@ -10956,12 +10981,12 @@
             "name": "GRN Date",
             "dataType": "dateTime",
             "sourceColumn": "GRN Date",
-            "formatString": "Short Date",
+            "formatString": "dd/MM/yyyy",
             "sourceProviderType": "WChar",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
           },
@@ -11880,12 +11905,12 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "Short Date",
+            "formatString": "dd/MM/yyyy",
             "sourceProviderType": "WChar",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
           },
@@ -11923,12 +11948,12 @@
             "name": "Invoice Date",
             "dataType": "dateTime",
             "sourceColumn": "Invoice Date",
-            "formatString": "Short Date",
+            "formatString": "dd/MM/yyyy",
             "sourceProviderType": "WChar",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
           },
@@ -11936,12 +11961,12 @@
             "name": "Due Date",
             "dataType": "dateTime",
             "sourceColumn": "Due Date",
-            "formatString": "Short Date",
+            "formatString": "dd/MM/yyyy",
             "sourceProviderType": "WChar",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
           },
@@ -13367,6 +13392,1964 @@
             ]
           }
         ]
+      },
+      {
+        "name": "DOTY",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Depot",
+            "dataType": "int64",
+            "sourceColumn": "Depot",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Rank",
+            "dataType": "int64",
+            "sourceColumn": "Rank",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CCS Target",
+            "dataType": "int64",
+            "sourceColumn": "CCS Target",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CCS %",
+            "dataType": "double",
+            "sourceColumn": "CCS %",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "CCS Pts",
+            "dataType": "double",
+            "sourceColumn": "CCS Pts",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "CCS GW",
+            "dataType": "double",
+            "sourceColumn": "CCS GW",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "MOT Target",
+            "dataType": "int64",
+            "sourceColumn": "MOT Target",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MOT %",
+            "dataType": "double",
+            "sourceColumn": "MOT %",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "MOT Pts",
+            "dataType": "int64",
+            "sourceColumn": "MOT Pts",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TTA Target",
+            "dataType": "string",
+            "sourceColumn": "TTA Target",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TTA",
+            "dataType": "string",
+            "sourceColumn": "TTA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "BOR Target",
+            "dataType": "double",
+            "sourceColumn": "BOR Target",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "BOR",
+            "dataType": "double",
+            "sourceColumn": "BOR",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "ETA Target",
+            "dataType": "double",
+            "sourceColumn": "ETA Target",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "ETA",
+            "dataType": "double",
+            "sourceColumn": "ETA",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "ETC Target",
+            "dataType": "double",
+            "sourceColumn": "ETC Target",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "ETC",
+            "dataType": "double",
+            "sourceColumn": "ETC",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "SOS Points",
+            "dataType": "int64",
+            "sourceColumn": "SOS Points",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Campaigns Target",
+            "dataType": "double",
+            "sourceColumn": "Campaigns Target",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Cpg %",
+            "dataType": "double",
+            "sourceColumn": "Cpg %",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Cpg Pts",
+            "dataType": "double",
+            "sourceColumn": "Cpg Pts",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "MS Target",
+            "dataType": "double",
+            "sourceColumn": "MS Target",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "MS %",
+            "dataType": "double",
+            "sourceColumn": "MS %",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "MS Pts",
+            "dataType": "double",
+            "sourceColumn": "MS Pts",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "MPP Target",
+            "dataType": "double",
+            "sourceColumn": "MPP Target",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "MPP1",
+            "dataType": "double",
+            "sourceColumn": "MPP1",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "MPP2",
+            "dataType": "double",
+            "sourceColumn": "MPP2",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "MPP3",
+            "dataType": "double",
+            "sourceColumn": "MPP3",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "MPP Pts",
+            "dataType": "double",
+            "sourceColumn": "MPP Pts",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "CSI Target",
+            "dataType": "double",
+            "sourceColumn": "CSI Target",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "CSI",
+            "dataType": "double",
+            "sourceColumn": "CSI",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "CSI Pts",
+            "dataType": "double",
+            "sourceColumn": "CSI Pts",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "DOS Target",
+            "dataType": "int64",
+            "sourceColumn": "DOS Target",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DOS",
+            "dataType": "int64",
+            "sourceColumn": "DOS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DOS DPts",
+            "dataType": "int64",
+            "sourceColumn": "DOS DPts",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DOS GW",
+            "dataType": "string",
+            "sourceColumn": "DOS GW",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DQ Target",
+            "dataType": "int64",
+            "sourceColumn": "DQ Target",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DQ %",
+            "dataType": "double",
+            "sourceColumn": "DQ %",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "DQ Pts",
+            "dataType": "int64",
+            "sourceColumn": "DQ Pts",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SF Target",
+            "dataType": "double",
+            "sourceColumn": "SF Target",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "SF%",
+            "dataType": "double",
+            "sourceColumn": "SF%",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "SFPts",
+            "dataType": "double",
+            "sourceColumn": "SFPts",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "YTD",
+            "dataType": "string",
+            "sourceColumn": "YTD",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Points Available",
+            "dataType": "int64",
+            "sourceColumn": "Points Available",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Points Achieved",
+            "dataType": "int64",
+            "sourceColumn": "Points Achieved",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DW_CreatedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_CreatedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "DW_ModifiedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_ModifiedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DOTY",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [fact].[DOTY].* FROM [fact].[DOTY] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [fact].[DOTY].* FROM [fact].[DOTY] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DOTY"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "fact"
+          }
+        ]
+      },
+      {
+        "name": "vwReport_DOTY",
+        "columns": [
+          {
+            "name": "Depot",
+            "dataType": "int64",
+            "sourceColumn": "Depot",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Depot Name",
+            "dataType": "string",
+            "sourceColumn": "Depot Name",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Date",
+            "dataType": "string",
+            "sourceColumn": "Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Rank",
+            "dataType": "string",
+            "sourceColumn": "Rank",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "RankNo",
+            "dataType": "int64",
+            "sourceColumn": "RankNo",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Month Name",
+            "dataType": "string",
+            "sourceColumn": "Month Name",
+            "sortByColumn": "Month",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Objectives",
+            "dataType": "string",
+            "sourceColumn": "Objectives",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Month Status",
+            "dataType": "string",
+            "sourceColumn": "Month Status",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Objective Value",
+            "dataType": "string",
+            "sourceColumn": "Objective Value",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "vwReport_DOTY",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[vwReport_DOTY].* FROM [dbo].[vwReport_DOTY] ",
+              "dataSource": "SqlServerConn"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Depot</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>59</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Region</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>63</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Depot Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>89</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>53</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Rank</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>54</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>RankNo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>113</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>99</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>90</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Objectives</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>100</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month Status</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>94</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Objective Value</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>105</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Depot</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Region</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Depot Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Rank</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>RankNo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>7</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Objectives</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>8</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month Status</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>9</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Objective Value</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>10</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked />",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Selected DOTY Depot",
+            "expression": "SELECTEDVALUE(vwReport_DOTY[Depot Name])"
+          },
+          {
+            "name": "Selected DOTY Regiont",
+            "expression": "SELECTEDVALUE(vwReport_DOTY[Region])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[vwReport_DOTY].* FROM [dbo].[vwReport_DOTY] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "vwReport_DOTY"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>Depot</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>59</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Region</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>63</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Depot Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>89</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>53</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Rank</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>54</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>RankNo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>113</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>99</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>90</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Objectives</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>100</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month Status</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>94</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Objective Value</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>105</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>Depot</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Region</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Depot Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Rank</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>RankNo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>6</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>7</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Objectives</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>8</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month Status</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>9</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Objective Value</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>10</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked />",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "vwReport_DOTY_1",
+        "columns": [
+          {
+            "name": "Depot",
+            "dataType": "int64",
+            "sourceColumn": "Depot",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Depot Name",
+            "dataType": "string",
+            "sourceColumn": "Depot Name",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Date",
+            "dataType": "string",
+            "sourceColumn": "Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Rank",
+            "dataType": "int64",
+            "sourceColumn": "Rank",
+            "formatString": "0",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "RankNo",
+            "dataType": "int64",
+            "sourceColumn": "RankNo",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Month Name",
+            "dataType": "string",
+            "sourceColumn": "Month Name",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "CSI",
+            "dataType": "string",
+            "sourceColumn": "CSI",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DOS",
+            "dataType": "string",
+            "sourceColumn": "DOS",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Time To Arrive",
+            "dataType": "string",
+            "sourceColumn": "Time To Arrive",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Back On Road",
+            "dataType": "string",
+            "sourceColumn": "Back On Road",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Month Status",
+            "dataType": "string",
+            "sourceColumn": "Month Status",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CCS Match",
+            "dataType": "string",
+            "sourceColumn": "CCS Match",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "MOT Pass Rate",
+            "dataType": "string",
+            "sourceColumn": "MOT Pass Rate",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ETA Accuracy",
+            "dataType": "string",
+            "sourceColumn": "ETA Accuracy",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ETC Accuracy",
+            "dataType": "string",
+            "sourceColumn": "ETC Accuracy",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Campaigns",
+            "dataType": "string",
+            "sourceColumn": "Campaigns",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "MPP Flex",
+            "dataType": "string",
+            "sourceColumn": "MPP Flex",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "MPP Periodic",
+            "dataType": "string",
+            "sourceColumn": "MPP Periodic",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "MPP Custom",
+            "dataType": "string",
+            "sourceColumn": "MPP Custom",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Data Quality",
+            "dataType": "string",
+            "sourceColumn": "Data Quality",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Software Updates",
+            "dataType": "string",
+            "sourceColumn": "Software Updates",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Mystery Shop",
+            "dataType": "string",
+            "sourceColumn": "Mystery Shop"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "vwReport_DOTY_1",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[vwReport_DOTY_1].* FROM [dbo].[vwReport_DOTY_1] ",
+              "dataSource": "SqlServerConn"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Depot</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>59</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Region</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>63</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Depot Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>89</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>53</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Rank</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>54</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>RankNo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>67</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>60</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>90</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DOS</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>51</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Time To Arrive</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>99</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CSI</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>47</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month Status</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>94</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CCS Match</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>82</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MOT Pass Rate</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>103</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ETA Accuracy</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>96</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ETC Accuracy</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>96</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Campaigns</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>82</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Mystery Shop</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>96</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MPP Flex</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>73</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MPP Periodic</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>90</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MPP Custom</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>89</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Data Quality</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>90</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Software Updates</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>117</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Back On Road</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>97</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Depot</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Region</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Depot Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Rank</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>RankNo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>7</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DOS</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>8</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Time To Arrive</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>9</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CSI</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>10</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month Status</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>11</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CCS Match</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>12</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MOT Pass Rate</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>13</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ETA Accuracy</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>14</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ETC Accuracy</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>15</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Campaigns</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>16</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Mystery Shop</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>17</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MPP Flex</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>18</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MPP Periodic</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>19</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MPP Custom</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>20</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Data Quality</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>21</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Software Updates</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>22</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Back On Road</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>23</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Mystery Shop</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "CCS Match Target",
+            "expression": "\"100%\""
+          },
+          {
+            "name": "MOT Pass Rate Target",
+            "expression": "\"100%\""
+          },
+          {
+            "name": "Time To Arrive Target",
+            "expression": "\"01:00:00\""
+          },
+          {
+            "name": "Back On Road Target",
+            "expression": "\"80%\""
+          },
+          {
+            "name": "ETA Accuracy Target",
+            "expression": "\"65%\""
+          },
+          {
+            "name": "ETC Accuracy Target",
+            "expression": "\"65%\""
+          },
+          {
+            "name": "Campaigns Target1",
+            "expression": "\"98%\""
+          },
+          {
+            "name": "Mistery Shop Target",
+            "expression": "\"84%\""
+          },
+          {
+            "name": "MPP Flex Target",
+            "expression": "\"< 5%\""
+          },
+          {
+            "name": "MPP Periodic Target",
+            "expression": "\"< 5%\""
+          },
+          {
+            "name": "MPP Custom Target",
+            "expression": "\"< 5%\""
+          },
+          {
+            "name": "CSI Target1",
+            "expression": "\"8.2\""
+          },
+          {
+            "name": "DOS Target1",
+            "expression": "\"46\""
+          },
+          {
+            "name": "Data Quality Target",
+            "expression": "\"100%\""
+          },
+          {
+            "name": "Software Update Target",
+            "expression": "\"90%\""
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[vwReport_DOTY_1].* FROM [dbo].[vwReport_DOTY_1] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "vwReport_DOTY_1"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>Depot</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>59</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Region</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>63</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Depot Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>89</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>53</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Rank</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>54</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>RankNo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>67</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>60</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>90</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DOS</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>51</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Time To Arrive</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>99</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CSI</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>47</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month Status</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>94</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CCS Match</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>82</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MOT Pass Rate</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>103</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ETA Accuracy</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>96</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ETC Accuracy</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>96</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Campaigns</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>82</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Mystery Shop</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>96</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MPP Flex</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>73</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MPP Periodic</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>90</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MPP Custom</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>89</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Data Quality</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>90</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Software Updates</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>117</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Back On Road</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>97</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>Depot</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Region</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Depot Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Rank</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>RankNo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>6</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>7</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DOS</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>8</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Time To Arrive</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>9</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CSI</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>10</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month Status</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>11</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CCS Match</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>12</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MOT Pass Rate</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>13</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ETA Accuracy</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>14</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ETC Accuracy</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>15</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Campaigns</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>16</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Mystery Shop</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>17</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MPP Flex</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>18</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MPP Periodic</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>19</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MPP Custom</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>20</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Data Quality</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>21</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Software Updates</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>22</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Back On Road</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>23</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>Mystery Shop</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "vwReport_DOTY_Region_Depot",
+        "columns": [
+          {
+            "name": "Depot ID",
+            "dataType": "int64",
+            "sourceColumn": "Depot ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Depot Name",
+            "dataType": "string",
+            "sourceColumn": "Depot Name",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "vwReport_DOTY_Region_Depot",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[vwReport_DOTY_Region_Depot].* FROM [dbo].[vwReport_DOTY_Region_Depot] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[vwReport_DOTY_Region_Depot].* FROM [dbo].[vwReport_DOTY_Region_Depot] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "vwReport_DOTY_Region_Depot"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
       }
     ],
     "relationships": [
@@ -13622,6 +15605,55 @@
         "fromColumn": "Branch",
         "toTable": "Branch",
         "toColumn": "ID"
+      },
+      {
+        "name": "698d91d9-d060-421e-ba1b-f4203fb43fd7",
+        "fromTable": "DOTY",
+        "fromColumn": "Date",
+        "toTable": "Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "f798d930-9fd9-43dc-be81-005614f43c17",
+        "fromTable": "DOTY",
+        "fromColumn": "Depot",
+        "toTable": "Depot",
+        "toColumn": "ID"
+      },
+      {
+        "name": "e7ed1d68-5885-489b-a60d-393f474f17b0",
+        "fromTable": "vwReport_DOTY",
+        "fromColumn": "Date",
+        "toTable": "Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "f3e004b3-17fb-424b-a159-9ac78af0dee5",
+        "fromTable": "vwReport_DOTY",
+        "fromColumn": "Depot",
+        "toTable": "vwReport_DOTY_Region_Depot",
+        "toColumn": "Depot ID"
+      },
+      {
+        "name": "425be23c-f3ac-49f0-8f3f-cfb2ace021aa",
+        "fromTable": "vwReport_DOTY",
+        "fromColumn": "Depot",
+        "toTable": "Depot",
+        "toColumn": "ID"
+      },
+      {
+        "name": "1c7fc706-9528-4a59-b0ae-1f9a7e98b660",
+        "fromTable": "vwReport_DOTY_1",
+        "fromColumn": "Date",
+        "toTable": "Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "bac245ba-d2bb-4b6c-a2ff-017df3b91144",
+        "fromTable": "vwReport_DOTY_1",
+        "fromColumn": "Depot",
+        "toTable": "vwReport_DOTY_Region_Depot",
+        "toColumn": "Depot ID"
       }
     ],
     "roles": [
