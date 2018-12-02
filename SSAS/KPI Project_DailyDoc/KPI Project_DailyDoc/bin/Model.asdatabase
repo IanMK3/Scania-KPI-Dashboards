@@ -13004,7 +13004,7 @@
         ],
         "measures": [
           {
-            "name": "Waste Cost",
+            "name": "Waste Cost1",
             "expression": "CALCULATE(SUM(WasteCost[Value]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -13013,6 +13013,22 @@
                 "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
               }
             ]
+          },
+          {
+            "name": "VOSA write Off1",
+            "expression": "CALCULATE(WasteCost[Waste Cost1],NominalCode[Nominal Description]=\"VOSA Cost of Sales\")"
+          },
+          {
+            "name": "Good Will1",
+            "expression": "CALCULATE(WasteCost[Waste Cost1],NominalCode[Nominal Description]=\"GoodWill\")"
+          },
+          {
+            "name": "Rectificatio1n",
+            "expression": "CALCULATE(WasteCost[Waste Cost1],NominalCode[Nominal Description]=\"Rectification\")"
+          },
+          {
+            "name": "Warra1nty",
+            "expression": "CALCULATE(WasteCost[Waste Cost1],NominalCode[Nominal Description]=\"Warranty\")"
           }
         ],
         "annotations": [
@@ -15350,6 +15366,224 @@
             "value": "dbo"
           }
         ]
+      },
+      {
+        "name": "CurrentWasteCost",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Branch",
+            "dataType": "int64",
+            "sourceColumn": "Branch",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NominalCode",
+            "dataType": "int64",
+            "sourceColumn": "NominalCode",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Complete",
+            "dataType": "boolean",
+            "sourceColumn": "Complete",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "Boolean"
+          },
+          {
+            "name": "Journal Ref",
+            "dataType": "string",
+            "sourceColumn": "Journal Ref",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Journal reference",
+            "dataType": "string",
+            "sourceColumn": "Journal reference",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Value",
+            "dataType": "double",
+            "sourceColumn": "Value",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Narrative",
+            "dataType": "string",
+            "sourceColumn": "Narrative",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Doc Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Doc Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "Char",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "SL PL Acc Code",
+            "dataType": "string",
+            "sourceColumn": "SL PL Acc Code",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "SL PL Account Name",
+            "dataType": "string",
+            "sourceColumn": "SL PL Account Name",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Item number",
+            "dataType": "int64",
+            "sourceColumn": "Item number",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Daybook number",
+            "dataType": "string",
+            "sourceColumn": "Daybook number",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Sequence number",
+            "dataType": "int64",
+            "sourceColumn": "Sequence number",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Depot",
+            "dataType": "string",
+            "sourceColumn": "Depot",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CurrentWasteCost",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[CurrentWasteCost].* FROM [dbo].[CurrentWasteCost] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Waste Cost",
+            "expression": "CALCULATE(SUM(CurrentWasteCost[Value]))"
+          },
+          {
+            "name": "VOSA write Off",
+            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"VOSA Cost of Sales\")"
+          },
+          {
+            "name": "Good Will",
+            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"GoodWill\")"
+          },
+          {
+            "name": "Rectification",
+            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"Rectification\")"
+          },
+          {
+            "name": "Warranty",
+            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"Warranty\")"
+          },
+          {
+            "name": "Selected Depot_WastCost",
+            "expression": "SELECTEDVALUE(CurrentWasteCost[Depot])"
+          },
+          {
+            "name": "Selected Region_WastCost",
+            "expression": "SELECTEDVALUE(CurrentWasteCost[Region])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[CurrentWasteCost].* FROM [dbo].[CurrentWasteCost] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CurrentWasteCost"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "CurrentWasteCostRefreshDate",
+        "columns": [
+          {
+            "name": "WasteCostRefreshDate",
+            "dataType": "dateTime",
+            "sourceColumn": "WasteCostRefreshDate",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CurrentWasteCostRefreshDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[CurrentWasteCostRefreshDate].* FROM [dbo].[CurrentWasteCostRefreshDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[CurrentWasteCostRefreshDate].* FROM [dbo].[CurrentWasteCostRefreshDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CurrentWasteCostRefreshDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
       }
     ],
     "relationships": [
@@ -15654,6 +15888,27 @@
         "fromColumn": "Depot",
         "toTable": "vwReport_DOTY_Region_Depot",
         "toColumn": "Depot ID"
+      },
+      {
+        "name": "9e758c7a-6791-44bb-9403-058a980527e0",
+        "fromTable": "CurrentWasteCost",
+        "fromColumn": "Date",
+        "toTable": "Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "ffa4e3a7-8096-47df-a39d-16455616cf9b",
+        "fromTable": "CurrentWasteCost",
+        "fromColumn": "Branch",
+        "toTable": "Branch",
+        "toColumn": "ID"
+      },
+      {
+        "name": "144eb8cc-4368-4fc8-833c-504fae452032",
+        "fromTable": "CurrentWasteCost",
+        "fromColumn": "NominalCode",
+        "toTable": "NominalCode",
+        "toColumn": "ID"
       }
     ],
     "roles": [
