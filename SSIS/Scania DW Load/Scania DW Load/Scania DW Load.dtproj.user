@@ -4,11 +4,20 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
+        <ServerName>sgbsql01.database.windows.net</ServerName>
+        <PathOnServer>/SSISDB/KPI_Dashboards/Scania DW Load</PathOnServer>
+        <StartObjectID>Import Facts 2 From Staging.dtsx</StartObjectID>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
         <ProgressReporting>true</ProgressReporting>
-        <ParameterConfigurationSensitiveValues />
+        <ParameterConfigurationSensitiveValues>
+          <ConfigurationSetting>
+            <Id>LastModifiedTime</Id>
+            <Name>LastModifiedTime</Name>
+            <Value xsi:type="xsd:dateTime">2018-08-15T04:13:00.303797Z</Value>
+          </ConfigurationSetting>
+        </ParameterConfigurationSensitiveValues>
       </Options>
     </Configuration>
   </Configurations>
