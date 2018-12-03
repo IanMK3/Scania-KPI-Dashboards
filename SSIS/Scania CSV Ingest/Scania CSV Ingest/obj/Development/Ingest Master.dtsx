@@ -12,8 +12,8 @@
   DTS:ObjectName="Ingest BB0 BB1 B14 and BAS CSVs From Blob Storage"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="205"
-  DTS:VersionGUID="{37808220-7328-462C-BA22-1BF0579658C9}">
+  DTS:VersionBuild="203"
+  DTS:VersionGUID="{E2C72A08-BBF3-4E70-8EB0-B6DE3C0C70E0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -324,13 +324,13 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage\Execute Ingest from Blob 2"
+          DTS:refId="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage\Execute Package Task"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
           DTS:DTSID="{4636b607-7a39-4bbd-9938-ed9ab9cff3e5}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Execute Ingest from Blob 2"
+          DTS:ObjectName="Execute Package Task"
           DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -353,12 +353,12 @@
           DTS:From="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage\Audit - Start Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage\Execute Ingest from Blob 2" />
+          DTS:To="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage\Execute Package Task" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
           DTS:DTSID="{5e996ebd-0b77-4fc0-a2da-4433f5750ea3}"
-          DTS:From="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage\Execute Ingest from Blob 2"
+          DTS:From="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage\Execute Package Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage\Audit - End Task" />
@@ -531,13 +531,13 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1\Execute Ingest from Blob 3"
+          DTS:refId="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1\Execute Package Task"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
           DTS:DTSID="{958c5be2-4698-42f9-a3d2-130dbc3fbc46}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Execute Ingest from Blob 3"
+          DTS:ObjectName="Execute Package Task"
           DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -560,12 +560,12 @@
           DTS:From="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1\Audit - Start Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1\Execute Ingest from Blob 3" />
+          DTS:To="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1\Execute Package Task" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
           DTS:DTSID="{80b7d2bc-b0af-44f4-8c3c-c874a58386bc}"
-          DTS:From="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1\Execute Ingest from Blob 3"
+          DTS:From="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1\Execute Package Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1\Audit - End Task" />
@@ -738,13 +738,13 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob\Execute Ingest from Blob 1"
+          DTS:refId="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob\Execute Package Task"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
           DTS:DTSID="{A5C787C0-DF98-4B70-8F7E-1553EF49462A}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Execute Ingest from Blob 1"
+          DTS:ObjectName="Execute Package Task"
           DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -767,12 +767,12 @@
           DTS:From="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob\Audit - Start Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob\Execute Ingest from Blob 1" />
+          DTS:To="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob\Execute Package Task" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
           DTS:DTSID="{B33037C9-A562-4498-A491-0E40943DCE2F}"
-          DTS:From="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob\Execute Ingest from Blob 1"
+          DTS:From="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob\Execute Package Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob\Audit - End Task" />
@@ -889,8 +889,8 @@
           Id="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob\Audit - Start Task"
           TopLeft="15.5,5.50000000000005" />
         <NodeLayout
-          Size="206.4,41.6"
-          Id="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob\Execute Ingest from Blob 1"
+          Size="182.4,41.6"
+          Id="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob\Execute Package Task"
           TopLeft="5.50000000000003,107.9" />
         <EdgeLayout
           Id="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob.PrecedenceConstraints[Constraint]"
@@ -898,26 +898,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="12,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="12,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="8.00000000000003,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="8.00000000000003,30"
-                    Point2="12,30"
-                    Point3="12,34" />
-                  <mssgle:LineSegment
-                    End="12,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -928,30 +916,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob.PrecedenceConstraints[Constraint 1]"
-          TopLeft="108.7,149.5">
+          TopLeft="96.7,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-12,59.9999999999999"
+              EndConnector="0,60"
               Start="0,0"
-              End="-12,52.4999999999999">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-8.00000000000004,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-8.00000000000004,30"
-                    Point2="-12,30"
-                    Point3="-12,34" />
-                  <mssgle:LineSegment
-                    End="-12,52.4999999999999" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -963,8 +939,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="216.8,307.2"
-          Size="216.8,350.4"
+          PanelSize="193.6,307.2"
+          Size="193.6,350.4"
           Id="Package\Execute the package that Ingests BB0,BB1,B14,BR4 and BAS csvs from Blob"
           TopLeft="5.50000000000007,209.500000000001" />
         <NodeLayout
@@ -976,8 +952,8 @@
           Id="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage\Audit - Start Task"
           TopLeft="15.5,5.50000000000005" />
         <NodeLayout
-          Size="206.4,41.6"
-          Id="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage\Execute Ingest from Blob 2"
+          Size="182.4,41.6"
+          Id="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage\Execute Package Task"
           TopLeft="5.50000000000003,107.9" />
         <EdgeLayout
           Id="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage.PrecedenceConstraints[Constraint]"
@@ -985,26 +961,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="12,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="12,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="8.00000000000003,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="8.00000000000003,30"
-                    Point2="12,30"
-                    Point3="12,34" />
-                  <mssgle:LineSegment
-                    End="12,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1015,30 +979,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage.PrecedenceConstraints[Constraint 1]"
-          TopLeft="108.7,149.5">
+          TopLeft="96.7,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-12,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="-12,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-8.00000000000004,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-8.00000000000004,30"
-                    Point2="-12,30"
-                    Point3="-12,34" />
-                  <mssgle:LineSegment
-                    End="-12,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1050,8 +1002,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="216.8,307.2"
-          Size="216.8,350.4"
+          PanelSize="193.6,307.2"
+          Size="193.6,350.4"
           Id="Package\Execute the package that Ingest's BWN,BWS,BBS,BB3 and BB4 CSVs From Blob Storage"
           TopLeft="5.50000000000013,619.900000000001" />
         <NodeLayout
@@ -1063,8 +1015,8 @@
           Id="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1\Audit - Start Task"
           TopLeft="15.5,5.50000000000005" />
         <NodeLayout
-          Size="206.4,41.6"
-          Id="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1\Execute Ingest from Blob 3"
+          Size="182.4,41.6"
+          Id="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1\Execute Package Task"
           TopLeft="5.50000000000003,107.9" />
         <EdgeLayout
           Id="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1.PrecedenceConstraints[Constraint]"
@@ -1072,26 +1024,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="12,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="12,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="8.00000000000003,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="8.00000000000003,30"
-                    Point2="12,30"
-                    Point3="12,34" />
-                  <mssgle:LineSegment
-                    End="12,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1102,30 +1042,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1.PrecedenceConstraints[Constraint 1]"
-          TopLeft="108.7,149.5">
+          TopLeft="96.7,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-12,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="-12,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-8.00000000000004,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-8.00000000000004,30"
-                    Point2="-12,30"
-                    Point3="-12,34" />
-                  <mssgle:LineSegment
-                    End="-12,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1137,8 +1065,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="216.8,307.2"
-          Size="216.8,350.4"
+          PanelSize="193.6,307.2"
+          Size="193.6,350.4"
           Id="Package\Execute the package that Ingest's Workshop Stats and Bodyshop Stats CSVs From Blob Storage 1"
           TopLeft="5.50000000000017,1030.3" />
         <EdgeLayout
