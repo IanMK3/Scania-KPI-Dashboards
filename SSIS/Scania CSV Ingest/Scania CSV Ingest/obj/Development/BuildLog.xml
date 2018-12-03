@@ -2,18 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Scania CSV Ingest</Name>
-    <LastWriteTime>2018-11-11T18:01:37.3910837Z</LastWriteTime>
+    <LastWriteTime>2018-12-03T13:09:41.6491585Z</LastWriteTime>
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Ingest Master.dtsx</Name>
-      <LastWriteTime>2018-10-19T11:19:17.3592239Z</LastWriteTime>
+      <LastWriteTime>2018-11-19T11:09:30.2816502Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Ingest from Blob 1.dtsx</Name>
-      <LastWriteTime>2018-10-19T10:27:11.5010836Z</LastWriteTime>
+      <LastWriteTime>2018-12-03T11:32:48.7066177Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -23,12 +23,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Ingest from Blob 3.dtsx</Name>
-      <LastWriteTime>2018-11-01T05:56:38.502042Z</LastWriteTime>
+      <LastWriteTime>2018-11-26T23:05:27.2798958Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Archive CSV Files.dtsx</Name>
-      <LastWriteTime>2018-10-19T18:29:49.5109054Z</LastWriteTime>
+      <LastWriteTime>2018-11-19T11:10:23.4925654Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
