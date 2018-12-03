@@ -4,11 +4,20 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
+        <ServerName>sgbsql01.database.windows.net</ServerName>
+        <PathOnServer>/SSISDB/KPI_Dashboards/Scania CSV Ingest</PathOnServer>
+        <StartObjectID>Archive CSV Files.dtsx</StartObjectID>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
         <ProgressReporting>true</ProgressReporting>
-        <ParameterConfigurationSensitiveValues />
+        <ParameterConfigurationSensitiveValues>
+          <ConfigurationSetting>
+            <Id>LastModifiedTime</Id>
+            <Name>LastModifiedTime</Name>
+            <Value xsi:type="xsd:dateTime">2018-09-20T13:13:50.2960938Z</Value>
+          </ConfigurationSetting>
+        </ParameterConfigurationSensitiveValues>
       </Options>
     </Configuration>
   </Configurations>
