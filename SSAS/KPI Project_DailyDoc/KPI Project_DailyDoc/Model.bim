@@ -3508,7 +3508,7 @@
           },
           {
             "name": "Recovery Rate Budget",
-            "expression": "ROUND((DIVIDE([LabourSalesBudget],SoldHoursBudget[HoursBudget])),2)"
+            "expression": "ROUND((DIVIDE([LabourSalesBudget],HoursBudget[Hours Budget])),2)"
           },
           {
             "name": "BackCounterSalesPerformanceAgaistFlxBudget",
@@ -3601,6 +3601,30 @@
           {
             "name": "Working Days Left In Month",
             "expression": "CALCULATE([WorkdaysInMonth])-[ElapsedWorkingDaysInMonth]"
+          },
+          {
+            "name": "Last Updated",
+            "expression": "\"Last Updated\"&\" \"&\":\""
+          },
+          {
+            "name": "WorkingDaysInMonthTxt",
+            "expression": "\"Working Days In Month\"&\" \"&\":\""
+          },
+          {
+            "name": "DaysGoneTxt",
+            "expression": "\"Days Gone\"&\" \"&\":\""
+          },
+          {
+            "name": "WorkingDaysLeftInMonthTxt",
+            "expression": "\"Working Days left In Month\"&\" \"&\":\""
+          },
+          {
+            "name": "WorkingDaysInMonthThisYearTxt",
+            "expression": "\"Working Days In Month This Year\"&\" \"&\":\""
+          },
+          {
+            "name": "WorkingDaysInMonthLastYearTxt",
+            "expression": "\"Working Days In Month Last Year\"&\" \"&\":\""
           }
         ],
         "annotations": [
@@ -3794,350 +3818,6 @@
               "      </value>",
               "    </item>",
               "  </ColumnChecked>",
-              "  <ColumnFilter />",
-              "  <SelectionFilter />",
-              "  <FilterParameters />",
-              "  <IsSortDescending>false</IsSortDescending>",
-              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
-            ]
-          }
-        ]
-      },
-      {
-        "name": "SoldHoursBudget",
-        "columns": [
-          {
-            "name": "ID",
-            "dataType": "int64",
-            "isHidden": true,
-            "sourceColumn": "ID",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "Branch",
-            "dataType": "int64",
-            "isHidden": true,
-            "sourceColumn": "Branch",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "Date",
-            "dataType": "dateTime",
-            "isHidden": true,
-            "sourceColumn": "Date",
-            "formatString": "Short Date",
-            "sourceProviderType": "DBDate",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
-              }
-            ]
-          },
-          {
-            "name": "Budget",
-            "dataType": "double",
-            "isHidden": true,
-            "sourceColumn": "Budget",
-            "sourceProviderType": "Numeric"
-          },
-          {
-            "name": "DW_CreatedDate",
-            "dataType": "dateTime",
-            "isHidden": true,
-            "sourceColumn": "DW_CreatedDate",
-            "formatString": "General Date",
-            "sourceProviderType": "DBTimeStamp"
-          },
-          {
-            "name": "DW_ModifiedDate",
-            "dataType": "dateTime",
-            "isHidden": true,
-            "sourceColumn": "DW_ModifiedDate",
-            "formatString": "General Date",
-            "sourceProviderType": "DBTimeStamp"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "SoldHoursBudget",
-            "dataView": "full",
-            "source": {
-              "query": " SELECT [fact].[SoldHoursBudget].* FROM [fact].[SoldHoursBudget] ",
-              "dataSource": "SqlServerConn"
-            },
-            "annotations": [
-              {
-                "name": "TableWidgetSerialization",
-                "value": [
-                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
-                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
-                  "  <ColumnSuggestedType />",
-                  "  <ColumnFormat />",
-                  "  <ColumnAccuracy />",
-                  "  <ColumnCurrencySymbol />",
-                  "  <ColumnPositivePattern />",
-                  "  <ColumnNegativePattern />",
-                  "  <ColumnWidths>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ID</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>41</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Branch</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>63</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>53</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Budget</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>64</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DW_CreatedDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>115</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DW_ModifiedDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>116</int>",
-                  "      </value>",
-                  "    </item>",
-                  "  </ColumnWidths>",
-                  "  <ColumnDisplayIndex>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ID</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>0</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Branch</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>1</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>2</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Budget</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>3</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DW_CreatedDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>4</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DW_ModifiedDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>5</int>",
-                  "      </value>",
-                  "    </item>",
-                  "  </ColumnDisplayIndex>",
-                  "  <ColumnFrozen />",
-                  "  <ColumnChecked />",
-                  "  <ColumnFilter />",
-                  "  <SelectionFilter />",
-                  "  <FilterParameters />",
-                  "  <IsSortDescending>false</IsSortDescending>",
-                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
-                ]
-              }
-            ]
-          }
-        ],
-        "measures": [
-          {
-            "name": "HoursBudget",
-            "expression": "CALCULATE(SUM(SoldHoursBudget[Budget]))",
-            "formatString": "#,0"
-          },
-          {
-            "name": "HoursFlxBudget",
-            "expression": "DIVIDE([HoursBudget],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]",
-            "formatString": "#,0"
-          },
-          {
-            "name": "HoursToDoBudget",
-            "expression": "[HoursBudget]-[WorkShopSoldHours]",
-            "formatString": "#,0"
-          },
-          {
-            "name": "Daily Target",
-            "expression": "DIVIDE(SoldHoursBudget[HoursBudget]-[WorkShopSoldHours],[WorkdaysInMonth]-[ElapsedWorkingDaysInMonth])",
-            "formatString": "#,0"
-          }
-        ],
-        "annotations": [
-          {
-            "name": "_TM_ExtProp_QueryDefinition",
-            "value": " SELECT [fact].[SoldHoursBudget].* FROM [fact].[SoldHoursBudget] "
-          },
-          {
-            "name": "_TM_ExtProp_DbTableName",
-            "value": "SoldHoursBudget"
-          },
-          {
-            "name": "_TM_ExtProp_DbSchemaName",
-            "value": "fact"
-          },
-          {
-            "name": "TableWidgetSerialization",
-            "value": [
-              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
-              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
-              "  <ColumnSuggestedType />",
-              "  <ColumnFormat />",
-              "  <ColumnAccuracy />",
-              "  <ColumnCurrencySymbol />",
-              "  <ColumnPositivePattern />",
-              "  <ColumnNegativePattern />",
-              "  <ColumnWidths>",
-              "    <item>",
-              "      <key>",
-              "        <string>ID</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>41</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Branch</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>63</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>53</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Budget</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>64</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>DW_CreatedDate</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>115</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>DW_ModifiedDate</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>116</int>",
-              "      </value>",
-              "    </item>",
-              "  </ColumnWidths>",
-              "  <ColumnDisplayIndex>",
-              "    <item>",
-              "      <key>",
-              "        <string>ID</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>0</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Branch</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>1</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>2</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Budget</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>3</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>DW_CreatedDate</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>4</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>DW_ModifiedDate</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>5</int>",
-              "      </value>",
-              "    </item>",
-              "  </ColumnDisplayIndex>",
-              "  <ColumnFrozen />",
-              "  <ColumnChecked />",
               "  <ColumnFilter />",
               "  <SelectionFilter />",
               "  <FilterParameters />",
@@ -4620,7 +4300,7 @@
           },
           {
             "name": "WorkShop Sold Hours Against Total Budget",
-            "expression": "DIVIDE([WorkShopSoldHours],[HoursBudget])",
+            "expression": "DIVIDE([WorkShopSoldHours],[Sold Hours Budget])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -4635,7 +4315,7 @@
           },
           {
             "name": "WorkShop Produced Hours Against Total Budget",
-            "expression": "DIVIDE([WorkShopProducedHours],[HoursBudget])",
+            "expression": "DIVIDE([WorkShopProducedHours],[Produced Hours Budget])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -15584,6 +15264,122 @@
             "value": "dbo"
           }
         ]
+      },
+      {
+        "name": "HoursBudget",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Branch",
+            "dataType": "int64",
+            "sourceColumn": "Branch",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Budget",
+            "dataType": "double",
+            "sourceColumn": "Budget",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Budget Type",
+            "dataType": "string",
+            "sourceColumn": "Budget Type",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DW_CreatedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_CreatedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "DW_ModifiedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_ModifiedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "HoursBudget",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [fact].[HoursBudget].* FROM [fact].[HoursBudget] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Hours Budget",
+            "expression": "CALCULATE(SUM(HoursBudget[Budget]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Attended Hours Budget",
+            "expression": "CALCULATE([Hours Budget],HoursBudget[Budget Type]=\"AttendedHours\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Sold Hours Budget",
+            "expression": "CALCULATE([Hours Budget],HoursBudget[Budget Type]=\"SoldHours\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Produced Hours Budget",
+            "expression": "CALCULATE([Hours Budget],HoursBudget[Budget Type]=\"ProucedHours\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "HoursFlxBudget",
+            "expression": "DIVIDE([Hours Budget],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]"
+          },
+          {
+            "name": "Hours To Do Budget",
+            "expression": "[Hours Budget]-[WorkShopSoldHours]",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Daily Target",
+            "expression": "DIVIDE(HoursBudget[Hours Budget]-[WorkShopSoldHours],[WorkdaysInMonth]-[ElapsedWorkingDaysInMonth])",
+            "formatString": "#,0"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [fact].[HoursBudget].* FROM [fact].[HoursBudget] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "HoursBudget"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "fact"
+          }
+        ]
       }
     ],
     "relationships": [
@@ -15628,20 +15424,6 @@
         "fromColumn": "Date",
         "toTable": "Date",
         "toColumn": "Date"
-      },
-      {
-        "name": "55d80678-9195-4218-9533-ac3c13878f42",
-        "fromTable": "SoldHoursBudget",
-        "fromColumn": "Date",
-        "toTable": "Date",
-        "toColumn": "Date"
-      },
-      {
-        "name": "b1c3a943-4b45-405c-b0be-407d7f3464f1",
-        "fromTable": "SoldHoursBudget",
-        "fromColumn": "Branch",
-        "toTable": "Branch",
-        "toColumn": "ID"
       },
       {
         "name": "873ecac5-33d1-4e89-bbd4-993c32cb6ffb",
@@ -15909,6 +15691,20 @@
         "fromColumn": "NominalCode",
         "toTable": "NominalCode",
         "toColumn": "ID"
+      },
+      {
+        "name": "43b2c5d2-ac93-4ef3-9f96-86464faed5ed",
+        "fromTable": "HoursBudget",
+        "fromColumn": "Branch",
+        "toTable": "Branch",
+        "toColumn": "ID"
+      },
+      {
+        "name": "6cefb84d-8a56-403d-b943-ffd0d81ef3b7",
+        "fromTable": "HoursBudget",
+        "fromColumn": "Date",
+        "toTable": "Date",
+        "toColumn": "Date"
       }
     ],
     "roles": [
