@@ -3457,7 +3457,8 @@
           },
           {
             "name": "RecoveryRate",
-            "expression": "ROUND((DIVIDE([LabourSales],[WorkShopSoldHours])),2)"
+            "expression": "DIVIDE([LabourSales],[WorkShopSoldHours])",
+            "formatString": "0.00"
           },
           {
             "name": "Parts Per Hour Sold",
@@ -3508,7 +3509,7 @@
           },
           {
             "name": "Recovery Rate Budget",
-            "expression": "ROUND((DIVIDE([LabourSalesBudget],HoursBudget[Hours Budget])),2)"
+            "expression": "ROUND((DIVIDE([LabourSalesBudget],HoursBudget[Month Budget])),2)"
           },
           {
             "name": "BackCounterSalesPerformanceAgaistFlxBudget",
@@ -4220,22 +4221,22 @@
           },
           {
             "name": "Invoiced Against FlxBudget %",
-            "expression": "(DIVIDE([WorkShopSoldHours],[HoursFlxBudget]))",
+            "expression": "(DIVIDE([WorkShopSoldHours],[Hours Flexed Budget]))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "HoursProducedPerformanceAgainstFlxBudget",
-            "expression": "DIVIDE([WorkShopProducedHours],[HoursFlxBudget])",
+            "expression": "DIVIDE([WorkShopProducedHours],[Hours Flexed Budget])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Workshop Sold Hours Against FlxBudget",
-            "expression": "DIVIDE([WorkShopSoldHours],[HoursFlxBudget])",
+            "expression": "DIVIDE([WorkShopSoldHours],[Hours Flexed Budget])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Workshop Produced Hours Against FlxBudget %",
-            "expression": "((DIVIDE([WorkShopProducedHours],[HoursFlxBudget])))",
+            "expression": "((DIVIDE([WorkShopProducedHours],[Hours Flexed Budget])))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -4245,7 +4246,7 @@
           },
           {
             "name": "Produced Against FlxBudget %",
-            "expression": "(DIVIDE([WorkShopProducedHours],[HoursFlxBudget]))",
+            "expression": "(DIVIDE([WorkShopProducedHours],[Hours Flexed Budget]))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -6314,7 +6315,7 @@
               ",DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*5",
               ")"
             ],
-            "formatString": "0"
+            "formatString": "#,0"
           },
           {
             "name": "Current WIP Format",
@@ -14499,66 +14500,6 @@
         ],
         "measures": [
           {
-            "name": "CCS Match Target",
-            "expression": "\"100%\""
-          },
-          {
-            "name": "MOT Pass Rate Target",
-            "expression": "\"100%\""
-          },
-          {
-            "name": "Time To Arrive Target",
-            "expression": "\"01:00:00\""
-          },
-          {
-            "name": "Back On Road Target",
-            "expression": "\"80%\""
-          },
-          {
-            "name": "ETA Accuracy Target",
-            "expression": "\"65%\""
-          },
-          {
-            "name": "ETC Accuracy Target",
-            "expression": "\"65%\""
-          },
-          {
-            "name": "Campaigns Target1",
-            "expression": "\"98%\""
-          },
-          {
-            "name": "Mistery Shop Target",
-            "expression": "\"84%\""
-          },
-          {
-            "name": "MPP Flex Target",
-            "expression": "\"< 5%\""
-          },
-          {
-            "name": "MPP Periodic Target",
-            "expression": "\"< 5%\""
-          },
-          {
-            "name": "MPP Custom Target",
-            "expression": "\"< 5%\""
-          },
-          {
-            "name": "CSI Target1",
-            "expression": "\"8.2\""
-          },
-          {
-            "name": "DOS Target1",
-            "expression": "\"46\""
-          },
-          {
-            "name": "Data Quality Target",
-            "expression": "\"100%\""
-          },
-          {
-            "name": "Software Update Target",
-            "expression": "\"90%\""
-          },
-          {
             "name": "Data Dated",
             "expression": [
               "\"Data Dated\"&\" \"&\":\"",
@@ -15253,12 +15194,14 @@
           {
             "name": "ID",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ID",
             "sourceProviderType": "Integer"
           },
           {
             "name": "Branch",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "Branch",
             "sourceProviderType": "Integer"
           },
@@ -15278,18 +15221,21 @@
           {
             "name": "Budget",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "Budget",
             "sourceProviderType": "Numeric"
           },
           {
             "name": "Budget Type",
             "dataType": "string",
+            "isHidden": true,
             "sourceColumn": "Budget Type",
             "sourceProviderType": "Char"
           },
           {
             "name": "DW_CreatedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_CreatedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
@@ -15297,6 +15243,7 @@
           {
             "name": "DW_ModifiedDate",
             "dataType": "dateTime",
+            "isHidden": true,
             "sourceColumn": "DW_ModifiedDate",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
@@ -15309,7 +15256,145 @@
             "source": {
               "query": " SELECT [fact].[HoursBudget].* FROM [fact].[HoursBudget] ",
               "dataSource": "SqlServerConn"
-            }
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>41</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Branch</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>63</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>53</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Budget</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>64</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Budget Type</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>91</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DW_CreatedDate</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>115</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DW_ModifiedDate</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>116</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Branch</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Budget</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Budget Type</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DW_CreatedDate</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DW_ModifiedDate</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked />",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
           }
         ],
         "measures": [
@@ -15334,17 +15419,23 @@
             "formatString": "#,0"
           },
           {
-            "name": "HoursFlxBudget",
-            "expression": "DIVIDE([Hours Budget],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]"
+            "name": "Hours Flexed Budget",
+            "expression": "DIVIDE([Month Budget],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]",
+            "formatString": "#,0"
           },
           {
             "name": "Hours To Do Budget",
-            "expression": "[Hours Budget]-[WorkShopSoldHours]",
+            "expression": "[Month Budget]-[WorkShopSoldHours]",
             "formatString": "#,0"
           },
           {
             "name": "Daily Target",
-            "expression": "DIVIDE(HoursBudget[Hours Budget]-[WorkShopSoldHours],[WorkdaysInMonth]-[ElapsedWorkingDaysInMonth])",
+            "expression": "DIVIDE([Month Budget]-[WorkShopSoldHours],[WorkdaysInMonth]-[ElapsedWorkingDaysInMonth])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Month Budget",
+            "expression": "CALCULATE([Hours Budget],HoursBudget[Budget Type]=\"SoldHours\")",
             "formatString": "#,0"
           }
         ],
@@ -15360,6 +15451,142 @@
           {
             "name": "_TM_ExtProp_DbSchemaName",
             "value": "fact"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>41</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Branch</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>63</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>53</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Budget</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>64</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Budget Type</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>91</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DW_CreatedDate</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>115</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DW_ModifiedDate</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>116</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Branch</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Budget</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Budget Type</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DW_CreatedDate</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DW_ModifiedDate</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>6</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked />",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
           }
         ]
       }
