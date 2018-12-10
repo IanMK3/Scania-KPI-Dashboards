@@ -9361,6 +9361,83 @@
           {
             "name": "Selected Region_Queries",
             "expression": "SELECTEDVALUE(CurrentOutstandingQueries[Region])"
+          },
+          {
+            "name": "Query 0-30 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=1)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query 31-60 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=2)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query 61-90 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=3)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query 91-120 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=4)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query 121-150 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=5)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query 151-180 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=6)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query +180 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]>=7)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           }
         ],
         "annotations": [

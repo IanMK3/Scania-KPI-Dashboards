@@ -9361,6 +9361,34 @@
           {
             "name": "Selected Region_Queries",
             "expression": "SELECTEDVALUE(CurrentOutstandingQueries[Region])"
+          },
+          {
+            "name": "Query 0-30 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=1)"
+          },
+          {
+            "name": "Query 31-60 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=2)"
+          },
+          {
+            "name": "Query 61-90 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=3)"
+          },
+          {
+            "name": "Query 91-120 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=4)"
+          },
+          {
+            "name": "Query 121-150 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=5)"
+          },
+          {
+            "name": "Query 151-180 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=6)"
+          },
+          {
+            "name": "Query +180 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]>=7)"
           }
         ],
         "annotations": [
