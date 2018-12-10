@@ -9364,31 +9364,80 @@
           },
           {
             "name": "Query 0-30 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=1)"
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=1)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "Query 31-60 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=2)"
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=2)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "Query 61-90 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=3)"
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=3)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "Query 91-120 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=4)"
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=4)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "Query 121-150 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=5)"
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=5)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "Query 151-180 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=6)"
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=6)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "Query +180 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]>=7)"
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]>=7)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           }
         ],
         "annotations": [
@@ -10229,7 +10278,7 @@
             "formatString": "#,0"
           },
           {
-            "name": "Cash Outstanding (Age 0-30 days)",
+            "name": "Cash Sales 0-30 Days",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCashSale[Outstanding Amount]),CurrentOutstandingCashSale[Cash OutStanding Age]<=30)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -10240,7 +10289,7 @@
             ]
           },
           {
-            "name": "Cash Outstanding (Age 31-60 days)",
+            "name": "Cash Sales 31-60 Days",
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentOutstandingCashSale[Outstanding Amount]),CurrentOutstandingCashSale[Cash OutStanding Age]>31 && CurrentOutstandingCashSale[Cash OutStanding Age]<=60)"
@@ -10254,7 +10303,7 @@
             ]
           },
           {
-            "name": "Cash Outstanding (Age > 60 days)",
+            "name": "Cash Sales + 60 Days",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCashSale[Outstanding Amount]),CurrentOutstandingCashSale[Cash OutStanding Age]>60)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -10265,7 +10314,7 @@
             ]
           },
           {
-            "name": "Cash Sales Amount",
+            "name": "Outstanding Cash Sales",
             "expression": "CALCULATE(SUM(CurrentOutstandingCashSale[Outstanding Amount]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -12108,7 +12157,7 @@
             "formatString": "#,0"
           },
           {
-            "name": "Amount (Age 0-30 days)",
+            "name": "Warranty  0-30 Days",
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentWarrantyOutstandingAmount[Outstanding Amount]), CurrentWarrantyOutstandingAmount[Warranty Age] <=30)"
@@ -12122,7 +12171,7 @@
             ]
           },
           {
-            "name": "Amount (Age 31-60 days)",
+            "name": "Warranty 31-60 Days",
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentWarrantyOutstandingAmount[Outstanding Amount]), CurrentWarrantyOutstandingAmount[Warranty Age]  >30 && CurrentWarrantyOutstandingAmount[Warranty Age] <=60)"
@@ -12146,7 +12195,7 @@
             "formatString": "#,0"
           },
           {
-            "name": "Amount (Age > 60 days)",
+            "name": "Warranty + 60 Days",
             "expression": [
               "0+",
               " CALCULATE( SUM(currentWarrantyOutstandingAmount[Outstanding Amount]),currentWarrantyOutstandingAmount[Warranty Age] >60)"
@@ -12160,7 +12209,7 @@
             ]
           },
           {
-            "name": "Warranty Amount OutStanding",
+            "name": "Outstanding Warranty Amount",
             "expression": "CALCULATE(SUM(currentWarrantyOutstandingAmount[Outstanding Amount]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [

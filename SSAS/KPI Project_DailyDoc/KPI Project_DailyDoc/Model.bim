@@ -10278,7 +10278,7 @@
             "formatString": "#,0"
           },
           {
-            "name": "Cash Outstanding (Age 0-30 days)",
+            "name": "Cash Sales 0-30 Days",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCashSale[Outstanding Amount]),CurrentOutstandingCashSale[Cash OutStanding Age]<=30)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -10289,7 +10289,7 @@
             ]
           },
           {
-            "name": "Cash Outstanding (Age 31-60 days)",
+            "name": "Cash Sales 31-60 Days",
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentOutstandingCashSale[Outstanding Amount]),CurrentOutstandingCashSale[Cash OutStanding Age]>31 && CurrentOutstandingCashSale[Cash OutStanding Age]<=60)"
@@ -10303,7 +10303,7 @@
             ]
           },
           {
-            "name": "Cash Outstanding (Age > 60 days)",
+            "name": "Cash Sales + 60 Days",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCashSale[Outstanding Amount]),CurrentOutstandingCashSale[Cash OutStanding Age]>60)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -10314,7 +10314,7 @@
             ]
           },
           {
-            "name": "Cash Sales Amount",
+            "name": "Outstanding Cash Sales",
             "expression": "CALCULATE(SUM(CurrentOutstandingCashSale[Outstanding Amount]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -12157,7 +12157,7 @@
             "formatString": "#,0"
           },
           {
-            "name": "Amount (Age 0-30 days)",
+            "name": "Warranty  0-30 Days",
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentWarrantyOutstandingAmount[Outstanding Amount]), CurrentWarrantyOutstandingAmount[Warranty Age] <=30)"
@@ -12171,7 +12171,7 @@
             ]
           },
           {
-            "name": "Amount (Age 31-60 days)",
+            "name": "Warranty 31-60 Days",
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentWarrantyOutstandingAmount[Outstanding Amount]), CurrentWarrantyOutstandingAmount[Warranty Age]  >30 && CurrentWarrantyOutstandingAmount[Warranty Age] <=60)"
@@ -12195,7 +12195,7 @@
             "formatString": "#,0"
           },
           {
-            "name": "Amount (Age > 60 days)",
+            "name": "Warranty + 60 Days",
             "expression": [
               "0+",
               " CALCULATE( SUM(currentWarrantyOutstandingAmount[Outstanding Amount]),currentWarrantyOutstandingAmount[Warranty Age] >60)"
@@ -12209,7 +12209,7 @@
             ]
           },
           {
-            "name": "Warranty Amount OutStanding",
+            "name": "Outstanding Warranty Amount",
             "expression": "CALCULATE(SUM(currentWarrantyOutstandingAmount[Outstanding Amount]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
