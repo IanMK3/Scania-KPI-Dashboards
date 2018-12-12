@@ -4330,6 +4330,15 @@
           {
             "name": "Efficiency%Format",
             "expression": "SWITCH(TRUE(),[Efficiency %]>=1,1,0)"
+          },
+          {
+            "name": "Utilisation Budget",
+            "expression": "DIVIDE([Produced Hours Budget],[Attended Hours Budget])",
+            "formatString": "0.00%;-0.00%;0.00%"
+          },
+          {
+            "name": "Utilisation%Format",
+            "expression": "SWITCH(TRUE(),UtilizationStats[Utilisation%]>UtilizationStats[Utilisation Budget],1,0)"
           }
         ],
         "annotations": [
@@ -6312,8 +6321,7 @@
             "expression": [
               "IF(ISBLANK([BodyShopProducedHours])",
               ",DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3",
-              ",DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*5",
-              ")"
+              ",DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*5)"
             ],
             "formatString": "#,0"
           },
@@ -7250,7 +7258,7 @@
             "expression": "0+COUNTROWS(FILTER(GROUPBY(CurrentOutstandingCredit,CurrentOutstandingCredit[PO Number],CurrentOutstandingCredit[Depot],CurrentOutstandingCredit[Line Number],CurrentOutstandingCredit[GRN],CurrentOutstandingCredit[Credit Age(Months)]),CurrentOutstandingCredit[Credit Age(Months)]>=4))"
           },
           {
-            "name": "Credit (Current Month OD)",
+            "name": "Credit Current Month OD",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]=0)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -7261,7 +7269,7 @@
             ]
           },
           {
-            "name": "Credit (1  Month OD)",
+            "name": "Credit 1  Month OD",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]=1)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -7272,7 +7280,7 @@
             ]
           },
           {
-            "name": "Credit (2  Month OD)",
+            "name": "Credit 2  Month OD",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]=2)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -7283,7 +7291,7 @@
             ]
           },
           {
-            "name": "Credit (3  Month OD)",
+            "name": "Credit 3  Month OD",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]=3)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -7294,7 +7302,7 @@
             ]
           },
           {
-            "name": "Credit (4  Month OD+)",
+            "name": "Credit 4  Month OD+",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age(Months)]>=4)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -7305,7 +7313,7 @@
             ]
           },
           {
-            "name": "Credit Value",
+            "name": "Outstanding Credit",
             "expression": "CALCULATE(SUM(CurrentOutstandingCredit[Total]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -7316,7 +7324,7 @@
             ]
           },
           {
-            "name": "Credit (Age 0-30 days)",
+            "name": "Credit 0-30 Days",
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age]<30)"
@@ -7330,7 +7338,7 @@
             ]
           },
           {
-            "name": "Credit (Age 31-60 days)",
+            "name": "Credit 31-60 Days",
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age]>30 && CurrentOutstandingCredit[Credit Age]<=60)"
@@ -7344,7 +7352,7 @@
             ]
           },
           {
-            "name": "Credit (Age >60 days)",
+            "name": "Credit +60 days",
             "expression": [
               "0+",
               " CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age]>60)"
@@ -8339,7 +8347,7 @@
             "formatString": "#,0"
           },
           {
-            "name": "Payment (Current Month OD)",
+            "name": "Value Current Month OD",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingPartsPayment[Parts Value]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=0)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8350,7 +8358,7 @@
             ]
           },
           {
-            "name": "Payment (1 Month OD)",
+            "name": "Value 1 Month OD",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingPartsPayment[Parts Value]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=1)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8361,7 +8369,7 @@
             ]
           },
           {
-            "name": "Payment (2 Month OD)",
+            "name": "Value 2 Month OD",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingPartsPayment[Parts Value]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=2)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8372,7 +8380,7 @@
             ]
           },
           {
-            "name": "Payment (3 Month OD)",
+            "name": "Value 3 Month OD",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingPartsPayment[Parts Value]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]=3)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8383,7 +8391,7 @@
             ]
           },
           {
-            "name": "Payment (4 Month OD+)",
+            "name": "Value 4 Month OD+",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingPartsPayment[Parts Value]),CurrentOutstandingPartsPayment[PartsPaymentAge(Months)]>=4)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -11214,7 +11222,7 @@
             "formatString": "#,0"
           },
           {
-            "name": "Sublet Amount (Current Month OD)",
+            "name": "Sublet Current Month OD",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingSubletPayement[Value]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=0)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -11225,7 +11233,7 @@
             ]
           },
           {
-            "name": "SubleT Amount (1 Month OD)",
+            "name": "Sublet 1 Month OD",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingSubletPayement[Value]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=1)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -11236,7 +11244,7 @@
             ]
           },
           {
-            "name": "Sublet Amount (2 Month OD)",
+            "name": "Sublet 2 Month OD",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingSubletPayement[Value]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=2)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -11247,7 +11255,7 @@
             ]
           },
           {
-            "name": "Sublet Amount (3 Month OD)",
+            "name": "Sublet 3 Month OD",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingSubletPayement[Value]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]=3)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -11258,7 +11266,7 @@
             ]
           },
           {
-            "name": "Sublet Amount (4 Month OD+)",
+            "name": "Sublet 4 Month OD+",
             "expression": "0+CALCULATE( SUM(CurrentOutstandingSubletPayement[Value]),CurrentOutstandingSubletPayement[SubletPaymentAge(Months)]>=4)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -11269,7 +11277,7 @@
             ]
           },
           {
-            "name": "Sublet Amount",
+            "name": "Outstanding Sublet",
             "expression": "CALCULATE(SUM(CurrentOutstandingSubletPayement[Value]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -12209,7 +12217,7 @@
             ]
           },
           {
-            "name": "Outstanding Warranty Amount",
+            "name": "Outstanding Warranty",
             "expression": "CALCULATE(SUM(currentWarrantyOutstandingAmount[Outstanding Amount]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -14101,12 +14109,6 @@
             "sourceProviderType": "WChar"
           },
           {
-            "name": "Month Status",
-            "dataType": "string",
-            "sourceColumn": "Month Status",
-            "sourceProviderType": "Char"
-          },
-          {
             "name": "Objective Value",
             "dataType": "string",
             "sourceColumn": "Objective Value",
@@ -14218,14 +14220,6 @@
                   "    </item>",
                   "    <item>",
                   "      <key>",
-                  "        <string>Month Status</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>94</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
                   "        <string>Objective Value</string>",
                   "      </key>",
                   "      <value>",
@@ -14239,7 +14233,7 @@
                   "        <string>Depot ID</string>",
                   "      </key>",
                   "      <value>",
-                  "        <int>10</int>",
+                  "        <int>9</int>",
                   "      </value>",
                   "    </item>",
                   "    <item>",
@@ -14271,7 +14265,7 @@
                   "        <string>Objective Sort</string>",
                   "      </key>",
                   "      <value>",
-                  "        <int>9</int>",
+                  "        <int>8</int>",
                   "      </value>",
                   "    </item>",
                   "    <item>",
@@ -14308,18 +14302,10 @@
                   "    </item>",
                   "    <item>",
                   "      <key>",
-                  "        <string>Month Status</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>7</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
                   "        <string>Objective Value</string>",
                   "      </key>",
                   "      <value>",
-                  "        <int>8</int>",
+                  "        <int>7</int>",
                   "      </value>",
                   "    </item>",
                   "  </ColumnDisplayIndex>",
@@ -14461,14 +14447,6 @@
               "    </item>",
               "    <item>",
               "      <key>",
-              "        <string>Month Status</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>94</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
               "        <string>Objective Value</string>",
               "      </key>",
               "      <value>",
@@ -14482,7 +14460,7 @@
               "        <string>Depot ID</string>",
               "      </key>",
               "      <value>",
-              "        <int>10</int>",
+              "        <int>9</int>",
               "      </value>",
               "    </item>",
               "    <item>",
@@ -14514,7 +14492,7 @@
               "        <string>Objective Sort</string>",
               "      </key>",
               "      <value>",
-              "        <int>9</int>",
+              "        <int>8</int>",
               "      </value>",
               "    </item>",
               "    <item>",
@@ -14551,18 +14529,10 @@
               "    </item>",
               "    <item>",
               "      <key>",
-              "        <string>Month Status</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>7</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
               "        <string>Objective Value</string>",
               "      </key>",
               "      <value>",
-              "        <int>8</int>",
+              "        <int>7</int>",
               "      </value>",
               "    </item>",
               "  </ColumnDisplayIndex>",
@@ -14830,7 +14800,7 @@
                   "        <string>Month Name</string>",
                   "      </key>",
                   "      <value>",
-                  "        <int>90</int>",
+                  "        <int>129</int>",
                   "      </value>",
                   "    </item>",
                   "    <item>",
@@ -15264,7 +15234,7 @@
               "        <string>Month Name</string>",
               "      </key>",
               "      <value>",
-              "        <int>90</int>",
+              "        <int>129</int>",
               "      </value>",
               "    </item>",
               "    <item>",
@@ -15783,23 +15753,58 @@
         "measures": [
           {
             "name": "Waste Cost",
-            "expression": "CALCULATE(SUM(CurrentWasteCost[Value]))"
+            "expression": "CALCULATE(SUM(CurrentWasteCost[Value]))",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "VOSA write Off",
-            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"VOSA Cost of Sales\")"
+            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"VOSA Cost of Sales\")",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "Good Will",
-            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"GoodWill\")"
+            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"GoodWill\")",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "Rectification",
-            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"Rectification\")"
+            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"Rectification\")",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "Warranty",
-            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"Warranty\")"
+            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"Warranty\")",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           },
           {
             "name": "Selected Depot_WastCost",
