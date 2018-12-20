@@ -3643,6 +3643,10 @@
             "name": "Sales Against Total Budget",
             "expression": "DIVIDE([TotalSales],[SalesBudget])",
             "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Sales Against Total Budget Format",
+            "expression": "SWITCH(TRUE(),[Sales Against Total Budget]>=[Target Marker],1,0)"
           }
         ],
         "annotations": [
@@ -7389,7 +7393,7 @@
             ]
           },
           {
-            "name": "Outstanding Credit",
+            "name": "Credit Value",
             "expression": "CALCULATE(SUM(CurrentOutstandingCredit[Total]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -7557,15 +7561,11 @@
           },
           {
             "name": "Credit Count",
-            "expression": "CALCULATE(DISTINCTCOUNT(CurrentOutstandingCredit[Credit Date]))"
+            "expression": "CALCULATE(COUNT(CurrentOutstandingCredit[Credit Date]))"
           },
           {
             "name": "Copy of Credit Count (0 Month OD)",
             "expression": "0+CALCULATE(COUNTROWS(GROUPBY(CurrentOutstandingCredit,CurrentOutstandingCredit[DepotId])))"
-          },
-          {
-            "name": "Copy of Credit Count",
-            "expression": "CALCULATE(COUNT(CurrentOutstandingCredit[Credit Date]))"
           }
         ],
         "annotations": [
@@ -8703,7 +8703,7 @@
             ]
           },
           {
-            "name": "Parts GIS",
+            "name": "Parts GIS Value",
             "expression": "CALCULATE(SUM(CurrentOutstandingPartsPayment[Parts Value]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -8846,6 +8846,10 @@
                 "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
               }
             ]
+          },
+          {
+            "name": "Parts GIS Count",
+            "expression": "CALCULATE(COUNT(CurrentOutstandingPartsPayment[Date]))"
           }
         ],
         "annotations": [
@@ -9799,7 +9803,7 @@
         ],
         "measures": [
           {
-            "name": "Query Outstanding",
+            "name": "Query Value",
             "expression": [
               "",
               "\tvar MaxDate = MAX('Date'[Date])",
@@ -9906,7 +9910,7 @@
           },
           {
             "name": "Query 0-30 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=1)",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge]<=30)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -9917,51 +9921,7 @@
           },
           {
             "name": "Query 31-60 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=2)",
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          },
-          {
-            "name": "Query 61-90 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=3)",
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          },
-          {
-            "name": "Query 91-120 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=4)",
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          },
-          {
-            "name": "Query 121-150 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=5)",
-            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
-              }
-            ]
-          },
-          {
-            "name": "Query 151-180 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]=6)",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge]>30&&CurrentOutstandingQueries[QueryAge]<=60)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -9972,7 +9932,7 @@
           },
           {
             "name": "Query +180 Days",
-            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge(Months)]>=7)",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge]>180)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -9983,7 +9943,51 @@
           },
           {
             "name": "Query Count",
-            "expression": "CALCULATE(DISTINCTCOUNT(CurrentOutstandingQueries[Document Number]))"
+            "expression": "CALCULATE(COUNT(CurrentOutstandingQueries[Document Number]))"
+          },
+          {
+            "name": "Query 61-90 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge]>60&&CurrentOutstandingQueries[QueryAge]<=90)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query 91-120 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge]>90&&CurrentOutstandingQueries[QueryAge]<=120)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query 121-150 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge]>120&&CurrentOutstandingQueries[QueryAge]<=150)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Query 151-180 Days",
+            "expression": "0+CALCULATE( SUM(CurrentOutstandingQueries[Outstanding Amount]),CurrentOutstandingQueries[QueryAge]>150&&CurrentOutstandingQueries[QueryAge]<=180)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           }
         ],
         "annotations": [
@@ -10967,7 +10971,7 @@
             ]
           },
           {
-            "name": "Outstanding Cash Sales",
+            "name": "Cash Sales Value",
             "expression": "CALCULATE(SUM(CurrentOutstandingCashSale[Outstanding Amount]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -11071,7 +11075,7 @@
           },
           {
             "name": "Cash Sales Count",
-            "expression": "CALCULATE(DISTINCTCOUNT(CurrentOutstandingCashSale[Invoice Number]))"
+            "expression": "CALCULATE(COUNT(CurrentOutstandingCashSale[Invoice Number]))"
           }
         ],
         "annotations": [
@@ -12117,7 +12121,7 @@
             ]
           },
           {
-            "name": "Sublet GIS",
+            "name": "Sublet GIS Value",
             "expression": "CALCULATE(SUM(CurrentOutstandingSubletPayement[Value]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -12233,6 +12237,10 @@
                 "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
               }
             ]
+          },
+          {
+            "name": "Sublet GIS Count",
+            "expression": "CALCULATE(COUNT(CurrentOutstandingSubletPayement[Date]))"
           }
         ],
         "annotations": [
@@ -13263,7 +13271,7 @@
             ]
           },
           {
-            "name": "Warranty Ageing",
+            "name": "Warranty Value",
             "expression": "CALCULATE(SUM(currentWarrantyOutstandingAmount[Outstanding Amount]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -13367,7 +13375,7 @@
           },
           {
             "name": "Warranty Count",
-            "expression": "CALCULATE(DISTINCTCOUNT(CurrentWarrantyOutstandingAmount[Invoice Number]))"
+            "expression": "CALCULATE(COUNT(CurrentWarrantyOutstandingAmount[Invoice Number]),GROUPBY(CurrentWarrantyOutstandingAmount,CurrentWarrantyOutstandingAmount[Date],CurrentWarrantyOutstandingAmount[Invoice Number]))"
           }
         ],
         "annotations": [
@@ -17149,7 +17157,7 @@
         ],
         "measures": [
           {
-            "name": "Waste Cost",
+            "name": "Waste Cost Value",
             "expression": "CALCULATE(SUM(CurrentWasteCost[Value]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -17161,7 +17169,7 @@
           },
           {
             "name": "VOSA write Off",
-            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"VOSA Cost of Sales\")",
+            "expression": "CALCULATE(CurrentWasteCost[Waste Cost Value],NominalCode[Nominal Description]=\"VOSA Cost of Sales\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -17172,7 +17180,7 @@
           },
           {
             "name": "Good Will",
-            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"GoodWill\")",
+            "expression": "CALCULATE(CurrentWasteCost[Waste Cost Value],NominalCode[Nominal Description]=\"GoodWill\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -17183,7 +17191,7 @@
           },
           {
             "name": "Rectification",
-            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"Rectification\")",
+            "expression": "CALCULATE(CurrentWasteCost[Waste Cost Value],NominalCode[Nominal Description]=\"Rectification\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -17194,7 +17202,7 @@
           },
           {
             "name": "Warranty",
-            "expression": "CALCULATE(CurrentWasteCost[Waste Cost],NominalCode[Nominal Description]=\"Warranty\")",
+            "expression": "CALCULATE(CurrentWasteCost[Waste Cost Value],NominalCode[Nominal Description]=\"Warranty\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -18285,7 +18293,7 @@
         ],
         "measures": [
           {
-            "name": "WIP Report Total",
+            "name": "WIP_Total",
             "expression": "CALCULATE(SUM('vw_Current WIP Report'[WIP Total]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
@@ -18382,7 +18390,7 @@
           },
           {
             "name": "WIP Count",
-            "expression": "CALCULATE(DISTINCTCOUNT('vw_Current WIP Report'[In Date]))"
+            "expression": "CALCULATE(COUNT('vw_Current WIP Report'[WIP Number]))"
           }
         ],
         "annotations": [
@@ -19320,6 +19328,818 @@
               "  <IsSortDescending>false</IsSortDescending>",
               "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
             ]
+          }
+        ]
+      },
+      {
+        "name": "vw_MOT Pass Rate Report",
+        "columns": [
+          {
+            "name": "Region ID",
+            "dataType": "int64",
+            "sourceColumn": "Region ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Preparer ID",
+            "dataType": "string",
+            "sourceColumn": "Preparer ID",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Inspection Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Inspection Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Test Location",
+            "dataType": "string",
+            "sourceColumn": "Test Location",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Test Result",
+            "dataType": "string",
+            "sourceColumn": "Test Result",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Failure Item No",
+            "dataType": "string",
+            "sourceColumn": "Failure Item No",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Failure Item Severity",
+            "dataType": "string",
+            "sourceColumn": "Failure Item Severity",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Failure Description",
+            "dataType": "string",
+            "sourceColumn": "Failure Description",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "type": "calculated",
+            "name": "Month Status",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "                            VAR MAXDATE =MAX('vw_MOT Pass Rate Report'[Date])",
+              "                                    RETURN",
+              "                                                       SWITCH(TRUE(),'vw_MOT Pass Rate Report'[Date]=MAXDATE,\"Current Month\",\"Previous Month\")"
+            ]
+          },
+          {
+            "name": "Vehicle ID",
+            "dataType": "string",
+            "sourceColumn": "Vehicle ID"
+          },
+          {
+            "name": "Test Type",
+            "dataType": "string",
+            "sourceColumn": "Test Type"
+          },
+          {
+            "name": "Depot Name",
+            "dataType": "string",
+            "sourceColumn": "Depot Name"
+          },
+          {
+            "name": "Report Month",
+            "dataType": "string",
+            "sourceColumn": "Report Month"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "vw_MOT Pass Rate Report",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[vw_MOT Pass Rate Report].* FROM [dbo].[vw_MOT Pass Rate Report] ",
+              "dataSource": "SqlServerConn"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Region ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>77</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Region</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>63</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Preparer ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>86</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Vehicle ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>77</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Inspection Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>106</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>53</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Test Location</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>94</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Test Result</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>84</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Failure Item No</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>103</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Failure Item Severity</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>130</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Failure Description</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>118</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Test Type</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>78</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Depot Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>89</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Report Month</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>96</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Region ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Region</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Preparer ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Vehicle ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Inspection Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Test Location</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Test Result</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>7</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Failure Item No</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>8</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Failure Item Severity</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>9</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Failure Description</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>10</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Test Type</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>11</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Depot Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>12</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Report Month</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>13</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Vehicle ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Test Type</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Depot Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Report Month</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total MOT",
+            "expression": "CALCULATE(COUNT('vw_MOT Pass Rate Report'[Preparer ID]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Passes",
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Pass\")"
+          },
+          {
+            "name": "Fails",
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Fail\",'vw_MOT Pass Rate Report'[Failure Item Severity]=\"F\")"
+          },
+          {
+            "name": "PRS",
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"PRS\")"
+          },
+          {
+            "name": "Abandoned",
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Abandoned\")"
+          },
+          {
+            "name": "Passes %",
+            "expression": "0+DIVIDE(CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Pass\"),[Total MOT])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Fails %",
+            "expression": "0+DIVIDE(CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Fail\"),[Total MOT])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "PRS %",
+            "expression": "0+DIVIDE(CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"PRS\"),[Total MOT])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Abandoned %",
+            "expression": "0+DIVIDE(CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Abandoned\"),[Total MOT])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Selected Depot MOT",
+            "expression": "SELECTEDVALUE('vw_MOT Pass Rate Report'[Depot Name])"
+          },
+          {
+            "name": "Selected Region MOT",
+            "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report'[Region]),\"Total Network\"&VALUES('vw_MOT Pass Rate Report'[Region]),UNICHAR(10))"
+          },
+          {
+            "name": "Selected MOT Test Results",
+            "expression": "SELECTEDVALUE('vw_MOT Pass Rate Report'[Test Result])"
+          },
+          {
+            "name": "Failure Analysis",
+            "expression": "\"Please Click Here For\""
+          },
+          {
+            "name": "Fail Advisory",
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Fail\",'vw_MOT Pass Rate Report'[Failure Item Severity]=\"A\")"
+          },
+          {
+            "name": "Pass Advisory",
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Pass\",'vw_MOT Pass Rate Report'[Failure Item Severity]=\"A\")"
+          },
+          {
+            "name": "Advisories",
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Failure Item Severity]=\"A\")"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[vw_MOT Pass Rate Report].* FROM [dbo].[vw_MOT Pass Rate Report] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "vw_MOT Pass Rate Report"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>Region ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>77</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Region</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>63</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Preparer ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>86</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Vehicle ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>77</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Inspection Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>106</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>53</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Test Location</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>94</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Test Result</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>84</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Failure Item No</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>103</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Failure Item Severity</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>130</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Failure Description</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>118</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Test Type</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>78</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Depot Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>89</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Report Month</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>96</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>Region ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Region</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Preparer ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Vehicle ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Inspection Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Test Location</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>6</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Test Result</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>7</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Failure Item No</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>8</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Failure Item Severity</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>9</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Failure Description</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>10</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Test Type</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>11</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Depot Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>12</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Report Month</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>13</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>Vehicle ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Test Type</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Depot Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Report Month</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "MOT_Pass_Rate_RefreshDate",
+        "columns": [
+          {
+            "name": "RefreshDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RefreshDate",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "MOT_Pass_Rate_RefreshDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[MOT_Pass_Rate_RefreshDate].* FROM [dbo].[MOT_Pass_Rate_RefreshDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[MOT_Pass_Rate_RefreshDate].* FROM [dbo].[MOT_Pass_Rate_RefreshDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "MOT_Pass_Rate_RefreshDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
           }
         ]
       }
