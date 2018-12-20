@@ -77,7 +77,7 @@
             "name": "Branch",
             "dataView": "full",
             "source": {
-              "query": " SELECT [dim].[Branch].* FROM [dim].[Branch] ",
+              "query": " SELECT [dim].[Branch].[ID],[dim].[Branch].[Branch Code],[dim].[Branch].[Branch],[dim].[Branch].[Depot],[dim].[Branch].[Branch Type],[dim].[Branch].[DW_DateCreated],[dim].[Branch].[DW_DateModified] FROM [dim].[Branch] ",
               "dataSource": "SqlServerConn"
             },
             "annotations": [
@@ -149,6 +149,14 @@
                   "        <int>116</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Filter Type</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>81</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnWidths>",
                   "  <ColumnDisplayIndex>",
                   "    <item>",
@@ -207,9 +215,26 @@
                   "        <int>6</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Filter Type</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>7</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnDisplayIndex>",
                   "  <ColumnFrozen />",
-                  "  <ColumnChecked />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Filter Type</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>false</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
                   "  <ColumnFilter />",
                   "  <SelectionFilter />",
                   "  <FilterParameters />",
@@ -223,7 +248,7 @@
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
-            "value": " SELECT [dim].[Branch].* FROM [dim].[Branch] "
+            "value": " SELECT [dim].[Branch].[ID],[dim].[Branch].[Branch Code],[dim].[Branch].[Branch],[dim].[Branch].[Depot],[dim].[Branch].[Branch Type],[dim].[Branch].[DW_DateCreated],[dim].[Branch].[DW_DateModified] FROM [dim].[Branch] "
           },
           {
             "name": "_TM_ExtProp_DbTableName",
@@ -301,6 +326,14 @@
               "        <int>116</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Filter Type</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>81</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnWidths>",
               "  <ColumnDisplayIndex>",
               "    <item>",
@@ -359,9 +392,26 @@
               "        <int>6</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Filter Type</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>7</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnDisplayIndex>",
               "  <ColumnFrozen />",
-              "  <ColumnChecked />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>Filter Type</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>false</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
               "  <ColumnFilter />",
               "  <SelectionFilter />",
               "  <FilterParameters />",
@@ -3300,7 +3350,7 @@
           },
           {
             "name": "FrontCounterSalesMargin",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Front Counter\")",
+            "expression": "0+CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Front Counter\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -3311,7 +3361,7 @@
           },
           {
             "name": "FrontCounterSalesMargin %",
-            "expression": "(DIVIDE([FrontCounterSalesMargin],[FrontCounterSales]))",
+            "expression": "0+(DIVIDE([FrontCounterSalesMargin],[FrontCounterSales]))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -3327,7 +3377,7 @@
           },
           {
             "name": "BackCounterSalesMargin",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Back Counter\")",
+            "expression": "0+CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Back Counter\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -3349,7 +3399,7 @@
           },
           {
             "name": "LabourSalesMargin",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Labour\")",
+            "expression": "0+CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Labour\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -3371,7 +3421,7 @@
           },
           {
             "name": "OtherSalesMargin",
-            "expression": "CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Other\")",
+            "expression": "0+CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Other\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -3382,7 +3432,7 @@
           },
           {
             "name": "BackCounterSalesMargin %",
-            "expression": "((DIVIDE([BackCounterSalesMargin],[BackCounterSales])))",
+            "expression": "0+((DIVIDE([BackCounterSalesMargin],[BackCounterSales])))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -3398,12 +3448,12 @@
           },
           {
             "name": "LabourSalesMargin %",
-            "expression": "((DIVIDE([LabourSalesMargin],[LabourSales])))",
+            "expression": "0+((DIVIDE([LabourSalesMargin],[LabourSales])))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "OtherSalesMargin %",
-            "expression": "((DIVIDE([OtherSalesMargin],[OtherSales])))",
+            "expression": "0+((DIVIDE([OtherSalesMargin],[OtherSales])))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -3430,7 +3480,7 @@
           },
           {
             "name": "PartsSalesMargin %",
-            "expression": "DIVIDE([PartsSalesMargin],[PartsSales])",
+            "expression": "0+DIVIDE([PartsSalesMargin],[PartsSales])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -3469,7 +3519,7 @@
           },
           {
             "name": "RecoveryRate",
-            "expression": "DIVIDE([LabourSales],[WorkShopSoldHours])",
+            "expression": "0+DIVIDE([LabourSales],[WorkShopSoldHours])",
             "formatString": "0.00"
           },
           {
@@ -3479,12 +3529,12 @@
           },
           {
             "name": "PartsSalesPerformanceAgainstPartsTotBudget %",
-            "expression": "((DIVIDE([PartsSales],[PartsBudget])))",
+            "expression": "0+((DIVIDE([PartsSales],[PartsBudget])))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "FrontCounterSalesPerformanceAgainstFxBudget",
-            "expression": "DIVIDE([FrontCounterSales],[FrontCounterSalesFlxBudget])"
+            "expression": "0+DIVIDE([FrontCounterSales],[FrontCounterSalesFlxBudget])"
           },
           {
             "name": "WorkdaysInMonth",
@@ -3492,27 +3542,27 @@
           },
           {
             "name": "East_RegionalFrontCounterSalesAgainstFlxBudget",
-            "expression": "CALCULATE([FrontCounterSalesPerformanceAgainstFxBudget],'Region-Depot-Branch'[Region]=\"East\")",
+            "expression": "0+CALCULATE([FrontCounterSalesPerformanceAgainstFxBudget],'Region-Depot-Branch'[Region]=\"East\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "North_RegionalFrontCounterSalesAgainstFlxBudget",
-            "expression": "CALCULATE([FrontCounterSalesPerformanceAgainstFxBudget],'Region-Depot-Branch'[Region]=\"North\")",
+            "expression": "0+CALCULATE([FrontCounterSalesPerformanceAgainstFxBudget],'Region-Depot-Branch'[Region]=\"North\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Scotland_RegionalFrontCounterSalesAgainstFlxBudget",
-            "expression": "CALCULATE([FrontCounterSalesPerformanceAgainstFxBudget],'Region-Depot-Branch'[Region]=\"Scotland\")",
-            "formatString": "0%;-0%;0%"
+            "expression": "0+CALCULATE([FrontCounterSalesPerformanceAgainstFxBudget],'Region-Depot-Branch'[Region]=\"Scotland\")",
+            "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "SouthEast_RegionalFrontCounterSalesAgainstFlxBudget",
-            "expression": "CALCULATE([FrontCounterSalesPerformanceAgainstFxBudget],'Region-Depot-Branch'[Region]=\"South East\")",
+            "expression": "0+CALCULATE([FrontCounterSalesPerformanceAgainstFxBudget],'Region-Depot-Branch'[Region]=\"South East\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "SouthWest_RegionalFrontCounterSalesAgainstFlxBudget",
-            "expression": "CALCULATE([FrontCounterSalesPerformanceAgainstFxBudget],'Region-Depot-Branch'[Region]=\"South West\")",
+            "expression": "0+CALCULATE([FrontCounterSalesPerformanceAgainstFxBudget],'Region-Depot-Branch'[Region]=\"South West\")",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -3521,11 +3571,11 @@
           },
           {
             "name": "Recovery Rate Budget",
-            "expression": "ROUND((DIVIDE([LabourSalesBudget],HoursBudget[Month Budget])),2)"
+            "expression": "0+ROUND((DIVIDE([LabourSalesBudget],HoursBudget[Month Budget])),2)"
           },
           {
             "name": "BackCounterSalesPerformanceAgaistFlxBudget",
-            "expression": "DIVIDE([BackCounterSales],[BackCounterSalesFlxBudget])"
+            "expression": "0+DIVIDE([BackCounterSales],[BackCounterSalesFlxBudget])"
           },
           {
             "name": "FrontCounterSalesFormat",
@@ -3537,12 +3587,12 @@
           },
           {
             "name": "Front Counter Sales Performance Against Front Counter Budget %",
-            "expression": "((DIVIDE([FrontCounterSales],[FrontCounterSalesBudget])))",
+            "expression": "0+((DIVIDE([FrontCounterSales],[FrontCounterSalesBudget])))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Back Counter Sales Performance Against Back Counter Budget %",
-            "expression": "((DIVIDE([BackCounterSales],[BackCounterSalesBudget])))",
+            "expression": "0+((DIVIDE([BackCounterSales],[BackCounterSalesBudget])))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -3583,7 +3633,7 @@
           },
           {
             "name": "Sold Hours Per Technician",
-            "expression": "DIVIDE(SUM(UtilizationStats[Sold]),SUM(BranchHeadCount[Headcount]))",
+            "expression": "0+DIVIDE(SUM(UtilizationStats[Sold]),SUM(BranchHeadCount[Headcount]))",
             "formatString": "0"
           },
           {
@@ -3604,7 +3654,7 @@
           },
           {
             "name": "Target Marker",
-            "expression": "DIVIDE([ElapsedWorkingDaysInMonth],[WorkdaysInMonth])",
+            "expression": "0+DIVIDE([ElapsedWorkingDaysInMonth],[WorkdaysInMonth])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -3641,7 +3691,7 @@
           },
           {
             "name": "Sales Against Total Budget",
-            "expression": "DIVIDE([TotalSales],[SalesBudget])",
+            "expression": "0+DIVIDE([TotalSales],[SalesBudget])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -4202,72 +4252,72 @@
           },
           {
             "name": "WorkShopProducedHours",
-            "expression": "(CALCULATE(SUM(UtilizationStats[Produced])))",
+            "expression": "0+(CALCULATE(SUM(UtilizationStats[Produced])))",
             "formatString": "#,0"
           },
           {
             "name": "WorkShopTakenHours",
-            "expression": "CALCULATE(SUM(UtilizationStats[Taken]))",
+            "expression": "0+CALCULATE(SUM(UtilizationStats[Taken]))",
             "formatString": "0"
           },
           {
             "name": "WorkShopAttendedHours",
-            "expression": "CALCULATE(SUM(UtilizationStats[Attended]))",
+            "expression": "0+CALCULATE(SUM(UtilizationStats[Attended]))",
             "formatString": "0"
           },
           {
             "name": "BodyShopSoldHours",
-            "expression": "(CALCULATE(SUM(UtilizationStats[Sold]),UtilizationStats[Category]=\"BodyShop\"))",
+            "expression": "0+(CALCULATE(SUM(UtilizationStats[Sold]),UtilizationStats[Category]=\"BodyShop\"))",
             "formatString": "0"
           },
           {
             "name": "BodyShopProducedHours1",
-            "expression": "(CALCULATE(SUM(UtilizationStats[Produced]),UtilizationStats[Category]=\"BodyShop\"))",
+            "expression": "0+(CALCULATE(SUM(UtilizationStats[Produced]),UtilizationStats[Category]=\"BodyShop\"))",
             "formatString": "0"
           },
           {
             "name": "WorkShopSoldHours",
-            "expression": "(CALCULATE(SUM(UtilizationStats[Sold])))",
+            "expression": "0+(CALCULATE(SUM(UtilizationStats[Sold])))",
             "formatString": "#,0"
           },
           {
             "name": "Utilisation%",
-            "expression": "(DIVIDE([WorkShopProducedHours],[WorkShopAttendedHours]))",
+            "expression": "0+(DIVIDE([WorkShopProducedHours],[WorkShopAttendedHours]))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Efficiency %",
-            "expression": "DIVIDE([WorkShopSoldHours],[WorkShopTakenHours])",
+            "expression": "0+DIVIDE([WorkShopSoldHours],[WorkShopTakenHours])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Invoiced Against FlxBudget %",
-            "expression": "(DIVIDE([WorkShopSoldHours],[Hours Flexed Budget]))",
+            "expression": "0+(DIVIDE([WorkShopSoldHours],[Hours Flexed Budget]))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "HoursProducedPerformanceAgainstFlxBudget",
-            "expression": "DIVIDE([WorkShopProducedHours],[Hours Flexed Budget])",
+            "expression": "0+DIVIDE([WorkShopProducedHours],[Hours Flexed Budget])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Workshop Sold Hours Against FlxBudget",
-            "expression": "DIVIDE([WorkShopSoldHours],[Hours Flexed Budget])",
+            "expression": "0+DIVIDE([WorkShopSoldHours],[Hours Flexed Budget])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Workshop Produced Hours Against FlxBudget %",
-            "expression": "((DIVIDE([WorkShopProducedHours],[Hours Flexed Budget])))",
+            "expression": "0+((DIVIDE([WorkShopProducedHours],[Hours Flexed Budget])))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "NetLabourRate",
-            "expression": "(DIVIDE([LabourSales],[WorkShopAttendedHours]))",
+            "expression": "0+(DIVIDE([LabourSales],[WorkShopAttendedHours]))",
             "formatString": "0"
           },
           {
             "name": "Produced Against FlxBudget %",
-            "expression": "(DIVIDE([WorkShopProducedHours],[Hours Flexed Budget]))",
+            "expression": "0+(DIVIDE([WorkShopProducedHours],[Hours Flexed Budget]))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -4322,22 +4372,22 @@
           },
           {
             "name": "WorkShop Sold Hours Against Total Budget",
-            "expression": "DIVIDE([WorkShopSoldHours],[Sold Hours Budget])",
+            "expression": "0+DIVIDE([WorkShopSoldHours],[Sold Hours Budget])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Produced Hours Last Year",
-            "expression": "CALCULATE(SUM(UtilizationStats[Produced]),all('Date'[Date]),month('Date'[Date])=month(TODAY()) && year('Date'[Date])=YEAR(TODAY())-1)",
+            "expression": "0+CALCULATE(SUM(UtilizationStats[Produced]),all('Date'[Date]),month('Date'[Date])=month(TODAY()) && year('Date'[Date])=YEAR(TODAY())-1)",
             "formatString": "#,0"
           },
           {
             "name": "LastDayInvoiced",
-            "expression": "CALCULATE([WorkShopSoldHours],'Date'[Date]=TODAY()-1)",
+            "expression": "0+CALCULATE([WorkShopSoldHours],'Date'[Date]=TODAY()-1)",
             "formatString": "#,0"
           },
           {
             "name": "WorkShop Produced Hours Against Total Budget",
-            "expression": "DIVIDE([WorkShopProducedHours],[Produced Hours Budget])",
+            "expression": "0+DIVIDE([WorkShopProducedHours],[Produced Hours Budget])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -4354,7 +4404,7 @@
           },
           {
             "name": "Utilisation Budget",
-            "expression": "DIVIDE([Produced Hours Budget],[Attended Hours Budget])",
+            "expression": "0+DIVIDE([Produced Hours Budget],[Attended Hours Budget])",
             "formatString": "0.00%;-0.00%;0.00%"
           },
           {
@@ -4831,7 +4881,7 @@
         "measures": [
           {
             "name": "SalesBudget",
-            "expression": "CALCULATE(SUM(Budget[Budget]))*(-1)",
+            "expression": "0+CALCULATE(SUM(Budget[Budget]))*(-1)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -4897,7 +4947,10 @@
           },
           {
             "name": "SalesFlxBudget",
-            "expression": "CALCULATE(DIVIDE([SalesBudget],[WorkdaysInMonth]))*[ElapsedWorkingDaysInMonth]",
+            "expression": [
+              "0+",
+              "CALCULATE(DIVIDE([SalesBudget],[WorkdaysInMonth]))*[ElapsedWorkingDaysInMonth]"
+            ],
             "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
             "annotations": [
               {
@@ -4941,7 +4994,7 @@
           },
           {
             "name": "PartsSales vs FlxBudget %",
-            "expression": "DIVIDE([PartsSales],[Parts Sales FlxBudget])",
+            "expression": "0+DIVIDE([PartsSales],[Parts Sales FlxBudget])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -6316,7 +6369,7 @@
           },
           {
             "name": "Target",
-            "expression": "DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])"
+            "expression": "0+DIVIDE([WorkShopProducedHours],[ElapsedWorkingDaysInMonth])"
           },
           {
             "name": "WIP Days",
@@ -6329,18 +6382,18 @@
           },
           {
             "name": "Current WIP",
-            "expression": "CALCULATE(SUM(CurrentWIP[WIP Hours]))",
+            "expression": "0+CALCULATE(SUM(CurrentWIP[WIP Hours]))",
             "formatString": "#,0"
           },
           {
             "name": "BodyShopProducedHours",
-            "expression": "(CALCULATE(SUM(UtilizationStats[Produced]),UtilizationStats[Category]=\"BodyShop\"))",
+            "expression": "0+(CALCULATE(SUM(UtilizationStats[Produced]),UtilizationStats[Category]=\"BodyShop\"))",
             "formatString": "#,0"
           },
           {
             "name": "WIP Target",
             "expression": [
-              "IF(ISBLANK([BodyShopProducedHours])",
+              "IF([BodyShopProducedHours]=0",
               ",DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3",
               ",DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*5)"
             ],
@@ -7447,11 +7500,11 @@
           },
           {
             "name": "Selected Depot_Credit",
-            "expression": "SELECTEDVALUE(CurrentOutstandingCredit[DepotName])"
+            "expression": "IF(ISFILTERED(CurrentOutstandingCredit[DepotName]),SELECTEDVALUE(CurrentOutstandingCredit[DepotName]),\"Total Network\")"
           },
           {
             "name": "Selected Region_Credit",
-            "expression": "SELECTEDVALUE(CurrentOutstandingCredit[Region])"
+            "expression": "IF(ISFILTERED(CurrentOutstandingCredit[Region]),SELECTEDVALUE(CurrentOutstandingCredit[Region]),\"Total Network\")"
           },
           {
             "name": "5  Month OD",
@@ -8704,7 +8757,7 @@
           },
           {
             "name": "Parts GIS Value",
-            "expression": "CALCULATE(SUM(CurrentOutstandingPartsPayment[Parts Value]))",
+            "expression": "0+CALCULATE(SUM(CurrentOutstandingPartsPayment[Parts Value]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -8715,7 +8768,7 @@
           },
           {
             "name": "Selected Depot_PartsPayment",
-            "expression": "SELECTEDVALUE(CurrentOutstandingPartsPayment[DepotName])"
+            "expression": "IF(ISFILTERED(CurrentOutstandingPartsPayment[DepotName]),SELECTEDVALUE(CurrentOutstandingPartsPayment[DepotName]),\"Total Network\")"
           },
           {
             "name": "Selected Region_PartsPayment",
@@ -9902,11 +9955,11 @@
           },
           {
             "name": "Selected Depot_Queries",
-            "expression": "SELECTEDVALUE(CurrentOutstandingQueries[DepotName])"
+            "expression": "IF(ISFILTERED(CurrentOutstandingQueries[DepotName]),SELECTEDVALUE(CurrentOutstandingQueries[DepotName]),\"Total Network\")"
           },
           {
             "name": "Selected Region_Queries",
-            "expression": "SELECTEDVALUE(CurrentOutstandingQueries[Region])"
+            "expression": "IF(ISFILTERED(CurrentOutstandingQueries[Region]),SELECTEDVALUE(CurrentOutstandingQueries[Region]),\"Total Network\")"
           },
           {
             "name": "Query 0-30 Days",
@@ -10983,11 +11036,11 @@
           },
           {
             "name": "Selected Depot_CashSales",
-            "expression": "SELECTEDVALUE(CurrentOutstandingCashSale[DepotName])"
+            "expression": "IF(ISFILTERED(CurrentOutstandingCashSale[DepotName]),SELECTEDVALUE(CurrentOutstandingCashSale[DepotName]),\"Total Network\")"
           },
           {
             "name": "Selected Region_CashSales",
-            "expression": "SELECTEDVALUE(CurrentOutstandingCashSale[Region])"
+            "expression": "IF(ISFILTERED(CurrentOutstandingCashSale[Region]),SELECTEDVALUE(CurrentOutstandingCashSale[Region]),\"Total Network\")"
           },
           {
             "name": "Cash Sales 61-90 Days",
@@ -12122,7 +12175,7 @@
           },
           {
             "name": "Sublet GIS Value",
-            "expression": "CALCULATE(SUM(CurrentOutstandingSubletPayement[Value]))",
+            "expression": "0+CALCULATE(SUM(CurrentOutstandingSubletPayement[Value]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -12133,11 +12186,11 @@
           },
           {
             "name": "Selected Depot_Sublet",
-            "expression": "SELECTEDVALUE(CurrentOutstandingSubletPayement[DepotName])"
+            "expression": "IF(ISFILTERED(CurrentOutstandingSubletPayement[DepotName]),SELECTEDVALUE(CurrentOutstandingSubletPayement[DepotName]),\"Total Network\")"
           },
           {
             "name": "Selected Region_Sublet",
-            "expression": "SELECTEDVALUE(CurrentOutstandingSubletPayement[Region])"
+            "expression": "IF(ISFILTERED(CurrentOutstandingSubletPayement[Region]),SELECTEDVALUE(CurrentOutstandingSubletPayement[Region]),\"Total Network\")"
           },
           {
             "name": "Sublet 1 Month OD",
@@ -13272,7 +13325,7 @@
           },
           {
             "name": "Warranty Value",
-            "expression": "CALCULATE(SUM(currentWarrantyOutstandingAmount[Outstanding Amount]))",
+            "expression": "0+CALCULATE(SUM(currentWarrantyOutstandingAmount[Outstanding Amount]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -13283,11 +13336,11 @@
           },
           {
             "name": "Selected Region_ Warranty",
-            "expression": "SELECTEDVALUE(CurrentWarrantyOutstandingAmount[Region])"
+            "expression": "IF(ISFILTERED(CurrentWarrantyOutstandingAmount[Region]),SELECTEDVALUE(CurrentWarrantyOutstandingAmount[Region]),\"Total Network\")"
           },
           {
             "name": "Selected Depot_Warranty",
-            "expression": "SELECTEDVALUE(CurrentWarrantyOutstandingAmount[DepotName])"
+            "expression": "IF(ISFILTERED(CurrentWarrantyOutstandingAmount[DepotName]),SELECTEDVALUE(CurrentWarrantyOutstandingAmount[DepotName]),\"Total Network\")"
           },
           {
             "name": "Age 61-90 Days",
@@ -13375,7 +13428,7 @@
           },
           {
             "name": "Warranty Count",
-            "expression": "CALCULATE(COUNT(CurrentWarrantyOutstandingAmount[Invoice Number]),GROUPBY(CurrentWarrantyOutstandingAmount,CurrentWarrantyOutstandingAmount[Date],CurrentWarrantyOutstandingAmount[Invoice Number]))"
+            "expression": "0+CALCULATE(COUNT(CurrentWarrantyOutstandingAmount[Invoice Number]),GROUPBY(CurrentWarrantyOutstandingAmount,CurrentWarrantyOutstandingAmount[Date],CurrentWarrantyOutstandingAmount[Invoice Number]))"
           }
         ],
         "annotations": [
@@ -15531,11 +15584,11 @@
         "measures": [
           {
             "name": "Selected DOTY Depot",
-            "expression": "SELECTEDVALUE(vwReport_DOTY[Depot Name])"
+            "expression": "IF(ISFILTERED(vwReport_DOTY[Depot Name]),SELECTEDVALUE(vwReport_DOTY[Depot Name]),\"Total Network\")"
           },
           {
             "name": "Selected DOTY Regiont",
-            "expression": "SELECTEDVALUE(vwReport_DOTY[Region])"
+            "expression": "IF(ISFILTERED(vwReport_DOTY[Region]),SELECTEDVALUE(vwReport_DOTY[Region]),\"Total Network\")"
           }
         ],
         "annotations": [
@@ -17213,11 +17266,11 @@
           },
           {
             "name": "Selected Depot_WastCost",
-            "expression": "SELECTEDVALUE(CurrentWasteCost[Depot])"
+            "expression": "IF(ISFILTERED(CurrentWasteCost[Depot]),SELECTEDVALUE(CurrentWasteCost[Depot]),\"Total Network\")"
           },
           {
             "name": "Selected Region_WastCost",
-            "expression": "SELECTEDVALUE(CurrentWasteCost[Region])"
+            "expression": "IF(ISFILTERED(CurrentWasteCost[Region]),SELECTEDVALUE(CurrentWasteCost[Region]),\"Total Network\")"
           }
         ],
         "annotations": [
@@ -18294,7 +18347,7 @@
         "measures": [
           {
             "name": "WIP_Total",
-            "expression": "CALCULATE(SUM('vw_Current WIP Report'[WIP Total]))",
+            "expression": "0+CALCULATE(SUM('vw_Current WIP Report'[WIP Total]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -18382,11 +18435,11 @@
           },
           {
             "name": "Selected Region WIP Report",
-            "expression": "SELECTEDVALUE('vw_Current WIP Report'[Region])"
+            "expression": "IF(ISFILTERED('vw_Current WIP Report'[Region]),SELECTEDVALUE('vw_Current WIP Report'[Region]),\"Total Network\")"
           },
           {
             "name": "Selected Depot WIP Report",
-            "expression": "SELECTEDVALUE('vw_Current WIP Report'[Depot])"
+            "expression": "IF(ISFILTERED('vw_Current WIP Report'[Depot]),SELECTEDVALUE('vw_Current WIP Report'[Depot]),\"Total Network\")"
           },
           {
             "name": "WIP Count",
@@ -19778,15 +19831,11 @@
           },
           {
             "name": "Selected Depot MOT",
-            "expression": "SELECTEDVALUE('vw_MOT Pass Rate Report'[Depot Name])"
+            "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report'[Depot Name]),SELECTEDVALUE('vw_MOT Pass Rate Report'[Depot Name]),\"Total Network\")"
           },
           {
             "name": "Selected Region MOT",
-            "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report'[Region]),\"Total Network\"&VALUES('vw_MOT Pass Rate Report'[Region]),UNICHAR(10))"
-          },
-          {
-            "name": "Selected MOT Test Results",
-            "expression": "SELECTEDVALUE('vw_MOT Pass Rate Report'[Test Result])"
+            "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report'[Region]),SELECTEDVALUE('vw_MOT Pass Rate Report'[Region]),\"Total Network\")"
           },
           {
             "name": "Failure Analysis",
