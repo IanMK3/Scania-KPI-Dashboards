@@ -19831,7 +19831,7 @@
           },
           {
             "name": "Selected Depot MOT",
-            "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report'[Depot Name]),SELECTEDVALUE('vw_MOT Pass Rate Report'[Depot Name]),\"Total Network\")"
+            "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report'[Depot Name]),SELECTEDVALUE('vw_MOT Pass Rate Report'[Depot Name]),\"All Depots\")"
           },
           {
             "name": "Selected Region MOT",
