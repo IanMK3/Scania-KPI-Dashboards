@@ -19385,25 +19385,25 @@
         ]
       },
       {
-        "name": "vw_MOT Pass Rate Report",
+        "name": "vw_MOT Pass Rate Report BC",
         "columns": [
-          {
-            "name": "Region ID",
-            "dataType": "int64",
-            "sourceColumn": "Region ID",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "Region",
-            "dataType": "string",
-            "sourceColumn": "Region",
-            "sourceProviderType": "Char"
-          },
           {
             "name": "Preparer ID",
             "dataType": "string",
             "sourceColumn": "Preparer ID",
             "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Depot Name",
+            "dataType": "string",
+            "sourceColumn": "Depot Name",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Vehicle ID",
+            "dataType": "double",
+            "sourceColumn": "Vehicle ID",
+            "sourceProviderType": "Double"
           },
           {
             "name": "Inspection Date",
@@ -19444,6 +19444,12 @@
             "sourceProviderType": "WChar"
           },
           {
+            "name": "Test Type",
+            "dataType": "string",
+            "sourceColumn": "Test Type",
+            "sourceProviderType": "WChar"
+          },
+          {
             "name": "Failure Item No",
             "dataType": "string",
             "sourceColumn": "Failure Item No",
@@ -19462,701 +19468,305 @@
             "sourceProviderType": "WChar"
           },
           {
+            "name": "Region ID",
+            "dataType": "int64",
+            "sourceColumn": "Region ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Report Month",
+            "dataType": "string",
+            "sourceColumn": "Report Month",
+            "sourceProviderType": "WChar"
+          },
+          {
             "type": "calculated",
             "name": "Month Status",
             "dataType": "string",
             "isDataTypeInferred": true,
             "expression": [
               "",
-              "                            VAR MAXDATE =MAX('vw_MOT Pass Rate Report'[Date])",
+              "                            VAR MAXDATE =MAX('vw_MOT Pass Rate Report BC'[Date])",
               "                                    RETURN",
-              "                                                       SWITCH(TRUE(),'vw_MOT Pass Rate Report'[Date]=MAXDATE,\"Current Month\",\"Previous Month\")"
+              "                                                       SWITCH(TRUE(),'vw_MOT Pass Rate Report BC'[Date]=MAXDATE,\"Current Month\",\"Previous Month\")"
             ]
-          },
-          {
-            "name": "Vehicle ID",
-            "dataType": "string",
-            "sourceColumn": "Vehicle ID"
-          },
-          {
-            "name": "Test Type",
-            "dataType": "string",
-            "sourceColumn": "Test Type"
-          },
-          {
-            "name": "Depot Name",
-            "dataType": "string",
-            "sourceColumn": "Depot Name"
-          },
-          {
-            "name": "Report Month",
-            "dataType": "string",
-            "sourceColumn": "Report Month"
           }
         ],
         "partitions": [
           {
-            "name": "vw_MOT Pass Rate Report",
+            "name": "vw_MOT Pass Rate Report BC",
             "dataView": "full",
             "source": {
-              "query": " SELECT [dbo].[vw_MOT Pass Rate Report].* FROM [dbo].[vw_MOT Pass Rate Report] ",
+              "query": " SELECT [dbo].[vw_MOT Pass Rate Report B&C].* FROM [dbo].[vw_MOT Pass Rate Report B&C] ",
               "dataSource": "SqlServerConn"
-            },
-            "annotations": [
-              {
-                "name": "TableWidgetSerialization",
-                "value": [
-                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
-                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
-                  "  <ColumnSuggestedType />",
-                  "  <ColumnFormat />",
-                  "  <ColumnAccuracy />",
-                  "  <ColumnCurrencySymbol />",
-                  "  <ColumnPositivePattern />",
-                  "  <ColumnNegativePattern />",
-                  "  <ColumnWidths>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Region ID</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>77</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Region</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>63</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Preparer ID</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>86</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Vehicle ID</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>77</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Inspection Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>106</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>53</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Test Location</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>94</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Test Result</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>84</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Failure Item No</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>103</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Failure Item Severity</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>130</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Failure Description</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>118</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Test Type</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>78</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Depot Name</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>89</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Report Month</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>96</int>",
-                  "      </value>",
-                  "    </item>",
-                  "  </ColumnWidths>",
-                  "  <ColumnDisplayIndex>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Region ID</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>0</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Region</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>1</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Preparer ID</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>2</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Vehicle ID</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>3</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Inspection Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>4</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Date</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>5</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Test Location</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>6</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Test Result</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>7</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Failure Item No</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>8</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Failure Item Severity</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>9</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Failure Description</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>10</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Test Type</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>11</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Depot Name</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>12</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Report Month</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>13</int>",
-                  "      </value>",
-                  "    </item>",
-                  "  </ColumnDisplayIndex>",
-                  "  <ColumnFrozen />",
-                  "  <ColumnChecked>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Vehicle ID</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <boolean>true</boolean>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Test Type</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <boolean>true</boolean>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Depot Name</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <boolean>true</boolean>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Report Month</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <boolean>true</boolean>",
-                  "      </value>",
-                  "    </item>",
-                  "  </ColumnChecked>",
-                  "  <ColumnFilter />",
-                  "  <SelectionFilter />",
-                  "  <FilterParameters />",
-                  "  <IsSortDescending>false</IsSortDescending>",
-                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
-                ]
-              }
-            ]
+            }
           }
         ],
         "measures": [
           {
-            "name": "Total MOT",
-            "expression": "CALCULATE(COUNT('vw_MOT Pass Rate Report'[Preparer ID]))",
-            "formatString": "#,0"
+            "name": "Tot MOT B&C",
+            "expression": "0+CALCULATE(COUNT('vw_MOT Pass Rate Report BC'[Preparer ID]))"
+          },
+          {
+            "name": "B&C Pass",
+            "expression": "CALCULATE([Tot MOT B&C],'vw_MOT Pass Rate Report BC'[Test Result]=\"Pass\")"
+          },
+          {
+            "name": "B&C Fails",
+            "expression": "CALCULATE([Tot MOT B&C],'vw_MOT Pass Rate Report BC'[Test Result]=\"Fail\",'vw_MOT Pass Rate Report BC'[Failure Item Severity]=\"F\")"
+          },
+          {
+            "name": "B&C PRS",
+            "expression": "CALCULATE([Tot MOT B&C],'vw_MOT Pass Rate Report BC'[Test Result]=\"PRS\")"
+          },
+          {
+            "name": "Selected Region MOT B&C",
+            "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report BC'[Region]),SELECTEDVALUE('vw_MOT Pass Rate Report BC'[Region]),\"Total Network\")"
+          },
+          {
+            "name": "Selected Depot MOT B&C",
+            "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report BC'[Depot Name]),SELECTEDVALUE('vw_MOT Pass Rate Report BC'[Depot Name]),\"All Depots\")"
+          },
+          {
+            "name": "B&C Pass %",
+            "expression": "0+DIVIDE(CALCULATE([Tot MOT B&C],'vw_MOT Pass Rate Report BC'[Test Result]=\"Pass\"),[Tot MOT B&C])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[vw_MOT Pass Rate Report B&C].* FROM [dbo].[vw_MOT Pass Rate Report B&C] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "vw_MOT Pass Rate Report B&C"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "vw_MOT Pass Rate Report Trucks",
+        "columns": [
+          {
+            "name": "Preparer ID",
+            "dataType": "string",
+            "sourceColumn": "Preparer ID",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Depot Name",
+            "dataType": "string",
+            "sourceColumn": "Depot Name",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Vehicle ID",
+            "dataType": "double",
+            "sourceColumn": "Vehicle ID",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "Inspection Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Inspection Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Date",
+            "dataType": "string",
+            "sourceColumn": "Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Test Location",
+            "dataType": "string",
+            "sourceColumn": "Test Location",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Test Result",
+            "dataType": "string",
+            "sourceColumn": "Test Result",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Test Type",
+            "dataType": "string",
+            "sourceColumn": "Test Type",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Failure Item No",
+            "dataType": "string",
+            "sourceColumn": "Failure Item No",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Failure Item Severity",
+            "dataType": "string",
+            "sourceColumn": "Failure Item Severity",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Failure Description",
+            "dataType": "string",
+            "sourceColumn": "Failure Description",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Region ID",
+            "dataType": "int64",
+            "sourceColumn": "Region ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Report Month",
+            "dataType": "string",
+            "sourceColumn": "Report Month",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "type": "calculated",
+            "name": "Month Status",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "                            VAR MAXDATE =MAX('vw_MOT Pass Rate Report Trucks'[Date])",
+              "                                    RETURN",
+              "                                                       SWITCH(TRUE(),'vw_MOT Pass Rate Report Trucks'[Date]=MAXDATE,\"Current Month\",\"Previous Month\")"
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "vw_MOT Pass Rate Report Trucks",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[vw_MOT Pass Rate Report Trucks].* FROM [dbo].[vw_MOT Pass Rate Report Trucks] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Passes %",
+            "expression": "0+DIVIDE(CALCULATE([Total MOT],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Pass\"),[Total MOT])",
+            "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Passes",
-            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Pass\")"
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Pass\")",
+            "formatString": "#,0"
           },
           {
             "name": "Fails",
-            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Fail\",'vw_MOT Pass Rate Report'[Failure Item Severity]=\"F\")"
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\",'vw_MOT Pass Rate Report Trucks'[Failure Item Severity]=\"F\")",
+            "formatString": "#,0"
           },
           {
             "name": "PRS",
-            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"PRS\")"
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PRS\")",
+            "formatString": "#,0"
           },
           {
             "name": "Abandoned",
-            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Abandoned\")"
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Abandoned\")",
+            "formatString": "#,0"
           },
           {
-            "name": "Passes %",
-            "expression": "0+DIVIDE(CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Pass\"),[Total MOT])",
-            "formatString": "0.0%;-0.0%;0.0%"
-          },
-          {
-            "name": "Fails %",
-            "expression": "0+DIVIDE(CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Fail\"),[Total MOT])",
-            "formatString": "0.0%;-0.0%;0.0%"
-          },
-          {
-            "name": "PRS %",
-            "expression": "0+DIVIDE(CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"PRS\"),[Total MOT])",
-            "formatString": "0.0%;-0.0%;0.0%"
-          },
-          {
-            "name": "Abandoned %",
-            "expression": "0+DIVIDE(CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Abandoned\"),[Total MOT])",
-            "formatString": "0.0%;-0.0%;0.0%"
+            "name": "Total MOT",
+            "expression": "CALCULATE(COUNT('vw_MOT Pass Rate Report Trucks'[Preparer ID]))",
+            "formatString": "#,0"
           },
           {
             "name": "Selected Depot MOT",
-            "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report'[Depot Name]),SELECTEDVALUE('vw_MOT Pass Rate Report'[Depot Name]),\"All Depots\")"
+            "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report Trucks'[Depot Name]),SELECTEDVALUE('vw_MOT Pass Rate Report Trucks'[Depot Name]),\"All Depots\")"
           },
           {
             "name": "Selected Region MOT",
-            "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report'[Region]),SELECTEDVALUE('vw_MOT Pass Rate Report'[Region]),\"Total Network\")"
+            "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report Trucks'[Region]),SELECTEDVALUE('vw_MOT Pass Rate Report Trucks'[Region]),\"Total Network\")"
           },
           {
             "name": "Failure Analysis",
             "expression": "\"Please Click Here For\""
           },
           {
-            "name": "Fail Advisory",
-            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Fail\",'vw_MOT Pass Rate Report'[Failure Item Severity]=\"A\")"
+            "name": "Fails %",
+            "expression": "0+DIVIDE(CALCULATE([Total MOT],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\"),[Total MOT])",
+            "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "Pass Advisory",
-            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Test Result]=\"Pass\",'vw_MOT Pass Rate Report'[Failure Item Severity]=\"A\")"
+            "name": "PRS %",
+            "expression": "0+DIVIDE(CALCULATE([Total MOT],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PRS\"),[Total MOT])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Abandoned %",
+            "expression": "0+DIVIDE(CALCULATE([Total MOT],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Abandoned\"),[Total MOT])",
+            "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Advisories",
-            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report'[Failure Item Severity]=\"A\")"
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report Trucks'[Failure Item Severity]=\"A\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Pass Advisory",
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Pass\",'vw_MOT Pass Rate Report Trucks'[Failure Item Severity]=\"A\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Fail Advisory",
+            "expression": "0+CALCULATE([Total MOT],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\",'vw_MOT Pass Rate Report Trucks'[Failure Item Severity]=\"A\")",
+            "formatString": "#,0"
           }
         ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
-            "value": " SELECT [dbo].[vw_MOT Pass Rate Report].* FROM [dbo].[vw_MOT Pass Rate Report] "
+            "value": " SELECT [dbo].[vw_MOT Pass Rate Report Trucks].* FROM [dbo].[vw_MOT Pass Rate Report Trucks] "
           },
           {
             "name": "_TM_ExtProp_DbTableName",
-            "value": "vw_MOT Pass Rate Report"
+            "value": "vw_MOT Pass Rate Report Trucks"
           },
           {
             "name": "_TM_ExtProp_DbSchemaName",
             "value": "dbo"
-          },
-          {
-            "name": "TableWidgetSerialization",
-            "value": [
-              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
-              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
-              "  <ColumnSuggestedType />",
-              "  <ColumnFormat />",
-              "  <ColumnAccuracy />",
-              "  <ColumnCurrencySymbol />",
-              "  <ColumnPositivePattern />",
-              "  <ColumnNegativePattern />",
-              "  <ColumnWidths>",
-              "    <item>",
-              "      <key>",
-              "        <string>Region ID</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>77</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Region</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>63</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Preparer ID</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>86</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Vehicle ID</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>77</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Inspection Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>106</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>53</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Test Location</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>94</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Test Result</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>84</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Failure Item No</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>103</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Failure Item Severity</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>130</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Failure Description</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>118</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Test Type</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>78</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Depot Name</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>89</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Report Month</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>96</int>",
-              "      </value>",
-              "    </item>",
-              "  </ColumnWidths>",
-              "  <ColumnDisplayIndex>",
-              "    <item>",
-              "      <key>",
-              "        <string>Region ID</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>0</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Region</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>1</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Preparer ID</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>2</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Vehicle ID</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>3</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Inspection Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>4</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Date</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>5</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Test Location</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>6</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Test Result</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>7</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Failure Item No</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>8</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Failure Item Severity</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>9</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Failure Description</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>10</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Test Type</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>11</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Depot Name</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>12</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Report Month</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>13</int>",
-              "      </value>",
-              "    </item>",
-              "  </ColumnDisplayIndex>",
-              "  <ColumnFrozen />",
-              "  <ColumnChecked>",
-              "    <item>",
-              "      <key>",
-              "        <string>Vehicle ID</string>",
-              "      </key>",
-              "      <value>",
-              "        <boolean>true</boolean>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Test Type</string>",
-              "      </key>",
-              "      <value>",
-              "        <boolean>true</boolean>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Depot Name</string>",
-              "      </key>",
-              "      <value>",
-              "        <boolean>true</boolean>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Report Month</string>",
-              "      </key>",
-              "      <value>",
-              "        <boolean>true</boolean>",
-              "      </value>",
-              "    </item>",
-              "  </ColumnChecked>",
-              "  <ColumnFilter />",
-              "  <SelectionFilter />",
-              "  <FilterParameters />",
-              "  <IsSortDescending>false</IsSortDescending>",
-              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
-            ]
           }
         ]
       },
       {
-        "name": "MOT_Pass_Rate_RefreshDate",
+        "name": "MOT Pass Rate BC RefreshDate",
         "columns": [
           {
-            "name": "RefreshDate",
+            "name": "MOT B&C RefreshDate",
             "dataType": "dateTime",
-            "sourceColumn": "RefreshDate",
+            "sourceColumn": "MOT B&C RefreshDate",
             "formatString": "dd/MM/yyyy",
             "sourceProviderType": "WChar",
             "annotations": [
@@ -20169,10 +19779,10 @@
         ],
         "partitions": [
           {
-            "name": "MOT_Pass_Rate_RefreshDate",
+            "name": "MOT Pass Rate BC RefreshDate",
             "dataView": "full",
             "source": {
-              "query": " SELECT [dbo].[MOT_Pass_Rate_RefreshDate].* FROM [dbo].[MOT_Pass_Rate_RefreshDate] ",
+              "query": " SELECT [dbo].[MOT Pass Rate B&C RefreshDate].* FROM [dbo].[MOT Pass Rate B&C RefreshDate] ",
               "dataSource": "SqlServerConn"
             }
           }
@@ -20180,11 +19790,53 @@
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
-            "value": " SELECT [dbo].[MOT_Pass_Rate_RefreshDate].* FROM [dbo].[MOT_Pass_Rate_RefreshDate] "
+            "value": " SELECT [dbo].[MOT Pass Rate B&C RefreshDate].* FROM [dbo].[MOT Pass Rate B&C RefreshDate] "
           },
           {
             "name": "_TM_ExtProp_DbTableName",
-            "value": "MOT_Pass_Rate_RefreshDate"
+            "value": "MOT Pass Rate B&C RefreshDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "MOT Pass Rate Trucks RefreshDate",
+        "columns": [
+          {
+            "name": "MOT Trucks RefreshDate",
+            "dataType": "dateTime",
+            "sourceColumn": "MOT Trucks RefreshDate",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "MOT Pass Rate Trucks RefreshDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[MOT Pass Rate Trucks RefreshDate].* FROM [dbo].[MOT Pass Rate Trucks RefreshDate] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[MOT Pass Rate Trucks RefreshDate].* FROM [dbo].[MOT Pass Rate Trucks RefreshDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "MOT Pass Rate Trucks RefreshDate"
           },
           {
             "name": "_TM_ExtProp_DbSchemaName",
