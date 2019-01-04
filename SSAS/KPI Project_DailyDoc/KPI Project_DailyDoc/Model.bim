@@ -20491,7 +20491,7 @@
           },
           {
             "name": "Fails",
-            "expression": "0+CALCULATE([Total Tests],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\",'vw_MOT Pass Rate Report Trucks'[Failure Item Severity]=\"F\")",
+            "expression": "0+CALCULATE([Total Tests],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\",'vw_MOT Pass Rate Report Trucks'[Failure Item Severity]=\"F\"||'vw_MOT Pass Rate Report Trucks'[Failure Item Severity]=\"A\")",
             "formatString": "#,0"
           },
           {
