@@ -20865,48 +20865,6 @@
         ]
       },
       {
-        "name": "MOT Pass Rate BC RefreshDate",
-        "columns": [
-          {
-            "name": "MOT B&C RefreshDate",
-            "dataType": "dateTime",
-            "sourceColumn": "MOT B&C RefreshDate",
-            "formatString": "dd/MM/yyyy",
-            "sourceProviderType": "WChar",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
-              }
-            ]
-          }
-        ],
-        "partitions": [
-          {
-            "name": "MOT Pass Rate BC RefreshDate",
-            "dataView": "full",
-            "source": {
-              "query": " SELECT [dbo].[MOT Pass Rate B&C RefreshDate].* FROM [dbo].[MOT Pass Rate B&C RefreshDate] ",
-              "dataSource": "SqlServerConn"
-            }
-          }
-        ],
-        "annotations": [
-          {
-            "name": "_TM_ExtProp_QueryDefinition",
-            "value": " SELECT [dbo].[MOT Pass Rate B&C RefreshDate].* FROM [dbo].[MOT Pass Rate B&C RefreshDate] "
-          },
-          {
-            "name": "_TM_ExtProp_DbTableName",
-            "value": "MOT Pass Rate B&C RefreshDate"
-          },
-          {
-            "name": "_TM_ExtProp_DbSchemaName",
-            "value": "dbo"
-          }
-        ]
-      },
-      {
         "name": "MOT Pass Rate Trucks RefreshDate",
         "columns": [
           {
