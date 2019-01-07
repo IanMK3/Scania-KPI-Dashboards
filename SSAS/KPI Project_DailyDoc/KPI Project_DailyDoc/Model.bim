@@ -20550,6 +20550,14 @@
             "name": "Total Tests",
             "expression": "0+CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count]))",
             "formatString": "#,0"
+          },
+          {
+            "name": "RowCount Truck & Trailer",
+            "expression": "CALCULATE(COUNTROWS('vw_MOT Pass Rate Report Trucks'),'vw_MOT Pass Rate Report Trucks'[Vehicle Type]=\"Truck & Trailer\")"
+          },
+          {
+            "name": "RowCount Bus & Coach",
+            "expression": "CALCULATE(COUNTROWS('vw_MOT Pass Rate Report Trucks'),'vw_MOT Pass Rate Report Trucks'[Vehicle Type]=\"Bus & Coach\")"
           }
         ],
         "annotations": [
