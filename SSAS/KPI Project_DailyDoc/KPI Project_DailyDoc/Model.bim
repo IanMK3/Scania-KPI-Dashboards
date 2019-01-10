@@ -3571,7 +3571,8 @@
           },
           {
             "name": "Recovery Rate Budget",
-            "expression": "0+ROUND((DIVIDE([LabourSalesBudget],HoursBudget[Month Budget])),2)"
+            "expression": "0+DIVIDE([LabourSalesBudget],HoursBudget[Month Budget])",
+            "formatString": "0.00"
           },
           {
             "name": "BackCounterSalesPerformanceAgaistFlxBudget",
@@ -21110,6 +21111,193 @@
             "value": "dbo"
           }
         ]
+      },
+      {
+        "name": "vw_CSI_Service",
+        "columns": [
+          {
+            "name": "Customer ID",
+            "dataType": "int64",
+            "sourceColumn": "Customer ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Customer Company",
+            "dataType": "string",
+            "sourceColumn": "Customer Company",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Dealer",
+            "dataType": "string",
+            "sourceColumn": "Dealer",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Contact Person",
+            "dataType": "string",
+            "sourceColumn": "Contact Person",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Interaction Date",
+            "dataType": "string",
+            "sourceColumn": "Interaction Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Interview Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Interview Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Main Dealer",
+            "dataType": "string",
+            "sourceColumn": "Main Dealer",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Sales Person",
+            "dataType": "string",
+            "sourceColumn": "Sales Person",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ffv Fixed first visit (no/yes)",
+            "dataType": "string",
+            "sourceColumn": "ffv Fixed first visit (no/yes)",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Customer Comment",
+            "dataType": "string",
+            "sourceColumn": "Customer Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Change Description",
+            "dataType": "string",
+            "sourceColumn": "Change Description",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Change",
+            "dataType": "string",
+            "sourceColumn": "Change",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Name Witheld",
+            "dataType": "string",
+            "sourceColumn": "Name Witheld",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CSI by Question",
+            "dataType": "string",
+            "sourceColumn": "CSI by Question",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Index",
+            "dataType": "string",
+            "sourceColumn": "Index",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Month Name",
+            "dataType": "string",
+            "sourceColumn": "Month Name",
+            "sortByColumn": "Month",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "string",
+            "sourceColumn": "Quarter",
+            "sourceProviderType": "Char"
+          },
+          {
+            "type": "calculated",
+            "name": "Last YEAR",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "                VAR MAXDATE = MAX(vw_CSI_Service[Interview Date])",
+              "                      RETURN",
+              "                                IF( YEAR(vw_CSI_Service[Interview Date])=YEAR(MAXDATE),\"YTD\",\"No\")"
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "Current Month",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "                VAR MAXDATE = MAX(vw_CSI_Service[Interview Date])",
+              "                      RETURN",
+              "                                IF( MONTH(vw_CSI_Service[Interview Date])=MONTH(MAXDATE),\"MTD\",\"No\")"
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "Previous Month",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "                VAR MAXDATE = MAX(vw_CSI_Service[Interview Date])",
+              "                      RETURN",
+              "                                IF( MONTH(vw_CSI_Service[Interview Date])=MONTH(MAXDATE)-1,\"Previous Month\",\"No\")"
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "vw_CSI_Service",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[vw_CSI_Service].* FROM [dbo].[vw_CSI_Service] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[vw_CSI_Service].* FROM [dbo].[vw_CSI_Service] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "vw_CSI_Service"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
       }
     ],
     "relationships": [
@@ -21323,6 +21511,13 @@
         "fromColumn": "Depot ID",
         "toTable": "Depot",
         "toColumn": "ID"
+      },
+      {
+        "name": "3935bfc8-0b4c-4b28-a403-dc5c77e362be",
+        "fromTable": "vw_CSI_Service",
+        "fromColumn": "Interview Date",
+        "toTable": "Date",
+        "toColumn": "Date"
       }
     ],
     "roles": [
