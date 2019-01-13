@@ -7588,8 +7588,13 @@
           {
             "name": "Credit 181-240 Days",
             "expression": [
-              "0+",
-              " CALCULATE( SUM(CurrentOutstandingCredit[Total]),CurrentOutstandingCredit[Credit Age]>180 && CurrentOutstandingCredit[Credit Age]<=240)"
+              "",
+              "0",
+              "    + CALCULATE (",
+              "        SUM ( CurrentOutstandingCredit[Total] ),",
+              "        CurrentOutstandingCredit[Credit Age] > 180",
+              "            && CurrentOutstandingCredit[Credit Age] <= 240",
+              "    )"
             ],
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [

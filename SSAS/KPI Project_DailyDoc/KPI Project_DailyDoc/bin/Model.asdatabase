@@ -20563,6 +20563,10 @@
           {
             "name": "Reporting Period",
             "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report Trucks'[Month Status]),SELECTEDVALUE('vw_MOT Pass Rate Report Trucks'[Month Name]),\"YTD\")"
+          },
+          {
+            "name": "Selected Month MOT",
+            "expression": "IF(ISFILTERED('vw_MOT Pass Rate Report Trucks'[Month Status]),SELECTEDVALUE('vw_MOT Pass Rate Report Trucks'[Month Status]),\"All Periods\")"
           }
         ],
         "annotations": [
