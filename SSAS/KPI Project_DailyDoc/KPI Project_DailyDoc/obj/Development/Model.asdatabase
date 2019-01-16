@@ -19562,6 +19562,11 @@
             "name": "Region",
             "dataType": "string",
             "sourceColumn": "Region"
+          },
+          {
+            "name": "Region ID",
+            "dataType": "int64",
+            "sourceColumn": "Region ID"
           }
         ],
         "partitions": [
@@ -19649,6 +19654,14 @@
                   "        <int>63</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Region ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>77</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnWidths>",
                   "  <ColumnDisplayIndex>",
                   "    <item>",
@@ -19715,6 +19728,14 @@
                   "        <int>7</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Region ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>8</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnDisplayIndex>",
                   "  <ColumnFrozen />",
                   "  <ColumnChecked>",
@@ -19737,6 +19758,14 @@
                   "    <item>",
                   "      <key>",
                   "        <string>Region</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Region ID</string>",
                   "      </key>",
                   "      <value>",
                   "        <boolean>true</boolean>",
@@ -19857,6 +19886,14 @@
               "        <int>63</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Region ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>77</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnWidths>",
               "  <ColumnDisplayIndex>",
               "    <item>",
@@ -19923,6 +19960,14 @@
               "        <int>7</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Region ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>8</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnDisplayIndex>",
               "  <ColumnFrozen />",
               "  <ColumnChecked>",
@@ -19945,6 +19990,14 @@
               "    <item>",
               "      <key>",
               "        <string>Region</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Region ID</string>",
               "      </key>",
               "      <value>",
               "        <boolean>true</boolean>",
@@ -21281,6 +21334,157 @@
             ]
           }
         ]
+      },
+      {
+        "name": "CSI Service  Sales",
+        "columns": [
+          {
+            "name": "Contact person",
+            "dataType": "string",
+            "sourceColumn": "Contact person",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Company",
+            "dataType": "string",
+            "sourceColumn": "Company",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Company ID",
+            "dataType": "double",
+            "sourceColumn": "Company ID",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "Interaction Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Interaction Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "DBTimeStamp",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Interview Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Interview Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "DBTimeStamp",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Main Dealer",
+            "dataType": "string",
+            "sourceColumn": "Main Dealer",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Dealer",
+            "dataType": "string",
+            "sourceColumn": "Dealer",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Salesperson",
+            "dataType": "string",
+            "sourceColumn": "Salesperson",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Change Description",
+            "dataType": "string",
+            "sourceColumn": "Change Description",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Change",
+            "dataType": "string",
+            "sourceColumn": "Change",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Name Withheld Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Name Withheld Yes/No",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Phone Answered Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Phone Answered Yes/No",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Survey Completed Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Survey Completed Yes/No",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Question ID",
+            "dataType": "int64",
+            "sourceColumn": "Question ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Question",
+            "dataType": "string",
+            "sourceColumn": "Question",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Comments",
+            "dataType": "string",
+            "sourceColumn": "Comments",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Comment Code",
+            "dataType": "string",
+            "sourceColumn": "Comment Code",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Points",
+            "dataType": "string",
+            "sourceColumn": "Points",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CSI Service  Sales",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[CSI Service & Sales].* FROM [dbo].[CSI Service & Sales] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[CSI Service & Sales].* FROM [dbo].[CSI Service & Sales] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CSI Service & Sales"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
       }
     ],
     "relationships": [
@@ -21473,6 +21677,13 @@
         "fromColumn": "Depot ID",
         "toTable": "Depot",
         "toColumn": "ID"
+      },
+      {
+        "name": "87b5ea3e-a4db-435c-85bd-c652ce981a3b",
+        "fromTable": "CSI Service  Sales",
+        "fromColumn": "Question ID",
+        "toTable": "CSI Questions",
+        "toColumn": "Question ID"
       }
     ],
     "roles": [
