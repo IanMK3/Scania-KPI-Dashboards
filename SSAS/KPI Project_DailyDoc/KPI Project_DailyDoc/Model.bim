@@ -19789,7 +19789,7 @@
           },
           {
             "name": "Hours Against Budget",
-            "expression": "DIVIDE([Total Hours],HoursBudget[Hours Budget])",
+            "expression": "DIVIDE([Total Hours],CALCULATE(SUM(HoursBudget[Budget]),HoursBudget[Budget Type]=\"SoldHours\"))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
