@@ -3498,7 +3498,7 @@
               "\t ,",
               "\t\tswitch",
               "\t\t(",
-              "\t\t  LASTNONBLANK ('Region'[Region],0),",
+              "\t\t  LASTNONBLANK ('Region-Depot-Branch'[Region],0),",
               "\t\t\t\"Scotland\",",
               "\t\t   CALCULATE(",
               "\t\t\t\t\t\tcount('Date'[Date]),",
