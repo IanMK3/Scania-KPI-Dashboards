@@ -19788,13 +19788,33 @@
             "expression": "CALCULATE(SUM(vw_WorkshopHours[Hours]))"
           },
           {
-            "name": "Hours Against Budget",
-            "expression": "DIVIDE([Total Hours],CALCULATE(SUM(HoursBudget[Budget]),HoursBudget[Budget Type]=\"SoldHours\"))",
+            "name": "Hours Against Budget original",
+            "expression": [
+              "",
+              "CALCULATE (",
+              "    DIVIDE (",
+              "        [Total Hours],",
+              "        CALCULATE (",
+              "            SUM ( HoursBudget[Budget] )",
+              "                   )",
+              "    ),",
+              "    vw_WorkshopHours[Hours Type] = \"Sold\"",
+              "        || vw_WorkshopHours[Hours Type] = \"produced\"",
+              ")"
+            ],
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Hours Against Budget Format",
-            "expression": "SWITCH(TRUE(),[Hours Against Budget]>=[Target Marker],1,0)"
+            "expression": "SWITCH(TRUE(),[Hours Against Budget original]>=[Target Marker],1,0)"
+          },
+          {
+            "name": "Hours Against Budget",
+            "expression": [
+              "",
+              "DIVIDE(CALCULATE([Total Hours],vw_WorkshopHours[Hours Type]=\"sold\"||vw_WorkshopHours[Hours Type]=\"produced\"),CALCULATE(HoursBudget[Hours Budget],HoursBudget[Budget Type]=\"ProducedHours\"||HoursBudget[Budget Type]=\"SoldHours\"))"
+            ],
+            "formatString": "0.0%;-0.0%;0.0%"
           }
         ],
         "annotations": [
