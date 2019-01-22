@@ -22447,6 +22447,620 @@
             ]
           }
         ]
+      },
+      {
+        "name": "CSI New Sales",
+        "columns": [
+          {
+            "name": "Contact person",
+            "dataType": "string",
+            "sourceColumn": "Contact person",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Company",
+            "dataType": "string",
+            "sourceColumn": "Company",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Company ID",
+            "dataType": "double",
+            "sourceColumn": "Company ID",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "Interaction Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Interaction Date",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "Interview Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Interview Date",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "Main Dealer",
+            "dataType": "string",
+            "sourceColumn": "Main Dealer",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Dealer",
+            "dataType": "string",
+            "sourceColumn": "Dealer",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Salesperson",
+            "dataType": "string",
+            "sourceColumn": "Salesperson",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n1a Overall performance",
+            "dataType": "double",
+            "sourceColumn": "n1a Overall performance",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n1a Comment",
+            "dataType": "string",
+            "sourceColumn": "n1a Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n8a Recommendation",
+            "dataType": "double",
+            "sourceColumn": "n8a Recommendation",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n8a Comment",
+            "dataType": "string",
+            "sourceColumn": "n8a Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n9a Repurchase",
+            "dataType": "double",
+            "sourceColumn": "n9a Repurchase",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n9a Comment",
+            "dataType": "string",
+            "sourceColumn": "n9a Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n2a Efforts to understand your needs",
+            "dataType": "double",
+            "sourceColumn": "n2a Efforts to understand your needs",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n2a Comment",
+            "dataType": "string",
+            "sourceColumn": "n2a Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n2b Expertise in offering the right transport solutions",
+            "dataType": "double",
+            "sourceColumn": "n2b Expertise in offering the right transport solutions",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n2b Comment",
+            "dataType": "string",
+            "sourceColumn": "n2b Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n2c Contact from enquiry to delivery",
+            "dataType": "double",
+            "sourceColumn": "n2c Contact from enquiry to delivery",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n2c Comment",
+            "dataType": "string",
+            "sourceColumn": "n2c Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n3a Advice on Financing",
+            "dataType": "double",
+            "sourceColumn": "n3a Advice on Financing",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n3a Comment",
+            "dataType": "string",
+            "sourceColumn": "n3a Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n3b Advice on Insurance",
+            "dataType": "string",
+            "sourceColumn": "n3b Advice on Insurance",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n3b Comment",
+            "dataType": "string",
+            "sourceColumn": "n3b Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n3c Advice on Service contracts",
+            "dataType": "double",
+            "sourceColumn": "n3c Advice on Service contracts",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n3c Comment",
+            "dataType": "string",
+            "sourceColumn": "n3c Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n3d Advice on Telematics",
+            "dataType": "double",
+            "sourceColumn": "n3d Advice on Telematics",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n3d Comment",
+            "dataType": "string",
+            "sourceColumn": "n3d Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n3e Advice on Driver training",
+            "dataType": "double",
+            "sourceColumn": "n3e Advice on Driver training",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n3e Comment",
+            "dataType": "string",
+            "sourceColumn": "n3e Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n4a Used Scania finance (no/yes)",
+            "dataType": "string",
+            "sourceColumn": "n4a Used Scania finance (no/yes)",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n5_1a Overall performance ",
+            "dataType": "double",
+            "sourceColumn": "n5_1a Overall performance ",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n5_1a Comment",
+            "dataType": "string",
+            "sourceColumn": "n5_1a Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n5_1b Finance process",
+            "dataType": "double",
+            "sourceColumn": "n5_1b Finance process",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n5_1b Comment",
+            "dataType": "string",
+            "sourceColumn": "n5_1b Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n5_1c Finance meets",
+            "dataType": "double",
+            "sourceColumn": "n5_1c Finance meets",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n5_1c Comment",
+            "dataType": "string",
+            "sourceColumn": "n5_1c Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n5_2a Service not offered",
+            "dataType": "string",
+            "sourceColumn": "n5_2a Service not offered",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n5_2b Offered conditions not interesting",
+            "dataType": "string",
+            "sourceColumn": "n5_2b Offered conditions not interesting",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n5_2c Other supplier",
+            "dataType": "string",
+            "sourceColumn": "n5_2c Other supplier",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n5_2d Own means",
+            "dataType": "string",
+            "sourceColumn": "n5_2d Own means",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n5_2e Other",
+            "dataType": "string",
+            "sourceColumn": "n5_2e Other",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n5_2e Comment",
+            "dataType": "string",
+            "sourceColumn": "n5_2e Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n6a Meeting delivery time",
+            "dataType": "double",
+            "sourceColumn": "n6a Meeting delivery time",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n6a Comment",
+            "dataType": "string",
+            "sourceColumn": "n6a Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n6b Delivery with agreed specs",
+            "dataType": "double",
+            "sourceColumn": "n6b Delivery with agreed specs",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n6b Comment",
+            "dataType": "string",
+            "sourceColumn": "n6b Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n6c Handover of vehicle",
+            "dataType": "double",
+            "sourceColumn": "n6c Handover of vehicle",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n6c Comment",
+            "dataType": "string",
+            "sourceColumn": "n6c Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n7a Contacted after delivery (no/yes)",
+            "dataType": "string",
+            "sourceColumn": "n7a Contacted after delivery (no/yes)",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "n7_1 Satisfied with contact after delivery",
+            "dataType": "double",
+            "sourceColumn": "n7_1 Satisfied with contact after delivery",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "n7_1 Comment",
+            "dataType": "string",
+            "sourceColumn": "n7_1 Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Change Description",
+            "dataType": "string",
+            "sourceColumn": "Change Description",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Change",
+            "dataType": "string",
+            "sourceColumn": "Change",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Name Withheld Y/N",
+            "dataType": "string",
+            "sourceColumn": "Name Withheld Y/N",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Phone Answered Y/N",
+            "dataType": "string",
+            "sourceColumn": "Phone Answered Y/N",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Survey Completed Y/N",
+            "dataType": "string",
+            "sourceColumn": "Survey Completed Y/N",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CSI New Sales",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[CSI New Sales].* FROM [dbo].[CSI New Sales] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[CSI New Sales].* FROM [dbo].[CSI New Sales] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CSI New Sales"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "CSI Service",
+        "columns": [
+          {
+            "name": "Contact person",
+            "dataType": "string",
+            "sourceColumn": "Contact person",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Company",
+            "dataType": "string",
+            "sourceColumn": "Company",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Company ID",
+            "dataType": "double",
+            "sourceColumn": "Company ID",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "IneteractionDate",
+            "dataType": "dateTime",
+            "sourceColumn": "IneteractionDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "InterviewDate",
+            "dataType": "dateTime",
+            "sourceColumn": "InterviewDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "Main dealer",
+            "dataType": "string",
+            "sourceColumn": "Main dealer",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Dealer",
+            "dataType": "string",
+            "sourceColumn": "Dealer",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Salesperson",
+            "dataType": "string",
+            "sourceColumn": "Salesperson",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "w1a Overall performance",
+            "dataType": "double",
+            "sourceColumn": "w1a Overall performance",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "w1a Comment",
+            "dataType": "string",
+            "sourceColumn": "w1a Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "w2a Staffs efforts to help",
+            "dataType": "double",
+            "sourceColumn": "w2a Staffs efforts to help",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "w2a Comment",
+            "dataType": "string",
+            "sourceColumn": "w2a Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "w2c Vehicle ready on time",
+            "dataType": "double",
+            "sourceColumn": "w2c Vehicle ready on time",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "w2c Comment",
+            "dataType": "string",
+            "sourceColumn": "w2c Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "w2d Quality of work",
+            "dataType": "double",
+            "sourceColumn": "w2d Quality of work",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "w2d Comment",
+            "dataType": "string",
+            "sourceColumn": "w2d Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "fft Fixed first visit (no/yes)",
+            "dataType": "string",
+            "sourceColumn": "fft Fixed first visit (no/yes)",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "fft Comment",
+            "dataType": "string",
+            "sourceColumn": "fft Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "w2e Explanation of work",
+            "dataType": "double",
+            "sourceColumn": "w2e Explanation of work",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "w2e Comment",
+            "dataType": "string",
+            "sourceColumn": "w2e Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "w5a Handling of complaints",
+            "dataType": "double",
+            "sourceColumn": "w5a Handling of complaints",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "w5a Comment",
+            "dataType": "string",
+            "sourceColumn": "w5a Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "w5b Flexibility",
+            "dataType": "double",
+            "sourceColumn": "w5b Flexibility",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "w5b Comment",
+            "dataType": "string",
+            "sourceColumn": "w5b Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "w5c Parts availability",
+            "dataType": "double",
+            "sourceColumn": "w5c Parts availability",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "w5c Comment",
+            "dataType": "string",
+            "sourceColumn": "w5c Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "w5d Information while in workshop",
+            "dataType": "double",
+            "sourceColumn": "w5d Information while in workshop",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "w5d Comment",
+            "dataType": "string",
+            "sourceColumn": "w5d Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "w6a Recommendation",
+            "dataType": "double",
+            "sourceColumn": "w6a Recommendation",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "w6a Comment",
+            "dataType": "string",
+            "sourceColumn": "w6a Comment",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Change Description",
+            "dataType": "string",
+            "sourceColumn": "Change Description",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Change",
+            "dataType": "string",
+            "sourceColumn": "Change",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Name Withheld Y/N",
+            "dataType": "string",
+            "sourceColumn": "Name Withheld Y/N",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Phone Answered Y/N",
+            "dataType": "string",
+            "sourceColumn": "Phone Answered Y/N",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Survey Completed Y/N",
+            "dataType": "string",
+            "sourceColumn": "Survey Completed Y/N",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CSI Service",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[CSI Service].* FROM [dbo].[CSI Service] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[CSI Service].* FROM [dbo].[CSI Service] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CSI Service"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
       }
     ],
     "relationships": [
