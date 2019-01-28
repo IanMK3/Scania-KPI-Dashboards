@@ -4411,6 +4411,14 @@
           {
             "name": "Utilisation%Format",
             "expression": "SWITCH(TRUE(),UtilizationStats[Utilisation%]>UtilizationStats[Utilisation Budget],1,0)"
+          },
+          {
+            "name": "WorkShop Produced Hours Against Total Budget Format",
+            "expression": "SWITCH(TRUE(),[WorkShop Produced Hours Against Total Budget]>=[Target Marker],1,0)"
+          },
+          {
+            "name": "WorkShop Sold Hours Against Total Budget Format",
+            "expression": "SWITCH(TRUE(),[WorkShop Sold Hours Against Total Budget]>=[Target Marker],1,0)"
           }
         ],
         "annotations": [
@@ -6395,7 +6403,7 @@
             "name": "WIP Target",
             "expression": [
               "0+IF([BodyShopProducedHours]=0",
-              ",DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3",
+              ",(divide(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*3)",
               ",DIVIDE(SUM(UtilizationStats[Produced]),[ElapsedWorkingDaysInMonth])*5)"
             ],
             "formatString": "#,0"
@@ -21669,6 +21677,17 @@
             "name": "Points TXT",
             "dataType": "string",
             "sourceColumn": "Points TXT"
+          },
+          {
+            "name": "MonthNo",
+            "dataType": "int64",
+            "sourceColumn": "MonthNo"
+          },
+          {
+            "name": "Month",
+            "dataType": "string",
+            "sourceColumn": "Month",
+            "sortByColumn": "MonthNo"
           }
         ],
         "partitions": [
@@ -21852,6 +21871,22 @@
                   "        <int>80</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MonthNo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>73</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>60</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnWidths>",
                   "  <ColumnDisplayIndex>",
                   "    <item>",
@@ -22014,6 +22049,22 @@
                   "        <int>19</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MonthNo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>20</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>21</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnDisplayIndex>",
                   "  <ColumnFrozen />",
                   "  <ColumnChecked>",
@@ -22049,6 +22100,22 @@
                   "        <boolean>true</boolean>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MonthNo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnChecked>",
                   "  <ColumnFilter />",
                   "  <SelectionFilter />",
@@ -22069,6 +22136,46 @@
             "name": "Total Index",
             "expression": "CALCULATE(AVERAGE('CSI All Service n New Sales'[Index]),'CSI All Service n New Sales'[Index]<>0)",
             "formatString": "0.0"
+          },
+          {
+            "name": "Count of Questions",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Period] = \"Year To Date\",",
+              "    CALCULATE ( [Total Questions], 'CSI All Service n New Sales'[YTD CSI] = TRUE () ),",
+              "    IF (",
+              "        [Selected Period] = \"Previous Month\",",
+              "        CALCULATE (",
+              "            [Total Questions],",
+              "            'CSI All Service n New Sales'[Previous Month] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Period] = \"Month To Date\",",
+              "            CALCULATE ( [Total Questions], 'CSI All Service n New Sales'[MTD CSI] = TRUE () ),",
+              "            IF (",
+              "                [Selected Period] = \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Total Questions],",
+              "                    'CSI All Service n New Sales'[Rolling 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                    [Selected Period] = \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [Total Questions],",
+              "                        'CSI All Service n New Sales'[Previous Year] = TRUE ()",
+              "                    ),",
+              "                    [Total Questions])",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0"
+          },
+          {
+            "name": "Total Questions",
+            "expression": "CALCULATE(COUNT('CSI All Service n New Sales'[Survey ID]))"
           },
           {
             "name": "CSI Index",
@@ -22105,10 +22212,6 @@
               ")"
             ],
             "formatString": "0.0"
-          },
-          {
-            "name": "Total Questions",
-            "expression": "CALCULATE(COUNT('CSI All Service n New Sales'[Survey ID]))"
           }
         ],
         "annotations": [
@@ -22296,6 +22399,22 @@
               "        <int>80</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MonthNo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>73</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>60</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnWidths>",
               "  <ColumnDisplayIndex>",
               "    <item>",
@@ -22458,6 +22577,22 @@
               "        <int>19</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MonthNo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>20</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>21</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnDisplayIndex>",
               "  <ColumnFrozen />",
               "  <ColumnChecked>",
@@ -22493,6 +22628,22 @@
               "        <boolean>true</boolean>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MonthNo</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
               "  </ColumnChecked>",
               "  <ColumnFilter />",
               "  <SelectionFilter />",
@@ -22500,6 +22651,2045 @@
               "  <IsSortDescending>false</IsSortDescending>",
               "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
             ]
+          }
+        ]
+      },
+      {
+        "name": "CSI New Sales",
+        "columns": [
+          {
+            "name": "SalesID",
+            "dataType": "int64",
+            "sourceColumn": "SalesID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Contact person",
+            "dataType": "string",
+            "sourceColumn": "Contact person",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Company",
+            "dataType": "string",
+            "sourceColumn": "Company",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Company ID",
+            "dataType": "string",
+            "sourceColumn": "Company ID",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Interaction Date",
+            "dataType": "string",
+            "sourceColumn": "Interaction Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Interview Date",
+            "dataType": "string",
+            "sourceColumn": "Interview Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Main Dealer",
+            "dataType": "string",
+            "sourceColumn": "Main Dealer",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Dealer",
+            "dataType": "string",
+            "sourceColumn": "Dealer",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Salesperson",
+            "dataType": "string",
+            "sourceColumn": "Salesperson",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n1a Overall performance",
+            "dataType": "int64",
+            "sourceColumn": "n1a Overall performance",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n1a Comment",
+            "dataType": "string",
+            "sourceColumn": "n1a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n2a Efforts to understand your needs",
+            "dataType": "int64",
+            "sourceColumn": "n2a Efforts to understand your needs",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n2a Comment",
+            "dataType": "string",
+            "sourceColumn": "n2a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n2b Expertise in offering the right transport solutions",
+            "dataType": "int64",
+            "sourceColumn": "n2b Expertise in offering the right transport solutions",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n2b Comment",
+            "dataType": "string",
+            "sourceColumn": "n2b Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n2c Contact from enquiry to delivery",
+            "dataType": "int64",
+            "sourceColumn": "n2c Contact from enquiry to delivery",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n2c Comment",
+            "dataType": "string",
+            "sourceColumn": "n2c Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n3a Advice on Financing",
+            "dataType": "int64",
+            "sourceColumn": "n3a Advice on Financing",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n3a Comment",
+            "dataType": "string",
+            "sourceColumn": "n3a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n3b Advice on Insurance",
+            "dataType": "int64",
+            "sourceColumn": "n3b Advice on Insurance",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n3b Comment",
+            "dataType": "string",
+            "sourceColumn": "n3b Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n3c Advice on Service contracts",
+            "dataType": "int64",
+            "sourceColumn": "n3c Advice on Service contracts",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n3c Comment",
+            "dataType": "string",
+            "sourceColumn": "n3c Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n3d Advice on Telematics",
+            "dataType": "int64",
+            "sourceColumn": "n3d Advice on Telematics",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n3d Comment",
+            "dataType": "string",
+            "sourceColumn": "n3d Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n3e Advice on Driver training",
+            "dataType": "int64",
+            "sourceColumn": "n3e Advice on Driver training",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n3e Comment",
+            "dataType": "string",
+            "sourceColumn": "n3e Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n4a Used Scania finance (no/yes)",
+            "dataType": "string",
+            "sourceColumn": "n4a Used Scania finance (no/yes)",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n4a Comment",
+            "dataType": "string",
+            "sourceColumn": "n4a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n5_1a Overall performance ",
+            "dataType": "int64",
+            "sourceColumn": "n5_1a Overall performance ",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n5_1a Comment",
+            "dataType": "string",
+            "sourceColumn": "n5_1a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n5_1b Finance process",
+            "dataType": "int64",
+            "sourceColumn": "n5_1b Finance process",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n5_1b Comment",
+            "dataType": "string",
+            "sourceColumn": "n5_1b Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n5_1c Finance meets",
+            "dataType": "int64",
+            "sourceColumn": "n5_1c Finance meets",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n5_1c Comment",
+            "dataType": "string",
+            "sourceColumn": "n5_1c Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n5_2a Service not offered",
+            "dataType": "string",
+            "sourceColumn": "n5_2a Service not offered",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n5_2a Comment",
+            "dataType": "string",
+            "sourceColumn": "n5_2a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n5_2b Offered conditions not interesting",
+            "dataType": "string",
+            "sourceColumn": "n5_2b Offered conditions not interesting",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n5_2b Comment",
+            "dataType": "string",
+            "sourceColumn": "n5_2b Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n5_2c Other supplier",
+            "dataType": "string",
+            "sourceColumn": "n5_2c Other supplier",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n5_2c Comment",
+            "dataType": "string",
+            "sourceColumn": "n5_2c Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n5_2d Own means",
+            "dataType": "string",
+            "sourceColumn": "n5_2d Own means",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n5_2d Comment",
+            "dataType": "string",
+            "sourceColumn": "n5_2d Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n5_2e Other",
+            "dataType": "string",
+            "sourceColumn": "n5_2e Other",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n5_2e Comment",
+            "dataType": "string",
+            "sourceColumn": "n5_2e Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n6a Meeting delivery time",
+            "dataType": "int64",
+            "sourceColumn": "n6a Meeting delivery time",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n6a Comment",
+            "dataType": "string",
+            "sourceColumn": "n6a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n6b Delivery with agreed specs",
+            "dataType": "int64",
+            "sourceColumn": "n6b Delivery with agreed specs",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n6b Comment",
+            "dataType": "string",
+            "sourceColumn": "n6b Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n6c Handover of vehicle",
+            "dataType": "int64",
+            "sourceColumn": "n6c Handover of vehicle",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n6c Comment",
+            "dataType": "string",
+            "sourceColumn": "n6c Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n7a Contacted after delivery (no/yes)",
+            "dataType": "string",
+            "sourceColumn": "n7a Contacted after delivery (no/yes)",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n7a Comment",
+            "dataType": "string",
+            "sourceColumn": "n7a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n7_1 Satisfied with contact after delivery",
+            "dataType": "int64",
+            "sourceColumn": "n7_1 Satisfied with contact after delivery",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n7_1 Comment",
+            "dataType": "string",
+            "sourceColumn": "n7_1 Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n8a Recommendation",
+            "dataType": "int64",
+            "sourceColumn": "n8a Recommendation",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n8a Comment",
+            "dataType": "string",
+            "sourceColumn": "n8a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "n9a Repurchase",
+            "dataType": "int64",
+            "sourceColumn": "n9a Repurchase",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "n9a Comment",
+            "dataType": "string",
+            "sourceColumn": "n9a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Change Description",
+            "dataType": "string",
+            "sourceColumn": "Change Description",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Change",
+            "dataType": "string",
+            "sourceColumn": "Change",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Name Withheld Y/N",
+            "dataType": "string",
+            "sourceColumn": "Name Withheld Y/N",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Phone Answered Y/N",
+            "dataType": "string",
+            "sourceColumn": "Phone Answered Y/N",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Survey Completed Y/N",
+            "dataType": "string",
+            "sourceColumn": "Survey Completed Y/N",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CSI New Sales",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[CSI New Sales].* FROM [dbo].[CSI New Sales] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[CSI New Sales].* FROM [dbo].[CSI New Sales] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CSI New Sales"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "CSI Service",
+        "columns": [
+          {
+            "name": "ServiceID",
+            "dataType": "int64",
+            "sourceColumn": "ServiceID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Contact person",
+            "dataType": "string",
+            "sourceColumn": "Contact person",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Company",
+            "dataType": "string",
+            "sourceColumn": "Company",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Company ID",
+            "dataType": "string",
+            "sourceColumn": "Company ID",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Interaction Date",
+            "dataType": "string",
+            "sourceColumn": "Interaction Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Interview Date",
+            "dataType": "string",
+            "sourceColumn": "Interview Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Main Dealer",
+            "dataType": "string",
+            "sourceColumn": "Main Dealer",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Dealer",
+            "dataType": "string",
+            "sourceColumn": "Dealer",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Salesperson",
+            "dataType": "string",
+            "sourceColumn": "Salesperson",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "w1a Overall performance",
+            "dataType": "int64",
+            "sourceColumn": "w1a Overall performance",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "w1a Comment",
+            "dataType": "string",
+            "sourceColumn": "w1a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "w2a Staffs efforts to help",
+            "dataType": "int64",
+            "sourceColumn": "w2a Staffs efforts to help",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "w2a Comment",
+            "dataType": "string",
+            "sourceColumn": "w2a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "w2c Vehicle ready on time",
+            "dataType": "int64",
+            "sourceColumn": "w2c Vehicle ready on time",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "w2c Comment",
+            "dataType": "string",
+            "sourceColumn": "w2c Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "w2d Quality of work",
+            "dataType": "int64",
+            "sourceColumn": "w2d Quality of work",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "w2d Comment",
+            "dataType": "string",
+            "sourceColumn": "w2d Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "fft Fixed first visit (no/yes)",
+            "dataType": "string",
+            "sourceColumn": "fft Fixed first visit (no/yes)",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "fft Comment",
+            "dataType": "string",
+            "sourceColumn": "fft Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "w2e Explanation of work",
+            "dataType": "int64",
+            "sourceColumn": "w2e Explanation of work",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "w2e Comment",
+            "dataType": "string",
+            "sourceColumn": "w2e Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "w5a Handling of complaints",
+            "dataType": "int64",
+            "sourceColumn": "w5a Handling of complaints",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "w5a Comment",
+            "dataType": "string",
+            "sourceColumn": "w5a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "w5b Flexibility",
+            "dataType": "int64",
+            "sourceColumn": "w5b Flexibility",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "w5b Comment",
+            "dataType": "string",
+            "sourceColumn": "w5b Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "w5c Parts availability",
+            "dataType": "int64",
+            "sourceColumn": "w5c Parts availability",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "w5c Comment",
+            "dataType": "string",
+            "sourceColumn": "w5c Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "w5d Information while in workshop",
+            "dataType": "int64",
+            "sourceColumn": "w5d Information while in workshop",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "w5d Comment",
+            "dataType": "string",
+            "sourceColumn": "w5d Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "w6a Recommendation",
+            "dataType": "int64",
+            "sourceColumn": "w6a Recommendation",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "w6a Comment",
+            "dataType": "string",
+            "sourceColumn": "w6a Comment",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Change Description",
+            "dataType": "string",
+            "sourceColumn": "Change Description",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Change",
+            "dataType": "string",
+            "sourceColumn": "Change",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Name Withheld Y/N",
+            "dataType": "string",
+            "sourceColumn": "Name Withheld Y/N",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Phone Answered Y/N",
+            "dataType": "string",
+            "sourceColumn": "Phone Answered Y/N",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Survey Completed Y/N",
+            "dataType": "string",
+            "sourceColumn": "Survey Completed Y/N",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CSI Service",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[CSI Service].* FROM [dbo].[CSI Service] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[CSI Service].* FROM [dbo].[CSI Service] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CSI Service"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "vw CSI New Sales",
+        "columns": [
+          {
+            "name": "Survey ID",
+            "dataType": "int64",
+            "sourceColumn": "Survey ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Contact person",
+            "dataType": "string",
+            "sourceColumn": "Contact person",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Company",
+            "dataType": "string",
+            "sourceColumn": "Company",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Company ID",
+            "dataType": "string",
+            "sourceColumn": "Company ID",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Interaction Date",
+            "dataType": "string",
+            "sourceColumn": "Interaction Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Interview Date",
+            "dataType": "string",
+            "sourceColumn": "Interview Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Main Dealer",
+            "dataType": "string",
+            "sourceColumn": "Main Dealer",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Dealer",
+            "dataType": "string",
+            "sourceColumn": "Dealer",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Salesperson",
+            "dataType": "string",
+            "sourceColumn": "Salesperson",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Change Description",
+            "dataType": "string",
+            "sourceColumn": "Change Description",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Change",
+            "dataType": "string",
+            "sourceColumn": "Change",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Name Withheld Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Name Withheld Yes/No",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Phone Answered Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Phone Answered Yes/No",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Survey Completed Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Survey Completed Yes/No",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Question ID",
+            "dataType": "int64",
+            "sourceColumn": "Question ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Comments",
+            "dataType": "string",
+            "sourceColumn": "Comments",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Points",
+            "dataType": "string",
+            "sourceColumn": "Points",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Index",
+            "dataType": "int64",
+            "sourceColumn": "Index",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MonthNo",
+            "dataType": "int64",
+            "sourceColumn": "MonthNo",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Month",
+            "dataType": "string",
+            "sourceColumn": "Month",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Points TXT",
+            "dataType": "string",
+            "sourceColumn": "Points TXT",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "vw CSI New Sales",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[vw CSI New Sales].* FROM [dbo].[vw CSI New Sales] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[vw CSI New Sales].* FROM [dbo].[vw CSI New Sales] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "vw CSI New Sales"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "vw CSI Service",
+        "columns": [
+          {
+            "name": "ServiceID",
+            "dataType": "int64",
+            "sourceColumn": "ServiceID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Contact person",
+            "dataType": "string",
+            "sourceColumn": "Contact person",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Company",
+            "dataType": "string",
+            "sourceColumn": "Company",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Company ID",
+            "dataType": "string",
+            "sourceColumn": "Company ID",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Interaction Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Interaction Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Interview Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Interview Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Main dealer",
+            "dataType": "string",
+            "sourceColumn": "Main dealer",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Dealer",
+            "dataType": "string",
+            "sourceColumn": "Dealer",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Salesperson",
+            "dataType": "string",
+            "sourceColumn": "Salesperson",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Change Description",
+            "dataType": "string",
+            "sourceColumn": "Change Description",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Change",
+            "dataType": "string",
+            "sourceColumn": "Change",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Name Withheld Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Name Withheld Yes/No",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Phone Answered Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Phone Answered Yes/No",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Survey Completed Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Survey Completed Yes/No",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Question ID",
+            "dataType": "int64",
+            "sourceColumn": "Question ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Comments",
+            "dataType": "string",
+            "sourceColumn": "Comments",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Points",
+            "dataType": "string",
+            "sourceColumn": "Points",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Index",
+            "dataType": "int64",
+            "sourceColumn": "Index",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Year",
+            "dataType": "string",
+            "sourceColumn": "Year",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MonthNo",
+            "dataType": "int64",
+            "sourceColumn": "MonthNo",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Month",
+            "dataType": "string",
+            "sourceColumn": "Month",
+            "sortByColumn": "MonthNo",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Points TXT",
+            "dataType": "string",
+            "sourceColumn": "Points TXT",
+            "sourceProviderType": "Char"
+          },
+          {
+            "type": "calculated",
+            "name": "Service MTD",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI Service'[Interaction Date])",
+              "RETURN",
+              "IF(MONTH('vw CSI Service'[Interaction Date])=MONTH(MAXDATE)&&YEAR('vw CSI Service'[Interaction Date])=YEAR(MAXDATE),TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Service PM",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE =MAX('vw CSI Service'[Interaction Date])",
+              "RETURN",
+              "IF(MONTH('vw CSI Service'[Interaction Date])=MONTH(MAXDATE)-1&&YEAR('vw CSI Service'[Interaction Date])=YEAR(MAXDATE),TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Service YTD",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI Service'[Interaction Date])",
+              "RETURN",
+              "IF(YEAR('vw CSI Service'[Interaction Date])=YEAR(MAXDATE),TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Service LY",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE =  MAX('vw CSI Service'[Interaction Date])",
+              "RETURN",
+              "IF(YEAR('vw CSI Service'[Interaction Date])=YEAR(MAXDATE)-1,TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Rollin 12 Months",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI Service'[Interaction Date])",
+              "RETURN",
+              "IF('vw CSI Service'[Interaction Date]>=DATE(YEAR(MAXDATE)-1,MONTH(MAXDATE),DAY(MAXDATE))&&'vw CSI Service'[Interaction Date]<=MAXDATE,TRUE(),FALSE())"
+            ]
+          },
+          {
+            "name": "Question",
+            "dataType": "string",
+            "sourceColumn": "Question"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "vw CSI Service",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[vw CSI Service].* FROM [dbo].[vw CSI Service] ",
+              "dataSource": "SqlServerConn"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ServiceID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>76</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Contact person</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>104</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Company</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>75</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Company ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>89</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Interaction Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>109</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Interview Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>102</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Main dealer</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>85</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Dealer</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>61</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Salesperson</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>88</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Change Description</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>123</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Change</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>67</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Name Withheld Yes/No</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>139</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Phone Answered Yes/No</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>148</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Survey Completed Yes/No</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>155</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Question ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>87</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Question</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>73</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Comments</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>80</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Points</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>59</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Index</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>58</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Year</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>52</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MonthNo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>73</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>60</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Points TXT</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>80</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ServiceID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Contact person</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Company</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Company ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Interaction Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Interview Date</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Main dealer</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Dealer</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>7</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Salesperson</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>8</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Change Description</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>9</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Change</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>10</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Name Withheld Yes/No</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>11</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Phone Answered Yes/No</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>12</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Survey Completed Yes/No</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>13</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Question ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>14</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Question</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>15</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Comments</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>16</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Points</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>17</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Index</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>18</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Year</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>19</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MonthNo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>20</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Month</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>21</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Points TXT</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>22</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Question</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Selected Service Period",
+            "expression": "SELECTEDVALUE('CSI Time Intelligence'[Period])"
+          },
+          {
+            "name": "Service Tot Questions",
+            "expression": "CALCULATE(COUNT('CSI Service'[ServiceID]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Service Index",
+            "expression": "CALCULATE(AVERAGE('vw CSI Service'[Index]),'vw CSI Service'[Index]<>0)",
+            "formatString": "0.0"
+          },
+          {
+            "name": "Service Sample Size",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Service Period] = \"Year To Date\",",
+              "    CALCULATE ( 'vw CSI Service'[Service Tot Questions], 'vw CSI Service'[Service YTD] = TRUE () ),",
+              "    IF (",
+              "        [Selected Service Period] = \"Previous Month\",",
+              "        CALCULATE (",
+              "            [Service Tot Questions],",
+              "            'vw CSI Service'[Service PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Service Period] = \"Month To Date\",",
+              "            CALCULATE ( 'vw CSI Service'[Service Tot Questions], 'vw CSI Service'[Service MTD]=TRUE () ),",
+              "            IF (",
+              "                [Selected Service Period] = \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Service Tot Questions],",
+              "                    'vw CSI Service'[Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                     [Selected Service Period] = \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [Service Tot Questions],",
+              "                        'vw CSI Service'[Service LY] = TRUE ()",
+              "                    ),",
+              "                    [Service Tot Questions]",
+              "            )",
+              "        )",
+              "    )",
+              ")",
+              "",
+              ")"
+            ],
+            "formatString": "#,0"
+          },
+          {
+            "name": "CSI Service Index",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Service Period] = \"Year To Date\",",
+              "    CALCULATE ( 'vw CSI Service'[Service Index], 'vw CSI Service'[Service YTD] = TRUE () ),",
+              "    IF (",
+              "        [Selected Service Period] = \"Previous Month\",",
+              "        CALCULATE (",
+              "            [Service Index],",
+              "            'vw CSI Service'[Service PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Service Period] = \"Month To Date\",",
+              "            CALCULATE ( 'vw CSI Service'[Service Index], 'vw CSI Service'[Service MTD]=TRUE () ),",
+              "            IF (",
+              "                [Selected Service Period] = \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Service Index],",
+              "                    'vw CSI Service'[Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                     [Selected Service Period] = \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [Service Index],",
+              "                        'vw CSI Service'[Service LY] = TRUE ()",
+              "                    ),",
+              "                    [Service Index]",
+              "            )",
+              "        )",
+              "    )",
+              ")",
+              "",
+              ")"
+            ],
+            "formatString": "0.0"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[vw CSI Service].* FROM [dbo].[vw CSI Service] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "vw CSI Service"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>ServiceID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>76</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Contact person</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>104</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Company</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>75</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Company ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>89</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Interaction Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>109</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Interview Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>102</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Main dealer</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>85</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Dealer</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>61</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Salesperson</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>88</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Change Description</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>123</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Change</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>67</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Name Withheld Yes/No</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>139</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Phone Answered Yes/No</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>148</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Survey Completed Yes/No</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>155</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Question ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>87</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Question</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>73</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Comments</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>80</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Points</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>59</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Index</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>58</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Year</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>52</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MonthNo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>73</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>60</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Points TXT</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>80</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>ServiceID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Contact person</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Company</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Company ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Interaction Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Interview Date</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Main dealer</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>6</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Dealer</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>7</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Salesperson</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>8</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Change Description</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>9</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Change</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>10</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Name Withheld Yes/No</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>11</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Phone Answered Yes/No</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>12</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Survey Completed Yes/No</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>13</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Question ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>14</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Question</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>15</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Comments</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>16</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Points</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>17</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Index</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>18</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Year</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>19</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MonthNo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>20</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Month</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>21</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Points TXT</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>22</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>Question</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "CSI Dates",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month",
+            "sourceProviderType": "UnsignedTinyInt"
+          },
+          {
+            "name": "Month Name",
+            "dataType": "string",
+            "sourceColumn": "Month Name",
+            "sourceProviderType": "Char"
+          },
+          {
+            "type": "calculated",
+            "name": "Calculated Column 1",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('CSI Service'[Interaction Date])",
+              "RETURN",
+              "IF(MONTH('CSI Dates'[Date]=MONTH(MAXDATE)&&YEAR('CSI Dates'[Date])=YEAR(MAXDATE)),TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CSI Dates",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[CSI Dates].* FROM [dbo].[CSI Dates] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[CSI Dates].* FROM [dbo].[CSI Dates] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CSI Dates"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
           }
         ]
       }
@@ -22707,6 +24897,62 @@
         "fromTable": "CSI All Service n New Sales",
         "fromColumn": "Interaction Date",
         "toTable": "Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "5b0053a3-2108-44c3-868c-65c655914d6c",
+        "fromTable": "CSI All Service n New Sales",
+        "fromColumn": "Survey ID",
+        "toTable": "CSI New Sales",
+        "toColumn": "SalesID"
+      },
+      {
+        "name": "e1e84632-5cf9-4c08-9401-ccf64099a34b",
+        "fromTable": "CSI All Service n New Sales",
+        "fromColumn": "Survey ID",
+        "toTable": "CSI Service",
+        "toColumn": "ServiceID"
+      },
+      {
+        "name": "f575e968-df95-4dcc-8eac-7722f0f3f1a7",
+        "fromTable": "vw CSI New Sales",
+        "fromColumn": "Interaction Date",
+        "toTable": "Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "bc53a002-6bcf-437d-bba8-4bfcf5a20d98",
+        "fromTable": "vw CSI New Sales",
+        "fromColumn": "Question ID",
+        "toTable": "CSI Questions",
+        "toColumn": "Question ID"
+      },
+      {
+        "name": "2807c665-289a-4466-9c6b-feafee9e459e",
+        "fromTable": "vw CSI Service",
+        "fromColumn": "Interaction Date",
+        "toTable": "Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "ec2b00de-ed45-478e-b09f-f643d56604e2",
+        "fromTable": "vw CSI Service",
+        "fromColumn": "Question ID",
+        "toTable": "CSI Questions",
+        "toColumn": "Question ID"
+      },
+      {
+        "name": "3a056e2b-bda3-41b3-94a9-a20f6ffd1bf5",
+        "fromTable": "vw CSI Service",
+        "fromColumn": "ServiceID",
+        "toTable": "CSI Service",
+        "toColumn": "ServiceID"
+      },
+      {
+        "name": "0524eb92-8a77-4dde-a2e4-116362a82d63",
+        "fromTable": "vw CSI Service",
+        "fromColumn": "Interaction Date",
+        "toTable": "CSI Dates",
         "toColumn": "Date"
       }
     ],
