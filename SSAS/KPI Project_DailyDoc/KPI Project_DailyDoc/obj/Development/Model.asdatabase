@@ -21379,6 +21379,11 @@
             "dataType": "string",
             "sourceColumn": "Period",
             "sourceProviderType": "Char"
+          },
+          {
+            "name": "Service Period",
+            "dataType": "string",
+            "sourceColumn": "Service Period"
           }
         ],
         "partitions": [
@@ -21410,6 +21415,14 @@
                   "        <int>60</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Service Period</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>98</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnWidths>",
                   "  <ColumnDisplayIndex>",
                   "    <item>",
@@ -21420,9 +21433,26 @@
                   "        <int>0</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Service Period</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnDisplayIndex>",
                   "  <ColumnFrozen />",
-                  "  <ColumnChecked />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Service Period</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
                   "  <ColumnFilter />",
                   "  <SelectionFilter />",
                   "  <FilterParameters />",
@@ -21466,6 +21496,14 @@
               "        <int>60</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Service Period</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>98</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnWidths>",
               "  <ColumnDisplayIndex>",
               "    <item>",
@@ -21476,9 +21514,26 @@
               "        <int>0</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Service Period</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnDisplayIndex>",
               "  <ColumnFrozen />",
-              "  <ColumnChecked />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>Service Period</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
               "  <ColumnFilter />",
               "  <SelectionFilter />",
               "  <FilterParameters />",
@@ -25113,7 +25168,7 @@
         "measures": [
           {
             "name": "Selected Service Period",
-            "expression": "SELECTEDVALUE('CSI Time Intelligence'[Period])"
+            "expression": "SELECTEDVALUE('CSI Time Intelligence'[Service Period])"
           },
           {
             "name": "Service Tot Questions",
@@ -25129,8 +25184,7 @@
             "name": "Service Sample Size",
             "expression": [
               "",
-              "IF (",
-              "    [Selected Service Period] = \"Year To Date\",",
+              "IF (  [Selected Service Period] = \"Year To Date\",",
               "    CALCULATE ( 'vw CSI Service'[Service Tot Questions], 'vw CSI Service'[Service YTD] = TRUE () ),",
               "    IF (",
               "        [Selected Service Period] = \"Previous Month\",",
@@ -25199,11 +25253,70 @@
               "",
               ")"
             ],
-            "formatString": "0.0"
+            "formatString": "0"
           },
           {
             "name": "Completed Service Survey",
-            "expression": "0+CALCULATE('vw CSI Service'[Service Sample Size],'vw CSI Service'[Survey Completed Yes/No]=\"Yes\")"
+            "expression": "0+CALCULATE('vw CSI Service'[Service Sample Size],'vw CSI Service'[Survey Completed Yes/No]=\"Yes\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "CSI Service Index (Card)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Service Period] = \"Year To Date\",",
+              "    CALCULATE ( 'vw CSI Service'[Service Index], 'vw CSI Service'[Service YTD] = TRUE () ),",
+              "    IF (",
+              "        [Selected Service Period] = \"Previous Month\",",
+              "        CALCULATE (",
+              "            [Service Index],",
+              "            'vw CSI Service'[Service PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Service Period] = \"Month To Date\",",
+              "            CALCULATE ( 'vw CSI Service'[Service Index], 'vw CSI Service'[Service MTD]=TRUE () ),",
+              "            IF (",
+              "                [Selected Service Period] = \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Service Index],",
+              "                    'vw CSI Service'[Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                     [Selected Service Period] = \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [Service Index],",
+              "                        'vw CSI Service'[Service LY] = TRUE ()",
+              "                    ),",
+              "                    [Service Index]",
+              "            )",
+              "        )",
+              "    )",
+              ")",
+              "",
+              ")"
+            ],
+            "formatString": "0.0"
+          },
+          {
+            "name": "Max Score Service",
+            "expression": "MAX('vw CSI Service'[Index])"
+          },
+          {
+            "name": "Min Score Service",
+            "expression": "MIN('vw CSI Service'[Index])"
+          },
+          {
+            "name": "Selected Main Dealer Service",
+            "expression": "IF(ISFILTERED('vw CSI Service'[Main dealer]),SELECTEDVALUE('vw CSI Service'[Main dealer]),\"All Dealers\")"
+          },
+          {
+            "name": "Selected Dealer Service",
+            "expression": "IF(ISFILTERED('vw CSI Service'[Dealer]),SELECTEDVALUE('vw CSI Service'[Dealer]),\"All Dealers\")"
+          },
+          {
+            "name": "Reporting Period Service",
+            "expression": "IF(ISFILTERED('CSI Time Intelligence'[Service Period]),SELECTEDVALUE('CSI Time Intelligence'[Service Period]),\"\")"
           }
         ],
         "annotations": [
