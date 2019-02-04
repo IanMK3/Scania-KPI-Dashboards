@@ -25569,6 +25569,90 @@
             "value": "dbo"
           }
         ]
+      },
+      {
+        "name": "CSI New Sales Refresh Date",
+        "columns": [
+          {
+            "name": "SalesRefreshDate",
+            "dataType": "dateTime",
+            "sourceColumn": "SalesRefreshDate",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CSI New Sales Refresh Date",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[CSI New Sales Refresh Date].* FROM [dbo].[CSI New Sales Refresh Date] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[CSI New Sales Refresh Date].* FROM [dbo].[CSI New Sales Refresh Date] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CSI New Sales Refresh Date"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "CSI Service Refresh Date",
+        "columns": [
+          {
+            "name": "ServiceRefreshDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ServiceRefreshDate",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CSI Service Refresh Date",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[CSI Service Refresh Date].* FROM [dbo].[CSI Service Refresh Date] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[CSI Service Refresh Date].* FROM [dbo].[CSI Service Refresh Date] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CSI Service Refresh Date"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
       }
     ],
     "relationships": [
