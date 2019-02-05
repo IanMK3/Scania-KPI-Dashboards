@@ -23102,7 +23102,8 @@
           {
             "name": "Question",
             "dataType": "string",
-            "sourceColumn": "Question"
+            "sourceColumn": "Question",
+            "sortByColumn": "Question ID"
           },
           {
             "name": "Quarter",
@@ -23743,6 +23744,18 @@
           {
             "name": "Reporting Period NewSales",
             "expression": "IF(ISFILTERED('CSI Time Intelligence'[Period]),SELECTEDVALUE('CSI Time Intelligence'[Period]),\"All Periods\")"
+          },
+          {
+            "name": "Max Score Sales",
+            "expression": "MAX('vw CSI New Sales'[Index])"
+          },
+          {
+            "name": "Min Score Sales",
+            "expression": "MIN('vw CSI New Sales'[Index])"
+          },
+          {
+            "name": "NewSales",
+            "expression": "\"New Sales\""
           }
         ],
         "annotations": [
@@ -25062,6 +25075,34 @@
           {
             "name": "Reporting Period Service",
             "expression": "IF(ISFILTERED('CSI Time Intelligence'[Service Period]),SELECTEDVALUE('CSI Time Intelligence'[Service Period]),\"All Periods\")"
+          },
+          {
+            "name": "Service",
+            "expression": "\"Service\""
+          },
+          {
+            "name": "Txt Interaction Date",
+            "expression": "\"Interaction Date\""
+          },
+          {
+            "name": "Txt Interview Date",
+            "expression": "\"Interview Date\""
+          },
+          {
+            "name": "Txt Main Dealer",
+            "expression": "\"Main Dealer\""
+          },
+          {
+            "name": "Txt Dealer",
+            "expression": "\"Dealer\""
+          },
+          {
+            "name": "Txt Contact Person",
+            "expression": "\"Contact Person\""
+          },
+          {
+            "name": "Txt SalesPerson",
+            "expression": "\"Salesperson\""
           }
         ],
         "annotations": [
@@ -25525,48 +25566,6 @@
               "  <IsSortDescending>false</IsSortDescending>",
               "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
             ]
-          }
-        ]
-      },
-      {
-        "name": "CSI Refresh Date",
-        "columns": [
-          {
-            "name": "CSI RefreshDate",
-            "dataType": "dateTime",
-            "sourceColumn": "CSI RefreshDate",
-            "formatString": "dd/MM/yyyy",
-            "sourceProviderType": "WChar",
-            "annotations": [
-              {
-                "name": "Format",
-                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
-              }
-            ]
-          }
-        ],
-        "partitions": [
-          {
-            "name": "CSI Refresh Date",
-            "dataView": "full",
-            "source": {
-              "query": " SELECT [dbo].[CSI Refresh Date].* FROM [dbo].[CSI Refresh Date] ",
-              "dataSource": "SqlServerConn"
-            }
-          }
-        ],
-        "annotations": [
-          {
-            "name": "_TM_ExtProp_QueryDefinition",
-            "value": " SELECT [dbo].[CSI Refresh Date].* FROM [dbo].[CSI Refresh Date] "
-          },
-          {
-            "name": "_TM_ExtProp_DbTableName",
-            "value": "CSI Refresh Date"
-          },
-          {
-            "name": "_TM_ExtProp_DbSchemaName",
-            "value": "dbo"
           }
         ]
       },
