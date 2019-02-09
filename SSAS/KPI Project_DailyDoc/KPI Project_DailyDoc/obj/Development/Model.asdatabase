@@ -3692,7 +3692,7 @@
           },
           {
             "name": "Sales Against Total Budget",
-            "expression": "0+DIVIDE([TotalSales],[SalesBudget])",
+            "expression": "0+DIVIDE(CALCULATE([TotalSales],NominalCode[Nominal Category]=\"Front Counter\"||NominalCode[Nominal Category]=\"Back Counter\"),CALCULATE([SalesBudget],NominalCode[Nominal Category]=\"Front Counter\"||NominalCode[Nominal Category]=\"Back Counter\",NominalCode[Nominal Type]=\"Sales\"))",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
