@@ -4296,16 +4296,6 @@
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "Invoiced Against FlxBudget %",
-            "expression": "0+(DIVIDE([WorkShopSoldHours],[Hours Flexed Budget]))",
-            "formatString": "0.0%;-0.0%;0.0%"
-          },
-          {
-            "name": "HoursProducedPerformanceAgainstFlxBudget",
-            "expression": "0+DIVIDE([WorkShopProducedHours],[Hours Flexed Budget])",
-            "formatString": "0.0%;-0.0%;0.0%"
-          },
-          {
             "name": "Workshop Sold Hours Against FlxBudget",
             "expression": "0+DIVIDE([WorkShopSoldHours],[Hours Flexed Budget])",
             "formatString": "0.0%;-0.0%;0.0%"
@@ -4319,11 +4309,6 @@
             "name": "NetLabourRate",
             "expression": "0+(DIVIDE([LabourSales],[WorkShopAttendedHours]))",
             "formatString": "0"
-          },
-          {
-            "name": "Produced Against FlxBudget %",
-            "expression": "0+(DIVIDE([WorkShopProducedHours],[Hours Flexed Budget]))",
-            "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Scotland_Workshop Sold Hours Against FlxBudget",
@@ -4396,12 +4381,12 @@
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "Invoiced Against FlxBudget % Format",
-            "expression": "SWITCH(TRUE(),[Invoiced Against FlxBudget %]>=1,1,0)"
+            "name": "Workshop Sold Hours Against FlxBudget % Format",
+            "expression": "SWITCH(TRUE(),[Workshop Sold Hours Against FlxBudget]>=1,1,0)"
           },
           {
-            "name": "Produced Against FlxBudget % Format",
-            "expression": "SWITCH(TRUE(),[Produced Against FlxBudget %]>=1,1,0)"
+            "name": "Workshop Produced Against FlxBudget % Format",
+            "expression": "SWITCH(TRUE(),[Workshop Produced Hours Against FlxBudget %]>=1,1,0)"
           },
           {
             "name": "Efficiency%Format",
@@ -25761,6 +25746,195 @@
             ]
           }
         ]
+      },
+      {
+        "name": "Technician",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Depot",
+            "dataType": "int64",
+            "sourceColumn": "Depot",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Technician",
+            "dataType": "string",
+            "sourceColumn": "Technician",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DW_CreatedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_CreatedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "DW_ModifiedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_ModifiedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Technician",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dim].[Technician].* FROM [dim].[Technician] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dim].[Technician].* FROM [dim].[Technician] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Technician"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dim"
+          }
+        ]
+      },
+      {
+        "name": "TechnicianHours",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Technician",
+            "dataType": "int64",
+            "sourceColumn": "Technician",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Depot",
+            "dataType": "int64",
+            "sourceColumn": "Depot",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date",
+            "formatString": "dd/MM/yyyy",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Taken",
+            "dataType": "double",
+            "sourceColumn": "Taken",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Attended",
+            "dataType": "double",
+            "sourceColumn": "Attended",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Idle",
+            "dataType": "double",
+            "sourceColumn": "Idle",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Produced",
+            "dataType": "double",
+            "sourceColumn": "Produced",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Category",
+            "dataType": "string",
+            "sourceColumn": "Category",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DW_CreatedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_CreatedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "DW_ModifiedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_ModifiedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "TechnicianHours",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [fact].[TechnicianHours].* FROM [fact].[TechnicianHours] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Technician Produced Hours",
+            "expression": "0+CALCULATE(SUM(TechnicianHours[Produced]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Technician Attended Hours",
+            "expression": "0+CALCULATE(SUM(TechnicianHours[Attended]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Technician Taken Hours",
+            "expression": "0+CALCULATE(SUM(TechnicianHours[Taken]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Technician Idle Hours",
+            "expression": "0+CALCULATE(SUM(TechnicianHours[Idle]))",
+            "formatString": "#,0"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [fact].[TechnicianHours].* FROM [fact].[TechnicianHours] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "TechnicianHours"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "fact"
+          }
+        ]
       }
     ],
     "relationships": [
@@ -25981,526 +26155,154 @@
         "fromColumn": "Question ID",
         "toTable": "CSI Questions",
         "toColumn": "Question ID"
+      },
+      {
+        "name": "0fec0308-fa49-45a0-9da1-ac1bc77e504c",
+        "fromTable": "TechnicianHours",
+        "fromColumn": "Technician",
+        "toTable": "Technician",
+        "toColumn": "ID"
+      },
+      {
+        "name": "c1cc2717-b1cc-4f32-a3a6-c72230b21298",
+        "fromTable": "Technician",
+        "fromColumn": "Depot",
+        "toTable": "Depot",
+        "toColumn": "ID"
+      },
+      {
+        "name": "f4e2b7b9-3e79-4113-9945-90c7ed12e697",
+        "fromTable": "TechnicianHours",
+        "fromColumn": "Date",
+        "toTable": "Date",
+        "toColumn": "Date"
       }
     ],
     "roles": [
       {
-        "name": "Aberdeen",
+        "name": "SW_Abingdon",
         "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:c3fa599e-f7df-4232-a69a-cb8df39e28b4@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:c3fa599e-f7df-4232-a69a-cb8df39e28b4@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
         "tablePermissions": [
           {
-            "name": "Region",
-            "filterExpression": "Region[Region]=\"Scotland\""
-          }
-        ]
-      },
-      {
-        "name": "Abingdon",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Abingdon\""
-          }
-        ]
-      },
-      {
-        "name": "Ancillaries East",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Ancillaries East\""
-          }
-        ]
-      },
-      {
-        "name": "Andover",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Andover\""
-          }
-        ]
-      },
-      {
-        "name": "Avonmouth",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Avonmouth\""
-          }
-        ]
-      },
-      {
-        "name": "Banbury",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Banbury\""
-          }
-        ]
-      },
-      {
-        "name": "Bellshill",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Bellshill\""
-          }
-        ]
-      },
-      {
-        "name": "Boston",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Boston\""
-          }
-        ]
-      },
-      {
-        "name": "Bridgwater",
-        "modelPermission": "read",
-        "tablePermissions": [
+            "name": "Region-Depot-Branch",
+            "filterExpression": "'Region-Depot-Branch'[Depot]=\"Abingdon\"",
+            "columnPermissions": [
+              {
+                "name": "Branch Code",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Branch",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "PoSCompany",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Depot",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Cost Centre",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Depot Number",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Depot Type",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Depot Status",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Region",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Region Type",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "VSBCompany",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "RMRisk",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "DepotId",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "RegionID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "BranchId",
+                "metadataPermission": "none"
+              }
+            ]
+          },
           {
             "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Bridgwater\""
+            "filterExpression": "Depot[Depot]=\"Abingdon\"",
+            "columnPermissions": [
+              {
+                "name": "Depot",
+                "metadataPermission": "none"
+              }
+            ]
           }
         ]
       },
       {
-        "name": "Bristol VMU",
+        "name": "SE_Lingfield",
         "modelPermission": "read",
-        "tablePermissions": [
+        "members": [
           {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Bristol VMU\""
+            "memberName": "obj:63c31af1-9af9-40fc-a96f-17959222f5d4@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:63c31af1-9af9-40fc-a96f-17959222f5d4@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
           }
-        ]
-      },
-      {
-        "name": "Bus and Coach",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Bus and Coach\""
-          }
-        ]
-      },
-      {
-        "name": "Contract Services",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Contract Services\""
-          }
-        ]
-      },
-      {
-        "name": "Darlington",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Darlington\""
-          }
-        ]
-      },
-      {
-        "name": "Doncaster",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Doncaster\""
-          }
-        ]
-      },
-      {
-        "name": "Dumfries",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Dumfries\""
-          }
-        ]
-      },
-      {
-        "name": "Dundee",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Dundee\""
-          }
-        ]
-      },
-      {
-        "name": "Edinburgh",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Edinburgh\""
-          }
-        ]
-      },
-      {
-        "name": "Exeter",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Exeter\""
-          }
-        ]
-      },
-      {
-        "name": "Fareham",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Fareham\""
-          }
-        ]
-      },
-      {
-        "name": "Glasgow",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Glasgow\""
-          }
-        ]
-      },
-      {
-        "name": "Goole",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Goole\""
-          }
-        ]
-      },
-      {
-        "name": "Grangemouth",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Grangemouth\""
-          }
-        ]
-      },
-      {
-        "name": "Grimsby",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Grimsby\""
-          }
-        ]
-      },
-      {
-        "name": "Heathrow",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Heathrow\""
-          }
-        ]
-      },
-      {
-        "name": "Hull",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Hull\""
-          }
-        ]
-      },
-      {
-        "name": "Inverness",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Inverness\""
-          }
-        ]
-      },
-      {
-        "name": "Leeds",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Leeds\""
-          }
-        ]
-      },
-      {
-        "name": "Lewes",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Lewes\""
-          }
-        ]
-      },
-      {
-        "name": "Lincoln",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Lincoln\""
-          }
-        ]
-      },
-      {
-        "name": "Lingfield",
-        "modelPermission": "read",
+        ],
         "tablePermissions": [
           {
             "name": "Depot",
             "filterExpression": "Depot[Depot]=\"Lingfield\""
+          },
+          {
+            "name": "Region-Depot-Branch",
+            "filterExpression": "'Region-Depot-Branch'[Depot]=\"Lingfield\""
           }
         ]
       },
       {
-        "name": "Maidstone",
+        "name": "All East",
         "modelPermission": "read",
-        "tablePermissions": [
+        "members": [
           {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Maidstone\""
+            "memberName": "obj:5962df4a-0fae-4026-ba10-2a4560e55975@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:5962df4a-0fae-4026-ba10-2a4560e55975@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
           }
-        ]
-      },
-      {
-        "name": "Newbury",
-        "modelPermission": "read",
+        ],
         "tablePermissions": [
           {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Newbury\""
-          }
-        ]
-      },
-      {
-        "name": "Newcastle",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Newcastle\""
-          }
-        ]
-      },
-      {
-        "name": "Newhouse VMU",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Newhouse VMU\""
-          }
-        ]
-      },
-      {
-        "name": "Normanton",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Normanton\""
-          }
-        ]
-      },
-      {
-        "name": "Poole",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Poole\""
-          }
-        ]
-      },
-      {
-        "name": "Purfleet",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Purfleet\""
-          }
-        ]
-      },
-      {
-        "name": "Redruth",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Redruth\""
-          }
-        ]
-      },
-      {
-        "name": "Scunthorpe",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Scunthorpe\""
-          }
-        ]
-      },
-      {
-        "name": "Sheffield",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Sheffield\""
-          }
-        ]
-      },
-      {
-        "name": "Shepton Mallet",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Shepton Mallet\""
-          }
-        ]
-      },
-      {
-        "name": "Skipton",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Skipton\""
-          }
-        ]
-      },
-      {
-        "name": "South Kirby",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"South Kirby\""
-          }
-        ]
-      },
-      {
-        "name": "South Mimms",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"South Mimms\""
-          }
-        ]
-      },
-      {
-        "name": "Southampton",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Southampton\""
-          }
-        ]
-      },
-      {
-        "name": "Spalding",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Spalding\""
-          }
-        ]
-      },
-      {
-        "name": "Stansted",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Stansted\""
-          }
-        ]
-      },
-      {
-        "name": "Swindon",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Swindon\""
-          }
-        ]
-      },
-      {
-        "name": "Thirsk",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Thirsk\""
-          }
-        ]
-      },
-      {
-        "name": "Thurrock",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Thurrock\""
-          }
-        ]
-      },
-      {
-        "name": "Tilmanstone",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Tilmanstone\""
-          }
-        ]
-      },
-      {
-        "name": "Washington",
-        "modelPermission": "read",
-        "tablePermissions": [
-          {
-            "name": "Depot",
-            "filterExpression": "Depot[Depot]=\"Washington\""
+            "name": "Region",
+            "filterExpression": "Region[Region]=\"East\""
           }
         ]
       },
@@ -26509,14 +26311,77 @@
         "modelPermission": "read",
         "members": [
           {
-            "memberName": "Sam.Moustrides@scania.com",
-            "memberId": "Sam.Moustrides@scania.com",
+            "memberName": "obj:83a34515-2f68-4dfb-afdd-e8c0ce0796f1@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:83a34515-2f68-4dfb-afdd-e8c0ce0796f1@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
             "identityProvider": "AzureAD"
-          },
+          }
+        ]
+      },
+      {
+        "name": "All North",
+        "modelPermission": "read",
+        "members": [
           {
-            "memberName": "obj:d875fe44-f8fb-4093-96c5-4405957f3eb6@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
-            "memberId": "obj:d875fe44-f8fb-4093-96c5-4405957f3eb6@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberName": "obj:2fb4e759-ebc7-45a5-8535-2cf0d28a8e21@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:2fb4e759-ebc7-45a5-8535-2cf0d28a8e21@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
             "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "Region",
+            "filterExpression": "Region[Region]=\"North\""
+          }
+        ]
+      },
+      {
+        "name": "All Scotland",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:70252e21-504e-4013-a69c-3cea55c16bc4@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:70252e21-504e-4013-a69c-3cea55c16bc4@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "Region",
+            "filterExpression": "Region[Region]=\"Scotland\""
+          }
+        ]
+      },
+      {
+        "name": "All South East",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:76317f42-309d-4572-9572-85bda6e1e168@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:76317f42-309d-4572-9572-85bda6e1e168@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "Region",
+            "filterExpression": "Region[Region]=\"Southeast\""
+          }
+        ]
+      },
+      {
+        "name": "All South West",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:bd355b67-313a-4394-88ec-0b5a9b6aa1c9@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:bd355b67-313a-4394-88ec-0b5a9b6aa1c9@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "Region",
+            "filterExpression": "Region[Region]=\"Southwest\""
           }
         ]
       }
