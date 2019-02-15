@@ -22538,6 +22538,11 @@
           {
             "name": "NewSales",
             "expression": "\"New Sales\""
+          },
+          {
+            "name": "Contact After first Delivery %",
+            "expression": "DIVIDE(CALCULATE('vw CSI New Sales'[New Sales Sample Size],'vw CSI New Sales'[Question]=\"Contacted after delivery (Yes/No)\",'vw CSI New Sales'[Points]=\"Yes\"),'vw CSI New Sales'[New Sales Sample Size])",
+            "formatString": "0.0%;-0.0%;0.0%"
           }
         ],
         "annotations": [
@@ -25339,7 +25344,7 @@
               "    )",
               ")"
             ],
-            "formatString": "0"
+            "formatString": "0.0"
           },
           {
             "name": "Completed Finance Survey",
@@ -25452,6 +25457,11 @@
               ")"
             ],
             "formatString": "#,0"
+          },
+          {
+            "name": "Why Not Scania Finance",
+            "expression": "DIVIDE(CALCULATE('vw CSI Finance'[Finance Sample Size],'vw CSI Finance'[Points TXT]=\"No\"),'vw CSI Finance'[Finance Sample Size])",
+            "formatString": "0.00%;-0.00%;0.00%"
           }
         ],
         "annotations": [
