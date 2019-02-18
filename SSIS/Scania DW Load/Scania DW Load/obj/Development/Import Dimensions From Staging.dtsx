@@ -12,8 +12,8 @@
   DTS:ObjectName="Import Dimensions From Staging"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="111"
-  DTS:VersionGUID="{2EED9E77-6AFF-4447-B8AC-F55E021D9064}">
+  DTS:VersionBuild="99"
+  DTS:VersionGUID="{7CBEF7D2-CC5C-4AF1-83EC-8071BEDEE9BF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -176,7 +176,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -218,7 +218,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -266,7 +266,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Merge Branches"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -296,7 +296,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Truncate tmp Branch"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -650,7 +650,7 @@ where [refTable].[PosCompany] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\Load Branches\Staging - Get Branches\1129:invalid};</property>
+                      name="ParameterMap">#{Package\Load Branches\Staging - Get Branches\1128:invalid};</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1367,7 +1367,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1409,7 +1409,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1457,7 +1457,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Merge Working Days"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1487,7 +1487,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Truncate tmp Working Days"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2753,1004 +2753,6 @@ where [refTable].[PosCompany] = ?</property>
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Load Technicians"
-      DTS:CreationName="STOCK:SEQUENCE"
-      DTS:Description="Sequence Container"
-      DTS:DTSID="{4c047cde-968c-4c1b-ad4e-95a678592db1}"
-      DTS:ExecutableType="STOCK:SEQUENCE"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Load Technicians">
-      <DTS:Variables>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{55165d78-791b-4c0a-962f-7bdc3d8b88d5}"
-          DTS:IncludeInDebugDump="2345"
-          DTS:Namespace="User"
-          DTS:ObjectName="DestinatonName">
-          <DTS:VariableValue
-            DTS:DataType="8">dim.Technician</DTS:VariableValue>
-        </DTS:Variable>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{02aed4f9-f5fa-4d63-b31a-dc3b0fc29783}"
-          DTS:IncludeInDebugDump="6789"
-          DTS:Namespace="User"
-          DTS:ObjectName="ErrorCount">
-          <DTS:VariableValue
-            DTS:DataType="3">0</DTS:VariableValue>
-        </DTS:Variable>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{580c1a37-5df0-41ff-8b42-974bf6427b2e}"
-          DTS:IncludeInDebugDump="2345"
-          DTS:Namespace="User"
-          DTS:ObjectName="FileDate">
-          <DTS:VariableValue
-            DTS:DataType="8">2018-07-19</DTS:VariableValue>
-        </DTS:Variable>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{8670ee4b-194f-4e1f-90e4-dbd6389543aa}"
-          DTS:IncludeInDebugDump="2345"
-          DTS:Namespace="User"
-          DTS:ObjectName="FileValidationMessage">
-          <DTS:VariableValue
-            DTS:DataType="8"
-            xml:space="preserve"></DTS:VariableValue>
-        </DTS:Variable>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{62fb5c28-d28b-4e25-83c9-debe6ca9d1b3}"
-          DTS:IncludeInDebugDump="6789"
-          DTS:Namespace="User"
-          DTS:ObjectName="InsertRowCount">
-          <DTS:VariableValue
-            DTS:DataType="3">0</DTS:VariableValue>
-        </DTS:Variable>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{a923ce4d-6d57-4a9a-aaab-c716fcad7479}"
-          DTS:IncludeInDebugDump="6789"
-          DTS:Namespace="User"
-          DTS:ObjectName="IsValidFile">
-          <DTS:VariableValue
-            DTS:DataType="11">0</DTS:VariableValue>
-        </DTS:Variable>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{a3311fbd-fd35-4d8a-911b-840cd3331c95}"
-          DTS:IncludeInDebugDump="2345"
-          DTS:Namespace="User"
-          DTS:ObjectName="MaxTechHoursDate">
-          <DTS:VariableValue
-            DTS:DataType="8"
-            xml:space="preserve"></DTS:VariableValue>
-        </DTS:Variable>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{ff3722f9-854c-4ae2-8731-fea477c1b91c}"
-          DTS:IncludeInDebugDump="6789"
-          DTS:Namespace="User"
-          DTS:ObjectName="MinTechHoursFileDate">
-          <DTS:VariableValue
-            DTS:DataType="7">8/15/2018 8:55:03 AM</DTS:VariableValue>
-        </DTS:Variable>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{5ac41369-023c-4ab2-b1b8-48f46b3192c1}"
-          DTS:IncludeInDebugDump="2345"
-          DTS:Namespace="User"
-          DTS:ObjectName="SourceName">
-          <DTS:VariableValue
-            DTS:DataType="8">Technicians</DTS:VariableValue>
-        </DTS:Variable>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{9e50753d-360b-4c4f-a111-69c5b9704a75}"
-          DTS:IncludeInDebugDump="6789"
-          DTS:Namespace="User"
-          DTS:ObjectName="TaskId">
-          <DTS:VariableValue
-            DTS:DataType="3">0</DTS:VariableValue>
-        </DTS:Variable>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{9b80b9a3-da04-4aaa-8370-4e70adbdc579}"
-          DTS:IncludeInDebugDump="2345"
-          DTS:Namespace="User"
-          DTS:ObjectName="TaskName">
-          <DTS:VariableValue
-            DTS:DataType="8">Load Technicians</DTS:VariableValue>
-        </DTS:Variable>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{2a8d4d0e-45d6-43b2-9fe5-30c267288499}"
-          DTS:IncludeInDebugDump="6789"
-          DTS:Namespace="User"
-          DTS:ObjectName="TechHoursStagingRecordset">
-          <DTS:VariableValue
-            DTS:DataSubType="ManagedSerializable"
-            DTS:DataType="13">
-            <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-              <SOAP-ENV:Body>
-                <xsd:anyType
-                  id="ref-1"></xsd:anyType>
-              </SOAP-ENV:Body>
-            </SOAP-ENV:Envelope>
-          </DTS:VariableValue>
-        </DTS:Variable>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:DTSID="{30fc706b-b66e-41af-86b9-83f463e36049}"
-          DTS:IncludeInDebugDump="6789"
-          DTS:Namespace="User"
-          DTS:ObjectName="UpdateRowCount">
-          <DTS:VariableValue
-            DTS:DataType="3">0</DTS:VariableValue>
-        </DTS:Variable>
-      </DTS:Variables>
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\Load Technicians\Audit - End Task"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{3350e751-f69a-433e-828f-16794835d979}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Audit - End Task"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{B897BE24-9FC5-444E-A33F-731729C77908}"
-              SQLTask:SqlStatementSource="exec audit.EndTask ?,?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="User::TaskId"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="3"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="User::InsertRowCount"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="3"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="2"
-                SQLTask:DtsVariableName="User::UpdateRowCount"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="3"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="3"
-                SQLTask:DtsVariableName="User::ErrorCount"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="3"
-                SQLTask:ParameterSize="-1" />
-            </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Load Technicians\Audit - Start Task"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{e0632691-1a30-4df1-8e8a-1c192dca2a30}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Audit - Start Task"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{B897BE24-9FC5-444E-A33F-731729C77908}"
-              SQLTask:SqlStatementSource="exec audit.StartTask ?,?,?,?,? OUTPUT " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="User::PackageId"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="3"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="User::TaskName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="2"
-                SQLTask:DtsVariableName="User::SourceName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="3"
-                SQLTask:DtsVariableName="User::DestinatonName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="4"
-                SQLTask:DtsVariableName="User::TaskId"
-                SQLTask:ParameterDirection="Output"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-            </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Load Technicians\DW - Merge Technicians"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{e7e76984-8018-45e5-b123-98e0eb1b83cc}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="DW - Merge Technicians"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{B897BE24-9FC5-444E-A33F-731729C77908}"
-              SQLTask:SqlStatementSource="exec [etl].[MergeTechnicians]  ? output, ? output" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="User::InsertRowCount"
-                SQLTask:ParameterDirection="Output"
-                SQLTask:DataType="3"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="User::UpdateRowCount"
-                SQLTask:ParameterDirection="Output"
-                SQLTask:DataType="3"
-                SQLTask:ParameterSize="-1" />
-            </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Load Technicians\DW - Truncate tmp hours"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{ECBEC364-F16E-4E1C-ABFB-D9B2CEE203F0}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="DW - Truncate tmp hours"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{B897BE24-9FC5-444E-A33F-731729C77908}"
-              SQLTask:SqlStatementSource="truncate table tmp.Technician" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Load Technicians\Load technicians from staging to temp"
-          DTS:CreationName="Microsoft.Pipeline"
-          DTS:Description="Data Flow Task"
-          DTS:DTSID="{56261ac5-6892-4805-8d6c-43748cb5983d}"
-          DTS:ExecutableType="Microsoft.Pipeline"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Load technicians from staging to temp"
-          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <pipeline
-              version="1">
-              <components>
-                <component
-                  refId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot"
-                  componentClassID="Microsoft.DerivedColumn"
-                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-                  name="Derived Depot"
-                  usesDispositions="true">
-                  <inputs>
-                    <input
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Inputs[Derived Column Input]"
-                      description="Input to the Derived Column Transformation"
-                      name="Derived Column Input">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Outputs[Derived Column Output]"
-                      description="Default Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      name="Derived Column Output"
-                      synchronousInputId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Outputs[Derived Column Output].Columns[Depot]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Outputs[Derived Column Output].Columns[Depot]"
-                          name="Depot"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Expression"
-                              name="Expression">1</property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Friendly Expression"
-                              expressionType="Notify"
-                              name="FriendlyExpression">1</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Outputs[Derived Column Error Output]"
-                      description="Error Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Derived Column Error Output"
-                      synchronousInputId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging"
-                  componentClassID="Microsoft.OLEDBSource"
-                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-                  description="OLE DB Source"
-                  name="Get Technicians from staging"
-                  usesDispositions="true"
-                  version="7">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset"></property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">exec  [staging].[GetTechnicians]</property>
-                    <property
-                      dataType="System.String"
-                      description="The variable that contains the SQL command to be executed."
-                      name="SqlCommandVariable"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">2</property>
-                    <property
-                      dataType="System.String"
-                      description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Connections[OleDbConnection]"
-                      connectionManagerID="{B897BE24-9FC5-444E-A33F-731729C77908}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[DW]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output]"
-                      name="OLE DB Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].Columns[Technician]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].ExternalColumns[Technician]"
-                          length="500"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].Columns[Technician]"
-                          name="Technician"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].Columns[Company]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].ExternalColumns[Company]"
-                          length="500"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].Columns[Company]"
-                          name="Company"
-                          truncationRowDisposition="FailComponent" />
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].ExternalColumns[Technician]"
-                          codePage="1252"
-                          dataType="str"
-                          length="500"
-                          name="Technician" />
-                        <externalMetadataColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].ExternalColumns[Company]"
-                          codePage="1252"
-                          dataType="str"
-                          length="500"
-                          name="Company" />
-                      </externalMetadataColumns>
-                    </output>
-                    <output
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Error Output]"
-                      isErrorOut="true"
-                      name="OLE DB Source Error Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Error Output].Columns[Technician]"
-                          codePage="1252"
-                          dataType="str"
-                          length="500"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Error Output].Columns[Technician]"
-                          name="Technician" />
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Error Output].Columns[Company]"
-                          codePage="1252"
-                          dataType="str"
-                          length="500"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Error Output].Columns[Company]"
-                          name="Company" />
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot"
-                  componentClassID="Microsoft.Lookup"
-                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-                  name="Lookup Depot"
-                  usesDispositions="true"
-                  version="6">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the SQL statement that generates the lookup table."
-                      expressionType="Notify"
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">exec etl.GetDepotHoursMappingNames</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                      expressionType="Notify"
-                      name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (exec etl.GetDepotHoursMappingNames) [refTable]
-where [refTable].[Hours Mapping Name] = ?</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the type of connection used to access the reference dataset."
-                      name="ConnectionType"
-                      typeConverter="LookupConnectionType">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the cache type of the lookup table."
-                      name="CacheType"
-                      typeConverter="CacheType">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                      name="NoMatchBehavior"
-                      typeConverter="LookupNoMatchBehavior">1</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                      name="NoMatchCachePercentage">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                      name="MaxMemoryUsage">25</property>
-                    <property
-                      dataType="System.Int64"
-                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                      name="MaxMemoryUsage64">25</property>
-                    <property
-                      dataType="System.String"
-                      description="Indicates whether to reference metadata in an XML format."
-                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Hours Mapping Name" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].Columns[Company]};</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                      name="TreatDuplicateKeysAsError">false</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Connections[OleDbConnection]"
-                      connectionManagerID="{B897BE24-9FC5-444E-A33F-731729C77908}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[DW]"
-                      description="Connection manager used to access lookup data."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Inputs[Lookup Input]"
-                      name="Lookup Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Inputs[Lookup Input].Columns[Company]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="500"
-                          cachedName="Company"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].Columns[Company]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">Hours Mapping Name</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Outputs[Lookup Match Output]"
-                      errorOrTruncationOperation="Lookup"
-                      exclusionGroup="1"
-                      name="Lookup Match Output"
-                      synchronousInputId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Inputs[Lookup Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Outputs[Lookup Match Output].Columns[Depot]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Copy Column"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Outputs[Lookup Match Output].Columns[Depot]"
-                          name="Depot"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn">ID</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Outputs[Lookup No Match Output]"
-                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                      exclusionGroup="1"
-                      name="Lookup No Match Output"
-                      synchronousInputId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Inputs[Lookup Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Outputs[Lookup Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Lookup Error Output"
-                      synchronousInputId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Inputs[Lookup Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Load Technicians\Load technicians from staging to temp\tmp table"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="tmp table"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[tmp].[Technician]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Connections[OleDbConnection]"
-                      connectionManagerID="{B897BE24-9FC5-444E-A33F-731729C77908}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[DW]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Inputs[OLE DB Destination Input].Columns[Technician]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="500"
-                          cachedName="Technician"
-                          externalMetadataColumnId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Inputs[OLE DB Destination Input].ExternalColumns[Technician]"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Technician]" />
-                        <inputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Inputs[OLE DB Destination Input].Columns[Depot]"
-                          cachedDataType="i4"
-                          cachedName="Depot"
-                          externalMetadataColumnId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Inputs[OLE DB Destination Input].ExternalColumns[Depot]"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Depot]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Inputs[OLE DB Destination Input].ExternalColumns[Depot]"
-                          dataType="i4"
-                          name="Depot" />
-                        <externalMetadataColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Inputs[OLE DB Destination Input].ExternalColumns[Technician]"
-                          codePage="1252"
-                          dataType="str"
-                          length="500"
-                          name="Technician" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Load Technicians\Load technicians from staging to temp\Union All"
-                  componentClassID="Microsoft.UnionAll"
-                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
-                  name="Union All"
-                  version="1">
-                  <inputs>
-                    <input
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Union All.Inputs[Union All Input 1]"
-                      name="Union All Input 1">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Union All.Inputs[Union All Input 1].Columns[Technician]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="500"
-                          cachedName="Technician"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].Columns[Technician]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Technician]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Union All.Inputs[Union All Input 1].Columns[Company]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="500"
-                          cachedName="Company"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].Columns[Company]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Company]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Union All.Inputs[Union All Input 1].Columns[Depot]"
-                          cachedDataType="i4"
-                          cachedName="Depot"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Outputs[Lookup Match Output].Columns[Depot]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Depot]}</property>
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                    <input
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Union All.Inputs[Union All Input 2]"
-                      hasSideEffects="true"
-                      name="Union All Input 2">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Union All.Inputs[Union All Input 2].Columns[Technician]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="500"
-                          cachedName="Technician"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].Columns[Technician]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Technician]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Union All.Inputs[Union All Input 2].Columns[Company]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="500"
-                          cachedName="Company"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output].Columns[Company]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Company]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Union All.Inputs[Union All Input 2].Columns[Depot]"
-                          cachedDataType="i4"
-                          cachedName="Depot"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Outputs[Derived Column Output].Columns[Depot]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Depot]}</property>
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                    <input
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Union All.Inputs[Union All Input 3]"
-                      dangling="true"
-                      hasSideEffects="true"
-                      name="Union All Input 3">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1]"
-                      name="Union All Output 1">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Technician]"
-                          codePage="1252"
-                          dataType="str"
-                          length="500"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Technician]"
-                          name="Technician" />
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Company]"
-                          codePage="1252"
-                          dataType="str"
-                          length="500"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Company]"
-                          name="Company" />
-                        <outputColumn
-                          refId="Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Depot]"
-                          dataType="i4"
-                          lineageId="Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1].Columns[Depot]"
-                          name="Depot" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-              </components>
-              <paths>
-                <path
-                  refId="Package\Load Technicians\Load technicians from staging to temp.Paths[Derived Column Output]"
-                  endId="Package\Load Technicians\Load technicians from staging to temp\Union All.Inputs[Union All Input 2]"
-                  name="Derived Column Output"
-                  startId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Outputs[Derived Column Output]" />
-                <path
-                  refId="Package\Load Technicians\Load technicians from staging to temp.Paths[Lookup Match Output]"
-                  endId="Package\Load Technicians\Load technicians from staging to temp\Union All.Inputs[Union All Input 1]"
-                  name="Lookup Match Output"
-                  startId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\Load Technicians\Load technicians from staging to temp.Paths[Lookup No Match Output]"
-                  endId="Package\Load Technicians\Load technicians from staging to temp\Derived Depot.Inputs[Derived Column Input]"
-                  name="Lookup No Match Output"
-                  startId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Outputs[Lookup No Match Output]" />
-                <path
-                  refId="Package\Load Technicians\Load technicians from staging to temp.Paths[OLE DB Source Output]"
-                  endId="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot.Inputs[Lookup Input]"
-                  name="OLE DB Source Output"
-                  startId="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging.Outputs[OLE DB Source Output]" />
-                <path
-                  refId="Package\Load Technicians\Load technicians from staging to temp.Paths[Union All Output 1]"
-                  endId="Package\Load Technicians\Load technicians from staging to temp\tmp table.Inputs[OLE DB Destination Input]"
-                  name="Union All Output 1"
-                  startId="Package\Load Technicians\Load technicians from staging to temp\Union All.Outputs[Union All Output 1]" />
-              </paths>
-            </pipeline>
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
-      <DTS:PrecedenceConstraints>
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Load Technicians.PrecedenceConstraints[Constraint 1]"
-          DTS:CreationName=""
-          DTS:DTSID="{A6D40A8F-F92A-473C-BAEB-1287718517B0}"
-          DTS:From="Package\Load Technicians\DW - Merge Technicians"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 1"
-          DTS:To="Package\Load Technicians\Audit - End Task" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Load Technicians.PrecedenceConstraints[Constraint 2]"
-          DTS:CreationName=""
-          DTS:DTSID="{9973F0A3-082B-402E-88D6-E4C453F4C9BC}"
-          DTS:From="Package\Load Technicians\Audit - Start Task"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 2"
-          DTS:To="Package\Load Technicians\DW - Truncate tmp hours" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Load Technicians.PrecedenceConstraints[Constraint 3]"
-          DTS:CreationName=""
-          DTS:DTSID="{9770BE49-BF7F-4518-9FCA-0AF51A1E80DE}"
-          DTS:From="Package\Load Technicians\DW - Truncate tmp hours"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 3"
-          DTS:To="Package\Load Technicians\Load technicians from staging to temp" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Load Technicians.PrecedenceConstraints[Constraint 5]"
-          DTS:CreationName=""
-          DTS:DTSID="{492A9B2A-3C7E-41D3-BBD5-5B40E7672B60}"
-          DTS:From="Package\Load Technicians\Load technicians from staging to temp"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 5"
-          DTS:To="Package\Load Technicians\DW - Merge Technicians" />
-      </DTS:PrecedenceConstraints>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Sequence Container"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
@@ -3978,22 +2980,6 @@ where [refTable].[Hours Mapping Name] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
       DTS:To="Package\Audit - End Package" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
-      DTS:CreationName=""
-      DTS:DTSID="{6581B23B-0DD6-4211-A802-89CAF9932D36}"
-      DTS:From="Package\Load Technicians"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 7"
-      DTS:To="Package\Audit - End Package" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
-      DTS:CreationName=""
-      DTS:DTSID="{E12EA469-AFFE-40B1-9DB3-6F6C7476EA1A}"
-      DTS:From="Package\Sequence Container"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 8"
-      DTS:To="Package\Load Technicians" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -4010,45 +2996,57 @@ where [refTable].[Hours Mapping Name] = ?</property>
         <NodeLayout
           Size="174.4,42.4"
           Id="Package\Audit - End Package"
-          TopLeft="628.7,1029.5" />
+          TopLeft="114.3,927.288235285538" />
         <NodeLayout
           Size="178.4,42.4"
           Id="Package\Audit - Start Package"
-          TopLeft="626.7,5.49999999999982" />
+          TopLeft="112.3,5.50000000000005" />
         <NodeLayout
           Size="157.6,42.4"
           Id="Package\Load Branches\Audit - End Task"
-          TopLeft="29.1000000000001,412.7" />
+          TopLeft="45.5,412.700000000001" />
         <NodeLayout
           Size="162.4,42.4"
           Id="Package\Load Branches\Audit - Start Task"
-          TopLeft="26.7,5.50000000000005" />
+          TopLeft="43.1,5.50000000000005" />
         <NodeLayout
           Size="181.6,41.6"
           Id="Package\Load Branches\DW - Merge Branches"
-          TopLeft="17.1000000000001,311.1" />
+          TopLeft="21.0428571623199,311.1" />
         <NodeLayout
           Size="204.8,41.6"
           Id="Package\Load Branches\DW - Truncate tmp Branch"
-          TopLeft="5.50000000000001,107.9" />
+          TopLeft="5.5,106.676470571076" />
         <NodeLayout
           Size="186.4,41.6"
           Id="Package\Load Branches\Staging - Get Branches"
-          TopLeft="14.7,209.5" />
+          TopLeft="21.6142857434798,208.888235285538" />
         <EdgeLayout
           Id="Package\Load Branches.PrecedenceConstraints[Constraint]"
-          TopLeft="107.9,47.9">
+          TopLeft="124.3,47.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="-16.4,58.7764705710757"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="-16.4,51.2764705710757">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,25.3882352855379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.3882352855379"
+                    Point2="0,29.3882352855379"
+                    Point3="-4,29.3882352855379" />
+                  <mssgle:LineSegment
+                    End="-12.4,29.3882352855379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.4,29.3882352855379"
+                    Point2="-16.4,29.3882352855379"
+                    Point3="-16.4,33.3882352855379" />
+                  <mssgle:LineSegment
+                    End="-16.4,51.2764705710757" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4059,18 +3057,18 @@ where [refTable].[Hours Mapping Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Branches.PrecedenceConstraints[Constraint 1]"
-          TopLeft="107.9,149.5">
+          TopLeft="111.35714287174,148.276470571076">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,60.611764714462"
               Start="0,0"
-              End="0,52.5">
+              End="0,53.111764714462">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,53.111764714462" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4081,18 +3079,18 @@ where [refTable].[Hours Mapping Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Branches.PrecedenceConstraints[Constraint 2]"
-          TopLeft="107.9,251.1">
+          TopLeft="113.3285714529,250.488235285538">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,60.6117647144623"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,53.1117647144623">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,53.1117647144623" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4103,18 +3101,30 @@ where [refTable].[Hours Mapping Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Branches.PrecedenceConstraints[Constraint 3]"
-          TopLeft="107.9,352.7">
+          TopLeft="111.84285716232,352.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="12.4571428376801,60.0000000000009"
               Start="0,0"
-              End="0,52.5">
+              End="12.4571428376801,52.5000000000009">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,26.0000000000005" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0000000000005"
+                    Point2="0,30.0000000000005"
+                    Point3="4,30.0000000000005" />
+                  <mssgle:LineSegment
+                    End="8.45714283768012,30.0000000000005" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.45714283768012,30.0000000000005"
+                    Point2="12.4571428376801,30.0000000000005"
+                    Point3="12.4571428376801,34.0000000000005" />
+                  <mssgle:LineSegment
+                    End="12.4571428376801,52.5000000000009" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4126,18 +3136,18 @@ where [refTable].[Hours Mapping Name] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="216,510.4"
-          Size="216,553.6"
+          PanelSize="248.8,510.4"
+          Size="248.8,553.6"
           Id="Package\Load Branches"
-          TopLeft="314.9,365.1" />
+          TopLeft="376.000006403242,374.352942017288" />
         <NodeLayout
           Size="157.6,42.4"
           Id="Package\Load Depot Working Days\Audit - End Task"
-          TopLeft="45.5,412.700000000001" />
+          TopLeft="29.5,412.7" />
         <NodeLayout
           Size="162.4,42.4"
           Id="Package\Load Depot Working Days\Audit - Start Task"
-          TopLeft="43.1,5.50000000000005" />
+          TopLeft="27.1,5.50000000000005" />
         <NodeLayout
           Size="203.2,41.6"
           Id="Package\Load Depot Working Days\DW - Merge Working Days"
@@ -4145,25 +3155,37 @@ where [refTable].[Hours Mapping Name] = ?</property>
         <NodeLayout
           Size="237.6,41.6"
           Id="Package\Load Depot Working Days\DW - Truncate tmp Working Days"
-          TopLeft="5.50000000000001,107.9" />
+          TopLeft="6.64285716232007,105.452941142152" />
         <NodeLayout
           Size="208.8,41.6"
           Id="Package\Load Depot Working Days\Staging - Get Working Days"
-          TopLeft="19.9,209.5" />
+          TopLeft="18.07142858116,210.723529428924" />
         <EdgeLayout
           Id="Package\Load Depot Working Days.PrecedenceConstraints[Constraint]"
-          TopLeft="124.3,47.9">
+          TopLeft="108.3,47.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="17.1428571623201,57.5529411421515"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="17.1428571623201,50.0529411421515">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,24.7764705710758" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.7764705710758"
+                    Point2="0,28.7764705710758"
+                    Point3="4,28.7764705710758" />
+                  <mssgle:LineSegment
+                    End="13.1428571623201,28.7764705710758" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.1428571623201,28.7764705710758"
+                    Point2="17.1428571623201,28.7764705710758"
+                    Point3="17.1428571623201,32.7764705710758" />
+                  <mssgle:LineSegment
+                    End="17.1428571623201,50.0529411421515" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4174,18 +3196,18 @@ where [refTable].[Hours Mapping Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Depot Working Days.PrecedenceConstraints[Constraint 1]"
-          TopLeft="124.3,149.5">
+          TopLeft="123.95714287174,147.052941142152">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,63.6705882867726"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,56.1705882867726">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,56.1705882867726" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4196,18 +3218,18 @@ where [refTable].[Hours Mapping Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Depot Working Days.PrecedenceConstraints[Constraint 2]"
-          TopLeft="124.3,251.1">
+          TopLeft="123.38571429058,252.323529428924">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,58.7764705710758"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,51.2764705710758">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,51.2764705710758" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4222,14 +3244,26 @@ where [refTable].[Hours Mapping Name] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="-16,59.9999999999999"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="-16,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-12,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12,30"
+                    Point2="-16,30"
+                    Point3="-16,34" />
+                  <mssgle:LineSegment
+                    End="-16,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4241,18 +3275,18 @@ where [refTable].[Hours Mapping Name] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="248.8,510.4"
-          Size="248.8,553.6"
+          PanelSize="249.6,510.4"
+          Size="249.6,553.6"
           Id="Package\Load Depot Working Days"
-          TopLeft="591.5,365.1" />
+          TopLeft="998.857159867579,401.317649770031" />
         <NodeLayout
           Size="157.6,42.4"
           Id="Package\Load Nominal Codes\Audit - End Task"
-          TopLeft="45.5000000000001,514.300000000001" />
+          TopLeft="43.7857142565202,439.617647436334" />
         <NodeLayout
           Size="162.4,42.4"
           Id="Package\Load Nominal Codes\Audit - Start Task"
-          TopLeft="43.1,5.50000000000005" />
+          TopLeft="43.1,6.1117647144622" />
         <NodeLayout
           Size="208.8,41.6"
           Id="Package\Load Nominal Codes\DW - Merge Nominal Codes"
@@ -4264,25 +3298,25 @@ where [refTable].[Hours Mapping Name] = ?</property>
         <NodeLayout
           Size="212.8,41.6"
           Id="Package\Load Nominal Codes\DW - Update Nominal Codes"
-          TopLeft="17.9,412.700000000001" />
+          TopLeft="81.7142884001441,367.529415067917" />
         <NodeLayout
           Size="208.8,41.6"
           Id="Package\Load Nominal Codes\Staging - Get Nominal Code"
           TopLeft="19.9,209.5" />
         <EdgeLayout
           Id="Package\Load Nominal Codes.PrecedenceConstraints[Constraint]"
-          TopLeft="124.3,47.9">
+          TopLeft="124.3,48.5117647144622">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,59.3882352855378"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,51.8882352855378">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,51.8882352855378" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4319,14 +3353,14 @@ where [refTable].[Hours Mapping Name] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4337,18 +3371,24 @@ where [refTable].[Hours Mapping Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Nominal Codes.PrecedenceConstraints[Constraint 3]"
-          TopLeft="124.3,352.7">
+          TopLeft="228.7,331.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="-40.585711599856,35.6294150679171"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="-40.585711599856,28.1294150679171">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="-36.585711599856,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-36.585711599856,0"
+                    Point2="-40.585711599856,0"
+                    Point3="-40.585711599856,4" />
+                  <mssgle:LineSegment
+                    End="-40.585711599856,28.1294150679171" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4359,18 +3399,30 @@ where [refTable].[Hours Mapping Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Nominal Codes.PrecedenceConstraints[Constraint 4]"
-          TopLeft="124.3,454.300000000001">
+          TopLeft="188.114288400144,409.129415067917">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="-65.5285741436239,30.4882323684172"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="-65.5285741436239,22.9882323684172">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,11.2441161842086" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.2441161842086"
+                    Point2="0,15.2441161842086"
+                    Point3="-4,15.2441161842086" />
+                  <mssgle:LineSegment
+                    End="-61.5285741436239,15.2441161842086" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-61.5285741436239,15.2441161842086"
+                    Point2="-65.5285741436239,15.2441161842086"
+                    Point3="-65.5285741436239,19.2441161842086" />
+                  <mssgle:LineSegment
+                    End="-65.5285741436239,22.9882323684172" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4382,10 +3434,10 @@ where [refTable].[Hours Mapping Name] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="248.8,612"
-          Size="248.8,655.2"
+          PanelSize="299.2,536.8"
+          Size="299.2,580"
           Id="Package\Load Nominal Codes"
-          TopLeft="5.5000000000002,314.3" />
+          TopLeft="77.1000000000001,314.3" />
         <NodeLayout
           Size="157.6,42.4"
           Id="Package\Sequence Container\Audit - End Task"
@@ -4400,21 +3452,21 @@ where [refTable].[Hours Mapping Name] = ?</property>
           PanelSize="392,103.2"
           Size="392,146.4"
           Id="Package\Sequence Container"
-          TopLeft="519.9,107.9" />
+          TopLeft="6.07142858115998,107.288235285538" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="715.9,47.8999999999998">
+          TopLeft="201.78571429058,47.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,59.3882352855378"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,51.8882352855378">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,51.8882352855378" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4425,30 +3477,30 @@ where [refTable].[Hours Mapping Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="600.7,254.3">
+          TopLeft="106.07142858116,253.688235285538">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-470.8,60.0000000000002"
+              EndConnector="107.42857141884,60.611764714462"
               Start="0,0"
-              End="-470.8,52.5000000000002">
+              End="107.42857141884,53.111764714462">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.5144508670521" />
+                    End="0,16.4769475386696" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.5144508670521"
-                    Point2="0,17.5144508670521"
-                    Point3="-4,17.5144508670521" />
+                    Point1="0,16.4769475386696"
+                    Point2="0,20.4769475386696"
+                    Point3="4,20.4769475386696" />
                   <mssgle:LineSegment
-                    End="-466.8,17.5144508670521" />
+                    End="103.42857141884,20.4769475386696" />
                   <mssgle:CubicBezierSegment
-                    Point1="-466.8,17.5144508670521"
-                    Point2="-470.8,17.5144508670521"
-                    Point3="-470.8,21.5144508670521" />
+                    Point1="103.42857141884,20.4769475386696"
+                    Point2="107.42857141884,20.4769475386696"
+                    Point3="107.42857141884,24.4769475386696" />
                   <mssgle:LineSegment
-                    End="-470.8,52.5000000000002" />
+                    End="107.42857141884,53.111764714462" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4459,30 +3511,30 @@ where [refTable].[Hours Mapping Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="129.9,969.5">
+          TopLeft="213.5,894.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="536.08,59.9999999999999"
+              EndConnector="-12.0000000000001,32.9882352855381"
               Start="0,0"
-              End="536.08,52.4999999999999">
+              End="-12.0000000000001,25.4882352855381">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.0308483290488" />
+                    End="0,12.494117642769" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,38.0308483290488"
-                    Point2="0,42.0308483290488"
-                    Point3="4,42.0308483290488" />
+                    Point1="0,12.494117642769"
+                    Point2="0,16.494117642769"
+                    Point3="-4,16.494117642769" />
                   <mssgle:LineSegment
-                    End="532.08,42.0308483290488" />
+                    End="-8.00000000000011,16.494117642769" />
                   <mssgle:CubicBezierSegment
-                    Point1="532.08,42.0308483290488"
-                    Point2="536.08,42.0308483290488"
-                    Point3="536.08,46.0308483290488" />
+                    Point1="-8.00000000000011,16.494117642769"
+                    Point2="-12.0000000000001,16.494117642769"
+                    Point3="-12.0000000000001,20.494117642769" />
                   <mssgle:LineSegment
-                    End="536.08,52.4999999999999" />
+                    End="-12.0000000000001,25.4882352855381" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4493,30 +3545,30 @@ where [refTable].[Hours Mapping Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="677.5,254.3">
+          TopLeft="266.07142858116,253.688235285538">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-254.6,110.8"
+              EndConnector="234.328577822082,120.66470673175"
               Start="0,0"
-              End="-254.6,103.3">
+              End="234.328577822082,113.16470673175">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.3837104072399" />
+                    End="0,44.5601868554604" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,45.3837104072399"
-                    Point2="0,49.3837104072399"
-                    Point3="-4,49.3837104072399" />
+                    Point1="0,44.5601868554604"
+                    Point2="0,48.5601868554604"
+                    Point3="4,48.5601868554604" />
                   <mssgle:LineSegment
-                    End="-250.6,49.3837104072399" />
+                    End="230.328577822082,48.5601868554604" />
                   <mssgle:CubicBezierSegment
-                    Point1="-250.6,49.3837104072399"
-                    Point2="-254.6,49.3837104072399"
-                    Point3="-254.6,53.3837104072399" />
+                    Point1="230.328577822082,48.5601868554604"
+                    Point2="234.328577822082,48.5601868554604"
+                    Point3="234.328577822082,52.5601868554604" />
                   <mssgle:LineSegment
-                    End="-254.6,103.3" />
+                    End="234.328577822082,113.16470673175" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4527,30 +3579,30 @@ where [refTable].[Hours Mapping Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="422.9,918.7">
+          TopLeft="376.000006403242,651.152942017288">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="276.36,110.8"
+              EndConnector="-87.3000064032421,291.601959934916"
               Start="0,0"
-              End="276.36,103.3">
+              End="-79.8000064032421,291.601959934916">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.2434077079108" />
+                    End="-46.4752764295109,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,57.2434077079108"
-                    Point2="0,61.2434077079108"
-                    Point3="4,61.2434077079108" />
+                    Point1="-46.4752764295109,0"
+                    Point2="-50.4752764295109,0"
+                    Point3="-50.4752764295109,4" />
                   <mssgle:LineSegment
-                    End="272.36,61.2434077079108" />
+                    End="-50.4752764295109,287.601959934916" />
                   <mssgle:CubicBezierSegment
-                    Point1="272.36,61.2434077079108"
-                    Point2="276.36,61.2434077079108"
-                    Point3="276.36,65.2434077079108" />
+                    Point1="-50.4752764295109,287.601959934916"
+                    Point2="-50.4752764295109,291.601959934916"
+                    Point3="-54.4752764295109,291.601959934916" />
                   <mssgle:LineSegment
-                    End="276.36,103.3" />
+                    End="-79.8000064032421,291.601959934916" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4561,30 +3613,30 @@ where [refTable].[Hours Mapping Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="754.3,254.3">
+          TopLeft="298.07142858116,253.688235285538">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-38.3999999999999,110.8"
+              EndConnector="825.585731286419,147.629414484493"
               Start="0,0"
-              End="-38.3999999999999,103.3">
+              End="825.585731286419,140.129414484493">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.3837104072399" />
+                    End="0,45.8748021907069" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,45.3837104072399"
-                    Point2="0,49.3837104072399"
-                    Point3="-4,49.3837104072399" />
+                    Point1="0,45.8748021907069"
+                    Point2="0,49.8748021907069"
+                    Point3="4,49.8748021907069" />
                   <mssgle:LineSegment
-                    End="-34.3999999999999,49.3837104072399" />
+                    End="821.585731286419,49.8748021907069" />
                   <mssgle:CubicBezierSegment
-                    Point1="-34.3999999999999,49.3837104072399"
-                    Point2="-38.3999999999999,49.3837104072399"
-                    Point3="-38.3999999999999,53.3837104072399" />
+                    Point1="821.585731286419,49.8748021907069"
+                    Point2="825.585731286419,49.8748021907069"
+                    Point3="825.585731286419,53.8748021907069" />
                   <mssgle:LineSegment
-                    End="-38.3999999999999,103.3" />
+                    End="825.585731286419,140.129414484493" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4595,213 +3647,30 @@ where [refTable].[Hours Mapping Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="715.9,918.7">
+          TopLeft="998.857159867579,678.117649770031">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16.6400000000001,110.8"
+              EndConnector="-710.157159867579,276.10391884884"
               Start="0,0"
-              End="16.6400000000001,103.3">
+              End="-702.657159867579,276.10391884884">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.2434077079107" />
+                    End="-406.599957887072,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,57.2434077079107"
-                    Point2="0,61.2434077079107"
-                    Point3="4,61.2434077079107" />
+                    Point1="-406.599957887072,0"
+                    Point2="-410.599957887072,0"
+                    Point3="-410.599957887072,4" />
                   <mssgle:LineSegment
-                    End="12.6400000000001,61.2434077079107" />
+                    End="-410.599957887072,272.10391884884" />
                   <mssgle:CubicBezierSegment
-                    Point1="12.6400000000001,61.2434077079107"
-                    Point2="16.6400000000001,61.2434077079107"
-                    Point3="16.6400000000001,65.2434077079107" />
+                    Point1="-410.599957887072,272.10391884884"
+                    Point2="-410.599957887072,276.10391884884"
+                    Point3="-414.599957887072,276.10391884884" />
                   <mssgle:LineSegment
-                    End="16.6400000000001,103.3" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="157.6,42.4"
-          Id="Package\Load Technicians\Audit - End Task"
-          TopLeft="56.3000000000001,413.5" />
-        <NodeLayout
-          Size="162.4,42.4"
-          Id="Package\Load Technicians\Audit - Start Task"
-          TopLeft="53.9,5.50000000000005" />
-        <NodeLayout
-          Size="259.2,41.6"
-          Id="Package\Load Technicians\Load technicians from staging to temp"
-          TopLeft="5.50000000000003,209.5" />
-        <NodeLayout
-          Size="199.2,41.6"
-          Id="Package\Load Technicians\DW - Truncate tmp hours"
-          TopLeft="35.5,107.9" />
-        <EdgeLayout
-          Id="Package\Load Technicians.PrecedenceConstraints[Constraint 2]"
-          TopLeft="135.1,47.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technicians.PrecedenceConstraints[Constraint 3]"
-          TopLeft="135.1,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="209.6,42.4"
-          Id="Package\Load Technicians\DW - Merge Technicians"
-          TopLeft="30.3,311.1" />
-        <EdgeLayout
-          Id="Package\Load Technicians.PrecedenceConstraints[Constraint 5]"
-          TopLeft="135.1,251.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technicians.PrecedenceConstraints[Constraint 1]"
-          TopLeft="135.1,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="270.4,511.2"
-          Size="270.4,554.4"
-          Id="Package\Load Technicians"
-          TopLeft="900.7,364.7" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="1035.9,919.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-270.08,110.4"
-              Start="0,0"
-              End="-270.08,102.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,73.3367609254499" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,73.3367609254499"
-                    Point2="0,77.3367609254499"
-                    Point3="-4,77.3367609254499" />
-                  <mssgle:LineSegment
-                    End="-266.08,77.3367609254499" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-266.08,77.3367609254499"
-                    Point2="-270.08,77.3367609254499"
-                    Point3="-270.08,81.3367609254499" />
-                  <mssgle:LineSegment
-                    End="-270.08,102.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="831.1,254.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="204.8,110.4"
-              Start="0,0"
-              End="204.8,102.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.2265895953757" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.2265895953757"
-                    Point2="0,32.2265895953757"
-                    Point3="4,32.2265895953757" />
-                  <mssgle:LineSegment
-                    End="200.8,32.2265895953757" />
-                  <mssgle:CubicBezierSegment
-                    Point1="200.8,32.2265895953757"
-                    Point2="204.8,32.2265895953757"
-                    Point3="204.8,36.2265895953757" />
-                  <mssgle:LineSegment
-                    End="204.8,102.9" />
+                    End="-702.657159867579,276.10391884884" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4819,17 +3688,13 @@ where [refTable].[Hours Mapping Name] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="215.2,41.6"
-          Id="Package\Load Branches\Staging - Get Branches\Staging -  Get  Branch Codes"
-          TopLeft="396.571435325,24.4705885784849" />
+          Size="208,41.6"
+          Id="Package\Load Branches\Staging - Get Branches\DW - Insert into temp table"
+          TopLeft="136.7,411.9" />
         <NodeLayout
           Size="120,41.6"
           Id="Package\Load Branches\Staging - Get Branches\Union All"
           TopLeft="180.7,310.3" />
-        <NodeLayout
-          Size="208,41.6"
-          Id="Package\Load Branches\Staging - Get Branches\DW - Insert into temp table"
-          TopLeft="136.7,411.9" />
         <NodeLayout
           Size="144,41.6"
           Id="Package\Load Branches\Staging - Get Branches\Lookup Depot"
@@ -4857,45 +3722,7 @@ where [refTable].[Hours Mapping Name] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Branches\Staging - Get Branches.Paths[OLE DB Source Output]"
-          TopLeft="504.171435325,66.0705885784849">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-263.471435325,41.0294114215151"
-              Start="0,0"
-              End="-263.471435325,33.5294114215151">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5147057107576" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5147057107576"
-                    Point2="0,20.5147057107576"
-                    Point3="-4,20.5147057107576" />
-                  <mssgle:LineSegment
-                    End="-259.471435325,20.5147057107576" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-259.471435325,20.5147057107576"
-                    Point2="-263.471435325,20.5147057107576"
-                    Point3="-263.471435325,24.5147057107576" />
-                  <mssgle:LineSegment
-                    End="-263.471435325,33.5294114215151" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4989,9 +3816,45 @@ where [refTable].[Hours Mapping Name] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Load Branches\Staging - Get Branches\Staging -  Get  Branch Codes"
+          TopLeft="396.571435325,24.4705885784849" />
+        <EdgeLayout
+          Id="Package\Load Branches\Staging - Get Branches.Paths[OLE DB Source Output]"
+          TopLeft="504.171435325,66.0705885784849">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-263.471435325,41.0294114215151"
+              Start="0,0"
+              End="-263.471435325,33.5294114215151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5147057107576" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5147057107576"
+                    Point2="0,20.5147057107576"
+                    Point3="-4,20.5147057107576" />
+                  <mssgle:LineSegment
+                    End="-259.471435325,20.5147057107576" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-259.471435325,20.5147057107576"
+                    Point2="-263.471435325,20.5147057107576"
+                    Point3="-263.471435325,24.5147057107576" />
+                  <mssgle:LineSegment
+                    End="-263.471435325,33.5294114215151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5030,14 +3893,6 @@ where [refTable].[Hours Mapping Name] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Branches\Staging - Get Branches\Staging -  Get  Branch Codes">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -5226,235 +4081,9 @@ where [refTable].[Hours Mapping Name] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Load Technicians\Load technicians from staging to temp">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="215.2,41.6"
-          Id="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging"
-          TopLeft="209.142860704539,37.317647582189" />
-        <NodeLayout
-          Size="123.2,41.6"
-          Id="Package\Load Technicians\Load technicians from staging to temp\tmp table"
-          TopLeft="253.142861453854,303.435298373213" />
-        <NodeLayout
-          Size="144,41.6"
-          Id="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot"
-          TopLeft="238.285718343696,113.788236889955" />
-        <EdgeLayout
-          Id="Package\Load Technicians\Load technicians from staging to temp.Paths[OLE DB Source Output]"
-          TopLeft="313.514289524117,78.917647582189">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.8705893077657"
-              Start="0,0"
-              End="0,27.3705893077657">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.3705893077657" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="145.6,41.6"
-          Id="Package\Load Technicians\Load technicians from staging to temp\Derived Depot"
-          TopLeft="446.857150467075,158.44706104569" />
-        <EdgeLayout
-          Id="Package\Load Technicians\Load technicians from staging to temp.Paths[Lookup No Match Output]"
-          TopLeft="382.285718343696,134.588236889955">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="64.5714321233788,44.6588241557349"
-              Start="0,0"
-              End="57.0714321233788,44.6588241557349">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="28.2857160616894,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28.2857160616894,0"
-                    Point2="32.2857160616894,0"
-                    Point3="32.2857160616894,4" />
-                  <mssgle:LineSegment
-                    End="32.2857160616894,40.6588241557349" />
-                  <mssgle:CubicBezierSegment
-                    Point1="32.2857160616894,40.6588241557349"
-                    Point2="32.2857160616894,44.6588241557349"
-                    Point3="36.2857160616894,44.6588241557349" />
-                  <mssgle:LineSegment
-                    End="57.0714321233788,44.6588241557349" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-23.5206706570606,-17.609375,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="120,41.6"
-          Id="Package\Load Technicians\Load technicians from staging to temp\Union All"
-          TopLeft="278.171433145173,197.600002771265" />
-        <EdgeLayout
-          Id="Package\Load Technicians\Load technicians from staging to temp.Paths[Lookup Match Output]"
-          TopLeft="310.285718343696,155.388236889955">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="27.8857148014769,42.2117658813107"
-              Start="0,0"
-              End="27.8857148014769,34.7117658813107">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.1058829406553" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.1058829406553"
-                    Point2="0,21.1058829406553"
-                    Point3="4,21.1058829406553" />
-                  <mssgle:LineSegment
-                    End="23.8857148014769,21.1058829406553" />
-                  <mssgle:CubicBezierSegment
-                    Point1="23.8857148014769,21.1058829406553"
-                    Point2="27.8857148014769,21.1058829406553"
-                    Point3="27.8857148014769,25.1058829406553" />
-                  <mssgle:LineSegment
-                    End="27.8857148014769,34.7117658813107" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-34.2485293180116,26.1058829406553,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technicians\Load technicians from staging to temp.Paths[Derived Column Output]"
-          TopLeft="446.857150467075,184.84706104569">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-48.6857173219019,33.5529417255758"
-              Start="0,0"
-              End="-41.1857173219019,33.5529417255758">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-16.5561917581364,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-16.5561917581364,0"
-                    Point2="-20.5561917581364,0"
-                    Point3="-20.5561917581364,4" />
-                  <mssgle:LineSegment
-                    End="-20.5561917581364,29.5529417255758" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-20.5561917581364,29.5529417255758"
-                    Point2="-20.5561917581364,33.5529417255758"
-                    Point3="-24.5561917581364,33.5529417255758" />
-                  <mssgle:LineSegment
-                    End="-41.1857173219019,33.5529417255758" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technicians\Load technicians from staging to temp.Paths[Union All Output 1]"
-          TopLeft="338.171433145173,239.200002771265">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-23.4285716913188,64.2352956019477"
-              Start="0,0"
-              End="-23.4285716913188,56.7352956019477">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.1176478009738" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.1176478009738"
-                    Point2="0,32.1176478009738"
-                    Point3="-4,32.1176478009738" />
-                  <mssgle:LineSegment
-                    End="-19.4285716913188,32.1176478009738" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-19.4285716913188,32.1176478009738"
-                    Point2="-23.4285716913188,32.1176478009738"
-                    Point3="-23.4285716913188,36.1176478009738" />
-                  <mssgle:LineSegment
-                    End="-23.4285716913188,56.7352956019477" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Technicians\Load technicians from staging to temp\Get Technicians from staging">
+    design-time-name="Package\Load Branches\Staging - Get Branches\Staging -  Get  Branch Codes">
     <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Technicians\Load technicians from staging to temp\tmp table">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Technicians\Load technicians from staging to temp\Lookup Depot">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
