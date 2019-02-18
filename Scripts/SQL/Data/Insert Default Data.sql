@@ -119,3 +119,24 @@ INSERT INTO [dim].[WorkInProgressType](ID,[Code],[WIP Type],[DW_CreatedDate],[DW
 	 (2,'P','Parts',GetDate(),GetDate()),
 	(3,'W','Workshop',GetDate(),GetDate()),
 	(4,'B','Workshop',GetDate(),GetDate());
+go
+USE [KPI_Dashboards]
+GO
+set identity_insert dim.[Technician] ON
+
+
+INSERT INTO [dim].[Technician]
+           (ID
+		   ,[Depot]
+           ,[Technician]
+           ,[DW_CreatedDate]
+           ,[DW_ModifiedDate])
+     VALUES
+           (1
+           ,1
+		   ,1
+           ,GetDate()
+           ,GetDate()
+		   )
+set identity_insert dim.[Technician] OFF
+
