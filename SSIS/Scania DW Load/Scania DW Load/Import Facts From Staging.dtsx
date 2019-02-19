@@ -12,8 +12,8 @@
   DTS:ObjectName="Import Dimensions From Staging"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="249"
-  DTS:VersionGUID="{11198B0C-7184-48F7-8934-5B0C79086768}">
+  DTS:VersionBuild="251"
+  DTS:VersionGUID="{C971AD72-180A-4159-94B3-2F4A35A0A1B8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -2441,7 +2441,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2483,7 +2483,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2531,7 +2531,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Get Max WasteCost Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2575,7 +2575,7 @@ where [refTable].[Nominal] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Merge BWC"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -2611,7 +2611,7 @@ where [refTable].[Nominal] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Truncate tmp WasteCost"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -6035,14 +6035,14 @@ where [refTable].[Nominal] = ?</property>
                       startId="Package\Load BWC\Foreach File Date\Staging - Get WasteCost\Add Unknown Branch.Outputs[Derived Column Output]" />
                     <path
                       refId="Package\Load BWC\Foreach File Date\Staging - Get WasteCost.Paths[Lookup Match Output1]"
-                      endId="Package\Load BWC\Foreach File Date\Staging - Get WasteCost\Convert Doc Date to Date format.Inputs[Data Conversion Input]"
-                      name="Lookup Match Output"
-                      startId="Package\Load BWC\Foreach File Date\Staging - Get WasteCost\Lookup Nominal Code.Outputs[Lookup Match Output]" />
-                    <path
-                      refId="Package\Load BWC\Foreach File Date\Staging - Get WasteCost.Paths[Lookup Match Output]"
                       endId="Package\Load BWC\Foreach File Date\Staging - Get WasteCost\Union All.Inputs[Union All Input 1]"
                       name="Lookup Match Output"
                       startId="Package\Load BWC\Foreach File Date\Staging - Get WasteCost\Lookup branch.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\Load BWC\Foreach File Date\Staging - Get WasteCost.Paths[Lookup Match Output]"
+                      endId="Package\Load BWC\Foreach File Date\Staging - Get WasteCost\Convert Doc Date to Date format.Inputs[Data Conversion Input]"
+                      name="Lookup Match Output"
+                      startId="Package\Load BWC\Foreach File Date\Staging - Get WasteCost\Lookup Nominal Code.Outputs[Lookup Match Output]" />
                     <path
                       refId="Package\Load BWC\Foreach File Date\Staging - Get WasteCost.Paths[Lookup No Match Output]"
                       endId="Package\Load BWC\Foreach File Date\Staging - Get WasteCost\Multicast 1.Inputs[Multicast Input 1]"
@@ -6124,7 +6124,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Get Distinct File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9512,7 +9512,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9554,7 +9554,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9602,7 +9602,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Merge DepotHours"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9632,7 +9632,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Truncate tmp depot hours"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -16670,7 +16670,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -16712,7 +16712,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -16760,7 +16760,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Get MaxBodyShopHours Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -16804,7 +16804,7 @@ where [refTable].[Nominal] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Merge Bodyshop Hours"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -16840,7 +16840,7 @@ where [refTable].[Nominal] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Truncate tmp Bodyshop Hours"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -20674,14 +20674,14 @@ where [refTable].[Technician] = ? and [refTable].[Depot] = ?</property>
                       startId="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Lookup Depot.Outputs[Lookup No Match Output]" />
                     <path
                       refId="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Multicast Output 11]"
-                      endId="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Add Unknown Depot.Inputs[Derived Column Input]"
-                      name="Multicast Output 1"
-                      startId="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Multicast 1.Outputs[Multicast Output 1]" />
-                    <path
-                      refId="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Multicast Output 1]"
                       endId="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Union All 2.Inputs[Union All Input 3]"
                       name="Multicast Output 1"
                       startId="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Multicast.Outputs[Multicast Output 1]" />
+                    <path
+                      refId="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Multicast Output 1]"
+                      endId="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Add Unknown Depot.Inputs[Derived Column Input]"
+                      name="Multicast Output 1"
+                      startId="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Multicast 1.Outputs[Multicast Output 1]" />
                     <path
                       refId="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Multicast Output 2]"
                       endId="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Add Unknown Depot Error Message.Inputs[Derived Column Input]"
@@ -20763,7 +20763,7 @@ where [refTable].[Technician] = ? and [refTable].[Depot] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Get Distinct File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -22815,7 +22815,7 @@ where [refTable].[Technician] = ? and [refTable].[Depot] = ?</property>
                             isUsed="True">
                             <externalMetadataColumn
                               refId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours\Staging -  Get Technician Hours.Outputs[OLE DB Source Output].ExternalColumns[FileDate]"
-                              dataType="dbTimeStamp"
+                              dataType="dbDate"
                               name="FileDate" />
                             <externalMetadataColumn
                               refId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours\Staging -  Get Technician Hours.Outputs[OLE DB Source Output].ExternalColumns[Category]"
@@ -23001,7 +23001,7 @@ where [refTable].[Technician] = ? and [refTable].[Depot] = ?</property>
                               name="Technician" />
                             <outputColumn
                               refId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours\Staging -  Get Technician Hours.Outputs[OLE DB Source Error Output].Columns[FileDate]"
-                              dataType="dbTimeStamp"
+                              dataType="dbDate"
                               lineageId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours\Staging -  Get Technician Hours.Outputs[OLE DB Source Error Output].Columns[FileDate]"
                               name="FileDate" />
                             <outputColumn
@@ -24969,14 +24969,14 @@ where [refTable].[Technician] = ? and [refTable].[Depot] = ?</property>
                       startId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours\Lookup Depot.Outputs[Lookup No Match Output]" />
                     <path
                       refId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours.Paths[Multicast Output 11]"
-                      endId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours\Add Unknown Depot.Inputs[Derived Column Input]"
-                      name="Multicast Output 1"
-                      startId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours\Multicast 1.Outputs[Multicast Output 1]" />
-                    <path
-                      refId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours.Paths[Multicast Output 1]"
                       endId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours\Union All 2.Inputs[Union All Input 3]"
                       name="Multicast Output 1"
                       startId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours\Multicast.Outputs[Multicast Output 1]" />
+                    <path
+                      refId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours.Paths[Multicast Output 1]"
+                      endId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours\Add Unknown Depot.Inputs[Derived Column Input]"
+                      name="Multicast Output 1"
+                      startId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours\Multicast 1.Outputs[Multicast Output 1]" />
                     <path
                       refId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours.Paths[Multicast Output 2]"
                       endId="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours\Add Unknown Depot Error Message.Inputs[Derived Column Input]"
@@ -28153,7 +28153,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -28195,7 +28195,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -28243,7 +28243,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Get Max WarrantyOutstandingAmount Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -28287,7 +28287,7 @@ where [refTable].[PosCompany] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Merge WarrantyOutstandingAmount"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -28323,7 +28323,7 @@ where [refTable].[PosCompany] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Truncate tmp WarrantyOutstandingAmount"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -31010,7 +31010,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Get Distinct File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -31160,7 +31160,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -31202,7 +31202,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -32333,6 +32333,180 @@ where [refTable].[Cost Centre] = ?</property>
           TopLeft="262.5,313.5" />
         <NodeLayout
           Size="157.6,42.4"
+          Id="Package\Load Technician Bodyshop Hours\Audit - End Task"
+          TopLeft="50.3000000000001,719.9" />
+        <NodeLayout
+          Size="162.4,42.4"
+          Id="Package\Load Technician Bodyshop Hours\Audit - Start Task"
+          TopLeft="47.9,5.50000000000005" />
+        <NodeLayout
+          Size="247.2,41.6"
+          Id="Package\Load Technician Bodyshop Hours\DW - Get MaxBodyShopHours Date"
+          TopLeft="5.5,107.9" />
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\DW - Merge Bodyshop Hours"
+          TopLeft="11.9,208.7" />
+        <NodeLayout
+          Size="226.4,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\DW - Truncate tmp Bodyshop Hours"
+          TopLeft="5.50000000000001,5.50000000000007" />
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours"
+          TopLeft="9.10000000000004,107.1" />
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date.PrecedenceConstraints[Constraint]"
+          TopLeft="118.7,47.1000000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date.PrecedenceConstraints[Constraint 1]"
+          TopLeft="119.1,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="237.6,305.6"
+          Size="237.6,348.8"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date"
+          TopLeft="10.3000000000001,311.1" />
+        <NodeLayout
+          Size="228,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Staging - Get Distinct File Dates"
+          TopLeft="15.1,209.5" />
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours.PrecedenceConstraints[Constraint]"
+          TopLeft="129.1,47.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours.PrecedenceConstraints[Constraint 1]"
+          TopLeft="129.1,659.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours.PrecedenceConstraints[Constraint 4]"
+          TopLeft="129.1,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours.PrecedenceConstraints[Constraint 6]"
+          TopLeft="129.1,251.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="258.4,817.6"
+          Size="258.4,860.8"
+          Id="Package\Load Technician Bodyshop Hours"
+          TopLeft="1460.00002486365,3321.41177667466" />
+        <NodeLayout
+          Size="157.6,42.4"
           Id="Package\Load Technician Hours\Audit - End Task"
           TopLeft="50.3000000000001,719.9" />
         <NodeLayout
@@ -32993,6 +33167,40 @@ where [refTable].[Cost Centre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="1047.7,3614.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="412.300024863652,137.511776674661"
+              Start="0,0"
+              End="404.800024863652,137.511776674661">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="202.150012431826,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="202.150012431826,0"
+                    Point2="206.150012431826,0"
+                    Point3="206.150012431826,4" />
+                  <mssgle:LineSegment
+                    End="206.150012431826,133.511776674661" />
+                  <mssgle:CubicBezierSegment
+                    Point1="206.150012431826,133.511776674661"
+                    Point2="206.150012431826,137.511776674661"
+                    Point3="210.150012431826,137.511776674661" />
+                  <mssgle:LineSegment
+                    End="404.800024863652,137.511776674661" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 13]"
           TopLeft="918.500000000001,5735.9">
           <EdgeLayout.Curve>
@@ -33018,6 +33226,40 @@ where [refTable].[Cost Centre] = ?</property>
                     Point3="-436.08,153.629820051414" />
                   <mssgle:LineSegment
                     End="-436.08,206.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 14]"
+          TopLeft="1589.20002486365,4182.21177667466">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-670.700024863652,1000.08822332534"
+              Start="0,0"
+              End="-670.700024863652,992.588223325339">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,496.044111662669" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,496.044111662669"
+                    Point2="0,500.044111662669"
+                    Point3="-4,500.044111662669" />
+                  <mssgle:LineSegment
+                    End="-666.700024863652,500.044111662669" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-666.700024863652,500.044111662669"
+                    Point2="-670.700024863652,500.044111662669"
+                    Point3="-670.700024863652,504.044111662669" />
+                  <mssgle:LineSegment
+                    End="-670.700024863652,992.588223325339" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -33278,248 +33520,6 @@ where [refTable].[Cost Centre] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="157.6,42.4"
-          Id="Package\Load Technician Bodyshop Hours\Audit - End Task"
-          TopLeft="50.3000000000001,719.9" />
-        <NodeLayout
-          Size="162.4,42.4"
-          Id="Package\Load Technician Bodyshop Hours\Audit - Start Task"
-          TopLeft="47.9,5.50000000000005" />
-        <NodeLayout
-          Size="247.2,41.6"
-          Id="Package\Load Technician Bodyshop Hours\DW - Get MaxBodyShopHours Date"
-          TopLeft="5.5,107.9" />
-        <NodeLayout
-          Size="215.2,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\DW - Merge Bodyshop Hours"
-          TopLeft="11.9,208.7" />
-        <NodeLayout
-          Size="226.4,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\DW - Truncate tmp Bodyshop Hours"
-          TopLeft="5.50000000000001,5.50000000000007" />
-        <NodeLayout
-          Size="219.2,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours"
-          TopLeft="9.10000000000004,107.1" />
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date.PrecedenceConstraints[Constraint]"
-          TopLeft="118.7,47.1000000000001">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date.PrecedenceConstraints[Constraint 1]"
-          TopLeft="119.1,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="237.6,305.6"
-          Size="237.6,348.8"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date"
-          TopLeft="10.3000000000001,311.1" />
-        <NodeLayout
-          Size="228,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Staging - Get Distinct File Dates"
-          TopLeft="15.1,209.5" />
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours.PrecedenceConstraints[Constraint]"
-          TopLeft="129.1,47.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours.PrecedenceConstraints[Constraint 1]"
-          TopLeft="129.1,659.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours.PrecedenceConstraints[Constraint 4]"
-          TopLeft="129.1,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours.PrecedenceConstraints[Constraint 6]"
-          TopLeft="129.1,251.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="258.4,817.6"
-          Size="258.4,860.8"
-          Id="Package\Load Technician Bodyshop Hours"
-          TopLeft="1460.00002486365,3321.41177667466" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="1047.7,3614.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="412.300024863652,137.511776674661"
-              Start="0,0"
-              End="404.800024863652,137.511776674661">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="202.150012431826,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="202.150012431826,0"
-                    Point2="206.150012431826,0"
-                    Point3="206.150012431826,4" />
-                  <mssgle:LineSegment
-                    End="206.150012431826,133.511776674661" />
-                  <mssgle:CubicBezierSegment
-                    Point1="206.150012431826,133.511776674661"
-                    Point2="206.150012431826,137.511776674661"
-                    Point3="210.150012431826,137.511776674661" />
-                  <mssgle:LineSegment
-                    End="404.800024863652,137.511776674661" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 14]"
-          TopLeft="1589.20002486365,4182.21177667466">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-670.700024863652,1000.08822332534"
-              Start="0,0"
-              End="-670.700024863652,992.588223325339">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,496.044111662669" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,496.044111662669"
-                    Point2="0,500.044111662669"
-                    Point3="-4,500.044111662669" />
-                  <mssgle:LineSegment
-                    End="-666.700024863652,500.044111662669" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-666.700024863652,500.044111662669"
-                    Point2="-670.700024863652,500.044111662669"
-                    Point3="-670.700024863652,504.044111662669" />
-                  <mssgle:LineSegment
-                    End="-670.700024863652,992.588223325339" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -34737,36 +34737,6 @@ where [refTable].[Cost Centre] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load BWC\Foreach File Date\Staging - Get WasteCost.Paths[Lookup Match Output1]"
-          TopLeft="474.285722362752,527.247062941819">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-58.8000029972622,29.9294086502498"
-              Start="0,0"
-              End="-58.8000029972622,22.4294086502498">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-54.8000029972622,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-54.8000029972622,0"
-                    Point2="-58.8000029972622,0"
-                    Point3="-58.8000029972622,4" />
-                  <mssgle:LineSegment
-                    End="-58.8000029972622,22.4294086502498" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-106.991389716012,-17.609375,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load BWC\Foreach File Date\Staging - Get WasteCost.Paths[Lookup Match Output]"
           TopLeft="88.7380952478266,251.711764714462">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -34798,6 +34768,36 @@ where [refTable].[Cost Centre] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-17.6651956440802,124.307237248534,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load BWC\Foreach File Date\Staging - Get WasteCost.Paths[Lookup Match Output]"
+          TopLeft="474.285722362752,527.247062941819">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-58.8000029972622,29.9294086502498"
+              Start="0,0"
+              End="-58.8000029972622,22.4294086502498">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-54.8000029972622,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-54.8000029972622,0"
+                    Point2="-58.8000029972622,0"
+                    Point3="-58.8000029972622,4" />
+                  <mssgle:LineSegment
+                    End="-58.8000029972622,22.4294086502498" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-106.991389716012,-17.609375,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -37185,6 +37185,741 @@ where [refTable].[Cost Centre] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Union All 2"
+          TopLeft="108.8,690.4" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Union All"
+          TopLeft="615.2,507.2" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Derived Column"
+          TopLeft="350.4,612" />
+        <NodeLayout
+          Size="145.6,42.4"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Lookup Depot"
+          TopLeft="37.5,209.5" />
+        <NodeLayout
+          Size="224,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Staging -  Get Bodyshop Hours"
+          TopLeft="731.5,5.50000000000005" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Union All 1"
+          TopLeft="14.4,470.4" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Row Count 1"
+          TopLeft="278.4,708" />
+        <NodeLayout
+          Size="246.4,42.4"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Add Unknown Depot Error Message"
+          TopLeft="408.1,413.5" />
+        <NodeLayout
+          Size="131.2,42.4"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Row Count"
+          TopLeft="678.5,619.1" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Lookup Depot Technician"
+          TopLeft="108.8,583.2" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\insert into error table"
+          TopLeft="640.8,808" />
+        <NodeLayout
+          Size="128.8,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Multicast 1"
+          TopLeft="194.9,311.9" />
+        <NodeLayout
+          Size="176,42.4"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Add Unknown Depot"
+          TopLeft="171.3,413.5" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Multicast"
+          TopLeft="523.2,574.4" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\DW - Insert into temp table"
+          TopLeft="51.1,781.5" />
+        <NodeLayout
+          Size="122.4,42.4"
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Add Date"
+          TopLeft="470.1,720.7" />
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Union All Output 12]"
+          TopLeft="79.2,512">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128.4,71.2"
+              Start="0,0"
+              End="128.4,63.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.6"
+                    Point2="0,35.6"
+                    Point3="4,35.6" />
+                  <mssgle:LineSegment
+                    End="124.4,35.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="124.4,35.6"
+                    Point2="128.4,35.6"
+                    Point3="128.4,39.6" />
+                  <mssgle:LineSegment
+                    End="128.4,63.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Union All Output 11]"
+          TopLeft="238.4,711.2">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.9999999999998,17.5999999999999"
+              Start="0,0"
+              End="32.4999999999998,17.5999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="15.9999999999999,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.9999999999999,0"
+                    Point2="19.9999999999999,0"
+                    Point3="19.9999999999999,4" />
+                  <mssgle:LineSegment
+                    End="19.9999999999999,13.5999999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.9999999999999,13.5999999999999"
+                    Point2="19.9999999999999,17.5999999999999"
+                    Point3="23.9999999999999,17.5999999999999" />
+                  <mssgle:LineSegment
+                    End="32.4999999999998,17.5999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Union All Output 1]"
+          TopLeft="693.866666666667,548.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.2333333333333,70.3000000000001"
+              Start="0,0"
+              End="50.2333333333333,62.8000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.675" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.675"
+                    Point2="0,28.675"
+                    Point3="4,28.675" />
+                  <mssgle:LineSegment
+                    End="46.2333333333333,28.675" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.2333333333333,28.675"
+                    Point2="50.2333333333333,28.675"
+                    Point3="50.2333333333333,32.675" />
+                  <mssgle:LineSegment
+                    End="50.2333333333333,62.8000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Row Count Output 11]"
+          TopLeft="744.1,661.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-212.8,59.2"
+              Start="0,0"
+              End="-212.8,51.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.6"
+                    Point2="0,29.6"
+                    Point3="-4,29.6" />
+                  <mssgle:LineSegment
+                    End="-208.8,29.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-208.8,29.6"
+                    Point2="-212.8,29.6"
+                    Point3="-212.8,33.6" />
+                  <mssgle:LineSegment
+                    End="-212.8,51.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Row Count Output 1]"
+          TopLeft="348,749.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-192.9,31.9"
+              Start="0,0"
+              End="-192.9,24.4">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.95" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.95"
+                    Point2="0,15.95"
+                    Point3="-4,15.95" />
+                  <mssgle:LineSegment
+                    End="-188.9,15.95" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-188.9,15.95"
+                    Point2="-192.9,15.95"
+                    Point3="-192.9,19.95" />
+                  <mssgle:LineSegment
+                    End="-192.9,24.4" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[OLE DB Source Output]"
+          TopLeft="843.5,47.1000000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-733.2,162.4"
+              Start="0,0"
+              End="-733.2,154.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,77.2"
+                    Point2="0,81.2"
+                    Point3="-4,81.2" />
+                  <mssgle:LineSegment
+                    End="-729.2,81.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-729.2,81.2"
+                    Point2="-733.2,81.2"
+                    Point3="-733.2,85.2" />
+                  <mssgle:LineSegment
+                    End="-733.2,154.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Multicast Output 21]"
+          TopLeft="583.2,574.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92.0000000000001,-25.6000000000001"
+              Start="0,0"
+              End="92.0000000000001,-18.1000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-8.80000000000007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-8.80000000000007"
+                    Point2="0,-12.8000000000001"
+                    Point3="4,-12.8000000000001" />
+                  <mssgle:LineSegment
+                    End="88.0000000000001,-12.8000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="88.0000000000001,-12.8000000000001"
+                    Point2="92.0000000000001,-12.8000000000001"
+                    Point3="92.0000000000001,-16.8000000000001" />
+                  <mssgle:LineSegment
+                    End="92.0000000000001,-18.1000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Multicast Output 2]"
+          TopLeft="279.433333333333,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="251.866666666667,60"
+              Start="0,0"
+              End="251.866666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.441717791411" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.441717791411"
+                    Point2="0,24.441717791411"
+                    Point3="4,24.441717791411" />
+                  <mssgle:LineSegment
+                    End="247.866666666667,24.441717791411" />
+                  <mssgle:CubicBezierSegment
+                    Point1="247.866666666667,24.441717791411"
+                    Point2="251.866666666667,24.441717791411"
+                    Point3="251.866666666667,28.441717791411" />
+                  <mssgle:LineSegment
+                    End="251.866666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Multicast Output 11]"
+          TopLeft="583.2,616">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-389.333333333333,74.4"
+              Start="0,0"
+              End="-389.333333333333,66.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.0956097560975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.0956097560975"
+                    Point2="0,44.0956097560975"
+                    Point3="-4,44.0956097560975" />
+                  <mssgle:LineSegment
+                    End="-385.333333333333,44.0956097560975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-385.333333333333,44.0956097560975"
+                    Point2="-389.333333333333,44.0956097560975"
+                    Point3="-389.333333333333,48.0956097560975" />
+                  <mssgle:LineSegment
+                    End="-389.333333333333,66.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Multicast Output 1]"
+          TopLeft="239.166666666667,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.1333333333333,60.0000000000001"
+              Start="0,0"
+              End="20.1333333333333,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4417177914111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4417177914111"
+                    Point2="0,24.4417177914111"
+                    Point3="4,24.4417177914111" />
+                  <mssgle:LineSegment
+                    End="16.1333333333333,24.4417177914111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.1333333333333,24.4417177914111"
+                    Point2="20.1333333333333,24.4417177914111"
+                    Point3="20.1333333333333,28.4417177914111" />
+                  <mssgle:LineSegment
+                    End="20.1333333333333,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Lookup No Match Output1]"
+          TopLeft="133.233333333333,251.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="126.066666666667,60"
+              Start="0,0"
+              End="126.066666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3913043478261" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3913043478261"
+                    Point2="0,24.3913043478261"
+                    Point3="4,24.3913043478261" />
+                  <mssgle:LineSegment
+                    End="122.066666666667,24.3913043478261" />
+                  <mssgle:CubicBezierSegment
+                    Point1="122.066666666667,24.3913043478261"
+                    Point2="126.066666666667,24.3913043478261"
+                    Point3="126.066666666667,28.3913043478261" />
+                  <mssgle:LineSegment
+                    End="126.066666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="7.2269466145835,29.3913043478261,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Lookup No Match Output]"
+          TopLeft="306.4,604">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.0000000000001,28.8"
+              Start="0,0"
+              End="36.5000000000001,28.8">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18,0"
+                    Point2="22,0"
+                    Point3="22,4" />
+                  <mssgle:LineSegment
+                    End="22,24.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22,24.8"
+                    Point2="22,28.8"
+                    Point3="26,28.8" />
+                  <mssgle:LineSegment
+                    End="36.5000000000001,28.8" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-33.80638671875,-17.609375,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Lookup Match Output1]"
+          TopLeft="87.3666666666667,251.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.16666666666667,218.5"
+              Start="0,0"
+              End="-8.16666666666667,211">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,84.825" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,84.825"
+                    Point2="0,88.825"
+                    Point3="-4,88.825" />
+                  <mssgle:LineSegment
+                    End="-4.16666666666667,88.825" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.16666666666667,88.825"
+                    Point2="-8.16666666666667,88.825"
+                    Point3="-8.16666666666667,92.825" />
+                  <mssgle:LineSegment
+                    End="-8.16666666666667,211" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-52.2747200520833,93.825,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Lookup Match Output]"
+          TopLeft="207.6,624.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34,65.6"
+              Start="0,0"
+              End="-34,58.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.8"
+                    Point2="0,32.8"
+                    Point3="-4,32.8" />
+                  <mssgle:LineSegment
+                    End="-30,32.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30,32.8"
+                    Point2="-34,32.8"
+                    Point3="-34,36.8" />
+                  <mssgle:LineSegment
+                    End="-34,58.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-65.19138671875,37.8,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Derived Column Output3]"
+          TopLeft="171.3,434.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-27.3,56.5000000000001"
+              Start="0,0"
+              End="-19.8,56.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-9.65000000000001,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.65000000000001,0"
+                    Point2="-13.65,0"
+                    Point3="-13.65,4" />
+                  <mssgle:LineSegment
+                    End="-13.65,52.5000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.65,52.5000000000001"
+                    Point2="-13.65,56.5000000000001"
+                    Point3="-17.65,56.5000000000001" />
+                  <mssgle:LineSegment
+                    End="-19.8,56.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Derived Column Output2]"
+          TopLeft="531.3,455.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143.9,51.3"
+              Start="0,0"
+              End="143.9,43.8">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.65" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.65"
+                    Point2="0,25.65"
+                    Point3="4,25.65" />
+                  <mssgle:LineSegment
+                    End="139.9,25.65" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139.9,25.65"
+                    Point2="143.9,25.65"
+                    Point3="143.9,29.65" />
+                  <mssgle:LineSegment
+                    End="143.9,43.8" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Derived Column Output1]"
+          TopLeft="426.8,612">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="96.3999999999999,-16.8"
+              Start="0,0"
+              End="88.8999999999999,-16.8">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-12.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-12.8"
+                    Point2="0,-16.8"
+                    Point3="4,-16.8" />
+                  <mssgle:LineSegment
+                    End="88.8999999999999,-16.8" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Derived Column Output]"
+          TopLeft="531.3,763.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="198.7,44.9"
+              Start="0,0"
+              End="198.7,37.4">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.45"
+                    Point2="0,22.45"
+                    Point3="4,22.45" />
+                  <mssgle:LineSegment
+                    End="194.7,22.45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="194.7,22.45"
+                    Point2="198.7,22.45"
+                    Point3="198.7,26.45" />
+                  <mssgle:LineSegment
+                    End="198.7,37.4" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Staging -  Get Bodyshop Hours">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\DW - Insert into temp table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours">
     <LayoutInfo>
       <GraphLayout
@@ -37284,9 +38019,7 @@ where [refTable].[Cost Centre] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37320,9 +38053,7 @@ where [refTable].[Cost Centre] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37356,9 +38087,7 @@ where [refTable].[Cost Centre] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37392,9 +38121,7 @@ where [refTable].[Cost Centre] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37428,9 +38155,7 @@ where [refTable].[Cost Centre] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37464,9 +38189,7 @@ where [refTable].[Cost Centre] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37500,9 +38223,7 @@ where [refTable].[Cost Centre] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37536,49 +38257,11 @@ where [refTable].[Cost Centre] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours.Paths[Multicast Output 11]"
-          TopLeft="239.166666666667,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="20.1333333333333,60.0000000000001"
-              Start="0,0"
-              End="20.1333333333333,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.4417177914111" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.4417177914111"
-                    Point2="0,24.4417177914111"
-                    Point3="4,24.4417177914111" />
-                  <mssgle:LineSegment
-                    End="16.1333333333333,24.4417177914111" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.1333333333333,24.4417177914111"
-                    Point2="20.1333333333333,24.4417177914111"
-                    Point3="20.1333333333333,28.4417177914111" />
-                  <mssgle:LineSegment
-                    End="20.1333333333333,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours.Paths[Multicast Output 1]"
           TopLeft="583.2,616">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -37608,9 +38291,41 @@ where [refTable].[Cost Centre] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Technician Hours\Foreach File Date\Staging - Get TechncianHours.Paths[Multicast Output 1]"
+          TopLeft="239.166666666667,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.1333333333333,60.0000000000001"
+              Start="0,0"
+              End="20.1333333333333,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4417177914111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4417177914111"
+                    Point2="0,24.4417177914111"
+                    Point3="4,24.4417177914111" />
+                  <mssgle:LineSegment
+                    End="16.1333333333333,24.4417177914111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.1333333333333,24.4417177914111"
+                    Point2="20.1333333333333,24.4417177914111"
+                    Point3="20.1333333333333,28.4417177914111" />
+                  <mssgle:LineSegment
+                    End="20.1333333333333,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37788,9 +38503,7 @@ where [refTable].[Cost Centre] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37824,9 +38537,7 @@ where [refTable].[Cost Centre] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37854,9 +38565,7 @@ where [refTable].[Cost Centre] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -37890,9 +38599,7 @@ where [refTable].[Cost Centre] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -39187,713 +39894,6 @@ where [refTable].[Cost Centre] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load WarrantyOutstandingAmount\Foreach File Date\Staging - Get WarrantyOutstandingAmount\Audit - Insert into Error">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Union All 2"
-          TopLeft="108.8,690.4" />
-        <NodeLayout
-          Size="120,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Union All"
-          TopLeft="615.2,507.2" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Derived Column"
-          TopLeft="350.4,612" />
-        <NodeLayout
-          Size="145.6,42.4"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Lookup Depot"
-          TopLeft="37.5,209.5" />
-        <NodeLayout
-          Size="224,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Staging -  Get Bodyshop Hours"
-          TopLeft="731.5,5.50000000000005" />
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Union All 1"
-          TopLeft="14.4,470.4" />
-        <NodeLayout
-          Size="139.2,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Row Count 1"
-          TopLeft="278.4,708" />
-        <NodeLayout
-          Size="246.4,42.4"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Add Unknown Depot Error Message"
-          TopLeft="408.1,413.5" />
-        <NodeLayout
-          Size="131.2,42.4"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Row Count"
-          TopLeft="678.5,619.1" />
-        <NodeLayout
-          Size="197.6,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Lookup Depot Technician"
-          TopLeft="108.8,583.2" />
-        <NodeLayout
-          Size="178.4,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\insert into error table"
-          TopLeft="640.8,808" />
-        <NodeLayout
-          Size="128.8,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Multicast 1"
-          TopLeft="194.9,311.9" />
-        <NodeLayout
-          Size="176,42.4"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Add Unknown Depot"
-          TopLeft="171.3,413.5" />
-        <NodeLayout
-          Size="120,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Multicast"
-          TopLeft="523.2,574.4" />
-        <NodeLayout
-          Size="208,41.6"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\DW - Insert into temp table"
-          TopLeft="51.1,781.5" />
-        <NodeLayout
-          Size="122.4,42.4"
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Add Date"
-          TopLeft="470.1,720.7" />
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Union All Output 12]"
-          TopLeft="79.2,512">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="128.4,71.2"
-              Start="0,0"
-              End="128.4,63.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.6" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.6"
-                    Point2="0,35.6"
-                    Point3="4,35.6" />
-                  <mssgle:LineSegment
-                    End="124.4,35.6" />
-                  <mssgle:CubicBezierSegment
-                    Point1="124.4,35.6"
-                    Point2="128.4,35.6"
-                    Point3="128.4,39.6" />
-                  <mssgle:LineSegment
-                    End="128.4,63.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Union All Output 11]"
-          TopLeft="238.4,711.2">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="39.9999999999998,17.5999999999999"
-              Start="0,0"
-              End="32.4999999999998,17.5999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="15.9999999999999,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="15.9999999999999,0"
-                    Point2="19.9999999999999,0"
-                    Point3="19.9999999999999,4" />
-                  <mssgle:LineSegment
-                    End="19.9999999999999,13.5999999999999" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19.9999999999999,13.5999999999999"
-                    Point2="19.9999999999999,17.5999999999999"
-                    Point3="23.9999999999999,17.5999999999999" />
-                  <mssgle:LineSegment
-                    End="32.4999999999998,17.5999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Union All Output 1]"
-          TopLeft="693.866666666667,548.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="50.2333333333333,70.3000000000001"
-              Start="0,0"
-              End="50.2333333333333,62.8000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.675" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.675"
-                    Point2="0,28.675"
-                    Point3="4,28.675" />
-                  <mssgle:LineSegment
-                    End="46.2333333333333,28.675" />
-                  <mssgle:CubicBezierSegment
-                    Point1="46.2333333333333,28.675"
-                    Point2="50.2333333333333,28.675"
-                    Point3="50.2333333333333,32.675" />
-                  <mssgle:LineSegment
-                    End="50.2333333333333,62.8000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Row Count Output 11]"
-          TopLeft="744.1,661.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-212.8,59.2"
-              Start="0,0"
-              End="-212.8,51.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.6" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.6"
-                    Point2="0,29.6"
-                    Point3="-4,29.6" />
-                  <mssgle:LineSegment
-                    End="-208.8,29.6" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-208.8,29.6"
-                    Point2="-212.8,29.6"
-                    Point3="-212.8,33.6" />
-                  <mssgle:LineSegment
-                    End="-212.8,51.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Row Count Output 1]"
-          TopLeft="348,749.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-192.9,31.9"
-              Start="0,0"
-              End="-192.9,24.4">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.95" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.95"
-                    Point2="0,15.95"
-                    Point3="-4,15.95" />
-                  <mssgle:LineSegment
-                    End="-188.9,15.95" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-188.9,15.95"
-                    Point2="-192.9,15.95"
-                    Point3="-192.9,19.95" />
-                  <mssgle:LineSegment
-                    End="-192.9,24.4" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[OLE DB Source Output]"
-          TopLeft="843.5,47.1000000000001">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-733.2,162.4"
-              Start="0,0"
-              End="-733.2,154.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,77.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,77.2"
-                    Point2="0,81.2"
-                    Point3="-4,81.2" />
-                  <mssgle:LineSegment
-                    End="-729.2,81.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-729.2,81.2"
-                    Point2="-733.2,81.2"
-                    Point3="-733.2,85.2" />
-                  <mssgle:LineSegment
-                    End="-733.2,154.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Multicast Output 21]"
-          TopLeft="583.2,574.4">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="92.0000000000001,-25.6000000000001"
-              Start="0,0"
-              End="92.0000000000001,-18.1000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-8.80000000000007" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-8.80000000000007"
-                    Point2="0,-12.8000000000001"
-                    Point3="4,-12.8000000000001" />
-                  <mssgle:LineSegment
-                    End="88.0000000000001,-12.8000000000001" />
-                  <mssgle:CubicBezierSegment
-                    Point1="88.0000000000001,-12.8000000000001"
-                    Point2="92.0000000000001,-12.8000000000001"
-                    Point3="92.0000000000001,-16.8000000000001" />
-                  <mssgle:LineSegment
-                    End="92.0000000000001,-18.1000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Multicast Output 2]"
-          TopLeft="279.433333333333,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="251.866666666667,60"
-              Start="0,0"
-              End="251.866666666667,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.441717791411" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.441717791411"
-                    Point2="0,24.441717791411"
-                    Point3="4,24.441717791411" />
-                  <mssgle:LineSegment
-                    End="247.866666666667,24.441717791411" />
-                  <mssgle:CubicBezierSegment
-                    Point1="247.866666666667,24.441717791411"
-                    Point2="251.866666666667,24.441717791411"
-                    Point3="251.866666666667,28.441717791411" />
-                  <mssgle:LineSegment
-                    End="251.866666666667,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Multicast Output 11]"
-          TopLeft="239.166666666667,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="20.1333333333333,60.0000000000001"
-              Start="0,0"
-              End="20.1333333333333,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.4417177914111" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.4417177914111"
-                    Point2="0,24.4417177914111"
-                    Point3="4,24.4417177914111" />
-                  <mssgle:LineSegment
-                    End="16.1333333333333,24.4417177914111" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.1333333333333,24.4417177914111"
-                    Point2="20.1333333333333,24.4417177914111"
-                    Point3="20.1333333333333,28.4417177914111" />
-                  <mssgle:LineSegment
-                    End="20.1333333333333,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Multicast Output 1]"
-          TopLeft="583.2,616">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-389.333333333333,74.4"
-              Start="0,0"
-              End="-389.333333333333,66.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.0956097560975" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.0956097560975"
-                    Point2="0,44.0956097560975"
-                    Point3="-4,44.0956097560975" />
-                  <mssgle:LineSegment
-                    End="-385.333333333333,44.0956097560975" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-385.333333333333,44.0956097560975"
-                    Point2="-389.333333333333,44.0956097560975"
-                    Point3="-389.333333333333,48.0956097560975" />
-                  <mssgle:LineSegment
-                    End="-389.333333333333,66.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Lookup No Match Output1]"
-          TopLeft="133.233333333333,251.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="126.066666666667,60"
-              Start="0,0"
-              End="126.066666666667,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.3913043478261" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.3913043478261"
-                    Point2="0,24.3913043478261"
-                    Point3="4,24.3913043478261" />
-                  <mssgle:LineSegment
-                    End="122.066666666667,24.3913043478261" />
-                  <mssgle:CubicBezierSegment
-                    Point1="122.066666666667,24.3913043478261"
-                    Point2="126.066666666667,24.3913043478261"
-                    Point3="126.066666666667,28.3913043478261" />
-                  <mssgle:LineSegment
-                    End="126.066666666667,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="7.2269466145835,29.3913043478261,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Lookup No Match Output]"
-          TopLeft="306.4,604">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="44.0000000000001,28.8"
-              Start="0,0"
-              End="36.5000000000001,28.8">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18,0"
-                    Point2="22,0"
-                    Point3="22,4" />
-                  <mssgle:LineSegment
-                    End="22,24.8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22,24.8"
-                    Point2="22,28.8"
-                    Point3="26,28.8" />
-                  <mssgle:LineSegment
-                    End="36.5000000000001,28.8" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-33.80638671875,-17.609375,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Lookup Match Output1]"
-          TopLeft="87.3666666666667,251.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-8.16666666666667,218.5"
-              Start="0,0"
-              End="-8.16666666666667,211">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,84.825" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,84.825"
-                    Point2="0,88.825"
-                    Point3="-4,88.825" />
-                  <mssgle:LineSegment
-                    End="-4.16666666666667,88.825" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4.16666666666667,88.825"
-                    Point2="-8.16666666666667,88.825"
-                    Point3="-8.16666666666667,92.825" />
-                  <mssgle:LineSegment
-                    End="-8.16666666666667,211" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-52.2747200520833,93.825,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Lookup Match Output]"
-          TopLeft="207.6,624.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-34,65.6"
-              Start="0,0"
-              End="-34,58.1">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.8"
-                    Point2="0,32.8"
-                    Point3="-4,32.8" />
-                  <mssgle:LineSegment
-                    End="-30,32.8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-30,32.8"
-                    Point2="-34,32.8"
-                    Point3="-34,36.8" />
-                  <mssgle:LineSegment
-                    End="-34,58.1" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-65.19138671875,37.8,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Derived Column Output3]"
-          TopLeft="171.3,434.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-27.3,56.5000000000001"
-              Start="0,0"
-              End="-19.8,56.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-9.65000000000001,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9.65000000000001,0"
-                    Point2="-13.65,0"
-                    Point3="-13.65,4" />
-                  <mssgle:LineSegment
-                    End="-13.65,52.5000000000001" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-13.65,52.5000000000001"
-                    Point2="-13.65,56.5000000000001"
-                    Point3="-17.65,56.5000000000001" />
-                  <mssgle:LineSegment
-                    End="-19.8,56.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Derived Column Output2]"
-          TopLeft="531.3,455.9">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="143.9,51.3"
-              Start="0,0"
-              End="143.9,43.8">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.65" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.65"
-                    Point2="0,25.65"
-                    Point3="4,25.65" />
-                  <mssgle:LineSegment
-                    End="139.9,25.65" />
-                  <mssgle:CubicBezierSegment
-                    Point1="139.9,25.65"
-                    Point2="143.9,25.65"
-                    Point3="143.9,29.65" />
-                  <mssgle:LineSegment
-                    End="143.9,43.8" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Derived Column Output1]"
-          TopLeft="426.8,612">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="96.3999999999999,-16.8"
-              Start="0,0"
-              End="88.8999999999999,-16.8">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-12.8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-12.8"
-                    Point2="0,-16.8"
-                    Point3="4,-16.8" />
-                  <mssgle:LineSegment
-                    End="88.8999999999999,-16.8" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours.Paths[Derived Column Output]"
-          TopLeft="531.3,763.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="198.7,44.9"
-              Start="0,0"
-              End="198.7,37.4">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.45" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.45"
-                    Point2="0,22.45"
-                    Point3="4,22.45" />
-                  <mssgle:LineSegment
-                    End="194.7,22.45" />
-                  <mssgle:CubicBezierSegment
-                    Point1="194.7,22.45"
-                    Point2="198.7,22.45"
-                    Point3="198.7,26.45" />
-                  <mssgle:LineSegment
-                    End="198.7,37.4" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\Staging -  Get Bodyshop Hours">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Technician Bodyshop Hours\Foreach File Date\Staging - Get Bodyshop hours\DW - Insert into temp table">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
