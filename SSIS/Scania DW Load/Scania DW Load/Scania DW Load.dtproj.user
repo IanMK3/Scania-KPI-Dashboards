@@ -6,7 +6,7 @@
       <Options>
         <ServerName>sgbsql01.database.windows.net</ServerName>
         <PathOnServer>/SSISDB/KPI_Dashboards/Scania DW Load</PathOnServer>
-        <StartObjectID>Import Facts 2 From Staging.dtsx</StartObjectID>
+        <StartObjectID>Import Master.dtsx</StartObjectID>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
