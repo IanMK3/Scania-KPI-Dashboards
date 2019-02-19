@@ -12,8 +12,8 @@
   DTS:ObjectName="Ingest from Blob 3"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="324"
-  DTS:VersionGUID="{393115B4-B08E-4DA2-A124-330A6E638284}">
+  DTS:VersionBuild="331"
+  DTS:VersionGUID="{40E56471-AB58-46AE-AE10-39D45FB11D3D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -50,7 +50,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\vamsi.bora\AppData\Local\Temp\">
+          DTS:ConnectionString="C:\Users\vamsi.bora\AppData\Local\Temp\BodyshopHours_20190218.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -59,7 +59,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Company"
-              DTS:DTSID="{51C8CCF1-CD27-4564-9F89-F1EDCD78A903}"
+              DTS:DTSID="{822E02A9-1F81-4B44-8BCA-C6973D154508}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -68,7 +68,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Technician"
-              DTS:DTSID="{32F82C5C-7D87-4C39-86B5-4FFCE478DB47}"
+              DTS:DTSID="{FC9005B4-9D1B-4E7E-8328-3DB24BC9C57F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -77,7 +77,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Direct"
-              DTS:DTSID="{FA0B69E6-FD9F-4739-B853-93A2BC367AC7}"
+              DTS:DTSID="{29927384-53CC-4526-93D6-3AC9A7C5133B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -86,7 +86,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="IMC"
-              DTS:DTSID="{727BD9BF-AFA3-4C33-A8AE-4F162ECCA0EF}"
+              DTS:DTSID="{4167A41E-1B22-487A-9DCD-37FE56D66303}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -95,7 +95,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MOVE"
-              DTS:DTSID="{C8EE5A67-FF8A-4EC7-8772-B8C49E92D275}"
+              DTS:DTSID="{4DA4AD76-1F96-475D-9EDB-7D8D7F9F4B87}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -104,7 +104,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SUPER"
-              DTS:DTSID="{9629558E-9D39-4A1F-B464-65A9049A9875}"
+              DTS:DTSID="{798418E0-145C-47C1-9DDA-533B81FDF418}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -113,7 +113,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="C&amp;D"
-              DTS:DTSID="{E4F08322-2C7B-4066-A69C-153BA0017C38}"
+              DTS:DTSID="{057BB6B4-7416-47D1-9B4C-0B625AE6C15F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -122,7 +122,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TRONS"
-              DTS:DTSID="{AF1792EE-6048-48AB-8502-26A0A3DE4A31}"
+              DTS:DTSID="{D3C3CD09-5944-4686-B5BE-706CBE0EC130}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -131,7 +131,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PIHS"
-              DTS:DTSID="{B648B36A-C28A-4A13-9275-970784E31FEA}"
+              DTS:DTSID="{5B57C792-7F1A-4387-A495-1C25CE96E6FA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -140,7 +140,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DOS"
-              DTS:DTSID="{9685DE37-BD86-4A6C-A1E1-504E081B61B0}"
+              DTS:DTSID="{C5401A67-405B-49D0-ABFD-B381D0D17DF6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -149,7 +149,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PARTS"
-              DTS:DTSID="{61737A1A-F6D6-494F-8722-84ACC60502B8}"
+              DTS:DTSID="{83591342-0DA4-43DE-BEED-BF6CDAF849C4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -158,7 +158,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SERVC"
-              DTS:DTSID="{9F730A2C-0149-4345-B24C-908FECDFDA1A}"
+              DTS:DTSID="{E41EEF80-C38C-4E1E-8711-60725BF7ECDE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -167,7 +167,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="APPRE"
-              DTS:DTSID="{53AD5A8E-8058-40D3-A4B2-E3B03B37B941}"
+              DTS:DTSID="{CD5BAA17-08AB-4470-BA89-F4E3AE106D58}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -176,7 +176,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ATF"
-              DTS:DTSID="{FE8998A5-E19B-463C-9AD7-C60CEA22C177}"
+              DTS:DTSID="{B5D034F7-C521-40F3-9C9F-0FF29B18A767}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -185,7 +185,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="BRANC"
-              DTS:DTSID="{9D6CBAED-61F9-490A-8190-4E10072027E0}"
+              DTS:DTSID="{D1C6CF74-B3C6-47CA-96D3-D24F8815DF0A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -194,7 +194,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CLKON"
-              DTS:DTSID="{E9FCF670-E20F-4C24-B9BB-417A7CC2055C}"
+              DTS:DTSID="{C7FDDBDC-EBAD-454F-9B78-99BA7591B642}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -203,7 +203,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="BREAK"
-              DTS:DTSID="{7700964E-EA5E-4725-820D-A5A5C3B0D28F}"
+              DTS:DTSID="{9C302B7D-2E34-4E84-97E0-B12D403B381A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -212,7 +212,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CLKOF"
-              DTS:DTSID="{C5302CBD-6BCE-47A5-905D-B91C93C80CC6}"
+              DTS:DTSID="{BE8D4A48-2367-41C9-87C4-F8DED25884B1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -221,7 +221,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PARTS-1"
-              DTS:DTSID="{A13BB38F-C6A8-4EB3-B898-A55BB816815F}"
+              DTS:DTSID="{EB0CC8EC-C771-4FA6-8F34-A788AE909246}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -230,7 +230,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CLEAN"
-              DTS:DTSID="{CF6CBB95-CEA9-49D5-833A-271BE3C84DB3}"
+              DTS:DTSID="{95AC49D2-120C-42F9-B4F5-1DAC9571B03D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -239,7 +239,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MAINT"
-              DTS:DTSID="{4BC11176-2614-401E-80C2-E8EDA94E6C93}"
+              DTS:DTSID="{6FFFC3BF-A51B-4B8B-9FED-1315E1731E9A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -248,7 +248,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="H&amp;S"
-              DTS:DTSID="{C0BE3CF8-7650-45C6-ACEC-842B8C997A2B}"
+              DTS:DTSID="{6E4C8D82-0CF8-4163-B5C7-FE69A8C9B206}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -257,7 +257,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TRAIN"
-              DTS:DTSID="{0B55EEC5-A153-4A87-9E6C-F5773918792D}"
+              DTS:DTSID="{457EF38A-E73B-41E7-AFEB-4511C453AF2E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -266,7 +266,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TRAVE"
-              DTS:DTSID="{27641EED-CF1F-40A9-8578-9D80AA6D84C9}"
+              DTS:DTSID="{069B0BC5-86DF-4A35-944A-F521BB22EA9E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -275,7 +275,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MOTA"
-              DTS:DTSID="{16A802B3-FE0A-4876-8C72-F1BBFEE337A9}"
+              DTS:DTSID="{50272EF6-7293-4ECD-9B90-8556ABE845AC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -284,7 +284,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MOTB"
-              DTS:DTSID="{60D0B8A9-1E72-4290-90EC-39E0BAF9E7AC}"
+              DTS:DTSID="{0B7DEA5B-A490-4D8C-B03C-D8F6FCA64ADC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -293,7 +293,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SRS"
-              DTS:DTSID="{30383277-6679-40AB-AD54-DE60216F6812}"
+              DTS:DTSID="{C7A49463-E47E-482C-9184-5A4D52E11433}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -302,16 +302,16 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="HOLID"
-              DTS:DTSID="{80241AE3-9DEB-4689-BFB3-A30A4E85700A}"
+              DTS:DTSID="{D656BC23-B6A7-4227-AE6F-1EF46AC3E9BE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:ColumnDelimiter="_x000D_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="SICKP"
-              DTS:DTSID="{819558BC-502B-41CE-BEA4-16F512C29554}"
+              DTS:ObjectName="SICKP "
+              DTS:DTSID="{6704436E-6AB3-4E43-840C-B0DC9AE6D3FD}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -1264,7 +1264,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\vamsi.bora\AppData\Local\Temp\TechHours_20180925.csv">
+          DTS:ConnectionString="C:\Users\vamsi.bora\AppData\Local\Temp\TechHours_20190218.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1273,7 +1273,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Company"
-              DTS:DTSID="{2EE10F01-0D2F-4593-A478-F5536F80F909}"
+              DTS:DTSID="{4C4E8D66-3BF0-4CF5-BD6E-845FBECE29D9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1282,7 +1282,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Technician"
-              DTS:DTSID="{E29B5A0B-AF37-4FD9-A7DD-F07BA0E44658}"
+              DTS:DTSID="{936297FD-1772-4C73-8E95-183A01B70C38}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1291,7 +1291,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Direct"
-              DTS:DTSID="{5B9E3AEA-4ECB-45CE-AF7F-7A003A006C77}"
+              DTS:DTSID="{236BBFD4-CDC6-4A8A-A65E-30D69D3FC1EF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1300,7 +1300,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="IMC"
-              DTS:DTSID="{0B409874-86A9-43C8-B2D7-F8AD99EDF1A7}"
+              DTS:DTSID="{D0B433DB-9FE8-465E-A54F-C09CF1A7D5DA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1309,7 +1309,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MOVE"
-              DTS:DTSID="{534A8301-C598-408B-AE25-401BDC67675B}"
+              DTS:DTSID="{37D6997B-43DE-4E21-9FEB-323568415B57}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1318,7 +1318,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SUPER"
-              DTS:DTSID="{F977BAEE-E0DB-4B3B-8B6E-5AC955D616B3}"
+              DTS:DTSID="{185CF425-87CD-4F2A-ADF6-5538A664C249}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1327,7 +1327,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="C&amp;D"
-              DTS:DTSID="{B5BD1AE9-D8C6-4EA3-862E-07869E759947}"
+              DTS:DTSID="{557FB737-8778-4CA4-A62E-3103BB09CC6E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1336,7 +1336,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TRONS"
-              DTS:DTSID="{BBB65E24-B78A-4F4D-8E86-070EA2DFE7C9}"
+              DTS:DTSID="{DAB3BBAA-F92B-4BD4-A7DA-DE9608471E68}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1345,7 +1345,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PIHS"
-              DTS:DTSID="{0A624CFE-F58E-407F-A2D7-B8DEE3685DA9}"
+              DTS:DTSID="{752039B6-D9DD-45C0-8257-C184E5B4AD8F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1354,7 +1354,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DOS"
-              DTS:DTSID="{D4D0F175-ED11-4E40-9E42-B72437BE7ABD}"
+              DTS:DTSID="{4F10B1C4-7802-4D2A-B313-E79B8AEA11A3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1363,7 +1363,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PARTS"
-              DTS:DTSID="{F91E5D1D-CE75-4C54-85DC-1634FDF4FA25}"
+              DTS:DTSID="{19F889FB-E0EF-4638-8CC3-8B6F377D55DD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1372,7 +1372,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SERVC"
-              DTS:DTSID="{2552DB94-0DFE-4F22-BAD5-F12C2BED1431}"
+              DTS:DTSID="{47F9894C-3719-441C-B126-13232ACF635F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1381,7 +1381,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="APPRE"
-              DTS:DTSID="{D83ECE27-A5B1-4728-A77C-AA014863F118}"
+              DTS:DTSID="{2270B603-CD24-45A2-9FAB-94BD5557ECBA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1390,7 +1390,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ATF"
-              DTS:DTSID="{D848FD0E-527C-486C-B39D-F57B63D3EA82}"
+              DTS:DTSID="{0728D800-A9B6-47D3-B1BF-3EE453B1F16A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1399,7 +1399,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="BRANC"
-              DTS:DTSID="{D2D47E2A-456F-4D1C-AB9F-339C5F770D85}"
+              DTS:DTSID="{60E6733C-0C46-4657-9236-044EDD9B4CC5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1408,7 +1408,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CLKON"
-              DTS:DTSID="{B1782818-D336-43AE-9C77-FB03E213C1E0}"
+              DTS:DTSID="{9FD617B0-4236-4FB7-8A5E-81658A3EF4D2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1417,7 +1417,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="BREAK"
-              DTS:DTSID="{14F237C7-A179-4F21-94EA-C6D1F74A1B29}"
+              DTS:DTSID="{94636F3D-C106-4ABB-A865-0F4CDC903072}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1426,7 +1426,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CLKOF"
-              DTS:DTSID="{2ABF27B1-39F6-48CF-9D63-43F597E54936}"
+              DTS:DTSID="{E2A9CC9F-4135-442A-BD61-B3D2686E3E4D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1435,7 +1435,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PARTS-1"
-              DTS:DTSID="{AB1DA251-1C35-4AAD-A3CC-CE314F9682B9}"
+              DTS:DTSID="{6518515B-7277-46DB-A8DA-23A0359A480D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1444,7 +1444,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CLEAN"
-              DTS:DTSID="{755B3D81-607B-4161-B19E-9251F5DD6D6D}"
+              DTS:DTSID="{9458A93E-993F-4B01-A659-992DD10D7D89}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1453,7 +1453,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MAINT"
-              DTS:DTSID="{0C6D7AD4-60B5-40FC-AF7D-39C66EEE3074}"
+              DTS:DTSID="{6830B148-1ABF-48D2-A49B-177205D504C1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1462,7 +1462,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="H&amp;S"
-              DTS:DTSID="{C6689F9E-A47B-4D03-9A7E-F22529C759E4}"
+              DTS:DTSID="{348E69C8-A9C7-47B4-9F06-9DA6951F6F42}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1471,7 +1471,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TRAIN"
-              DTS:DTSID="{A51BDACE-75CC-46FE-9063-86201882867F}"
+              DTS:DTSID="{8299501E-3E81-4EAE-B36B-20FBF8017DA4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1480,7 +1480,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TRAVE"
-              DTS:DTSID="{A6D2D76D-CAB6-4DBD-8D9D-9BC705F8497B}"
+              DTS:DTSID="{C20EBCDE-C859-4BC7-8576-E575B2F90928}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1489,7 +1489,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MOTA"
-              DTS:DTSID="{C873295F-2F71-4C06-ABAE-0277CFD47813}"
+              DTS:DTSID="{B849C4EA-81EF-4CFD-8751-5A50F8210808}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1498,7 +1498,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MOTB"
-              DTS:DTSID="{30BF6243-F9A8-4D40-A0EA-791CCC84B116}"
+              DTS:DTSID="{725E6067-FFEA-435B-BF5C-F0D84C9E0FD7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1507,7 +1507,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SRS"
-              DTS:DTSID="{EB4D173A-0885-46B1-A48C-5EA324113D08}"
+              DTS:DTSID="{1863FAF8-6181-488D-9C56-3351BFB60015}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1516,16 +1516,16 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="HOLID"
-              DTS:DTSID="{315DFC26-C190-404D-A61A-47AA0B0EBADA}"
+              DTS:DTSID="{73C17CA0-60C4-43B1-9341-229990585D3C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:ColumnDelimiter="_x000D_"
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="SICKP"
-              DTS:DTSID="{5C30F241-0F73-4C05-855F-370B4D4AD280}"
+              DTS:ObjectName="SICKP "
+              DTS:DTSID="{CC77205E-DF10-4D27-8C8C-3F8644E5A04C}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -1770,8 +1770,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="BodyshopHours_BlobFileName">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">BodyshopHours_20190218.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1861,7 +1860,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="TechHours_BlobFileName">
       <DTS:VariableValue
-        DTS:DataType="8">TechHours_20180925.csv</DTS:VariableValue>
+        DTS:DataType="8">TechHours_20190218.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -2463,6 +2462,7 @@
                   ConnectionId="{FB39C02A-7DBB-4A24-B493-69E4115091B8}"
                   BlobContainer="landing"
                   LocalDirectory="C:\Users\vamsi.bora\AppData\Local\Temp\"
+                  FileNameFilter="BodyshopHours_20190218.csv"
                   TimeRangeFrom="01/01/1900 00:00:00 +01:00"
                   TimeRangeTo="31/12/2200 00:00:00 +01:00" />
               </DTS:ObjectData>
@@ -2501,36 +2501,6 @@
                   VSTAMinorVersion="0"
                   Language="CSharp"
                   ReadWriteVariables="User::BlobFileName,User::FileDate,User::BodyshopHours_BlobFileName,User::day,User::month,User::TechHours_BlobFileName,User::TempWindowsDirectory,User::year">
-                  <ProjectItem
-                    Name="Properties\AssemblyInfo.cs"
-                    Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyCopyright("Copyright @  2018")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -2650,6 +2620,121 @@ using System.Runtime.CompilerServices;
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Settings.Designer.cs"
+                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
+    "ings")]
+
+namespace ST_07d248db08094622a64e232747f2626e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+                  <ProjectItem
+                    Name="ST_b73decb7b41b4c7f8ff552897f0a7e89.csproj"
+                    Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{434d6f02-4805-41fb-827a-4d1c746f70b1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_07d248db08094622a64e232747f2626e</RootNamespace>
+    <AssemblyName>ST_b73decb7b41b4c7f8ff552897f0a7e89</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
                   <ProjectItem
                     Name="ScriptMain.cs"
                     Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -2809,120 +2894,35 @@ namespace ST_07d248db08094622a64e232747f2626e
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
                   <ProjectItem
-                    Name="ST_b73decb7b41b4c7f8ff552897f0a7e89.csproj"
-                    Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{434d6f02-4805-41fb-827a-4d1c746f70b1}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ST_07d248db08094622a64e232747f2626e</RootNamespace>
-    <AssemblyName>ST_b73decb7b41b4c7f8ff552897f0a7e89</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>.\bin\Debug\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DebugSymbols>false</DebugSymbols>
-    <Optimize>true</Optimize>
-    <OutputPath>.\bin\Release\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-  </ItemGroup>
-  <ItemGroup>
-    <AppDesigner Include="Properties\" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="ScriptMain.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <!-- Include the build rules for a C# project.-->
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
-        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
-        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
-        <ProjectClient>
-          <HostIdentifier>SSIS_ST140</HostIdentifier>
-        </ProjectClient>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-</Project>]]></ProjectItem>
-                  <ProjectItem
-                    Name="Properties\Settings.Designer.cs"
-                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
+                    Name="Properties\AssemblyInfo.cs"
+                    Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
 //
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyCopyright("Copyright @  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
 
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
-    "ings")]
-
-namespace ST_07d248db08094622a64e232747f2626e.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Settings.settings"
                     Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -3856,15 +3856,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               </properties>
                             </outputColumn>
                             <outputColumn
-                              refId="Package\Download data in BodyshopHours file from blob to Staging database\Blob - Foreach BodyshopHours File - Loop Container\Staging - Upload data from Bodyshop Hours file in temp folder to staging TechHours table\Read Bodyshop Hours from local file.Outputs[Flat File Source Output].Columns[SICKP]"
+                              refId="Package\Download data in BodyshopHours file from blob to Staging database\Blob - Foreach BodyshopHours File - Loop Container\Staging - Upload data from Bodyshop Hours file in temp folder to staging TechHours table\Read Bodyshop Hours from local file.Outputs[Flat File Source Output].Columns[SICKP ]"
                               codePage="1252"
                               dataType="str"
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\Download data in BodyshopHours file from blob to Staging database\Blob - Foreach BodyshopHours File - Loop Container\Staging - Upload data from Bodyshop Hours file in temp folder to staging TechHours table\Read Bodyshop Hours from local file.Outputs[Flat File Source Output].ExternalColumns[SICKP]"
+                              externalMetadataColumnId="Package\Download data in BodyshopHours file from blob to Staging database\Blob - Foreach BodyshopHours File - Loop Container\Staging - Upload data from Bodyshop Hours file in temp folder to staging TechHours table\Read Bodyshop Hours from local file.Outputs[Flat File Source Output].ExternalColumns[SICKP ]"
                               length="50"
-                              lineageId="Package\Download data in BodyshopHours file from blob to Staging database\Blob - Foreach BodyshopHours File - Loop Container\Staging - Upload data from Bodyshop Hours file in temp folder to staging TechHours table\Read Bodyshop Hours from local file.Outputs[Flat File Source Output].Columns[SICKP]"
-                              name="SICKP"
+                              lineageId="Package\Download data in BodyshopHours file from blob to Staging database\Blob - Foreach BodyshopHours File - Loop Container\Staging - Upload data from Bodyshop Hours file in temp folder to staging TechHours table\Read Bodyshop Hours from local file.Outputs[Flat File Source Output].Columns[SICKP ]"
+                              name="SICKP "
                               truncationRowDisposition="FailComponent">
                               <properties>
                                 <property
@@ -4049,11 +4049,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               length="50"
                               name="HOLID" />
                             <externalMetadataColumn
-                              refId="Package\Download data in BodyshopHours file from blob to Staging database\Blob - Foreach BodyshopHours File - Loop Container\Staging - Upload data from Bodyshop Hours file in temp folder to staging TechHours table\Read Bodyshop Hours from local file.Outputs[Flat File Source Output].ExternalColumns[SICKP]"
+                              refId="Package\Download data in BodyshopHours file from blob to Staging database\Blob - Foreach BodyshopHours File - Loop Container\Staging - Upload data from Bodyshop Hours file in temp folder to staging TechHours table\Read Bodyshop Hours from local file.Outputs[Flat File Source Output].ExternalColumns[SICKP ]"
                               codePage="1252"
                               dataType="str"
                               length="50"
-                              name="SICKP" />
+                              name="SICKP " />
                           </externalMetadataColumns>
                         </output>
                         <output
@@ -5132,6 +5132,36 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   Language="CSharp"
                   ReadWriteVariables="User::BlobFileName,User::FileDate,User::Branches_BlobFileName,User::Budget_BlobFileName,User::day,User::month,User::TempWindowsDirectory,User::year">
                   <ProjectItem
+                    Name="Properties\AssemblyInfo.cs"
+                    Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyCopyright("Copyright @  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                  <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
@@ -5251,34 +5281,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
   </resheader>
 </root>]]></ProjectItem>
                   <ProjectItem
-                    Name="Properties\Settings.Designer.cs"
-                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
-    "ings")]
-
-namespace ST_07d248db08094622a64e232747f2626e.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="ScriptMain.cs"
                     Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -5405,6 +5415,55 @@ namespace ST_07d248db08094622a64e232747f2626e
 	}
 }]]></ProjectItem>
                   <ProjectItem
+                    Name="Project"
+                    Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_2d7dcc8112254aa7894aa81762c7d2aa</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_2d7dcc8112254aa7894aa81762c7d2aa</msb:DisplayName>
+    <msb:ProjectId>{7F5FA170-3E33-4C86-B7E8-5C4FE52E76DC}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_2d7dcc8112254aa7894aa81762c7d2aa.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Settings.Designer.cs"
+                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
+    "ings")]
+
+namespace ST_07d248db08094622a64e232747f2626e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+                  <ProjectItem
                     Name="ST_2d7dcc8112254aa7894aa81762c7d2aa.csproj"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -5490,65 +5549,6 @@ namespace ST_07d248db08094622a64e232747f2626e
     </VisualStudio>
   </ProjectExtensions>
 </Project>]]></ProjectItem>
-                  <ProjectItem
-                    Name="Project"
-                    Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
-  <msb:PropertyGroup>
-    <msb:CodeName>ST_2d7dcc8112254aa7894aa81762c7d2aa</msb:CodeName>
-    <msb:Language>msBuild</msb:Language>
-    <msb:DisplayName>ST_2d7dcc8112254aa7894aa81762c7d2aa</msb:DisplayName>
-    <msb:ProjectId>{7F5FA170-3E33-4C86-B7E8-5C4FE52E76DC}</msb:ProjectId>
-  </msb:PropertyGroup>
-  <msb:ItemGroup>
-    <msb:Project Include="ST_2d7dcc8112254aa7894aa81762c7d2aa.csproj" />
-    <msb:File Include="Properties\Settings.settings" />
-    <msb:File Include="Properties\AssemblyInfo.cs" />
-    <msb:File Include="Properties\Resources.resx" />
-    <msb:File Include="Properties\Resources.Designer.cs" />
-    <msb:File Include="Properties\Settings.Designer.cs" />
-    <msb:File Include="ScriptMain.cs" />
-  </msb:ItemGroup>
-</c:Project>]]></ProjectItem>
-                  <ProjectItem
-                    Name="Properties\AssemblyInfo.cs"
-                    Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyCopyright("Copyright @  2018")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-                  <ProjectItem
-                    Name="Properties\Settings.settings"
-                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.Designer.cs"
                     Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -6919,14 +6919,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   Language="CSharp"
                   ReadWriteVariables="User::BlobFileName,User::FileDate,User::Budget_BlobFileName,User::day,User::month,User::TempWindowsDirectory,User::year">
                   <ProjectItem
-                    Name="Properties\Settings.settings"
-                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                    Name="Properties\AssemblyInfo.cs"
+                    Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyCopyright("Copyright @  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -7310,35 +7331,14 @@ namespace ST_07d248db08094622a64e232747f2626e.Properties {
     }
 }]]></ProjectItem>
                   <ProjectItem
-                    Name="Properties\AssemblyInfo.cs"
-                    Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyCopyright("Copyright @  2018")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.Designer.cs"
                     Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -9175,14 +9175,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   Language="CSharp"
                   ReadWriteVariables="User::BlobFileName,User::FileDate,User::BWC_BlobFileName,User::day,User::month,User::TempWindowsDirectory,User::year">
                   <ProjectItem
-                    Name="Properties\Settings.settings"
-                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                    Name="Properties\AssemblyInfo.cs"
+                    Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyCopyright("Copyright @  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -9575,35 +9596,14 @@ namespace ST_07d248db08094622a64e232747f2626e.Properties {
     }
 }]]></ProjectItem>
                   <ProjectItem
-                    Name="Properties\AssemblyInfo.cs"
-                    Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyCopyright("Copyright @  2018")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.Designer.cs"
                     Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -11314,6 +11314,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   Language="CSharp"
                   ReadWriteVariables="User::BlobFileName,User::FileDate,User::Budget_BlobFileName,User::day,User::month,User::NominalCodes_BlobFileName,User::TempWindowsDirectory,User::year">
                   <ProjectItem
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+                  <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
@@ -11432,35 +11441,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-                  <ProjectItem
-                    Name="Properties\Settings.Designer.cs"
-                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
-    "ings")]
-
-namespace ST_07d248db08094622a64e232747f2626e.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
                   <ProjectItem
                     Name="ST_e72e72127f514fdab866065f0db1e7ce.csproj"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -11694,6 +11674,35 @@ namespace ST_07d248db08094622a64e232747f2626e
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
                   <ProjectItem
+                    Name="Properties\Settings.Designer.cs"
+                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
+    "ings")]
+
+namespace ST_07d248db08094622a64e232747f2626e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+                  <ProjectItem
                     Name="Properties\AssemblyInfo.cs"
                     Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -11723,15 +11732,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-                  <ProjectItem
-                    Name="Properties\Settings.settings"
-                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.Designer.cs"
                     Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -13060,14 +13060,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   Language="CSharp"
                   ReadWriteVariables="User::BlobFileName,User::FileDate,User::day,User::month,User::TechHeadcount_BlobFileName,User::TempWindowsDirectory,User::year">
                   <ProjectItem
-                    Name="Properties\Settings.settings"
-                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                    Name="Properties\AssemblyInfo.cs"
+                    Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyCopyright("Copyright @  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -13187,92 +13208,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-                  <ProjectItem
-                    Name="ST_b6dce59f38394c20855aa00f2745b86c.csproj"
-                    Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{434d6f02-4805-41fb-827a-4d1c746f70b1}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ST_07d248db08094622a64e232747f2626e</RootNamespace>
-    <AssemblyName>ST_b6dce59f38394c20855aa00f2745b86c</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>.\bin\Debug\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DebugSymbols>false</DebugSymbols>
-    <Optimize>true</Optimize>
-    <OutputPath>.\bin\Release\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-  </ItemGroup>
-  <ItemGroup>
-    <AppDesigner Include="Properties\" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="ScriptMain.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <!-- Include the build rules for a C# project.-->
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
-        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
-        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
-        <ProjectClient>
-          <HostIdentifier>SSIS_ST140</HostIdentifier>
-        </ProjectClient>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-</Project>]]></ProjectItem>
                   <ProjectItem
                     Name="ScriptMain.cs"
                     Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -13405,85 +13340,6 @@ namespace ST_07d248db08094622a64e232747f2626e
 	}
 }]]></ProjectItem>
                   <ProjectItem
-                    Name="Project"
-                    Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
-  <msb:PropertyGroup>
-    <msb:CodeName>ST_b6dce59f38394c20855aa00f2745b86c</msb:CodeName>
-    <msb:Language>msBuild</msb:Language>
-    <msb:DisplayName>ST_b6dce59f38394c20855aa00f2745b86c</msb:DisplayName>
-    <msb:ProjectId>{D2D21BDB-9FCF-4452-9EAE-5754266861C7}</msb:ProjectId>
-  </msb:PropertyGroup>
-  <msb:ItemGroup>
-    <msb:Project Include="ST_b6dce59f38394c20855aa00f2745b86c.csproj" />
-    <msb:File Include="Properties\Settings.settings" />
-    <msb:File Include="Properties\AssemblyInfo.cs" />
-    <msb:File Include="Properties\Resources.resx" />
-    <msb:File Include="Properties\Resources.Designer.cs" />
-    <msb:File Include="Properties\Settings.Designer.cs" />
-    <msb:File Include="ScriptMain.cs" />
-  </msb:ItemGroup>
-</c:Project>]]></ProjectItem>
-                  <ProjectItem
-                    Name="Properties\Settings.Designer.cs"
-                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
-    "ings")]
-
-namespace ST_07d248db08094622a64e232747f2626e.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
-                  <ProjectItem
-                    Name="Properties\AssemblyInfo.cs"
-                    Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyCopyright("Copyright @  2018")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-                  <ProjectItem
                     Name="Properties\Resources.Designer.cs"
                     Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
 // <auto-generated>
@@ -13551,6 +13407,150 @@ namespace ST_07d248db08094622a64e232747f2626e.Properties {
         }
     }
 }]]></ProjectItem>
+                  <ProjectItem
+                    Name="Project"
+                    Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_b6dce59f38394c20855aa00f2745b86c</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_b6dce59f38394c20855aa00f2745b86c</msb:DisplayName>
+    <msb:ProjectId>{D2D21BDB-9FCF-4452-9EAE-5754266861C7}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_b6dce59f38394c20855aa00f2745b86c.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Settings.Designer.cs"
+                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
+    "ings")]
+
+namespace ST_07d248db08094622a64e232747f2626e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+                  <ProjectItem
+                    Name="ST_b6dce59f38394c20855aa00f2745b86c.csproj"
+                    Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{434d6f02-4805-41fb-827a-4d1c746f70b1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_07d248db08094622a64e232747f2626e</RootNamespace>
+    <AssemblyName>ST_b6dce59f38394c20855aa00f2745b86c</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
                   <BinaryItem
                     Name="ST_b6dce59f38394c20855aa00f2745b86c.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
@@ -14775,7 +14775,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   ConnectionId="{FB39C02A-7DBB-4A24-B493-69E4115091B8}"
                   BlobContainer="landing"
                   LocalDirectory="C:\Users\vamsi.bora\AppData\Local\Temp\"
-                  FileNameFilter="TechHours_20180925.csv"
+                  FileNameFilter="TechHours_20190218.csv"
                   TimeRangeFrom="01/01/1900 00:00:00 +01:00"
                   TimeRangeTo="31/12/2200 00:00:00 +01:00" />
               </DTS:ObjectData>
@@ -14814,36 +14814,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   VSTAMinorVersion="0"
                   Language="CSharp"
                   ReadWriteVariables="User::BlobFileName,User::FileDate,User::day,User::month,User::TechHours_BlobFileName,User::TempWindowsDirectory,User::year">
-                  <ProjectItem
-                    Name="Properties\AssemblyInfo.cs"
-                    Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyCopyright("Copyright @  2018")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -15050,6 +15020,35 @@ using System.Runtime.CompilerServices;
   </ProjectExtensions>
 </Project>]]></ProjectItem>
                   <ProjectItem
+                    Name="Properties\Settings.Designer.cs"
+                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
+    "ings")]
+
+namespace ST_07d248db08094622a64e232747f2626e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+                  <ProjectItem
                     Name="ScriptMain.cs"
                     Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
 /* The Script Task allows you to perform virtually any operation that can be accomplished in
@@ -15208,34 +15207,35 @@ namespace ST_07d248db08094622a64e232747f2626e
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
                   <ProjectItem
-                    Name="Properties\Settings.Designer.cs"
-                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
+                    Name="Properties\AssemblyInfo.cs"
+                    Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
 //
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyCopyright("Copyright @  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
 
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
-    "ings")]
-
-namespace ST_07d248db08094622a64e232747f2626e.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Settings.settings"
                     Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -15559,7 +15559,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
                               externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[Company]"
-                              length="500"
+                              length="50"
                               lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[Company]"
                               name="Company"
                               truncationRowDisposition="FailComponent">
@@ -15838,6 +15838,358 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                                   name="UseBinaryFormat">false</property>
                               </properties>
                             </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[ATF]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[ATF]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[ATF]"
+                              name="ATF"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[BRANC]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[BRANC]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[BRANC]"
+                              name="BRANC"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[CLKON]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[CLKON]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[CLKON]"
+                              name="CLKON"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[BREAK]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[BREAK]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[BREAK]"
+                              name="BREAK"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[CLKOF]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[CLKOF]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[CLKOF]"
+                              name="CLKOF"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[PARTS-1]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[PARTS-1]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[PARTS-1]"
+                              name="PARTS-1"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[CLEAN]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[CLEAN]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[CLEAN]"
+                              name="CLEAN"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[MAINT]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[MAINT]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[MAINT]"
+                              name="MAINT"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[H&amp;S]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[H&amp;S]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[H&amp;S]"
+                              name="H&amp;S"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[TRAIN]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[TRAIN]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[TRAIN]"
+                              name="TRAIN"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[TRAVE]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[TRAVE]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[TRAVE]"
+                              name="TRAVE"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[MOTA]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[MOTA]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[MOTA]"
+                              name="MOTA"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[MOTB]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[MOTB]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[MOTB]"
+                              name="MOTB"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[SRS]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[SRS]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[SRS]"
+                              name="SRS"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[HOLID]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[HOLID]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[HOLID]"
+                              name="HOLID"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[SICKP ]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[SICKP ]"
+                              length="50"
+                              lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[SICKP ]"
+                              name="SICKP "
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
                           </outputColumns>
                           <externalMetadataColumns
                             isUsed="True">
@@ -15845,7 +16197,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[Company]"
                               codePage="1252"
                               dataType="str"
-                              length="500"
+                              length="50"
                               name="Company" />
                             <externalMetadataColumn
                               refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[Technician]"
@@ -15919,6 +16271,102 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               dataType="str"
                               length="50"
                               name="APPRE" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[ATF]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="ATF" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[BRANC]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="BRANC" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[CLKON]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="CLKON" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[BREAK]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="BREAK" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[CLKOF]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="CLKOF" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[PARTS-1]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="PARTS-1" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[CLEAN]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="CLEAN" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[MAINT]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="MAINT" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[H&amp;S]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="H&amp;S" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[TRAIN]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="TRAIN" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[TRAVE]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="TRAVE" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[MOTA]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="MOTA" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[MOTB]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="MOTB" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[SRS]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="SRS" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[HOLID]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="HOLID" />
+                            <externalMetadataColumn
+                              refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].ExternalColumns[SICKP ]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="SICKP " />
                           </externalMetadataColumns>
                         </output>
                         <output
@@ -16061,7 +16509,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                               refId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Staging Utilization Stats.Inputs[OLE DB Destination Input].Columns[Company]"
                               cachedCodepage="1252"
                               cachedDataType="str"
-                              cachedLength="500"
+                              cachedLength="50"
                               cachedName="Company"
                               externalMetadataColumnId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Staging Utilization Stats.Inputs[OLE DB Destination Input].ExternalColumns[Company]"
                               lineageId="Package\Download data in TechHours file from blob to Staging database\Blob - Foreach TechHours File - Loop Container\Staging - Upload data from Tech Hours file in temp folder to staging TechHours table\Read Tech Hours from local file.Outputs[Flat File Source Output].Columns[Company]" />
@@ -16997,6 +17445,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   Language="CSharp"
                   ReadWriteVariables="User::BlobFileName,User::FileDate,User::day,User::month,User::TempWindowsDirectory,User::WorkingDaysInMonth_BlobFileName,User::year">
                   <ProjectItem
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+                  <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
@@ -17115,35 +17572,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-                  <ProjectItem
-                    Name="Properties\Settings.Designer.cs"
-                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
-    "ings")]
-
-namespace ST_07d248db08094622a64e232747f2626e.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
                   <ProjectItem
                     Name="ScriptMain.cs"
                     Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -17379,6 +17807,35 @@ namespace ST_07d248db08094622a64e232747f2626e
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
                   <ProjectItem
+                    Name="Properties\Settings.Designer.cs"
+                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
+    "ings")]
+
+namespace ST_07d248db08094622a64e232747f2626e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+                  <ProjectItem
                     Name="Properties\AssemblyInfo.cs"
                     Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -17408,15 +17865,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-                  <ProjectItem
-                    Name="Properties\Settings.settings"
-                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.Designer.cs"
                     Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -19326,14 +19774,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   Language="CSharp"
                   ReadWriteVariables="User::BlobFileName,User::FileDate,User::day,User::DOTY_BlobFileName,User::month,User::TempWindowsDirectory,User::year">
                   <ProjectItem
-                    Name="Properties\Settings.settings"
-                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                    Name="Properties\AssemblyInfo.cs"
+                    Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
+[assembly: AssemblyCopyright("Copyright @  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -19453,6 +19922,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Settings.Designer.cs"
+                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
+    "ings")]
+
+namespace ST_07d248db08094622a64e232747f2626e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
                   <ProjectItem
                     Name="ScriptMain.cs"
                     Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -19590,6 +20088,26 @@ namespace ST_07d248db08094622a64e232747f2626e
 	}
 }]]></ProjectItem>
                   <ProjectItem
+                    Name="Project"
+                    Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_ae70a533d284446e88704844a7a2de31</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_ae70a533d284446e88704844a7a2de31</msb:DisplayName>
+    <msb:ProjectId>{190E8C34-E9D1-439B-9A56-9625D507AB44}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_ae70a533d284446e88704844a7a2de31.csproj" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+                  <ProjectItem
                     Name="ST_ae70a533d284446e88704844a7a2de31.csproj"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -19676,84 +20194,14 @@ namespace ST_07d248db08094622a64e232747f2626e
   </ProjectExtensions>
 </Project>]]></ProjectItem>
                   <ProjectItem
-                    Name="Project"
-                    Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
-  <msb:PropertyGroup>
-    <msb:CodeName>ST_ae70a533d284446e88704844a7a2de31</msb:CodeName>
-    <msb:Language>msBuild</msb:Language>
-    <msb:DisplayName>ST_ae70a533d284446e88704844a7a2de31</msb:DisplayName>
-    <msb:ProjectId>{190E8C34-E9D1-439B-9A56-9625D507AB44}</msb:ProjectId>
-  </msb:PropertyGroup>
-  <msb:ItemGroup>
-    <msb:Project Include="ST_ae70a533d284446e88704844a7a2de31.csproj" />
-    <msb:File Include="Properties\Settings.Designer.cs" />
-    <msb:File Include="Properties\Settings.settings" />
-    <msb:File Include="Properties\AssemblyInfo.cs" />
-    <msb:File Include="Properties\Resources.resx" />
-    <msb:File Include="Properties\Resources.Designer.cs" />
-    <msb:File Include="ScriptMain.cs" />
-  </msb:ItemGroup>
-</c:Project>]]></ProjectItem>
-                  <ProjectItem
-                    Name="Properties\Settings.Designer.cs"
-                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_07d248db08094622a64e232747f2626e.Properties.Settings.get_Default():ST_07d248db08094622a64e232747f2626e.Properties.Sett" +
-    "ings")]
-
-namespace ST_07d248db08094622a64e232747f2626e.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
-                  <ProjectItem
-                    Name="Properties\AssemblyInfo.cs"
-                    Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_07d248db08094622a64e232747f2626e")]
-[assembly: AssemblyCopyright("Copyright @  2018")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.Designer.cs"
                     Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -22353,36 +22801,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           Language="CSharp"
           ReadWriteVariables="User::TempWindowsDirectory">
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_9c7891fd6e0f425cb136d051868df780")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_9c7891fd6e0f425cb136d051868df780")]
-[assembly: AssemblyCopyright("Copyright @  2018")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-          <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
@@ -22501,6 +22919,35 @@ using System.Runtime.CompilerServices;
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_9c7891fd6e0f425cb136d051868df780.Properties.Settings.get_Default():ST_9c7891fd6e0f425cb136d051868df780.Properties.Sett" +
+    "ings")]
+
+namespace ST_9c7891fd6e0f425cb136d051868df780.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -22638,34 +23085,35 @@ namespace ST_9c7891fd6e0f425cb136d051868df780
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
 //
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_9c7891fd6e0f425cb136d051868df780")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_9c7891fd6e0f425cb136d051868df780")]
+[assembly: AssemblyCopyright("Copyright @  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
 
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_9c7891fd6e0f425cb136d051868df780.Properties.Settings.get_Default():ST_9c7891fd6e0f425cb136d051868df780.Properties.Sett" +
-    "ings")]
-
-namespace ST_9c7891fd6e0f425cb136d051868df780.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="ST_2d881c58dada4c2eb9dbfc0d95f83746.csproj"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?><Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"><PropertyGroup><ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids><Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration><Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform><ProductVersion>8.0.30703</ProductVersion><SchemaVersion>2.0</SchemaVersion><ProjectGuid>{ee9e9f46-a5fc-45aa-8658-342a5e1103be}</ProjectGuid><OutputType>Library</OutputType><AppDesignerFolder>Properties</AppDesignerFolder><RootNamespace>ST_9c7891fd6e0f425cb136d051868df780</RootNamespace><AssemblyName>ST_2d881c58dada4c2eb9dbfc0d95f83746</AssemblyName><TargetFrameworkVersion>v4.5</TargetFrameworkVersion><FileAlignment>512</FileAlignment><ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch><TargetFrameworkProfile></TargetFrameworkProfile></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><DebugSymbols>true</DebugSymbols><DebugType>full</DebugType><Optimize>false</Optimize><OutputPath>.\bin\Debug\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>DEBUG;TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Release' "><DebugSymbols>false</DebugSymbols><Optimize>true</Optimize><OutputPath>.\bin\Release\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><ItemGroup><Reference Include="System" /><Reference Include="System.Data" /><Reference Include="System.Windows.Forms" /><Reference Include="System.Xml" /><Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /><Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /></ItemGroup><ItemGroup><AppDesigner Include="Properties\" /><Compile Include="Properties\AssemblyInfo.cs"><SubType>Code</SubType></Compile><EmbeddedResource Include="Properties\Resources.resx"><Generator>ResXFileCodeGenerator</Generator><LastGenOutput>Resources.Designer.cs</LastGenOutput></EmbeddedResource><Compile Include="Properties\Resources.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Resources.resx</DependentUpon></Compile><None Include="Properties\Settings.settings"><Generator>SettingsSingleFileGenerator</Generator><LastGenOutput>Settings.Designer.cs</LastGenOutput></None><Compile Include="Properties\Settings.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Settings.settings</DependentUpon></Compile><Compile Include="ScriptMain.cs"><SubType>Code</SubType></Compile></ItemGroup><!-- Include the build rules for a C# project.--><Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" /><ProjectExtensions><VisualStudio><FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}"><ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" /><Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host><ProjectClient><HostIdentifier>SSIS_ST140</HostIdentifier></ProjectClient></FlavorProperties></VisualStudio></ProjectExtensions></Project>]]></ProjectItem>
@@ -26733,10 +27181,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="190.4,41.6"
-          Id="Package\Download data in BodyshopHours file from blob to Staging database\Blob - Foreach BodyshopHours File - Loop Container\Staging - Upload data from Bodyshop Hours file in temp folder to staging TechHours table\Staging BodyshopHours"
-          TopLeft="374.285720659762,262.44706250425" />
-        <NodeLayout
           Size="248.8,41.6"
           Id="Package\Download data in BodyshopHours file from blob to Staging database\Blob - Foreach BodyshopHours File - Loop Container\Staging - Upload data from Bodyshop Hours file in temp folder to staging TechHours table\Read Bodyshop Hours from local file"
           TopLeft="158.057145562464,90.9647071693183" />
@@ -26748,6 +27192,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Size="141.6,41.6"
           Id="Package\Download data in BodyshopHours file from blob to Staging database\Blob - Foreach BodyshopHours File - Loop Container\Staging - Upload data from Bodyshop Hours file in temp folder to staging TechHours table\Add File Date"
           TopLeft="191.428574688581,196.376473342341" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\Download data in BodyshopHours file from blob to Staging database\Blob - Foreach BodyshopHours File - Loop Container\Staging - Upload data from Bodyshop Hours file in temp folder to staging TechHours table\Staging BodyshopHours"
+          TopLeft="374.285720659762,262.44706250425" />
         <EdgeLayout
           Id="Package\Download data in BodyshopHours file from blob to Staging database\Blob - Foreach BodyshopHours File - Loop Container\Staging - Upload data from Bodyshop Hours file in temp folder to staging TechHours table.Paths[Row Count Output 1]"
           TopLeft="445.942863633681,228.988236744099">
