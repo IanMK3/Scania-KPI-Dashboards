@@ -435,12 +435,12 @@
             "name": "Date",
             "dataType": "dateTime",
             "sourceColumn": "Date",
-            "formatString": "Short Date",
+            "formatString": "dd/MM/yyyy",
             "sourceProviderType": "DBDate",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
           },
@@ -3655,10 +3655,6 @@
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
-            "name": "Doc Report",
-            "expression": "\"Doc Reports\""
-          },
-          {
             "name": "Working Days Left In Month",
             "expression": "CALCULATE([WorkdaysInMonth])-[ElapsedWorkingDaysInMonth]"
           },
@@ -3694,6 +3690,21 @@
           {
             "name": "Sales Against Total Budget Format",
             "expression": "SWITCH(TRUE(),[Sales Against Total Budget]>=[Target Marker],1,0)"
+          },
+          {
+            "name": "PartsSalesMargin%Format",
+            "expression": "SWITCH(TRUE(),[PartsSalesMargin %]>=DIVIDE([Parts Margin Flx Budget],[Parts Sales FlxBudget]),1,0)"
+          },
+          {
+            "name": "Report Date",
+            "expression": "TODAY()-1",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "annotations": [
@@ -4320,6 +4331,10 @@
           {
             "name": "FrontCounterSales Against FlxBudget Format",
             "expression": "SWITCH(TRUE(),[FrontCounterSalesPerformanceAgainstFxBudget]>=1,1,0)"
+          },
+          {
+            "name": "Back CounterSales Against FlxBudget Format",
+            "expression": "SWITCH(TRUE(),[BackCounterSalesPerformanceAgaistFlxBudget]>=1,1,0)"
           }
         ],
         "annotations": [
