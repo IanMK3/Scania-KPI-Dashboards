@@ -3579,10 +3579,6 @@
             "expression": "SWITCH(TRUE(),[FrontCounterSales]>=[FrontCounterSalesFlxBudget],1,0)"
           },
           {
-            "name": "Doc Summary",
-            "expression": "\"SALES SUMMARY\""
-          },
-          {
             "name": "Front Counter Sales Performance Against Front Counter Budget %",
             "expression": "0+((DIVIDE([FrontCounterSales],[FrontCounterSalesBudget])))",
             "formatString": "0.0%;-0.0%;0.0%"
@@ -3705,6 +3701,35 @@
                 "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
               }
             ]
+          },
+          {
+            "name": "Amount Per Day",
+            "expression": "0+DIVIDE([TurnOverToDoBudget],[Working Days Left In Month])"
+          },
+          {
+            "name": "Labour Sales vs Budget",
+            "expression": "0+DIVIDE([LabourSales],[LabourSalesBudget])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Labour Sales vs Flx Budget",
+            "expression": "0+DIVIDE([LabourSales],[LabourSalesFlxBudget])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Other Sales vs Flx Budget",
+            "expression": "0+DIVIDE([OtherSales],[OtherSalesFlxBudget])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Other Sales vs Budget",
+            "expression": "0+DIVIDE([OtherSales],[OtherSalesBudget])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Labour Margin % Target",
+            "expression": "DIVIDE([LabourSalesMarginFlxBudget],[LabourSalesFlxBudget])",
+            "formatString": "0.0%;-0.0%;0.0%"
           }
         ],
         "annotations": [
@@ -4238,7 +4263,7 @@
           },
           {
             "name": "TurnOverToDoBudget",
-            "expression": "0+[PartsSales]-[PartsBudget]",
+            "expression": "(0+[PartsSales]-[PartsBudget])*(-1)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -4335,6 +4360,50 @@
           {
             "name": "Back CounterSales Against FlxBudget Format",
             "expression": "SWITCH(TRUE(),[BackCounterSalesPerformanceAgaistFlxBudget]>=1,1,0)"
+          },
+          {
+            "name": "Labour To Do Budget",
+            "expression": "0+[LabourSales]-[LabourSalesBudget]",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Other Sales To Do Budget",
+            "expression": "0+[OtherSales]-[OtherSalesBudget]",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Labour Sales Needed",
+            "expression": "0+CALCULATE(DIVIDE([LabourSalesBudget]-[LabourSales],[WorkdaysInMonth]-[ElapsedWorkingDaysInMonth]))",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Other Sales Needed",
+            "expression": "0+CALCULATE(DIVIDE([OtherSalesBudget]-[OtherSales],[WorkdaysInMonth]-[ElapsedWorkingDaysInMonth]))",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           }
         ],
         "annotations": [
@@ -25949,6 +26018,10 @@
             "name": "Copy of Produced Hours Last Year",
             "expression": "0+CALCULATE(TechnicianHours[Technician Produced Hours],all('Date'[Date]),month('Date'[Date])=month(TODAY()) && year('Date'[Date])=YEAR(TODAY())-1)",
             "formatString": "#,0"
+          },
+          {
+            "name": "Workshop Sold Hours Format",
+            "expression": "SWITCH(TRUE(),DepotHours[Depot Sold Hours]>=[Sold Hours Budget],1,0)"
           }
         ],
         "annotations": [
