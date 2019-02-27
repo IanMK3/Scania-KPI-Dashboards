@@ -3730,6 +3730,21 @@
             "name": "Labour Margin % Target",
             "expression": "DIVIDE([LabourSalesMarginFlxBudget],[LabourSalesFlxBudget])",
             "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Labour Sales Combined",
+            "expression": "[LabourSales]+[OtherSales]",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Go To Daily Doc",
+            "expression": "\"Click to\""
           }
         ],
         "annotations": [
@@ -4397,6 +4412,17 @@
           {
             "name": "Other Sales Needed",
             "expression": "0+CALCULATE(DIVIDE([OtherSalesBudget]-[OtherSales],[WorkdaysInMonth]-[ElapsedWorkingDaysInMonth]))",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Labour Sales Budget Combined",
+            "expression": "[LabourSalesBudget]+[OtherSalesBudget]",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -5308,6 +5334,22 @@
             "name": "BranchId",
             "dataType": "int64",
             "sourceColumn": "BranchId"
+          },
+          {
+            "type": "calculated",
+            "name": "Depot Copy",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "expression": "'Region-Depot-Branch'[Depot]"
+          },
+          {
+            "type": "calculated",
+            "name": "Depot Copy1",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "expression": "'Region-Depot-Branch'[Depot]"
           }
         ],
         "partitions": [
@@ -5334,6 +5376,10 @@
           {
             "name": "Selected Depot Doc",
             "expression": "IF(ISFILTERED('Region-Depot-Branch'[Depot]),SELECTEDVALUE('Region-Depot-Branch'[Depot]),\"All Depots\")"
+          },
+          {
+            "name": "Selected Region SGB",
+            "expression": "IF(ISFILTERED('Region-Depot-Branch'[Region]),SELECTEDVALUE('Region-Depot-Branch'[Region]),\"SGB\")"
           }
         ],
         "hierarchies": [
@@ -6029,7 +6075,7 @@
         "measures": [
           {
             "name": "ObsolescenceBudget",
-            "expression": "CALCULATE(SUM(Budget[Budget]),NominalCode[Nominal Category]=\"Obsolesence\")",
+            "expression": "0+CALCULATE(SUM(Budget[Budget]),NominalCode[Nominal Category]=\"Obsolesence\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -6040,7 +6086,7 @@
           },
           {
             "name": "Stock Adjustment Budget",
-            "expression": "CALCULATE(SUM(Budget[Budget]),NominalCode[Nominal Category]=\"Stock Adjustment\")",
+            "expression": "0+CALCULATE(SUM(Budget[Budget]),NominalCode[Nominal Category]=\"Stock Adjustment\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -6051,7 +6097,7 @@
           },
           {
             "name": "Stock Adjustment Value",
-            "expression": "CALCULATE(SUM(CurrentObsolescence[Stock Value]))",
+            "expression": "0+CALCULATE(SUM(CurrentObsolescence[Stock Value]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -6062,7 +6108,7 @@
           },
           {
             "name": "ObsolescenceValue",
-            "expression": "CALCULATE(SUM(CurrentObsolescence[Obsolescence Value]))",
+            "expression": "0+CALCULATE(SUM(CurrentObsolescence[Obsolescence Value]))",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -27183,6 +27229,16 @@
           {
             "name": "Depot",
             "filterExpression": "Depot[Depot]=\"Swindon\""
+          }
+        ]
+      },
+      {
+        "name": "SW_Andover",
+        "modelPermission": "read",
+        "tablePermissions": [
+          {
+            "name": "Depot",
+            "filterExpression": "Depot[Depot]=\"Andover\""
           }
         ]
       }
