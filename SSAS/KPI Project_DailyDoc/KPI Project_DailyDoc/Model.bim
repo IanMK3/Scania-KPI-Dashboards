@@ -3744,7 +3744,7 @@
           },
           {
             "name": "Go To Daily Doc",
-            "expression": "\"Click to\""
+            "expression": "\"Click on areas below for details or you can go to :\""
           }
         ],
         "annotations": [
@@ -20723,6 +20723,19 @@
             "name": "Contact Changed",
             "dataType": "string",
             "sourceColumn": "Contact Changed"
+          },
+          {
+            "name": "Rolling Month Sort",
+            "dataType": "int64",
+            "sourceColumn": "Rolling Month Sort"
+          },
+          {
+            "type": "calculated",
+            "name": "Question Filter",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "IF(OR('vw CSI New Sales'[Question]=\"Overall performance\",'vw CSI New Sales'[Question]=\"Recommendation\"),FALSE(),IF('vw CSI New Sales'[Question]=\"Repurchase\",FALSE(),TRUE()))",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
           }
         ],
         "partitions": [
@@ -21042,6 +21055,14 @@
                   "        <int>114</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Rolling Month Sort</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>117</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnWidths>",
                   "  <ColumnDisplayIndex>",
                   "    <item>",
@@ -21340,6 +21361,14 @@
                   "        <int>36</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Rolling Month Sort</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>37</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnDisplayIndex>",
                   "  <ColumnFrozen />",
                   "  <ColumnChecked>",
@@ -21503,6 +21532,14 @@
                   "        <boolean>true</boolean>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Rolling Month Sort</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnChecked>",
                   "  <ColumnFilter />",
                   "  <SelectionFilter />",
@@ -21526,7 +21563,7 @@
           },
           {
             "name": "New Sales Index",
-            "expression": "0+CALCULATE(AVERAGE('vw CSI New Sales'[Index]),'vw CSI New Sales'[Index]<>0)",
+            "expression": "0+CALCULATE(AVERAGE('vw CSI New Sales'[Index]),'vw CSI New Sales'[Points TxT filter]=\"TRUE\")",
             "formatString": "0.0"
           },
           {
@@ -21785,6 +21822,102 @@
           {
             "name": "Completed New Sales Survey Graph",
             "expression": "CALCULATE([New Sales Sample Size],'vw CSI New Sales'[Survey Completed Y/N]=\"Y\",'vw CSI Finance'[Points TxT filter]=\"TRUE\")"
+          },
+          {
+            "name": "New Sales Index 2",
+            "expression": "0+CALCULATE(AVERAGE('vw CSI New Sales'[Index]),'vw CSI New Sales'[Points TxT filter]=\"TRUE\",'vw CSI New Sales'[Question Filter]=TRUE())",
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI New Sales Index (Card 2)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected New Sales Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [New Sales Index 2],",
+              "        'vw CSI New Sales'[NewSales YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected New Sales Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "         [New Sales Index 2],",
+              "           'vw CSI New Sales'[NewSales PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected New Sales Period] = \"Month To Date\",",
+              "            CALCULATE (",
+              "               [New Sales Index 2],",
+              "               'vw CSI New Sales'[NewSales MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected New Sales Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                     [New Sales Index 2],",
+              "                  'vw CSI New Sales'[NewSales Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected New Sales Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [New Sales Index 2],",
+              "                      'vw CSI New Sales'[NewSales LY] = TRUE ()",
+              "                    ),",
+              "                      [New Sales Index 2]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "0.0"
+          },
+          {
+            "name": "New Sales Index 2(Table)",
+            "expression": "CALCULATE(AVERAGE('vw CSI New Sales'[Index]),'vw CSI New Sales'[Points TxT filter]=\"TRUE\",'vw CSI New Sales'[Question Filter]=TRUE())",
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI New Sales Index 2(Table)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected New Sales Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [New Sales Index 2(Table)],",
+              "        'vw CSI New Sales'[NewSales YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected New Sales Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "         [New Sales Index 2(Table)],",
+              "           'vw CSI New Sales'[NewSales PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected New Sales Period] = \"Month To Date\",",
+              "            CALCULATE (",
+              "               [New Sales Index 2(Table)],",
+              "               'vw CSI New Sales'[NewSales MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected New Sales Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                     [New Sales Index 2(Table)],",
+              "                  'vw CSI New Sales'[NewSales Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected New Sales Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [New Sales Index 2(Table)],",
+              "                      'vw CSI New Sales'[NewSales LY] = TRUE ()",
+              "                    ),",
+              "                      [New Sales Index 2(Table)]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "0.0"
           }
         ],
         "annotations": [
@@ -22108,6 +22241,14 @@
               "        <int>114</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Rolling Month Sort</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>117</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnWidths>",
               "  <ColumnDisplayIndex>",
               "    <item>",
@@ -22406,6 +22547,14 @@
               "        <int>36</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Rolling Month Sort</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>37</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnDisplayIndex>",
               "  <ColumnFrozen />",
               "  <ColumnChecked>",
@@ -22564,6 +22713,14 @@
               "    <item>",
               "      <key>",
               "        <string>Contact Changed</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Rolling Month Sort</string>",
               "      </key>",
               "      <value>",
               "        <boolean>true</boolean>",
@@ -22873,6 +23030,37 @@
             "name": "Contact Changed",
             "dataType": "string",
             "sourceColumn": "Contact Changed"
+          },
+          {
+            "type": "calculated",
+            "name": "Months In Past",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "  Var MaxDate = MAX('vw CSI Service'[Interaction Date])",
+              " rETURN",
+              "      IF (",
+              "            'vw CSI Service'[Interaction Date] <= MaxDate",
+              "           , DATEDIFF ('vw CSI Service'[Interaction Date],MaxDate, MONTH )",
+              ", -1",
+              "      )"
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "Question Filter",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "IF(OR('vw CSI Service'[Question]=\"Overall performance\",'vw CSI Service'[Question]=\"Recommendation\"),FALSE(),TRUE())",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Month Name",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "'vw CSI Service'[Month]"
           }
         ],
         "partitions": [
@@ -23676,7 +23864,7 @@
           },
           {
             "name": "Service Index",
-            "expression": "CALCULATE(AVERAGE('vw CSI Service'[Index]),'vw CSI Service'[Index]<>0)",
+            "expression": "CALCULATE(AVERAGE('vw CSI Service'[Index]),'vw CSI Service'[Points TxT filter]=\"TRUE\")",
             "formatString": "0.0"
           },
           {
@@ -23860,7 +24048,7 @@
           },
           {
             "name": "Fixed First Visit %",
-            "expression": "DIVIDE(CALCULATE('vw CSI Service'[Service Sample Size],'vw CSI Service'[Question]=\"Fixed first visit (Yes/No)\",'vw CSI Service'[Points]=\"Yes\"),'vw CSI Service'[Service Sample Size])",
+            "expression": "0+DIVIDE(CALCULATE('vw CSI Service'[Service Sample Size],'vw CSI Service'[Question]=\"Fixed first visit (Yes/No)\",'vw CSI Service'[Points]=\"Yes\"),'vw CSI Service'[Service Sample Size])",
             "formatString": "0.0%;-0.0%;0.0%"
           },
           {
@@ -23888,6 +24076,92 @@
             "name": "Service Index Colour",
             "expression": "CALCULATE(AVERAGE('vw CSI Service'[Index]))",
             "formatString": "0"
+          },
+          {
+            "name": "Service Index 2",
+            "expression": "0+CALCULATE(AVERAGE('vw CSI Service'[Index]),'vw CSI Service'[Points TxT filter]=\"TRUE\",'vw CSI Service'[Question Filter]=TRUE())",
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI Service Index (Card 2)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Service Period] = \"Year To Date\",",
+              "    CALCULATE ( 'vw CSI Service'[Service Index 2], 'vw CSI Service'[Service YTD] = TRUE () ),",
+              "    IF (",
+              "        [Selected Service Period] = \"Previous Month\",",
+              "        CALCULATE (",
+              "            [Service Index 2],",
+              "            'vw CSI Service'[Service PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Service Period] = \"Month To Date\",",
+              "            CALCULATE ( 'vw CSI Service'[Service Index 2], 'vw CSI Service'[Service MTD]=TRUE () ),",
+              "            IF (",
+              "                [Selected Service Period] = \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Service Index 2],",
+              "                    'vw CSI Service'[Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                     [Selected Service Period] = \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [Service Index 2],",
+              "                        'vw CSI Service'[Service LY] = TRUE ()",
+              "                    ),",
+              "                    [Service Index 2]",
+              "            )",
+              "        )",
+              "    )",
+              ")",
+              "",
+              ")"
+            ],
+            "formatString": "0.0"
+          },
+          {
+            "name": "Service Index 2(table)",
+            "expression": "CALCULATE(AVERAGE('vw CSI Service'[Index]),'vw CSI Service'[Points TxT filter]=\"TRUE\",'vw CSI Service'[Question Filter]=TRUE())",
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI Service Index 2(Table)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Service Period] = \"Year To Date\",",
+              "    CALCULATE ( 'vw CSI Service'[Service Index 2(table)], 'vw CSI Service'[Service YTD] = TRUE () ),",
+              "    IF (",
+              "        [Selected Service Period] = \"Previous Month\",",
+              "        CALCULATE (",
+              "            [Service Index 2(table)],",
+              "            'vw CSI Service'[Service PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Service Period] = \"Month To Date\",",
+              "            CALCULATE ( 'vw CSI Service'[Service Index 2(table)], 'vw CSI Service'[Service MTD]=TRUE () ),",
+              "            IF (",
+              "                [Selected Service Period] = \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Service Index 2(table)],",
+              "                    'vw CSI Service'[Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                     [Selected Service Period] = \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [Service Index 2(table)],",
+              "                        'vw CSI Service'[Service LY] = TRUE ()",
+              "                    ),",
+              "                    [Service Index 2(table)]",
+              "            )",
+              "        )",
+              "    )",
+              ")",
+              "",
+              ")"
+            ],
+            "formatString": "0.0"
           }
         ],
         "annotations": [
