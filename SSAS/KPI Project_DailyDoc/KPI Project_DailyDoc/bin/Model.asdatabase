@@ -18966,18 +18966,6 @@
             "sourceProviderType": "Char"
           },
           {
-            "type": "calculated",
-            "name": "Month Status",
-            "dataType": "string",
-            "isDataTypeInferred": true,
-            "expression": [
-              "",
-              "                            VAR MAXDATE =MAX('vw_MOT Pass Rate Report Trucks'[Date])",
-              "                                    RETURN",
-              "                                                       SWITCH(TRUE(),'vw_MOT Pass Rate Report Trucks'[Date]=MAXDATE,\"Last Report Month\",[Month Name])"
-            ]
-          },
-          {
             "name": "Vehicle Type",
             "dataType": "string",
             "sourceColumn": "Vehicle Type"
@@ -19073,6 +19061,18 @@
             "name": "Depot ID",
             "dataType": "int64",
             "sourceColumn": "Depot ID"
+          },
+          {
+            "type": "calculated",
+            "name": "Last Report Month Filter",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "IF('vw_MOT Pass Rate Report Trucks'[MOT LastReportMonth]=TRUE(),'vw_MOT Pass Rate Report Trucks'[Month Name],\"FALSE\")"
+          },
+          {
+            "name": "MOT ID",
+            "dataType": "int64",
+            "sourceColumn": "MOT ID"
           }
         ],
         "partitions": [
@@ -19256,6 +19256,14 @@
                   "        <int>73</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MOT ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>66</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnWidths>",
                   "  <ColumnDisplayIndex>",
                   "    <item>",
@@ -19418,6 +19426,14 @@
                   "        <int>19</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MOT ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>20</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnDisplayIndex>",
                   "  <ColumnFrozen />",
                   "  <ColumnChecked>",
@@ -19488,6 +19504,14 @@
                   "    <item>",
                   "      <key>",
                   "        <string>Depot ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MOT ID</string>",
                   "      </key>",
                   "      <value>",
                   "        <boolean>true</boolean>",
@@ -19578,10 +19602,6 @@
             "formatString": "#,0"
           },
           {
-            "name": "Reporting Period",
-            "expression": "IF(SELECTEDVALUE('CSI Time Intelligence'[MOT Period])=\"Last Report Month\",SELECTEDVALUE('vw_MOT Pass Rate Report Trucks'[Month Name]),IF(ISFILTERED('CSI Time Intelligence'[MOT Period]),SELECTEDVALUE('CSI Time Intelligence'[MOT Period]),\"All Periods\"))"
-          },
-          {
             "name": "Selected MOT Period",
             "expression": "SELECTEDVALUE('CSI Time Intelligence'[MOT Period])"
           },
@@ -19615,18 +19635,29 @@
             ]
           },
           {
-            "name": "Selected MonthName",
-            "expression": "SELECTEDVALUE('vw_MOT Pass Rate Report Trucks'[Month Name])"
-          },
-          {
-            "name": "Copy of Reporting Period",
+            "name": "Reporting Period",
             "expression": [
               "",
-              "IF([Selected MOT Period]=\"Last Year\",\"Last Year\",",
-              "IF([Selected MOT Period]=\"Month To Date\",\"Month To Date\",",
-              "IF([Selected MOT Period]=\"Rolling 12 Months\",\"Rolling 12 Months\",",
-              "IF([Selected MOT Period]=\"Year To Date\",\"Year To Date\",",
-              "IF([Selected MOT Period]=\"Last Report Month\",SELECTEDVALUE('vw_MOT Pass Rate Report Trucks'[Month Name]),\"All Periods\")))))"
+              "IF (",
+              "    [Selected MOT Period] = \"Last Report Month\",",
+              "    FILTER (",
+              "        DISTINCT ( 'vw_MOT Pass Rate Report Trucks'[Last Report Month Filter] ),",
+              "        'vw_MOT Pass Rate Report Trucks'[Last Report Month Filter] <> \"FALSE\"",
+              "    ),",
+              "    IF (",
+              "        [Selected MOT Period] = \"Last Year\",",
+              "        [Selected MOT Period],",
+              "        IF (",
+              "            [Selected MOT Period] = \"Rolling 12 Months\",",
+              "            [Selected MOT Period],",
+              "            IF (",
+              "                [Selected MOT Period] = \"Year To Date\",",
+              "                [Selected MOT Period],",
+              "                \"All Periods\"",
+              "            )",
+              "        )",
+              "    )",
+              ")"
             ]
           }
         ],
@@ -19815,6 +19846,14 @@
               "        <int>73</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MOT ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>66</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnWidths>",
               "  <ColumnDisplayIndex>",
               "    <item>",
@@ -19977,6 +20016,14 @@
               "        <int>19</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MOT ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>20</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnDisplayIndex>",
               "  <ColumnFrozen />",
               "  <ColumnChecked>",
@@ -20047,6 +20094,14 @@
               "    <item>",
               "      <key>",
               "        <string>Depot ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MOT ID</string>",
               "      </key>",
               "      <value>",
               "        <boolean>true</boolean>",
