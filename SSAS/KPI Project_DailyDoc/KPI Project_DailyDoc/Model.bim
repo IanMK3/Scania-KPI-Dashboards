@@ -5777,6 +5777,35 @@
           {
             "name": "Current WIP Format",
             "expression": "SWITCH(TRUE(),CurrentWIP[Current WIP]>=CurrentWIP[WIP Target],1,0)"
+          },
+          {
+            "name": "BS1",
+            "expression": [
+              "IF(CALCULATE([WIP Days],TechnicianHours[Category]=\"Bodyshop\")<=5,2,0)",
+              "        "
+            ]
+          },
+          {
+            "name": "WS1",
+            "expression": [
+              "IF(CALCULATE([WIP Days],TechnicianHours[Category]=\"Workshop\")<=3,1,0)",
+              "        "
+            ]
+          },
+          {
+            "name": "WS2",
+            "expression": "IF(CALCULATE([WIP Days],TechnicianHours[Category]=\"Workshop\")>3,4,0)"
+          },
+          {
+            "name": "BS2",
+            "expression": [
+              "IF(CALCULATE([WIP Days],TechnicianHours[Category]=\"Bodyshop\")>5,3,0)",
+              "        "
+            ]
+          },
+          {
+            "name": "State Measure",
+            "expression": "IF([WIP Days]=[BS1],1,IF([WIP Days]=[WS1],2,IF([WIP Days]=[BS2],3,IF(CurrentWIP[WIP Days]=[WS2],4,0))))"
           }
         ],
         "annotations": [
@@ -22851,7 +22880,7 @@
           },
           {
             "name": "Year",
-            "dataType": "string",
+            "dataType": "int64",
             "sourceColumn": "Year",
             "sourceProviderType": "Integer"
           },
@@ -23033,22 +23062,6 @@
           },
           {
             "type": "calculated",
-            "name": "Months In Past",
-            "dataType": "int64",
-            "isDataTypeInferred": true,
-            "expression": [
-              "",
-              "  Var MaxDate = MAX('vw CSI Service'[Interaction Date])",
-              " rETURN",
-              "      IF (",
-              "            'vw CSI Service'[Interaction Date] <= MaxDate",
-              "           , DATEDIFF ('vw CSI Service'[Interaction Date],MaxDate, MONTH )",
-              ", -1",
-              "      )"
-            ]
-          },
-          {
-            "type": "calculated",
             "name": "Question Filter",
             "dataType": "boolean",
             "isDataTypeInferred": true,
@@ -23058,9 +23071,46 @@
           {
             "type": "calculated",
             "name": "Month Name",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "     VAR MaxDate = MAX('vw CSI Service'[Interaction Date])",
+              "       RETURN",
+              "          IF('vw CSI Service'[Year]=YEAR(MaxDate)&&MONTH('vw CSI Service'[Interaction Date])=MONTH(MaxDate),24,",
+              " IF('vw CSI Service'[Year]=YEAR(MaxDate)&&MONTH('vw CSI Service'[Interaction Date])=MONTH(MaxDate)-1,23,",
+              " IF('vw CSI Service'[Year]=YEAR(MaxDate)&&MONTH('vw CSI Service'[Interaction Date])=MONTH(MaxDate)-2,22,",
+              " IF('vw CSI Service'[Year]=YEAR(MaxDate)&&MONTH('vw CSI Service'[Interaction Date])=MONTH(MaxDate)-3,21,",
+              " IF('vw CSI Service'[Year]=YEAR(MaxDate)&&MONTH('vw CSI Service'[Interaction Date])=MONTH(MaxDate)-4,20,",
+              " IF('vw CSI Service'[Year]=YEAR(MaxDate)&&MONTH('vw CSI Service'[Interaction Date])=MONTH(MaxDate)-5,19,",
+              " IF('vw CSI Service'[Year]=YEAR(MaxDate)&&MONTH('vw CSI Service'[Interaction Date])=MONTH(MaxDate)-6,18,",
+              " IF('vw CSI Service'[Year]=YEAR(MaxDate)&&MONTH('vw CSI Service'[Interaction Date])=MONTH(MaxDate)-7,17,",
+              " IF('vw CSI Service'[Year]=YEAR(MaxDate)&&MONTH('vw CSI Service'[Interaction Date])=MONTH(MaxDate)-8,16,",
+              " IF('vw CSI Service'[Year]=YEAR(MaxDate)&&MONTH('vw CSI Service'[Interaction Date])=MONTH(MaxDate)-9,15,",
+              " IF('vw CSI Service'[Year]=YEAR(MaxDate)&&MONTH('vw CSI Service'[Interaction Date])=MONTH(MaxDate)-10,14,",
+              " IF('vw CSI Service'[Year]=YEAR(MaxDate)&&MONTH('vw CSI Service'[Interaction Date])=MONTH(MaxDate)-11,13,",
+              " IF('vw CSI Service'[Year]=YEAR(MaxDate)-1&&MONTH('vw CSI Service'[Interaction Date])=MONTH(MaxDate),12,",
+              "IF('vw CSI Service'[Year]=YEAR(MaxDate)-1&&MONTH('vw CSI Service'[Interaction Date])-1=MONTH(MaxDate),11,",
+              "IF('vw CSI Service'[Year]=YEAR(MaxDate)-1&&MONTH('vw CSI Service'[Interaction Date])-2=MONTH(MaxDate),10,",
+              "IF('vw CSI Service'[Year]=YEAR(MaxDate)-1&&MONTH('vw CSI Service'[Interaction Date])-3=MONTH(MaxDate),9,",
+              "IF('vw CSI Service'[Year]=YEAR(MaxDate)-1&&MONTH('vw CSI Service'[Interaction Date])-4=MONTH(MaxDate),8,",
+              "IF('vw CSI Service'[Year]=YEAR(MaxDate)-1&&MONTH('vw CSI Service'[Interaction Date])-5=MONTH(MaxDate),7,",
+              "IF('vw CSI Service'[Year]=YEAR(MaxDate)-1&&MONTH('vw CSI Service'[Interaction Date])-6=MONTH(MaxDate),6,",
+              "IF('vw CSI Service'[Year]=YEAR(MaxDate)-1&&MONTH('vw CSI Service'[Interaction Date])-7=MONTH(MaxDate),5,",
+              "IF('vw CSI Service'[Year]=YEAR(MaxDate)-1&&MONTH('vw CSI Service'[Interaction Date])-8=MONTH(MaxDate),4,",
+              "IF('vw CSI Service'[Year]=YEAR(MaxDate)-1&&MONTH('vw CSI Service'[Interaction Date])-9=MONTH(MaxDate),3,",
+              "IF('vw CSI Service'[Year]=YEAR(MaxDate)-1&&MONTH('vw CSI Service'[Interaction Date])-10=MONTH(MaxDate),2,",
+              "IF('vw CSI Service'[Year]=YEAR(MaxDate)-1&&MONTH('vw CSI Service'[Interaction Date])-11=MONTH(MaxDate),1,",
+              "25))))))))))))))))))))))))"
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "Question Copy",
             "dataType": "string",
             "isDataTypeInferred": true,
-            "expression": "'vw CSI Service'[Month]"
+            "expression": "'vw CSI Service'[Question]",
+            "sortByColumn": "Question ID"
           }
         ],
         "partitions": [
@@ -24162,6 +24212,73 @@
               ")"
             ],
             "formatString": "0.0"
+          },
+          {
+            "name": "Completed Service Survey  (Graph) 1",
+            "expression": "0+CALCULATE('vw CSI Service'[Service Sample Size],'vw CSI Service'[Survey Completed Yes/No]=\"Y\",'vw CSI Service'[Points TxT filter]=\"TRUE\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Copy of Service Index",
+            "expression": "DIVIDE(CALCULATE(SUM('vw CSI Service'[Index]),'vw CSI Service'[Points TxT filter]=\"TRUE\",'vw CSI Service'[Rollin 12 Months]=TRUE(),DATESINPERIOD('vw CSI Service'[Interaction Date],LASTDATE('vw CSI Service'[Interaction Date]),12,MONTH)),CALCULATE(DISTINCTCOUNT('vw CSI Service'[Question]),'vw CSI Service'[Points TxT filter]=\"TRUE\",'vw CSI Service'[Rollin 12 Months]=TRUE(),DATESINPERIOD('vw CSI Service'[Interaction Date],LASTDATE('vw CSI Service'[Interaction Date]),12,MONTH)))",
+            "formatString": "0.0"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hierarchy1",
+            "levels": [
+              {
+                "name": "Year",
+                "ordinal": 0,
+                "column": "Year"
+              },
+              {
+                "name": "Month",
+                "ordinal": 1,
+                "column": "Month"
+              },
+              {
+                "name": "Interaction Date",
+                "ordinal": 2,
+                "column": "Interaction Date"
+              }
+            ]
+          },
+          {
+            "name": "Hierarchy2",
+            "levels": [
+              {
+                "name": "Service PM",
+                "ordinal": 0,
+                "column": "Service PM"
+              },
+              {
+                "name": "Service MTD",
+                "ordinal": 1,
+                "column": "Service MTD"
+              },
+              {
+                "name": "Service YTD",
+                "ordinal": 2,
+                "column": "Service YTD"
+              },
+              {
+                "name": "Service LY",
+                "ordinal": 3,
+                "column": "Service LY"
+              },
+              {
+                "name": "Rollin 12 Months",
+                "ordinal": 4,
+                "column": "Rollin 12 Months"
+              },
+              {
+                "name": "Month",
+                "ordinal": 5,
+                "column": "Month"
+              }
+            ]
           }
         ],
         "annotations": [
