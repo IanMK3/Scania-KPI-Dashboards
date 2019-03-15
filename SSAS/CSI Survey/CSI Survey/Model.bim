@@ -28,32 +28,6 @@
     ],
     "tables": [
       {
-        "name": "CSI Time Intelligence",
-        "columns": [
-          {
-            "name": "Period",
-            "dataType": "string",
-            "sourceColumn": "Period"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "Partition",
-            "dataView": "full",
-            "source": {
-              "type": "m",
-              "expression": [
-                "let",
-                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
-                "    #\"dbo_CSI Time Intelligence\" = Source{[Schema=\"dbo\",Item=\"CSI Time Intelligence\"]}[Data]",
-                "in",
-                "    #\"dbo_CSI Time Intelligence\""
-              ]
-            }
-          }
-        ]
-      },
-      {
         "name": "vw CSI New Sales",
         "columns": [
           {
@@ -254,6 +228,1101 @@
                 "    #\"dbo_vw CSI New Sales\" = Source{[Schema=\"dbo\",Item=\"vw CSI New Sales\"]}[Data]",
                 "in",
                 "    #\"dbo_vw CSI New Sales\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim Date",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "Year Name",
+            "dataType": "string",
+            "sourceColumn": "Year Name"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month"
+          },
+          {
+            "name": "Month Name",
+            "dataType": "string",
+            "sourceColumn": "Month Name"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "Quarter Name",
+            "dataType": "string",
+            "sourceColumn": "Quarter Name"
+          },
+          {
+            "name": "Quarter Year Name",
+            "dataType": "string",
+            "sourceColumn": "Quarter Year Name"
+          },
+          {
+            "name": "Week Start Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Week Start Date"
+          },
+          {
+            "name": "Week Name",
+            "dataType": "string",
+            "sourceColumn": "Week Name"
+          },
+          {
+            "name": "Day Name",
+            "dataType": "string",
+            "sourceColumn": "Day Name"
+          },
+          {
+            "name": "Day",
+            "dataType": "int64",
+            "sourceColumn": "Day"
+          },
+          {
+            "name": "Short Day Name",
+            "dataType": "string",
+            "sourceColumn": "Short Day Name"
+          },
+          {
+            "name": "Short Month Name",
+            "dataType": "string",
+            "sourceColumn": "Short Month Name"
+          },
+          {
+            "name": "Day Of Week",
+            "dataType": "int64",
+            "sourceColumn": "Day Of Week"
+          },
+          {
+            "name": "Year Month",
+            "dataType": "int64",
+            "sourceColumn": "Year Month"
+          },
+          {
+            "name": "Is Scottish Public Holiday",
+            "dataType": "boolean",
+            "sourceColumn": "Is Scottish Public Holiday"
+          },
+          {
+            "name": "Is English Public Holiday",
+            "dataType": "boolean",
+            "sourceColumn": "Is English Public Holiday"
+          },
+          {
+            "name": "Is Current Revenue Period",
+            "dataType": "boolean",
+            "sourceColumn": "Is Current Revenue Period"
+          },
+          {
+            "name": "Is Previous Revenue Period",
+            "dataType": "boolean",
+            "sourceColumn": "Is Previous Revenue Period"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    dim_Date = Source{[Schema=\"dim\",Item=\"Date\"]}[Data]",
+                "in",
+                "    dim_Date"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "vw CSI Finance",
+        "columns": [
+          {
+            "name": "SalesID",
+            "dataType": "int64",
+            "sourceColumn": "SalesID"
+          },
+          {
+            "name": "DS_PK",
+            "dataType": "int64",
+            "sourceColumn": "DS_PK"
+          },
+          {
+            "name": "DS_SK",
+            "dataType": "int64",
+            "sourceColumn": "DS_SK"
+          },
+          {
+            "name": "Contact person",
+            "dataType": "string",
+            "sourceColumn": "Contact person"
+          },
+          {
+            "name": "Company",
+            "dataType": "string",
+            "sourceColumn": "Company"
+          },
+          {
+            "name": "Company ID",
+            "dataType": "string",
+            "sourceColumn": "Company ID"
+          },
+          {
+            "name": "Interaction Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Interaction Date"
+          },
+          {
+            "name": "Interview Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Interview Date"
+          },
+          {
+            "name": "Main Dealer",
+            "dataType": "string",
+            "sourceColumn": "Main Dealer"
+          },
+          {
+            "name": "Dealer",
+            "dataType": "string",
+            "sourceColumn": "Dealer"
+          },
+          {
+            "name": "Salesperson",
+            "dataType": "string",
+            "sourceColumn": "Salesperson"
+          },
+          {
+            "name": "New Contact Y/N",
+            "dataType": "string",
+            "sourceColumn": "New Contact Y/N"
+          },
+          {
+            "name": "New Contact",
+            "dataType": "string",
+            "sourceColumn": "New Contact"
+          },
+          {
+            "name": "New Phone Y/N",
+            "dataType": "string",
+            "sourceColumn": "New Phone Y/N"
+          },
+          {
+            "name": "New Phone",
+            "dataType": "string",
+            "sourceColumn": "New Phone"
+          },
+          {
+            "name": "Contact Via Email Y/N",
+            "dataType": "string",
+            "sourceColumn": "Contact Via Email Y/N"
+          },
+          {
+            "name": "New Email Y/N",
+            "dataType": "string",
+            "sourceColumn": "New Email Y/N"
+          },
+          {
+            "name": "New Email",
+            "dataType": "string",
+            "sourceColumn": "New Email"
+          },
+          {
+            "name": "Remove Contact Y/N",
+            "dataType": "string",
+            "sourceColumn": "Remove Contact Y/N"
+          },
+          {
+            "name": "Name Withheld Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Name Withheld Yes/No"
+          },
+          {
+            "name": "Phone Answered Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Phone Answered Yes/No"
+          },
+          {
+            "name": "Survey Completed Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Survey Completed Yes/No"
+          },
+          {
+            "name": "Further Comments",
+            "dataType": "string",
+            "sourceColumn": "Further Comments"
+          },
+          {
+            "name": "Question ID",
+            "dataType": "string",
+            "sourceColumn": "Question ID"
+          },
+          {
+            "name": "Question",
+            "dataType": "string",
+            "sourceColumn": "Question"
+          },
+          {
+            "name": "Question G",
+            "dataType": "string",
+            "sourceColumn": "Question G"
+          },
+          {
+            "name": "Comments",
+            "dataType": "string",
+            "sourceColumn": "Comments"
+          },
+          {
+            "name": "Points",
+            "dataType": "string",
+            "sourceColumn": "Points"
+          },
+          {
+            "name": "Index",
+            "dataType": "string",
+            "sourceColumn": "Index"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "MonthNo",
+            "dataType": "int64",
+            "sourceColumn": "MonthNo"
+          },
+          {
+            "name": "Month",
+            "dataType": "string",
+            "sourceColumn": "Month"
+          },
+          {
+            "name": "Points TXT",
+            "dataType": "string",
+            "sourceColumn": "Points TXT"
+          },
+          {
+            "name": "Points TxT filter",
+            "dataType": "string",
+            "sourceColumn": "Points TxT filter"
+          },
+          {
+            "name": "Index Filter",
+            "dataType": "string",
+            "sourceColumn": "Index Filter"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "string",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "Quarter Sort",
+            "dataType": "string",
+            "sourceColumn": "Quarter Sort"
+          },
+          {
+            "name": "Category",
+            "dataType": "string",
+            "sourceColumn": "Category"
+          },
+          {
+            "name": "Region ID",
+            "dataType": "int64",
+            "sourceColumn": "Region ID"
+          },
+          {
+            "name": "Contact Changed",
+            "dataType": "string",
+            "sourceColumn": "Contact Changed"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    #\"dbo_vw CSI Finance\" = Source{[Schema=\"dbo\",Item=\"vw CSI Finance\"]}[Data]",
+                "in",
+                "    #\"dbo_vw CSI Finance\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "vw CSI Service",
+        "columns": [
+          {
+            "name": "ServiceID",
+            "dataType": "int64",
+            "sourceColumn": "ServiceID"
+          },
+          {
+            "name": "DS_PK",
+            "dataType": "int64",
+            "sourceColumn": "DS_PK"
+          },
+          {
+            "name": "DS_SK",
+            "dataType": "int64",
+            "sourceColumn": "DS_SK"
+          },
+          {
+            "name": "Contact person",
+            "dataType": "string",
+            "sourceColumn": "Contact person"
+          },
+          {
+            "name": "Company",
+            "dataType": "string",
+            "sourceColumn": "Company"
+          },
+          {
+            "name": "Company ID",
+            "dataType": "string",
+            "sourceColumn": "Company ID"
+          },
+          {
+            "name": "Interaction Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Interaction Date"
+          },
+          {
+            "name": "Interview Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Interview Date"
+          },
+          {
+            "name": "Main dealer",
+            "dataType": "string",
+            "sourceColumn": "Main dealer"
+          },
+          {
+            "name": "Dealer",
+            "dataType": "string",
+            "sourceColumn": "Dealer"
+          },
+          {
+            "name": "Salesperson",
+            "dataType": "string",
+            "sourceColumn": "Salesperson"
+          },
+          {
+            "name": "New Contact",
+            "dataType": "string",
+            "sourceColumn": "New Contact"
+          },
+          {
+            "name": "New Contact Y/N",
+            "dataType": "string",
+            "sourceColumn": "New Contact Y/N"
+          },
+          {
+            "name": "New Phone",
+            "dataType": "string",
+            "sourceColumn": "New Phone"
+          },
+          {
+            "name": "New Phone Y/N",
+            "dataType": "string",
+            "sourceColumn": "New Phone Y/N"
+          },
+          {
+            "name": "New email Y/N",
+            "dataType": "string",
+            "sourceColumn": "New email Y/N"
+          },
+          {
+            "name": "New Email",
+            "dataType": "string",
+            "sourceColumn": "New Email"
+          },
+          {
+            "name": "Contact Via Email Y/N",
+            "dataType": "string",
+            "sourceColumn": "Contact Via Email Y/N"
+          },
+          {
+            "name": "Remove Contact Y/N",
+            "dataType": "string",
+            "sourceColumn": "Remove Contact Y/N"
+          },
+          {
+            "name": "Name Withheld Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Name Withheld Yes/No"
+          },
+          {
+            "name": "Phone Answered Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Phone Answered Yes/No"
+          },
+          {
+            "name": "Survey Completed Yes/No",
+            "dataType": "string",
+            "sourceColumn": "Survey Completed Yes/No"
+          },
+          {
+            "name": "Further Comments",
+            "dataType": "string",
+            "sourceColumn": "Further Comments"
+          },
+          {
+            "name": "Question ID",
+            "dataType": "int64",
+            "sourceColumn": "Question ID"
+          },
+          {
+            "name": "Question",
+            "dataType": "string",
+            "sourceColumn": "Question"
+          },
+          {
+            "name": "Comments",
+            "dataType": "string",
+            "sourceColumn": "Comments"
+          },
+          {
+            "name": "Points",
+            "dataType": "string",
+            "sourceColumn": "Points"
+          },
+          {
+            "name": "Index",
+            "dataType": "int64",
+            "sourceColumn": "Index"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "MonthNo",
+            "dataType": "int64",
+            "sourceColumn": "MonthNo"
+          },
+          {
+            "name": "Month",
+            "dataType": "string",
+            "sourceColumn": "Month"
+          },
+          {
+            "name": "Month Year",
+            "dataType": "string",
+            "sourceColumn": "Month Year"
+          },
+          {
+            "name": "Points TXT",
+            "dataType": "string",
+            "sourceColumn": "Points TXT"
+          },
+          {
+            "name": "Points TxT filter",
+            "dataType": "string",
+            "sourceColumn": "Points TxT filter"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "string",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "Quarter Sort",
+            "dataType": "int64",
+            "sourceColumn": "Quarter Sort"
+          },
+          {
+            "name": "Region ID",
+            "dataType": "string",
+            "sourceColumn": "Region ID"
+          },
+          {
+            "name": "Depot ID",
+            "dataType": "int64",
+            "sourceColumn": "Depot ID"
+          },
+          {
+            "name": "Contact Changed",
+            "dataType": "string",
+            "sourceColumn": "Contact Changed"
+          },
+          {
+            "type": "calculated",
+            "name": "Service MTD",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE =",
+              "    MAX ( 'vw CSI Service'[Interaction Date] )",
+              "RETURN",
+              "    IF (",
+              "        MONTH ( 'vw CSI Service'[Interaction Date] ) = MONTH ( MAXDATE )",
+              "            && YEAR ( 'vw CSI Service'[Interaction Date] ) = YEAR ( MAXDATE ),",
+              "        TRUE (),",
+              "        FALSE ()",
+              "    )"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Service PM",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE =",
+              "    MAX ( 'vw CSI Service'[Interaction Date] )",
+              "RETURN",
+              "    IF (",
+              "        MONTH ( 'vw CSI Service'[Interaction Date] )",
+              "            = MONTH ( MAXDATE ) - 1",
+              "            && YEAR ( 'vw CSI Service'[Interaction Date] ) = YEAR ( MAXDATE ),",
+              "        TRUE (),",
+              "        FALSE ()",
+              "    )"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Service YTD",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI Service'[Interaction Date])",
+              "RETURN",
+              "IF(YEAR('vw CSI Service'[Interaction Date])=YEAR(MAXDATE),TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Service LY",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE =  MAX('vw CSI Service'[Interaction Date])",
+              "RETURN",
+              "IF(YEAR('vw CSI Service'[Interaction Date])=YEAR(MAXDATE)-1,TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Rolling 12 Months",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI Service'[Interaction Date])",
+              "RETURN",
+              "IF('vw CSI Service'[Interaction Date]>=DATE(YEAR(MAXDATE)-1,MONTH(MAXDATE),DAY(MAXDATE))&&'vw CSI Service'[Interaction Date]<=MAXDATE,TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Question Filter",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "IF(OR('vw CSI Service'[Question]=\"Overall performance\",'vw CSI Service'[Question]=\"Recommendation\"),FALSE(),TRUE())",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Interval",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MaxDate =",
+              "    MAX ( 'vw CSI Service'[Interaction Date] )",
+              "RETURN",
+              "    IF (",
+              "        DATEDIFF ( 'vw CSI Service'[Interaction Date], MaxDate, MONTH ) = 0,",
+              "        11,",
+              "        IF (",
+              "            DATEDIFF ( 'vw CSI Service'[Interaction Date], MaxDate, MONTH ) = 1,",
+              "            10,",
+              "            IF (",
+              "                DATEDIFF ( 'vw CSI Service'[Interaction Date], MaxDate, MONTH ) = 2,",
+              "                9,",
+              "                IF (",
+              "                    DATEDIFF ( 'vw CSI Service'[Interaction Date], MaxDate, MONTH ) = 3,",
+              "                    8,",
+              "                    IF (",
+              "                        DATEDIFF ( 'vw CSI Service'[Interaction Date], MaxDate, MONTH ) = 4,",
+              "                        7,",
+              "                        IF (",
+              "                            DATEDIFF ( 'vw CSI Service'[Interaction Date], MaxDate, MONTH ) = 5,",
+              "                            6,",
+              "                            IF (",
+              "                                DATEDIFF ( 'vw CSI Service'[Interaction Date], MaxDate, MONTH ) = 6,",
+              "                                5,",
+              "                                IF (",
+              "                                    DATEDIFF ( 'vw CSI Service'[Interaction Date], MaxDate, MONTH ) = 7,",
+              "                                    4,",
+              "                                    IF (",
+              "                                        DATEDIFF ( 'vw CSI Service'[Interaction Date], MaxDate, MONTH ) = 8,",
+              "                                        3,",
+              "                                        IF (",
+              "                                            DATEDIFF ( 'vw CSI Service'[Interaction Date], MaxDate, MONTH ) = 9,",
+              "                                            2,",
+              "                                            IF (",
+              "                                                DATEDIFF ( 'vw CSI Service'[Interaction Date], MaxDate, MONTH ) = 10,",
+              "                                                1,",
+              "                                                IF (",
+              "                                                    DATEDIFF ( 'vw CSI Service'[Interaction Date], MaxDate, MONTH ) = 11,",
+              "                                                    0,",
+              "                                                    100",
+              "                                                )",
+              "                                            )",
+              "                                        )",
+              "                                    )",
+              "                                )",
+              "                            )",
+              "                        )",
+              "                    )",
+              "                )",
+              "            )",
+              "        )",
+              "    )"
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    #\"dbo_vw CSI Service\" = Source{[Schema=\"dbo\",Item=\"vw CSI Service\"]}[Data]",
+                "in",
+                "    #\"dbo_vw CSI Service\""
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Txt SalesPerson",
+            "expression": "\"Salesperson\""
+          },
+          {
+            "name": "Service",
+            "expression": "\"Service\""
+          },
+          {
+            "name": "Txt Interaction Date",
+            "expression": "\"Interaction Date\""
+          },
+          {
+            "name": "Txt Interview Date",
+            "expression": "\"Interview Date\""
+          },
+          {
+            "name": "Txt Main Dealer",
+            "expression": "\"Main Dealer\""
+          },
+          {
+            "name": "Txt Dealer",
+            "expression": "\"Dealer\""
+          },
+          {
+            "name": "Txt Contact Person",
+            "expression": "\"Contact Person\""
+          },
+          {
+            "name": "Txt Additional Information",
+            "expression": "\"Additional Information\""
+          },
+          {
+            "name": "Txt New Contact",
+            "expression": "\"New Contact\""
+          },
+          {
+            "name": "Txt New Phone",
+            "expression": "\"New Phone\""
+          },
+          {
+            "name": "Txt New Contact ?",
+            "expression": "\"New Contact ?\""
+          },
+          {
+            "name": "Txt Further Comments",
+            "expression": "\"Further Comments\""
+          },
+          {
+            "name": "Txt New Email",
+            "expression": "\"New Email\""
+          },
+          {
+            "name": "Selected Service Period",
+            "expression": "SELECTEDVALUE('CSI Time Intelligence'[Service Period])"
+          },
+          {
+            "name": "Completed Service Survey",
+            "expression": "0+CALCULATE('vw CSI Service'[Service Sample Size],'vw CSI Service'[Survey Completed Yes/No]=\"Y\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Phone Answered Y/N Service",
+            "expression": "0+CALCULATE('vw CSI Service'[Service Sample Size],'vw CSI Service'[Phone Answered Yes/No]=\"Y\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Service Tot Questions",
+            "expression": "0+CALCULATE(DISTINCTCOUNT('vw CSI Service'[ServiceID]))"
+          },
+          {
+            "name": "Service Sample Size",
+            "expression": [
+              "",
+              "IF (  [Selected Service Period] = \"Year To Date\",",
+              "    CALCULATE ( 'vw CSI Service'[Service Tot Questions], 'vw CSI Service'[Service YTD] = TRUE () ),",
+              "    IF (",
+              "        [Selected Service Period] = \"Previous Month\",",
+              "        CALCULATE (",
+              "            [Service Tot Questions],",
+              "            'vw CSI Service'[Service PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Service Period] = \"Month To Date\",",
+              "            CALCULATE ( 'vw CSI Service'[Service Tot Questions], 'vw CSI Service'[Service MTD]=TRUE () ),",
+              "            IF (",
+              "                [Selected Service Period] = \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Service Tot Questions],",
+              "                    'vw CSI Service'[Rolling 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                     [Selected Service Period] = \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [Service Tot Questions],",
+              "                        'vw CSI Service'[Service LY] = TRUE ()",
+              "                    ),",
+              "                    [Service Tot Questions]",
+              "            )",
+              "        )",
+              "    )",
+              ")",
+              "",
+              ")"
+            ],
+            "formatString": "#,0"
+          },
+          {
+            "name": "CSI Target",
+            "expression": "8.2"
+          },
+          {
+            "name": "Completed Service Survey (Graph)",
+            "expression": "0+CALCULATE('vw CSI Service'[Service Sample Size],'vw CSI Service'[Survey Completed Yes/No]=\"Y\",'vw CSI Service'[Points TxT filter]=\"TRUE\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Completed Service Survey  (Graph) 1",
+            "expression": "0+CALCULATE('vw CSI Service'[Service Sample Size],'vw CSI Service'[Survey Completed Yes/No]=\"Y\",'vw CSI Service'[Points TxT filter]=\"TRUE\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "CSI Index Format",
+            "expression": "SWITCH(TRUE(),'vw CSI Service'[CSI Service Index (Card)]>='vw CSI Service'[CSI Target],1,0)"
+          },
+          {
+            "name": "Fixed First Visit %",
+            "expression": "0+DIVIDE(CALCULATE('vw CSI Service'[Service Sample Size],'vw CSI Service'[Question]=\"Fixed first visit (Yes/No)\",'vw CSI Service'[Points]=\"Yes\"),'vw CSI Service'[Service Sample Size])",
+            "formatString": "0.00%;-0.00%;0.00%"
+          },
+          {
+            "name": "Selected Main Dealer Service",
+            "expression": "IF(ISFILTERED('vw CSI Service'[Main dealer]),SELECTEDVALUE('vw CSI Service'[Main dealer]),\"All Dealers\")"
+          },
+          {
+            "name": "Selected Dealer Service",
+            "expression": "IF(ISFILTERED('vw CSI Service'[Dealer]),SELECTEDVALUE('vw CSI Service'[Dealer]),\"All Dealers\")"
+          },
+          {
+            "name": "Reporting Period Service",
+            "expression": "IF(ISFILTERED('CSI Time Intelligence'[Service Period]),SELECTEDVALUE('CSI Time Intelligence'[Service Period]),\"All Periods\")"
+          },
+          {
+            "name": "Depot View Reporting Period",
+            "expression": "IF(ISFILTERED('vw CSI Service'[Month Year]),SELECTEDVALUE('vw CSI Service'[Month Year]),\"Rolling 12 Months\")"
+          },
+          {
+            "name": "Service Index",
+            "expression": "CALCULATE(AVERAGE('vw CSI Service'[Index]),'vw CSI Service'[Points TxT filter]=\"TRUE\")",
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI Service Index",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Service Period] = \"Year To Date\",",
+              "    CALCULATE ( 'vw CSI Service'[Service Index], 'vw CSI Service'[Service YTD] = TRUE () ),",
+              "    IF (",
+              "        [Selected Service Period] = \"Previous Month\",",
+              "        CALCULATE (",
+              "            [Service Index],",
+              "            'vw CSI Service'[Service PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Service Period] = \"Month To Date\",",
+              "            CALCULATE ( 'vw CSI Service'[Service Index], 'vw CSI Service'[Service MTD]=TRUE () ),",
+              "            IF (",
+              "                [Selected Service Period] = \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Service Index],",
+              "                    'vw CSI Service'[Rolling 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                     [Selected Service Period] = \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [Service Index],",
+              "                        'vw CSI Service'[Service LY] = TRUE ()",
+              "                    ),",
+              "                    [Service Index]",
+              "            )",
+              "        )",
+              "    )",
+              ")",
+              "",
+              ")"
+            ],
+            "formatString": "0"
+          },
+          {
+            "name": "CSI Service Index (Card)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Service Period] = \"Year To Date\",",
+              "    CALCULATE ( 'vw CSI Service'[Service Index], 'vw CSI Service'[Service YTD] = TRUE () ),",
+              "    IF (",
+              "        [Selected Service Period] = \"Previous Month\",",
+              "        CALCULATE (",
+              "            [Service Index],",
+              "            'vw CSI Service'[Service PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Service Period] = \"Month To Date\",",
+              "            CALCULATE ( 'vw CSI Service'[Service Index], 'vw CSI Service'[Service MTD]=TRUE () ),",
+              "            IF (",
+              "                [Selected Service Period] = \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Service Index],",
+              "                    'vw CSI Service'[Rolling 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                     [Selected Service Period] = \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [Service Index],",
+              "                        'vw CSI Service'[Service LY] = TRUE ()",
+              "                    ),",
+              "                    [Service Index]",
+              "            )",
+              "        )",
+              "    )",
+              ")",
+              "",
+              ")"
+            ],
+            "formatString": "0.0"
+          },
+          {
+            "name": "Service Index Colour",
+            "expression": "CALCULATE(AVERAGE('vw CSI Service'[Index]))",
+            "formatString": "0"
+          },
+          {
+            "name": "Copy of Service Index",
+            "expression": "CALCULATE(AVERAGE('vw CSI Service'[Index]),'vw CSI Service'[Points TxT filter]=\"TRUE\",DATESINPERIOD('vw CSI Service'[Interaction Date],MAX('vw CSI Service'[Interaction Date]),12,MONTH))",
+            "formatString": "0.0"
+          },
+          {
+            "name": "Service Index 2",
+            "expression": "0+CALCULATE(AVERAGE('vw CSI Service'[Index]),'vw CSI Service'[Points TxT filter]=\"TRUE\",'vw CSI Service'[Question Filter]=TRUE())",
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI Service Index (Card 2)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Service Period] = \"Year To Date\",",
+              "    CALCULATE ( 'vw CSI Service'[Service Index 2], 'vw CSI Service'[Service YTD] = TRUE () ),",
+              "    IF (",
+              "        [Selected Service Period] = \"Previous Month\",",
+              "        CALCULATE (",
+              "            [Service Index 2],",
+              "            'vw CSI Service'[Service PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Service Period] = \"Month To Date\",",
+              "            CALCULATE ( 'vw CSI Service'[Service Index 2], 'vw CSI Service'[Service MTD]=TRUE () ),",
+              "            IF (",
+              "                [Selected Service Period] = \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Service Index 2],",
+              "                    'vw CSI Service'[Rolling 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                     [Selected Service Period] = \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [Service Index 2],",
+              "                        'vw CSI Service'[Service LY] = TRUE ()",
+              "                    ),",
+              "                    [Service Index 2]",
+              "            )",
+              "        )",
+              "    )",
+              ")",
+              "",
+              ")"
+            ],
+            "formatString": "0.0"
+          },
+          {
+            "name": "Service Index 2(table)",
+            "expression": "CALCULATE(AVERAGE('vw CSI Service'[Index]),'vw CSI Service'[Points TxT filter]=\"TRUE\",'vw CSI Service'[Question Filter]=TRUE())",
+            "formatString": "0.0"
+          },
+          {
+            "name": "Service YTD Service",
+            "expression": "CALCULATE('vw CSI Service'[Service Index 2(table)],'vw CSI Service'[Service YTD]=TRUE())",
+            "formatString": "0.0"
+          }
+        ]
+      },
+      {
+        "name": "CSI Service Refresh Date",
+        "columns": [
+          {
+            "name": "ServiceRefreshDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ServiceRefreshDate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    #\"dbo_CSI Service Refresh Date\" = Source{[Schema=\"dbo\",Item=\"CSI Service Refresh Date\"]}[Data]",
+                "in",
+                "    #\"dbo_CSI Service Refresh Date\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "CSI New Sales Refresh Date",
+        "columns": [
+          {
+            "name": "SalesRefreshDate",
+            "dataType": "dateTime",
+            "sourceColumn": "SalesRefreshDate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    #\"dbo_CSI New Sales Refresh Date\" = Source{[Schema=\"dbo\",Item=\"CSI New Sales Refresh Date\"]}[Data]",
+                "in",
+                "    #\"dbo_CSI New Sales Refresh Date\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "CSI Time Intelligence",
+        "columns": [
+          {
+            "name": "Period",
+            "dataType": "string",
+            "sourceColumn": "Period"
+          },
+          {
+            "name": "Service Period",
+            "dataType": "string",
+            "sourceColumn": "Service Period"
+          },
+          {
+            "name": "Finance Period",
+            "dataType": "string",
+            "sourceColumn": "Finance Period"
+          },
+          {
+            "name": "MOT Period",
+            "dataType": "string",
+            "sourceColumn": "MOT Period"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    #\"dbo_CSI Time Intelligence\" = Source{[Schema=\"dbo\",Item=\"CSI Time Intelligence\"]}[Data]",
+                "in",
+                "    #\"dbo_CSI Time Intelligence\""
               ]
             }
           }

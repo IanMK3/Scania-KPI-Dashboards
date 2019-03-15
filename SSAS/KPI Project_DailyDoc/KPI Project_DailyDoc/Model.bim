@@ -3752,6 +3752,36 @@
           {
             "name": "Go To Daily Doc",
             "expression": "\"Click on areas below for details or you can go to :\""
+          },
+          {
+            "name": "Amount Per Day F/C",
+            "expression": "0+DIVIDE([F/C TurnOverToDoBudget],[Working Days Left In Month])",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Amount Per Day B/C",
+            "expression": "0+DIVIDE([B/C TurnOverToDoBudget],[Working Days Left In Month])",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "F/C Sales vs Budget Format",
+            "expression": "SWITCH(TRUE(),[Front Counter Sales Performance Against Front Counter Budget %]>=[Target Marker],1,0)"
+          },
+          {
+            "name": "B/C Sales vs Budget Format",
+            "expression": "SWITCH(TRUE(),[Back Counter Sales Performance Against Back Counter Budget %]>=[Target Marker],1,0)"
           }
         ],
         "annotations": [
@@ -4430,6 +4460,28 @@
           {
             "name": "Labour Sales Budget Combined",
             "expression": "[LabourSalesBudget]+[OtherSalesBudget]",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "F/C TurnOverToDoBudget",
+            "expression": "(0+[FrontCounterSales]-[FrontCounterSalesBudget])*(-1)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "B/C TurnOverToDoBudget",
+            "expression": "(0+[BackCounterSales]-[BackCounterSalesBudget])*(-1)",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -17790,6 +17842,21 @@
             "name": "Month Budget",
             "expression": "0+CALCULATE([Hours Budget],HoursBudget[Budget Type]=\"SoldHours\")",
             "formatString": "#,0"
+          },
+          {
+            "name": "Produced Hours Needed",
+            "expression": "0+DIVIDE([Produced Hours Budget]-[Technician Produced Hours],[WorkdaysInMonth]-[ElapsedWorkingDaysInMonth])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Produced Hours Flexed Budget",
+            "expression": "0+DIVIDE([Produced Hours Budget],[WorkDaysInMonth])*[ElapsedWorkingDaysInMonth]",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Produced Hours To Do Budget",
+            "expression": "0+[Produced Hours Budget]-[Technician Produced Hours]",
+            "formatString": "#,0"
           }
         ],
         "annotations": [
@@ -19801,7 +19868,7 @@
           },
           {
             "name": "Passes",
-            "expression": "CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Pass\"||'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PRS\")",
+            "expression": "CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Pass\")",
             "formatString": "#,0"
           },
           {
@@ -19924,6 +19991,14 @@
               "    )",
               ")"
             ]
+          },
+          {
+            "name": "Fails Description Measure",
+            "expression": "CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\"||'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PRS\")"
+          },
+          {
+            "name": "ccccc",
+            "expression": "CALCULATE(COUNT('vw_MOT Pass Rate Report Trucks'[Failure Description]))"
           }
         ],
         "annotations": [
@@ -24639,6 +24714,10 @@
             "name": "Service YTD Service",
             "expression": "CALCULATE('vw CSI Service'[Service Index 2(table)],'vw CSI Service'[Service YTD]=TRUE())",
             "formatString": "0.0"
+          },
+          {
+            "name": "Depot View Reporting Period",
+            "expression": "IF(ISFILTERED('vw CSI Service'[Month Year]),SELECTEDVALUE('vw CSI Service'[Month Year]),\"Rolling 12 Months\")"
           }
         ],
         "annotations": [
@@ -28440,6 +28519,15 @@
             "name": "Hours Target",
             "expression": "1",
             "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Copy of Produced Hours Last Year",
+            "expression": " 0+CALCULATE(sum(TechnicianHours[Produced]),all('Date'[Date]),'Date'[Month]=month(TODAY()) , 'Date'[Year]=YEAR(TODAY())-1)",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Focus Area",
+            "expression": "SWITCH(TRUE(),[Last Day Invoiced]>=[Daily Target],\"Focus Area :\",\"Focus Area : Hours Invoiced was Low\")"
           }
         ],
         "annotations": [
@@ -29625,6 +29713,34 @@
           {
             "name": "Depot",
             "filterExpression": "Depot[Depot]=\"Andover\""
+          }
+        ]
+      },
+      {
+        "name": "Administrators",
+        "modelPermission": "administrator",
+        "members": [
+          {
+            "memberName": "obj:62498f3b-00a7-4413-9bdd-229eaa86fb40@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:62498f3b-00a7-4413-9bdd-229eaa86fb40@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ]
+      },
+      {
+        "name": "Scania Finance",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:e400aac2-b7ac-47b8-bc8c-32f904edc46e@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:e400aac2-b7ac-47b8-bc8c-32f904edc46e@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "vw CSI Finance",
+            "filterExpression": "'vw CSI Finance'[Category]=\"Finance\""
           }
         ]
       }
