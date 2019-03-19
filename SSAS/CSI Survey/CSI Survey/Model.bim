@@ -63,12 +63,26 @@
           {
             "name": "Interaction Date",
             "dataType": "dateTime",
-            "sourceColumn": "Interaction Date"
+            "sourceColumn": "Interaction Date",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           },
           {
             "name": "Interview Date",
             "dataType": "dateTime",
-            "sourceColumn": "Interview Date"
+            "sourceColumn": "Interview Date",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           },
           {
             "name": "Main Dealer",
@@ -153,7 +167,8 @@
           {
             "name": "Question",
             "dataType": "string",
-            "sourceColumn": "Question"
+            "sourceColumn": "Question",
+            "sortByColumn": "Question ID"
           },
           {
             "name": "Comments",
@@ -214,6 +229,151 @@
             "name": "Contact Changed",
             "dataType": "string",
             "sourceColumn": "Contact Changed"
+          },
+          {
+            "type": "calculated",
+            "name": "NewSales MTD",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI New Sales'[Interaction Date])",
+              "RETURN",
+              "IF(MONTH('vw CSI New Sales'[Interaction Date])=MONTH(MAXDATE)&&YEAR('vw CSI New Sales'[Interaction Date])=YEAR(MAXDATE),TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "NewSales PM",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI New Sales'[Interaction Date])",
+              "RETURN",
+              "IF(MONTH('vw CSI New Sales'[Interaction Date])=MONTH(MAXDATE)-1&&YEAR('vw CSI New Sales'[Interaction Date])=YEAR(MAXDATE),TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "NewSales YTD",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI New Sales'[Interaction Date])",
+              "RETURN",
+              "IF(YEAR('vw CSI New Sales'[Interaction Date])=YEAR(MAXDATE),TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "NewSales LY",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI New Sales'[Interaction Date])",
+              "RETURN",
+              "IF(YEAR('vw CSI New Sales'[Interaction Date])=YEAR(MAXDATE)-1,TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "NewSales Rollin 12 Months",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI New Sales'[Interaction Date])",
+              "RETURN",
+              "IF('vw CSI New Sales'[Interaction Date]>=DATE(YEAR(MAXDATE)-1,MONTH(MAXDATE),DAY(MAXDATE))&&'vw CSI New Sales'[Interaction Date]<=MAXDATE,TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Question Filter",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "IF(OR('vw CSI New Sales'[Question]=\"Overall performance\",'vw CSI New Sales'[Question]=\"Recommendation\"),FALSE(),IF('vw CSI New Sales'[Question]=\"Repurchase\",FALSE(),TRUE()))",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Interval",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MaxDate =",
+              "    MAX ( 'vw CSI New Sales'[Interaction Date] )",
+              "RETURN",
+              "    IF (",
+              "        DATEDIFF ( 'vw CSI New Sales'[Interaction Date], MaxDate, MONTH ) = 0,",
+              "        11,",
+              "        IF (",
+              "            DATEDIFF ( 'vw CSI New Sales'[Interaction Date], MaxDate, MONTH ) = 1,",
+              "            10,",
+              "            IF (",
+              "                DATEDIFF ( 'vw CSI New Sales'[Interaction Date], MaxDate, MONTH ) = 2,",
+              "                9,",
+              "                IF (",
+              "                    DATEDIFF ( 'vw CSI New Sales'[Interaction Date], MaxDate, MONTH ) = 3,",
+              "                    8,",
+              "                    IF (",
+              "                        DATEDIFF ( 'vw CSI New Sales'[Interaction Date], MaxDate, MONTH ) = 4,",
+              "                        7,",
+              "                        IF (",
+              "                            DATEDIFF ( 'vw CSI New Sales'[Interaction Date], MaxDate, MONTH ) = 5,",
+              "                            6,",
+              "                            IF (",
+              "                                DATEDIFF ( 'vw CSI New Sales'[Interaction Date], MaxDate, MONTH ) = 6,",
+              "                                5,",
+              "                                IF (",
+              "                                    DATEDIFF ( 'vw CSI New Sales'[Interaction Date], MaxDate, MONTH ) = 7,",
+              "                                    4,",
+              "                                    IF (",
+              "                                        DATEDIFF ( 'vw CSI New Sales'[Interaction Date], MaxDate, MONTH ) = 8,",
+              "                                        3,",
+              "                                        IF (",
+              "                                            DATEDIFF ( 'vw CSI New Sales'[Interaction Date], MaxDate, MONTH ) = 9,",
+              "                                            2,",
+              "                                            IF (",
+              "                                                DATEDIFF ( 'vw CSI New Sales'[Interaction Date], MaxDate, MONTH ) = 10,",
+              "                                                1,",
+              "                                                IF (",
+              "                                                    DATEDIFF ( 'vw CSI New Sales'[Interaction Date], MaxDate, MONTH ) = 11,",
+              "                                                    0,",
+              "                                                    100",
+              "                                                )",
+              "                                            )",
+              "                                        )",
+              "                                    )",
+              "                                )",
+              "                            )",
+              "                        )",
+              "                    )",
+              "                )",
+              "            )",
+              "        )",
+              "    )"
+            ]
+          },
+          {
+            "name": "Month Year",
+            "dataType": "string",
+            "sourceColumn": "Month Year",
+            "sortByColumn": "Interval"
+          },
+          {
+            "name": "Rolling Month Sort",
+            "dataType": "int64",
+            "sourceColumn": "Rolling Month Sort"
           }
         ],
         "partitions": [
@@ -230,6 +390,384 @@
                 "    #\"dbo_vw CSI New Sales\""
               ]
             }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Selected New Sales Period",
+            "expression": "SELECTEDVALUE('CSI Time Intelligence'[Period])"
+          },
+          {
+            "name": "Selected Main Dealer NewSales",
+            "expression": "IF(ISFILTERED('vw CSI New Sales'[Main dealer]),SELECTEDVALUE('vw CSI New Sales'[Main dealer]),\"All Dealers\")"
+          },
+          {
+            "name": "Selected  Dealer NewSales",
+            "expression": "IF(ISFILTERED('vw CSI New Sales'[Dealer]),SELECTEDVALUE('vw CSI New Sales'[Dealer]),\"All Dealers\")"
+          },
+          {
+            "name": "Reporting Period NewSales",
+            "expression": "IF(ISFILTERED('CSI Time Intelligence'[Period]),SELECTEDVALUE('CSI Time Intelligence'[Period]),\"All Periods\")"
+          },
+          {
+            "name": "NewSales",
+            "expression": "\"New Sales\""
+          },
+          {
+            "name": "New Sales Tot Questions",
+            "expression": "0+CALCULATE(DISTINCTCOUNT('vw CSI New Sales'[SalesID]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "New Sales Sample Size",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected New Sales Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [New Sales Tot Questions],",
+              "        'vw CSI New Sales'[NewSales YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected New Sales Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "           [New Sales Tot Questions],",
+              "           'vw CSI New Sales'[NewSales PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected New Sales Period] = \"Month To Date\",",
+              "            CALCULATE (",
+              "               [New Sales Tot Questions],",
+              "               'vw CSI New Sales'[NewSales MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected New Sales Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [New Sales Tot Questions],",
+              "                  'vw CSI New Sales'[NewSales Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected New Sales Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                      [New Sales Tot Questions],",
+              "                      'vw CSI New Sales'[NewSales LY] = TRUE ()",
+              "                    ),",
+              "                    [New Sales Tot Questions]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0"
+          },
+          {
+            "name": "Completed New Sales Survey",
+            "expression": "CALCULATE([New Sales Sample Size],'vw CSI New Sales'[Survey Completed Y/N]=\"Y\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Call Answered",
+            "expression": "CALCULATE([New Sales Sample Size],'vw CSI New Sales'[Phone Answered Y/N]=\"Y\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Contact After first Delivery %",
+            "expression": "0+DIVIDE(CALCULATE('vw CSI New Sales'[New Sales Sample Size],'vw CSI New Sales'[Question]=\"Contacted after delivery (Yes/No)\",'vw CSI New Sales'[Points]=\"Yes\"),'vw CSI New Sales'[New Sales Sample Size])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "New Sales Index",
+            "expression": "0+CALCULATE(AVERAGE('vw CSI New Sales'[Index]),'vw CSI New Sales'[Points TxT filter]=\"TRUE\")",
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI New Sales Index",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected New Sales Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [New Sales Index],",
+              "        'vw CSI New Sales'[NewSales YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected New Sales Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "         [New Sales Index],",
+              "           'vw CSI New Sales'[NewSales PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected New Sales Period] = \"Month To Date\",",
+              "            CALCULATE (",
+              "               [New Sales Index],",
+              "               'vw CSI New Sales'[NewSales MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected New Sales Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                     [New Sales Index],",
+              "                  'vw CSI New Sales'[NewSales Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected New Sales Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [New Sales Index],",
+              "                      'vw CSI New Sales'[NewSales LY] = TRUE ()",
+              "                    ),",
+              "                      [New Sales Index]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI New Sales Index (Card)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected New Sales Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [New Sales Index],",
+              "        'vw CSI New Sales'[NewSales YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected New Sales Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "         [New Sales Index],",
+              "           'vw CSI New Sales'[NewSales PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected New Sales Period] = \"Month To Date\",",
+              "            CALCULATE (",
+              "               [New Sales Index],",
+              "               'vw CSI New Sales'[NewSales MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected New Sales Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                     [New Sales Index],",
+              "                  'vw CSI New Sales'[NewSales Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected New Sales Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [New Sales Index],",
+              "                      'vw CSI New Sales'[NewSales LY] = TRUE ()",
+              "                    ),",
+              "                      [New Sales Index]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "0.0"
+          },
+          {
+            "name": "Completed New Sales Survey Graph",
+            "expression": "CALCULATE([New Sales Sample Size],'vw CSI New Sales'[Survey Completed Y/N]=\"Y\",'vw CSI Finance'[Points TxT filter]=\"TRUE\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "New Sales Index 2",
+            "expression": "0+CALCULATE(AVERAGE('vw CSI New Sales'[Index]),'vw CSI New Sales'[Points TxT filter]=\"TRUE\",'vw CSI New Sales'[Question Filter]=TRUE())",
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI New Sales Index (Card 2)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected New Sales Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [New Sales Index 2],",
+              "        'vw CSI New Sales'[NewSales YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected New Sales Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "         [New Sales Index 2],",
+              "           'vw CSI New Sales'[NewSales PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected New Sales Period] = \"Month To Date\",",
+              "            CALCULATE (",
+              "               [New Sales Index 2],",
+              "               'vw CSI New Sales'[NewSales MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected New Sales Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                     [New Sales Index 2],",
+              "                  'vw CSI New Sales'[NewSales Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected New Sales Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [New Sales Index 2],",
+              "                      'vw CSI New Sales'[NewSales LY] = TRUE ()",
+              "                    ),",
+              "                      [New Sales Index 2]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "0.0"
+          },
+          {
+            "name": "Sales YTD",
+            "expression": "CALCULATE([CSI New Sales Index 2(Table)],'vw CSI New Sales'[NewSales YTD]=TRUE())",
+            "formatString": "0.0"
+          },
+          {
+            "name": "New Sales Index 2(Table)",
+            "expression": "CALCULATE(AVERAGE('vw CSI New Sales'[Index]),'vw CSI New Sales'[Points TxT filter]=\"TRUE\",'vw CSI New Sales'[Question Filter]=TRUE())",
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI New Sales Index 2(Table)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected New Sales Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [New Sales Index 2(Table)],",
+              "        'vw CSI New Sales'[NewSales YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected New Sales Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "         [New Sales Index 2(Table)],",
+              "           'vw CSI New Sales'[NewSales PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected New Sales Period] = \"Month To Date\",",
+              "            CALCULATE (",
+              "               [New Sales Index 2(Table)],",
+              "               'vw CSI New Sales'[NewSales MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected New Sales Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                     [New Sales Index 2(Table)],",
+              "                  'vw CSI New Sales'[NewSales Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected New Sales Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [New Sales Index 2(Table)],",
+              "                      'vw CSI New Sales'[NewSales LY] = TRUE ()",
+              "                    ),",
+              "                      [New Sales Index 2(Table)]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "0.0"
+          },
+          {
+            "name": "New Sales Tot Questions (Table)",
+            "expression": "CALCULATE(DISTINCTCOUNT('vw CSI New Sales'[SalesID]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "New Sales Sample Size(Table)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected New Sales Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [New Sales Tot Questions (Table)],",
+              "        'vw CSI New Sales'[NewSales YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected New Sales Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "            [New Sales Tot Questions (Table)],",
+              "           'vw CSI New Sales'[NewSales PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected New Sales Period] = \"Month To Date\",",
+              "            CALCULATE (",
+              "                [New Sales Tot Questions (Table)],",
+              "               'vw CSI New Sales'[NewSales MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected New Sales Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [New Sales Tot Questions (Table)],",
+              "                  'vw CSI New Sales'[NewSales Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected New Sales Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                      [New Sales Tot Questions (Table)],",
+              "                      'vw CSI New Sales'[NewSales LY] = TRUE ()",
+              "                    ),",
+              "                    [New Sales Tot Questions (Table)]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0"
+          },
+          {
+            "name": "New Sales Index (Table)",
+            "expression": "CALCULATE(AVERAGE('vw CSI New Sales'[Index]),'vw CSI New Sales'[Index]<>0)",
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI New Sales Index (Table)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected New Sales Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [New Sales Index (Table)],",
+              "        'vw CSI New Sales'[NewSales YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected New Sales Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "      [New Sales Index (Table)],",
+              "           'vw CSI New Sales'[NewSales PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected New Sales Period] = \"Month To Date\",",
+              "            CALCULATE (",
+              "                [New Sales Index (Table)],",
+              "               'vw CSI New Sales'[NewSales MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected New Sales Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                            [New Sales Index (Table)],",
+              "                  'vw CSI New Sales'[NewSales Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected New Sales Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [New Sales Index (Table)],",
+              "                      'vw CSI New Sales'[NewSales LY] = TRUE ()",
+              "                    ),",
+              "                    [New Sales Index (Table)]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "0.0"
           }
         ]
       },
@@ -395,12 +933,26 @@
           {
             "name": "Interaction Date",
             "dataType": "dateTime",
-            "sourceColumn": "Interaction Date"
+            "sourceColumn": "Interaction Date",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           },
           {
             "name": "Interview Date",
             "dataType": "dateTime",
-            "sourceColumn": "Interview Date"
+            "sourceColumn": "Interview Date",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           },
           {
             "name": "Main Dealer",
@@ -485,12 +1037,14 @@
           {
             "name": "Question",
             "dataType": "string",
-            "sourceColumn": "Question"
+            "sourceColumn": "Question",
+            "sortByColumn": "Question ID"
           },
           {
             "name": "Question G",
             "dataType": "string",
-            "sourceColumn": "Question G"
+            "sourceColumn": "Question G",
+            "sortByColumn": "Question ID"
           },
           {
             "name": "Comments",
@@ -504,7 +1058,7 @@
           },
           {
             "name": "Index",
-            "dataType": "string",
+            "dataType": "int64",
             "sourceColumn": "Index"
           },
           {
@@ -561,6 +1115,71 @@
             "name": "Contact Changed",
             "dataType": "string",
             "sourceColumn": "Contact Changed"
+          },
+          {
+            "type": "calculated",
+            "name": "Finance MTD",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI Finance'[Interaction Date])",
+              "RETURN",
+              "IF(MONTH('vw CSI Finance'[Interaction Date])=MONTH(MAXDATE)&&YEAR('vw CSI Finance'[Interaction Date])=YEAR(MAXDATE),TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Finance PM",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI Finance'[Interaction Date])",
+              "RETURN",
+              "IF(MONTH('vw CSI Finance'[Interaction Date])=MONTH(MAXDATE)-1&&YEAR('vw CSI Finance'[Interaction Date])=YEAR(MAXDATE),TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Finance YTD",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI Finance'[Interaction Date])",
+              "RETURN",
+              "IF(YEAR('vw CSI Finance'[Interaction Date])=YEAR(MAXDATE),TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Finance LY",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI Finance'[Interaction Date])",
+              "RETURN",
+              "IF(YEAR('vw CSI Finance'[Interaction Date])=YEAR(MAXDATE)-1,TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Finance Rolling 12 Month",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MAXDATE = MAX('vw CSI Finance'[Interaction Date])",
+              "RETURN",
+              "IF('vw CSI Finance'[Interaction Date]>=DATE(YEAR(MAXDATE)-1,MONTH(MAXDATE),DAY(MAXDATE))&&'vw CSI Finance'[Interaction Date]<=MAXDATE,TRUE(),FALSE())"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
           }
         ],
         "partitions": [
@@ -577,6 +1196,441 @@
                 "    #\"dbo_vw CSI Finance\""
               ]
             }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Selected Finance Period",
+            "expression": "SELECTEDVALUE('CSI Time Intelligence'[Finance Period])"
+          },
+          {
+            "name": "Selected Main Dealer Finance",
+            "expression": "IF(ISFILTERED('vw CSI Finance'[Main dealer]),SELECTEDVALUE('vw CSI Finance'[Main dealer]),\"All Dealers\")"
+          },
+          {
+            "name": "Selected Dealer Finance",
+            "expression": "IF(ISFILTERED('vw CSI Finance'[Dealer]),SELECTEDVALUE('vw CSI Finance'[Dealer]),\"All Dealers\")"
+          },
+          {
+            "name": "Reporting Period Finance",
+            "expression": "IF(ISFILTERED('CSI Time Intelligence'[Finance Period]),SELECTEDVALUE('CSI Time Intelligence'[Finance Period]),\"All Periods\")"
+          },
+          {
+            "name": "Finance",
+            "expression": "\"Finance\""
+          },
+          {
+            "name": "Used Scania Finance N",
+            "expression": "CALCULATE([Finance Tot Questions],'vw CSI Finance'[Question]=\"Used Scania finance (Yes/No)\",'vw CSI Finance'[Points TXT]=\"No\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Used Scania Finance N Index",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Finance Period] = \"Year To Date\",",
+              "    CALCULATE ( [Used Scania Finance N], 'vw CSI Finance'[Finance YTD] = TRUE () ),",
+              "    IF (",
+              "        [Selected Finance Period] = \"Previous Month\",",
+              "        CALCULATE ( [Used Scania Finance N], 'vw CSI Finance'[Finance PM] = TRUE () ),",
+              "        IF (",
+              "            [Selected Finance Period] = \"Month To Date\",",
+              "            CALCULATE ( [Used Scania Finance N], 'vw CSI Finance'[Finance MTD] = TRUE () ),",
+              "            IF (",
+              "                [Selected Finance Period] = \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Used Scania Finance N],",
+              "                    'vw CSI Finance'[Finance Rolling 12 Month] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                    [Selected Finance Period] = \"Last Year\",",
+              "                    CALCULATE ( [Used Scania Finance N], 'vw CSI Finance'[Finance LY] = TRUE () ),",
+              "                    [Used Scania Finance N]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0"
+          },
+          {
+            "name": "Finance Tot Questions",
+            "expression": "0+CALCULATE(DISTINCTCOUNT('vw CSI Finance'[SalesID]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Finance Sample Size",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Finance Period] = \"Year To Date\",",
+              "    CALCULATE ( [Finance Tot Questions], 'vw CSI Finance'[Finance YTD] = TRUE () ),",
+              "    IF (",
+              "        [Selected Finance Period] = \"Previous Month\",",
+              "        CALCULATE ( [Finance Tot Questions], 'vw CSI Finance'[Finance PM] = TRUE () ),",
+              "        IF (",
+              "            [Selected Finance Period] = \"Month To Date\",",
+              "            CALCULATE ( [Finance Tot Questions], 'vw CSI Finance'[Finance MTD] = TRUE () ),",
+              "            IF (",
+              "                [Selected Finance Period] = \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Finance Tot Questions],",
+              "                    'vw CSI Finance'[Finance Rolling 12 Month] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                    [Selected Finance Period] = \"Last Year\",",
+              "                    CALCULATE ( [Finance Tot Questions], 'vw CSI Finance'[Finance LY] = TRUE () ),",
+              "                    [Finance Tot Questions]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0"
+          },
+          {
+            "name": "Completed Finance Survey",
+            "expression": "0+CALCULATE('vw CSI Finance'[Finance Sample Size],'vw CSI Finance'[Survey Completed Yes/No]=\"Y\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Why Not Scania Finance",
+            "expression": "CALCULATE([Finance Sample Size (Table)],'vw CSI Finance'[Question]=\"Reason For Not Taking Scania Finance\",'vw CSI Finance'[Points]<>\"9\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Finance Index",
+            "expression": "0+CALCULATE(AVERAGE('vw CSI Finance'[Index]),'vw CSI Finance'[Index Filter]=\"TRUE\")",
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI Finance Index",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Finance Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [Finance Index],",
+              "        'vw CSI Finance'[Finance YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected Finance Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "           [Finance Index],",
+              "           'vw CSI Finance'[Finance PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Finance Period]= \"Month To Date\",",
+              "            CALCULATE (",
+              "               [Finance Index],",
+              "               'vw CSI Finance'[Finance MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected Finance Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Finance Index],",
+              "                  'vw CSI Finance'[Finance Rolling 12 Month] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected Finance Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                      [Finance Index],",
+              "                      'vw CSI Finance'[Finance LY] = TRUE ()",
+              "                    ),",
+              "                     [Finance Index]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI Finance Index (Card)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Finance Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [Finance Index],",
+              "        'vw CSI Finance'[Finance YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected Finance Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "           [Finance Index],",
+              "           'vw CSI Finance'[Finance PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Finance Period]= \"Month To Date\",",
+              "            CALCULATE (",
+              "               [Finance Index],",
+              "               'vw CSI Finance'[Finance MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected Finance Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Finance Index],",
+              "                  'vw CSI Finance'[Finance Rolling 12 Month] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected Finance Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                      [Finance Index],",
+              "                      'vw CSI Finance'[Finance LY] = TRUE ()",
+              "                    ),",
+              "                     [Finance Index]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "0.0"
+          },
+          {
+            "name": "Used Scania Finance",
+            "expression": "CALCULATE([Finance Tot Questions],'vw CSI Finance'[Question]=\"Used Scania finance (Yes/No)\",'vw CSI Finance'[Points TXT]=\"No\"||'vw CSI Finance'[Points TXT]=\"Yes\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Used Scania Finance Index",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Finance Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [Used Scania Finance],",
+              "        'vw CSI Finance'[Finance YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected Finance Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "           [Used Scania Finance],",
+              "           'vw CSI Finance'[Finance PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Finance Period]= \"Month To Date\",",
+              "            CALCULATE (",
+              "              [Used Scania Finance],",
+              "               'vw CSI Finance'[Finance MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected Finance Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                   [Used Scania Finance],",
+              "                  'vw CSI Finance'[Finance Rolling 12 Month] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected Finance Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                     [Used Scania Finance],",
+              "                      'vw CSI Finance'[Finance LY] = TRUE ()",
+              "                    ),",
+              "                      [Used Scania Finance]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0"
+          },
+          {
+            "name": "CSI Used Scania Finance",
+            "expression": "CALCULATE([Finance Sample Size (Table)],'vw CSI Finance'[Question]=\"Used Scania finance (Yes/No)\",'vw CSI Finance'[Points]<>\"9\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Finance Tot Questions (Table)",
+            "expression": "CALCULATE(DISTINCTCOUNT('vw CSI Finance'[SalesID]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Finance Sample Size (Table)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Finance Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [Finance Tot Questions (Table)],",
+              "        'vw CSI Finance'[Finance YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected Finance Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "           [Finance Tot Questions (Table)],",
+              "           'vw CSI Finance'[Finance PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Finance Period]= \"Month To Date\",",
+              "            CALCULATE (",
+              "               [Finance Tot Questions (Table)],",
+              "               'vw CSI Finance'[Finance MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected Finance Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Finance Tot Questions (Table)],",
+              "                  'vw CSI Finance'[Finance Rolling 12 Month] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected Finance Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                      [Finance Tot Questions (Table)],",
+              "                      'vw CSI Finance'[Finance LY] = TRUE ()",
+              "                    ),",
+              "                     [Finance Tot Questions (Table)]\t",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0"
+          },
+          {
+            "name": "Finance Index (Table)",
+            "expression": "0+CALCULATE(AVERAGE('vw CSI Finance'[Index]),'vw CSI Finance'[Index Filter]=\"TRUE\")",
+            "formatString": "0.0"
+          },
+          {
+            "name": "CSI Finance Index (Table)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Finance Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [Finance Index (Table)],",
+              "        'vw CSI Finance'[Finance YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected Finance Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "           [Finance Index (Table)],",
+              "           'vw CSI Finance'[Finance PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Finance Period]= \"Month To Date\",",
+              "            CALCULATE (",
+              "               [Finance Index (Table)],",
+              "               'vw CSI Finance'[Finance MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected Finance Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Finance Index (Table)],",
+              "                  'vw CSI Finance'[Finance Rolling 12 Month] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected Finance Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                      [Finance Index (Table)],",
+              "                      'vw CSI Finance'[Finance LY] = TRUE ()",
+              "                    ),",
+              "                     [Finance Index (Table)]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "0.0"
+          },
+          {
+            "name": "Finance Tot Questions (Graph)",
+            "expression": "CALCULATE(COUNT('vw CSI Finance'[SalesID]),'vw CSI Finance'[Points TxT filter]=\"TRUE\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Finance Sample Size (Graph)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Finance Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [Finance Tot Questions (Graph)],",
+              "        'vw CSI Finance'[Finance YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected Finance Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "           [Finance Tot Questions (Graph)],",
+              "           'vw CSI Finance'[Finance PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Finance Period]= \"Month To Date\",",
+              "            CALCULATE (",
+              "               [Finance Tot Questions (Graph)],",
+              "               'vw CSI Finance'[Finance MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected Finance Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Finance Tot Questions (Graph)],",
+              "                  'vw CSI Finance'[Finance Rolling 12 Month] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected Finance Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                      [Finance Tot Questions (Graph)],",
+              "                      'vw CSI Finance'[Finance LY] = TRUE ()",
+              "                    ),",
+              "                     [Finance Tot Questions (Graph)]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0"
+          },
+          {
+            "name": "CSI Finance Sample Size (Graph)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Finance Period]= \"Year To Date\",",
+              "    CALCULATE (",
+              "        [Finance Sample Size (Graph)],",
+              "        'vw CSI Finance'[Finance YTD] = TRUE ()",
+              "    ),",
+              "    IF (",
+              "        [Selected Finance Period]= \"Previous Month\",",
+              "        CALCULATE (",
+              "           [Finance Sample Size (Graph)],",
+              "           'vw CSI Finance'[Finance PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Finance Period]= \"Month To Date\",",
+              "            CALCULATE (",
+              "               [Finance Sample Size (Graph)],",
+              "               'vw CSI Finance'[Finance MTD] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected Finance Period]= \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Finance Sample Size (Graph)],",
+              "                  'vw CSI Finance'[Finance Rolling 12 Month] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                   [Selected Finance Period]= \"Last Year\",",
+              "                    CALCULATE (",
+              "                      [Finance Sample Size (Graph)],",
+              "                      'vw CSI Finance'[Finance LY] = TRUE ()",
+              "                    ),",
+              "                     [Finance Sample Size (Graph)]",
+              "                )",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0"
           }
         ]
       },
@@ -616,12 +1670,26 @@
           {
             "name": "Interaction Date",
             "dataType": "dateTime",
-            "sourceColumn": "Interaction Date"
+            "sourceColumn": "Interaction Date",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           },
           {
             "name": "Interview Date",
             "dataType": "dateTime",
-            "sourceColumn": "Interview Date"
+            "sourceColumn": "Interview Date",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           },
           {
             "name": "Main dealer",
@@ -706,7 +1774,8 @@
           {
             "name": "Question",
             "dataType": "string",
-            "sourceColumn": "Question"
+            "sourceColumn": "Question",
+            "sortByColumn": "Question ID"
           },
           {
             "name": "Comments",
@@ -741,7 +1810,8 @@
           {
             "name": "Month Year",
             "dataType": "string",
-            "sourceColumn": "Month Year"
+            "sourceColumn": "Month Year",
+            "sortByColumn": "Interval"
           },
           {
             "name": "Points TXT",
@@ -845,7 +1915,7 @@
           },
           {
             "type": "calculated",
-            "name": "Rolling 12 Months",
+            "name": "Rollin 12 Months",
             "dataType": "boolean",
             "isDataTypeInferred": true,
             "expression": [
@@ -924,6 +1994,14 @@
               "        )",
               "    )"
             ]
+          },
+          {
+            "type": "calculated",
+            "name": "Question Copy",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "'vw CSI Service'[Question]",
+            "sortByColumn": "Question ID"
           }
         ],
         "partitions": [
@@ -1032,7 +2110,7 @@
               "                [Selected Service Period] = \"Rolling 12 Months\",",
               "                CALCULATE (",
               "                    [Service Tot Questions],",
-              "                    'vw CSI Service'[Rolling 12 Months] = TRUE ()",
+              "                    'vw CSI Service'[Rollin 12 Months] = TRUE ()",
               "                ),",
               "                IF (",
               "                     [Selected Service Period] = \"Last Year\",",
@@ -1066,12 +2144,12 @@
           },
           {
             "name": "CSI Index Format",
-            "expression": "SWITCH(TRUE(),'vw CSI Service'[CSI Service Index (Card)]>='vw CSI Service'[CSI Target],1,0)"
+            "expression": "SWITCH(TRUE(),'vw CSI Service'[CSI Service Index (Card 2)]>='vw CSI Service'[CSI Target],1,0)"
           },
           {
             "name": "Fixed First Visit %",
             "expression": "0+DIVIDE(CALCULATE('vw CSI Service'[Service Sample Size],'vw CSI Service'[Question]=\"Fixed first visit (Yes/No)\",'vw CSI Service'[Points]=\"Yes\"),'vw CSI Service'[Service Sample Size])",
-            "formatString": "0.00%;-0.00%;0.00%"
+            "formatString": "0.0%;-0.0%;0.0%"
           },
           {
             "name": "Selected Main Dealer Service",
@@ -1114,7 +2192,7 @@
               "                [Selected Service Period] = \"Rolling 12 Months\",",
               "                CALCULATE (",
               "                    [Service Index],",
-              "                    'vw CSI Service'[Rolling 12 Months] = TRUE ()",
+              "                    'vw CSI Service'[Rollin 12 Months] = TRUE ()",
               "                ),",
               "                IF (",
               "                     [Selected Service Period] = \"Last Year\",",
@@ -1152,7 +2230,7 @@
               "                [Selected Service Period] = \"Rolling 12 Months\",",
               "                CALCULATE (",
               "                    [Service Index],",
-              "                    'vw CSI Service'[Rolling 12 Months] = TRUE ()",
+              "                    'vw CSI Service'[Rollin 12 Months] = TRUE ()",
               "                ),",
               "                IF (",
               "                     [Selected Service Period] = \"Last Year\",",
@@ -1205,7 +2283,7 @@
               "                [Selected Service Period] = \"Rolling 12 Months\",",
               "                CALCULATE (",
               "                    [Service Index 2],",
-              "                    'vw CSI Service'[Rolling 12 Months] = TRUE ()",
+              "                    'vw CSI Service'[Rollin 12 Months] = TRUE ()",
               "                ),",
               "                IF (",
               "                     [Selected Service Period] = \"Last Year\",",
@@ -1232,6 +2310,48 @@
             "name": "Service YTD Service",
             "expression": "CALCULATE('vw CSI Service'[Service Index 2(table)],'vw CSI Service'[Service YTD]=TRUE())",
             "formatString": "0.0"
+          },
+          {
+            "name": "CSI Service Index 2(Table)",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected Service Period] = \"Year To Date\",",
+              "    CALCULATE ( 'vw CSI Service'[Service Index 2(table)], 'vw CSI Service'[Service YTD] = TRUE () ),",
+              "    IF (",
+              "        [Selected Service Period] = \"Previous Month\",",
+              "        CALCULATE (",
+              "            [Service Index 2(table)],",
+              "            'vw CSI Service'[Service PM] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected Service Period] = \"Month To Date\",",
+              "            CALCULATE ( 'vw CSI Service'[Service Index 2(table)], 'vw CSI Service'[Service MTD]=TRUE () ),",
+              "            IF (",
+              "                [Selected Service Period] = \"Rolling 12 Months\",",
+              "                CALCULATE (",
+              "                    [Service Index 2(table)],",
+              "                    'vw CSI Service'[Rollin 12 Months] = TRUE ()",
+              "                ),",
+              "                IF (",
+              "                     [Selected Service Period] = \"Last Year\",",
+              "                    CALCULATE (",
+              "                        [Service Index 2(table)],",
+              "                        'vw CSI Service'[Service LY] = TRUE ()",
+              "                    ),",
+              "                    [Service Index 2(table)]",
+              "            )",
+              "        )",
+              "    )",
+              ")",
+              "",
+              ")"
+            ],
+            "formatString": "0.0"
+          },
+          {
+            "name": "Last Updated",
+            "expression": "\"Last Updated\"&\" \"&\":\""
           }
         ]
       },
@@ -1325,6 +2445,324 @@
                 "    #\"dbo_CSI Time Intelligence\""
               ]
             }
+          }
+        ]
+      },
+      {
+        "name": "dim Region",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "BK_Region",
+            "dataType": "string",
+            "sourceColumn": "BK_Region"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region"
+          },
+          {
+            "name": "Region Type",
+            "dataType": "string",
+            "sourceColumn": "Region Type"
+          },
+          {
+            "name": "VSBCompany",
+            "dataType": "string",
+            "sourceColumn": "VSBCompany"
+          },
+          {
+            "name": "RMRisk",
+            "dataType": "string",
+            "sourceColumn": "RMRisk"
+          },
+          {
+            "name": "DW_DateCreated",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateCreated"
+          },
+          {
+            "name": "DW_DateModified",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateModified"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    dim_Region = Source{[Schema=\"dim\",Item=\"Region\"]}[Data]",
+                "in",
+                "    dim_Region"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim Depot",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "PoSCompany",
+            "dataType": "string",
+            "sourceColumn": "PoSCompany"
+          },
+          {
+            "name": "BK_Depot",
+            "dataType": "int64",
+            "sourceColumn": "BK_Depot"
+          },
+          {
+            "name": "Depot",
+            "dataType": "string",
+            "sourceColumn": "Depot"
+          },
+          {
+            "name": "Depot Number",
+            "dataType": "string",
+            "sourceColumn": "Depot Number"
+          },
+          {
+            "name": "Cost Centre",
+            "dataType": "string",
+            "sourceColumn": "Cost Centre"
+          },
+          {
+            "name": "Depot Type",
+            "dataType": "string",
+            "sourceColumn": "Depot Type"
+          },
+          {
+            "name": "Depot Status",
+            "dataType": "string",
+            "sourceColumn": "Depot Status"
+          },
+          {
+            "name": "Region",
+            "dataType": "int64",
+            "sourceColumn": "Region"
+          },
+          {
+            "name": "Post Code",
+            "dataType": "string",
+            "sourceColumn": "Post Code"
+          },
+          {
+            "name": "Hours Mapping Name",
+            "dataType": "string",
+            "sourceColumn": "Hours Mapping Name"
+          },
+          {
+            "name": "MOT Preparer ID",
+            "dataType": "string",
+            "sourceColumn": "MOT Preparer ID"
+          },
+          {
+            "name": "DW_DateCreated",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateCreated"
+          },
+          {
+            "name": "DW_DateModified",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateModified"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/sgbsql01 database windows net;KPI_Dashboards\",",
+                "    dim_Depot = Source{[Schema=\"dim\",Item=\"Depot\"]}[Data]",
+                "in",
+                "    dim_Depot"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "c78ef7d9-12c5-4a45-8873-38a843885dc0",
+        "fromTable": "vw CSI New Sales",
+        "fromColumn": "Interaction Date",
+        "toTable": "dim Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "2611a067-2835-4081-a8eb-7f1d52d96e6a",
+        "fromTable": "vw CSI Finance",
+        "fromColumn": "Interaction Date",
+        "toTable": "dim Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "c87d3ad6-360f-428e-bcd1-1752cb9bb8cd",
+        "fromTable": "vw CSI Service",
+        "fromColumn": "Interaction Date",
+        "toTable": "dim Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "db85423e-3837-442f-b081-b24c84b9b0b6",
+        "fromTable": "dim Depot",
+        "fromColumn": "Region",
+        "toTable": "dim Region",
+        "toColumn": "ID"
+      },
+      {
+        "name": "da1fb59d-86d3-4d89-947f-1ba05a2b7644",
+        "fromTable": "vw CSI Finance",
+        "fromColumn": "Region ID",
+        "toTable": "dim Region",
+        "toColumn": "ID"
+      },
+      {
+        "name": "66a50c60-305f-408a-9cbc-65804d835e4f",
+        "fromTable": "vw CSI New Sales",
+        "fromColumn": "Region ID",
+        "toTable": "dim Region",
+        "toColumn": "ID"
+      },
+      {
+        "name": "11fb1705-7b3e-47a7-a980-8e9f7c6bd868",
+        "fromTable": "vw CSI Service",
+        "fromColumn": "Depot ID",
+        "toTable": "dim Depot",
+        "toColumn": "ID"
+      }
+    ],
+    "roles": [
+      {
+        "name": "Wholly Owned",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:83a34515-2f68-4dfb-afdd-e8c0ce0796f1@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:83a34515-2f68-4dfb-afdd-e8c0ce0796f1@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ]
+      },
+      {
+        "name": "Scania Finance",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:e400aac2-b7ac-47b8-bc8c-32f904edc46e@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:e400aac2-b7ac-47b8-bc8c-32f904edc46e@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "vw CSI Finance",
+            "filterExpression": "'vw CSI Finance'[Category]=\"Finance\""
+          }
+        ]
+      },
+      {
+        "name": "All East",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:69eaef4c-5dda-42ab-8394-9c1c0099edb8@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:69eaef4c-5dda-42ab-8394-9c1c0099edb8@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Region",
+            "filterExpression": "'dim Region'[Region]=\"East\""
+          }
+        ]
+      },
+      {
+        "name": "All North",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:a1b20262-360e-4059-bc7f-9ef4d2a49a34@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:a1b20262-360e-4059-bc7f-9ef4d2a49a34@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Region",
+            "filterExpression": "'dim Region'[Region]=\"North\""
+          }
+        ]
+      },
+      {
+        "name": "All Scotland",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:8dcd97bc-3cc5-4786-99c5-9f477c8f9b24@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:8dcd97bc-3cc5-4786-99c5-9f477c8f9b24@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Region",
+            "filterExpression": "'dim Region'[Region]=\"Scotland\""
+          }
+        ]
+      },
+      {
+        "name": "All South East",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:3d385598-86bc-45bb-b7ef-3c060f387219@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:3d385598-86bc-45bb-b7ef-3c060f387219@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Region",
+            "filterExpression": "'dim Region'[Region]=\"South East\""
+          }
+        ]
+      },
+      {
+        "name": "All South West",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:9ecc7a81-1a52-4f7e-ace6-63d268123db3@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:9ecc7a81-1a52-4f7e-ace6-63d268123db3@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Region",
+            "filterExpression": "'dim Region'[Region]=\"South West\""
           }
         ]
       }

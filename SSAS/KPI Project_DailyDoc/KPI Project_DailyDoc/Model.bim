@@ -19995,10 +19995,6 @@
           {
             "name": "Fails Description Measure",
             "expression": "CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\"||'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PRS\")"
-          },
-          {
-            "name": "ccccc",
-            "expression": "CALCULATE(COUNT('vw_MOT Pass Rate Report Trucks'[Failure Description]))"
           }
         ],
         "annotations": [
@@ -28503,7 +28499,7 @@
           },
           {
             "name": "Produced Hours Last Year",
-            "expression": "0+CALCULATE(TechnicianHours[Technician Produced Hours],all('Date'[Date]),month('Date'[Date])=month(TODAY()) && year('Date'[Date])=YEAR(TODAY())-1)",
+            "expression": "0+CALCULATE(sum(TechnicianHours[Produced]),all('Date'[Date]),'Date'[Month]=month(TODAY()), 'Date'[Year]=YEAR(TODAY())-1) ",
             "formatString": "#,0"
           },
           {
@@ -29063,13 +29059,6 @@
         "toColumn": "ID"
       },
       {
-        "name": "c1cc2717-b1cc-4f32-a3a6-c72230b21298",
-        "fromTable": "Technician",
-        "fromColumn": "Depot",
-        "toTable": "Depot",
-        "toColumn": "ID"
-      },
-      {
         "name": "f4e2b7b9-3e79-4113-9945-90c7ed12e697",
         "fromTable": "TechnicianHours",
         "fromColumn": "Date",
@@ -29243,6 +29232,13 @@
         "fromColumn": "Date",
         "toTable": "Date",
         "toColumn": "Date"
+      },
+      {
+        "name": "806d523d-0add-4575-9321-83ab763c06ff",
+        "fromTable": "TechnicianHours",
+        "fromColumn": "Depot",
+        "toTable": "Depot",
+        "toColumn": "ID"
       }
     ],
     "roles": [
