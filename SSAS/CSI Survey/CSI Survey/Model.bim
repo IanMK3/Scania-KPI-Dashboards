@@ -2765,6 +2765,193 @@
             "filterExpression": "'dim Region'[Region]=\"South West\""
           }
         ]
+      },
+      {
+        "name": "Abingdon",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:c3fa599e-f7df-4232-a69a-cb8df39e28b4@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:c3fa599e-f7df-4232-a69a-cb8df39e28b4@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Depot",
+            "filterExpression": "'dim Depot'[Depot]=\"Abingdon\""
+          }
+        ]
+      },
+      {
+        "name": "Avonmouth",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:ae679df2-46a9-4c5f-b478-2df2ad1a2189@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:ae679df2-46a9-4c5f-b478-2df2ad1a2189@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Depot",
+            "filterExpression": "'dim Depot'[Depot]=\"Avonmouth\""
+          }
+        ]
+      },
+      {
+        "name": "Banbury",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:5fdcee5d-e2b9-4db5-846f-5f3fd7be8383@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:5fdcee5d-e2b9-4db5-846f-5f3fd7be8383@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Depot",
+            "filterExpression": "'dim Depot'[Depot]=\"Banbury\""
+          }
+        ]
+      },
+      {
+        "name": "Bridgwater",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:44ecede4-a5f0-4a35-b8a9-d4237824d7e0@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:44ecede4-a5f0-4a35-b8a9-d4237824d7e0@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Depot",
+            "filterExpression": "'dim Depot'[Depot]=\"Bridgwater\""
+          }
+        ]
+      },
+      {
+        "name": "Exeter",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:79526c26-d581-463f-95e1-c19c58e66406@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:79526c26-d581-463f-95e1-c19c58e66406@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Depot",
+            "filterExpression": "'dim Depot'[Depot]=\"Exeter\""
+          }
+        ]
+      },
+      {
+        "name": "Fareham",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:dfa306c8-1378-4edf-85e6-4e6b86c46a7e@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:dfa306c8-1378-4edf-85e6-4e6b86c46a7e@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Depot",
+            "filterExpression": "'dim Depot'[Depot]=\"Fareham\""
+          }
+        ]
+      },
+      {
+        "name": "Poole",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:6b23558d-4de4-4b40-b3b9-741e07d7a96e@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:6b23558d-4de4-4b40-b3b9-741e07d7a96e@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Depot",
+            "filterExpression": "'dim Depot'[Depot]=\"Poole\""
+          }
+        ]
+      },
+      {
+        "name": "Redruth",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:587e8b7e-00d2-4569-9728-093309035aa6@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:587e8b7e-00d2-4569-9728-093309035aa6@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Depot",
+            "filterExpression": "'dim Depot'[Depot]=\"Redruth\""
+          }
+        ]
+      },
+      {
+        "name": "Shepton Mallet",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:be4a12d1-e02e-433a-a714-85719d0b5db5@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:be4a12d1-e02e-433a-a714-85719d0b5db5@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Depot",
+            "filterExpression": "'dim Depot'[Depot]=\"Shepton Mallet\""
+          }
+        ]
+      },
+      {
+        "name": "Southampton",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:1a42f5df-260c-46c5-8dc9-fc768020d1d7@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:1a42f5df-260c-46c5-8dc9-fc768020d1d7@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Depot",
+            "filterExpression": "'dim Depot'[Depot]=\"Southampton\""
+          }
+        ]
+      },
+      {
+        "name": "Swindon",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:1cfc0bd2-38c8-4021-b6f4-e38f9a628052@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:1cfc0bd2-38c8-4021-b6f4-e38f9a628052@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "dim Depot",
+            "filterExpression": "'dim Depot'[Depot]=\"Swindon\""
+          }
+        ]
       }
     ],
     "annotations": [
