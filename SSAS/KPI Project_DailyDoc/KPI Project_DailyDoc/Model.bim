@@ -3639,7 +3639,10 @@
           },
           {
             "name": "FrontCounterSalesMargin%Format",
-            "expression": "SWITCH(TRUE(),[FrontCounterSalesMargin %]>=DIVIDE([FrontCounterSalesMarginFlxBudget],[FrontCounterSalesFlxBudget]),1,0)"
+            "expression": [
+              "SWITCH(TRUE(),[FrontCounterSalesMargin %]>=DIVIDE([FrontCounterSalesMarginFlxBudget],[FrontCounterSalesFlxBudget]),1,",
+              "[FrontCounterSalesMargin %]=0.0,2,0)"
+            ]
           },
           {
             "name": "BackCounterSalesMargin%Format",
@@ -3777,11 +3780,36 @@
           },
           {
             "name": "F/C Sales vs Budget Format",
-            "expression": "SWITCH(TRUE(),[Front Counter Sales Performance Against Front Counter Budget %]>=[Target Marker],1,0)"
+            "expression": [
+              "SWITCH(TRUE(),[Front Counter Sales Performance Against Front Counter Budget %]>=[Target Marker],1,",
+              "[Front Counter Sales Performance Against Front Counter Budget %]=0.0,2,0)"
+            ]
           },
           {
             "name": "B/C Sales vs Budget Format",
             "expression": "SWITCH(TRUE(),[Back Counter Sales Performance Against Back Counter Budget %]>=[Target Marker],1,0)"
+          },
+          {
+            "name": "Labour vs FlxBudget Format",
+            "expression": [
+              "SWITCH(TRUE(),[Labour Sales vs Flx Budget]>=1,1,",
+              "[Labour Sales vs Flx Budget]=0.0,2,0)"
+            ]
+          },
+          {
+            "name": "Other Sales vs FlxBudget Format",
+            "expression": [
+              "SWITCH(TRUE(),[Other Sales vs Flx Budget]>=1,1,",
+              "[Other Sales vs Flx Budget]=0.0,2,0)"
+            ]
+          },
+          {
+            "name": "Labour vs Budget Format",
+            "expression": "SWITCH(TRUE(),[Labour Sales vs Budget]>=[Target Marker],1,[Labour Sales vs Budget]=0.0,2,0)"
+          },
+          {
+            "name": "Other Sales vs Budget Format",
+            "expression": "SWITCH(TRUE(),[Other Sales vs Budget]>=[Target Marker],1,[Other Sales vs Budget]=0.0,2,0)"
           }
         ],
         "annotations": [
@@ -4407,11 +4435,17 @@
           },
           {
             "name": "FrontCounterSales Against FlxBudget Format",
-            "expression": "SWITCH(TRUE(),[FrontCounterSalesPerformanceAgainstFxBudget]>=1,1,0)"
+            "expression": [
+              "SWITCH(TRUE(),[FrontCounterSalesPerformanceAgainstFxBudget]>=1,1,",
+              "                                                                                [FrontCounterSalesPerformanceAgainstFxBudget]=0.0,2,0)"
+            ]
           },
           {
             "name": "Back CounterSales Against FlxBudget Format",
-            "expression": "SWITCH(TRUE(),[BackCounterSalesPerformanceAgaistFlxBudget]>=1,1,0)"
+            "expression": [
+              "SWITCH(TRUE(),[BackCounterSalesPerformanceAgaistFlxBudget]>=1,1,",
+              "[BackCounterSalesPerformanceAgaistFlxBudget]=0.0,2,0)"
+            ]
           },
           {
             "name": "Labour To Do Budget",
@@ -28499,7 +28533,7 @@
           },
           {
             "name": "Produced Hours Last Year",
-            "expression": "0+CALCULATE(sum(TechnicianHours[Produced]),all('Date'[Date]),'Date'[Month]=month(TODAY()), 'Date'[Year]=YEAR(TODAY())-1) ",
+            "expression": "0+CALCULATE(sum(TechnicianHours[Produced]),SAMEPERIODLASTYEAR('Date'[Date]))",
             "formatString": "#,0"
           },
           {
@@ -28524,6 +28558,14 @@
           {
             "name": "Focus Area",
             "expression": "SWITCH(TRUE(),[Last Day Invoiced]>=[Daily Target],\"Focus Area :\",\"Focus Area : Hours Invoiced was Low\")"
+          },
+          {
+            "name": "Produced Hours Last Year1",
+            "expression": [
+              "0+CALCULATE(sum(TechnicianHours[Produced]),SAMEPERIODLASTYEAR('Date'[Date]))",
+              ""
+            ],
+            "formatString": "#,0"
           }
         ],
         "annotations": [
