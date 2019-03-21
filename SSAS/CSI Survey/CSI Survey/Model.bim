@@ -2678,6 +2678,614 @@
           {
             "name": "vw CSI Finance",
             "filterExpression": "'vw CSI Finance'[Category]=\"Finance\""
+          },
+          {
+            "name": "vw CSI New Sales",
+            "columnPermissions": [
+              {
+                "name": "SalesID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "DS_PK",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "DS_SK",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Contact person",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Company",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Company ID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Interaction Date",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Interview Date",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Main Dealer",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Dealer",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Salesperson",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "New Contact Y/N",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "New Contact",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "New Phone Y/N",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "New Phone",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Contact Via Email Y/N",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "New Email Y/N",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "New Email",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Remove Contact Y/N",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Name Withheld Yes/No",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Phone Answered Y/N",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Survey Completed Y/N",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Further Comments",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Question ID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Question",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Comments",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Points",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Index",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Year",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "MonthNo",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Month",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Points TXT",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Points TxT filter",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Quarter",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Quarter Sort",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Region ID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Contact Changed",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "NewSales MTD",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "NewSales PM",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "NewSales YTD",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "NewSales LY",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "NewSales Rollin 12 Months",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Question Filter",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Interval",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Month Year",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Rolling Month Sort",
+                "metadataPermission": "none"
+              }
+            ]
+          },
+          {
+            "name": "dim Date",
+            "columnPermissions": [
+              {
+                "name": "ID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Date",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Year",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Year Name",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Month",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Month Name",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Quarter",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Quarter Name",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Quarter Year Name",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Week Start Date",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Week Name",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Day Name",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Day",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Short Day Name",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Short Month Name",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Day Of Week",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Year Month",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Is Scottish Public Holiday",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Is English Public Holiday",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Is Current Revenue Period",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Is Previous Revenue Period",
+                "metadataPermission": "none"
+              }
+            ]
+          },
+          {
+            "name": "vw CSI Service",
+            "columnPermissions": [
+              {
+                "name": "ServiceID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "DS_PK",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "DS_SK",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Contact person",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Company",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Company ID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Interaction Date",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Interview Date",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Main dealer",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Dealer",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Salesperson",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "New Contact",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "New Contact Y/N",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "New Phone",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "New Phone Y/N",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "New email Y/N",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "New Email",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Contact Via Email Y/N",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Remove Contact Y/N",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Name Withheld Yes/No",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Phone Answered Yes/No",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Survey Completed Yes/No",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Further Comments",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Question ID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Question",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Comments",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Points",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Index",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Year",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "MonthNo",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Month",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Month Year",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Points TXT",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Points TxT filter",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Quarter",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Quarter Sort",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Region ID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Depot ID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Contact Changed",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Service MTD",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Service PM",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Service YTD",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Service LY",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Rollin 12 Months",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Question Filter",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Interval",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Question Copy",
+                "metadataPermission": "none"
+              }
+            ]
+          },
+          {
+            "name": "CSI Service Refresh Date",
+            "columnPermissions": [
+              {
+                "name": "ServiceRefreshDate",
+                "metadataPermission": "none"
+              }
+            ]
+          },
+          {
+            "name": "CSI New Sales Refresh Date",
+            "columnPermissions": [
+              {
+                "name": "SalesRefreshDate",
+                "metadataPermission": "none"
+              }
+            ]
+          },
+          {
+            "name": "CSI Time Intelligence",
+            "columnPermissions": [
+              {
+                "name": "Period",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Service Period",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Finance Period",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "MOT Period",
+                "metadataPermission": "none"
+              }
+            ]
+          },
+          {
+            "name": "dim Region",
+            "columnPermissions": [
+              {
+                "name": "ID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "BK_Region",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Region",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Region Type",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "VSBCompany",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "RMRisk",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "DW_DateCreated",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "DW_DateModified",
+                "metadataPermission": "none"
+              }
+            ]
+          },
+          {
+            "name": "dim Depot",
+            "columnPermissions": [
+              {
+                "name": "ID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "PoSCompany",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "BK_Depot",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Depot",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Depot Number",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Cost Centre",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Depot Type",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Depot Status",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Region",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Post Code",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "Hours Mapping Name",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "MOT Preparer ID",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "DW_DateCreated",
+                "metadataPermission": "none"
+              },
+              {
+                "name": "DW_DateModified",
+                "metadataPermission": "none"
+              }
+            ]
           }
         ]
       },
