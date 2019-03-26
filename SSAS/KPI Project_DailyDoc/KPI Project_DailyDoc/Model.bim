@@ -3781,13 +3781,13 @@
           {
             "name": "F/C Sales vs Budget Format",
             "expression": [
-              "SWITCH(TRUE(),[Front Counter Sales Performance Against Front Counter Budget %]>=[Target Marker],1,",
+              "SWITCH(TRUE(),[Front Counter Sales Performance Against Front Counter Budget %]>=1,1,",
               "[Front Counter Sales Performance Against Front Counter Budget %]=0.0,2,0)"
             ]
           },
           {
             "name": "B/C Sales vs Budget Format",
-            "expression": "SWITCH(TRUE(),[Back Counter Sales Performance Against Back Counter Budget %]>=[Target Marker],1,0)"
+            "expression": "SWITCH(TRUE(),[Back Counter Sales Performance Against Back Counter Budget %]>=1,1,0)"
           },
           {
             "name": "Labour vs FlxBudget Format",
@@ -30123,6 +30123,17 @@
           {
             "name": "vw CSI Finance",
             "filterExpression": "'vw CSI Finance'[Category]=\"Finance\""
+          }
+        ]
+      },
+      {
+        "name": "Executive Team",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:3a3892e4-f2d9-4df8-9b95-d1a2c9dfac3f@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "memberId": "obj:3a3892e4-f2d9-4df8-9b95-d1a2c9dfac3f@3bc062e4-ac9d-4c17-b4dd-3aad637ff1ac",
+            "identityProvider": "AzureAD"
           }
         ]
       }
