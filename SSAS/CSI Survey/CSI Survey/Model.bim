@@ -1922,7 +1922,7 @@
               "",
               "VAR MAXDATE = MAX('vw CSI Service'[Interaction Date])",
               "RETURN",
-              "IF('vw CSI Service'[Interaction Date]>=DATE(YEAR(MAXDATE)-1,MONTH(MAXDATE),DAY(MAXDATE))&&'vw CSI Service'[Interaction Date]<=MAXDATE,TRUE(),FALSE())"
+              "IF('vw CSI Service'[Interaction Date]>=DATE(YEAR(MAXDATE)-1,MONTH(MAXDATE)-1,DAY(MAXDATE))&&'vw CSI Service'[Interaction Date]<=MAXDATE,TRUE(),FALSE())"
             ],
             "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
           },
@@ -2144,7 +2144,10 @@
           },
           {
             "name": "CSI Index Format",
-            "expression": "SWITCH(TRUE(),'vw CSI Service'[CSI Service Index (Card 2)]>='vw CSI Service'[CSI Target],1,0)"
+            "expression": [
+              "SWITCH(TRUE(),'vw CSI Service'[CSI Service Index (Card 2)]>='vw CSI Service'[CSI Target],1",
+              ",0)"
+            ]
           },
           {
             "name": "Fixed First Visit %",
