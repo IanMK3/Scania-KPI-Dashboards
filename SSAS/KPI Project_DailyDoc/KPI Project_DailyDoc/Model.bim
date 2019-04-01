@@ -77,6 +77,7 @@
             "name": "Branch",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dim].[Branch].[ID],[dim].[Branch].[Branch Code],[dim].[Branch].[Branch],[dim].[Branch].[Depot],[dim].[Branch].[Branch Type],[dim].[Branch].[DW_DateCreated],[dim].[Branch].[DW_DateModified] FROM [dim].[Branch] ",
               "dataSource": "SqlServerConn"
             },
@@ -623,6 +624,7 @@
             "name": "Date",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dim].[Date].* FROM [dim].[Date] ",
               "dataSource": "SqlServerConn"
             },
@@ -1494,6 +1496,7 @@
             "name": "Depot",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dim].[Depot].* FROM [dim].[Depot] ",
               "dataSource": "SqlServerConn"
             },
@@ -2013,6 +2016,7 @@
             "name": "DepotWorkingDays",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dim].[DepotWorkingDays].* FROM [dim].[DepotWorkingDays] ",
               "dataSource": "SqlServerConn"
             },
@@ -2352,6 +2356,7 @@
             "name": "NominalCode",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dim].[NominalCode].* FROM [dim].[NominalCode] ",
               "dataSource": "SqlServerConn"
             },
@@ -2745,6 +2750,7 @@
             "name": "Region",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dim].[Region].* FROM [dim].[Region] ",
               "dataSource": "SqlServerConn"
             },
@@ -3138,6 +3144,7 @@
             "name": "Revenue",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [fact].[Revenue].[ID],[fact].[Revenue].[Nominal Code],[fact].[Revenue].[Branch],[fact].[Revenue].[Date],[fact].[Revenue].[Revenue],[fact].[Revenue].[DW_DateCreated],[fact].[Revenue].[DW_DateModified] FROM [fact].[Revenue] ",
               "dataSource": "SqlServerConn"
             },
@@ -4079,6 +4086,7 @@
             "name": "Budget",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [fact].[Budget].* FROM [fact].[Budget] ",
               "dataSource": "SqlServerConn"
             },
@@ -4697,6 +4705,7 @@
             "name": "CurrentRevenueDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": "SELECT * FROM [report].[CurrentRevenueDate]",
               "dataSource": "SqlServerConn"
             },
@@ -4749,6 +4758,7 @@
             "name": "CashSaleOutstandingDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[CashSaleOutstandingDate].* FROM [report].[CashSaleOutstandingDate] ",
               "dataSource": "SqlServerConn"
             }
@@ -4791,6 +4801,7 @@
             "name": "CurrentUtilizationStatsDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[CurrentUtilizationStatsDate].* FROM [report].[CurrentUtilizationStatsDate] ",
               "dataSource": "SqlServerConn"
             }
@@ -4833,6 +4844,7 @@
             "name": "CurrentWIPRefreshDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[CurrentWIPRefreshDate].* FROM [report].[CurrentWIPRefreshDate] ",
               "dataSource": "SqlServerConn"
             }
@@ -4875,6 +4887,7 @@
             "name": "DOTYDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[DOTYDate].* FROM [report].[DOTYDate] ",
               "dataSource": "SqlServerConn"
             }
@@ -4917,6 +4930,7 @@
             "name": "ObsolescenceRefreshDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[ObsolescenceRefreshDate].* FROM [report].[ObsolescenceRefreshDate] ",
               "dataSource": "SqlServerConn"
             }
@@ -4959,6 +4973,7 @@
             "name": "OutstandingCreditRefreshDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[OutstandingCreditRefreshDate].* FROM [report].[OutstandingCreditRefreshDate] ",
               "dataSource": "SqlServerConn"
             }
@@ -5001,6 +5016,7 @@
             "name": "OutstandingQueryRefreshDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[OutstandingQueryRefreshDate].* FROM [report].[OutstandingQueryRefreshDate] ",
               "dataSource": "SqlServerConn"
             }
@@ -5043,6 +5059,7 @@
             "name": "PartsOutstandingPaymentRefreshDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[PartsOutstandingPaymentRefreshDate].* FROM [report].[PartsOutstandingPaymentRefreshDate] ",
               "dataSource": "SqlServerConn"
             }
@@ -5085,6 +5102,7 @@
             "name": "SubletOutstandingPaymentRefreshDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[SubletOutstandingPaymentRefreshDate].* FROM [report].[SubletOutstandingPaymentRefreshDate] ",
               "dataSource": "SqlServerConn"
             }
@@ -5127,6 +5145,7 @@
             "name": "WarrantyOutstandingRefreshDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[WarrantyOutstandingRefreshDate].* FROM [report].[WarrantyOutstandingRefreshDate] ",
               "dataSource": "SqlServerConn"
             }
@@ -5188,6 +5207,7 @@
             "name": "QueryReasonCode",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dim].[QueryReasonCode].* FROM [dim].[QueryReasonCode] ",
               "dataSource": "SqlServerConn"
             }
@@ -5315,6 +5335,7 @@
             "name": "Part",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dim].[Part].* FROM [dim].[Part] ",
               "dataSource": "SqlServerConn"
             }
@@ -5450,6 +5471,7 @@
             "name": "Depot 1",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": "SELECT [report].[Depot].* FROM [report].[Depot]",
               "dataSource": "SqlServerConn"
             },
@@ -5605,6 +5627,7 @@
             "name": "CurrentWIP",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[CurrentWIP].* FROM [report].[CurrentWIP] ",
               "dataSource": "SqlServerConn"
             },
@@ -6195,6 +6218,7 @@
             "name": "CurrentObsolescence",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[CurrentObsolescence].* FROM [report].[CurrentObsolescence] ",
               "dataSource": "SqlServerConn"
             },
@@ -6754,6 +6778,7 @@
             "name": "CurrentOutstandingCredit",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[CurrentOutstandingCredit].* FROM [report].[CurrentOutstandingCredit] ",
               "dataSource": "SqlServerConn"
             },
@@ -8080,6 +8105,7 @@
             "name": "CurrentOutstandingPartsPayment",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[CurrentOutstandingPartsPayment].* FROM [report].[CurrentOutstandingPartsPayment] ",
               "dataSource": "SqlServerConn"
             },
@@ -9334,6 +9360,7 @@
             "name": "CurrentOutstandingQueries",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[CurrentOutstandingQueries].* FROM [report].[CurrentOutstandingQueries] ",
               "dataSource": "SqlServerConn"
             },
@@ -10494,11 +10521,6 @@
             "sourceColumn": "Region"
           },
           {
-            "name": "Branch",
-            "dataType": "string",
-            "sourceColumn": "Branch"
-          },
-          {
             "name": "Age Group",
             "dataType": "string",
             "sourceColumn": "Age Group",
@@ -10515,6 +10537,7 @@
             "name": "CurrentOutstandingCashSale",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[CurrentOutstandingCashSale].* FROM [report].[CurrentOutstandingCashSale] ",
               "dataSource": "SqlServerConn"
             },
@@ -10654,14 +10677,6 @@
                   "    <item>",
                   "      <key>",
                   "        <string>Region</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>63</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Branch</string>",
                   "      </key>",
                   "      <value>",
                   "        <int>63</int>",
@@ -10815,7 +10830,7 @@
                   "    </item>",
                   "    <item>",
                   "      <key>",
-                  "        <string>Branch</string>",
+                  "        <string>Age Group</string>",
                   "      </key>",
                   "      <value>",
                   "        <int>16</int>",
@@ -10823,18 +10838,10 @@
                   "    </item>",
                   "    <item>",
                   "      <key>",
-                  "        <string>Age Group</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>17</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
                   "        <string>AgeGroupSort</string>",
                   "      </key>",
                   "      <value>",
-                  "        <int>18</int>",
+                  "        <int>17</int>",
                   "      </value>",
                   "    </item>",
                   "  </ColumnDisplayIndex>",
@@ -10883,14 +10890,6 @@
                   "    <item>",
                   "      <key>",
                   "        <string>Region</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <boolean>true</boolean>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Branch</string>",
                   "      </key>",
                   "      <value>",
                   "        <boolean>true</boolean>",
@@ -11238,14 +11237,6 @@
               "    </item>",
               "    <item>",
               "      <key>",
-              "        <string>Branch</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>63</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
               "        <string>Age Group</string>",
               "      </key>",
               "      <value>",
@@ -11392,7 +11383,7 @@
               "    </item>",
               "    <item>",
               "      <key>",
-              "        <string>Branch</string>",
+              "        <string>Age Group</string>",
               "      </key>",
               "      <value>",
               "        <int>16</int>",
@@ -11400,18 +11391,10 @@
               "    </item>",
               "    <item>",
               "      <key>",
-              "        <string>Age Group</string>",
-              "      </key>",
-              "      <value>",
-              "        <int>17</int>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
               "        <string>AgeGroupSort</string>",
               "      </key>",
               "      <value>",
-              "        <int>18</int>",
+              "        <int>17</int>",
               "      </value>",
               "    </item>",
               "  </ColumnDisplayIndex>",
@@ -11460,14 +11443,6 @@
               "    <item>",
               "      <key>",
               "        <string>Region</string>",
-              "      </key>",
-              "      <value>",
-              "        <boolean>true</boolean>",
-              "      </value>",
-              "    </item>",
-              "    <item>",
-              "      <key>",
-              "        <string>Branch</string>",
               "      </key>",
               "      <value>",
               "        <boolean>true</boolean>",
@@ -11636,6 +11611,7 @@
             "name": "CurrentOutstandingSubletPayement",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[CurrentOutstandingSubletPayement].* FROM [report].[CurrentOutstandingSubletPayement] ",
               "dataSource": "SqlServerConn"
             },
@@ -12809,6 +12785,7 @@
             "name": "CurrentWarrantyOutstandingAmount",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[CurrentWarrantyOutstandingAmount].* FROM [report].[CurrentWarrantyOutstandingAmount] ",
               "dataSource": "SqlServerConn"
             },
@@ -13861,6 +13838,7 @@
             "name": "BranchHeadCount",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [fact].[BranchHeadCount].* FROM [fact].[BranchHeadCount] ",
               "dataSource": "SqlServerConn"
             },
@@ -14306,6 +14284,7 @@
             "name": "DOTY",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [fact].[DOTY].* FROM [fact].[DOTY] ",
               "dataSource": "SqlServerConn"
             },
@@ -15186,6 +15165,7 @@
             "name": "vwReport_DOTY",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[vwReport_DOTY].* FROM [dbo].[vwReport_DOTY] ",
               "dataSource": "SqlServerConn"
             },
@@ -15875,6 +15855,7 @@
             "name": "vwReport_DOTY_1",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[vwReport_DOTY_1].* FROM [dbo].[vwReport_DOTY_1] ",
               "dataSource": "SqlServerConn"
             },
@@ -16953,6 +16934,7 @@
             "name": "vwReport_DOTY_Region_Depot",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[vwReport_DOTY_Region_Depot].* FROM [dbo].[vwReport_DOTY_Region_Depot] ",
               "dataSource": "SqlServerConn"
             }
@@ -17104,6 +17086,7 @@
             "name": "CurrentWasteCost",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[CurrentWasteCost].[ID],[dbo].[CurrentWasteCost].[Branch],[dbo].[CurrentWasteCost].[NominalCode],[dbo].[CurrentWasteCost].[Date],[dbo].[CurrentWasteCost].[Complete],[dbo].[CurrentWasteCost].[Journal Ref],[dbo].[CurrentWasteCost].[Nominal Description],[dbo].[CurrentWasteCost].[Journal reference],[dbo].[CurrentWasteCost].[Value],[dbo].[CurrentWasteCost].[Narrative],[dbo].[CurrentWasteCost].[Doc Date],[dbo].[CurrentWasteCost].[SL PL Acc Code],[dbo].[CurrentWasteCost].[SL PL Account Name],[dbo].[CurrentWasteCost].[Item number],[dbo].[CurrentWasteCost].[Daybook number],[dbo].[CurrentWasteCost].[Sequence number],[dbo].[CurrentWasteCost].[Depot],[dbo].[CurrentWasteCost].[Region] FROM [dbo].[CurrentWasteCost] ",
               "dataSource": "SqlServerConn"
             },
@@ -17951,6 +17934,7 @@
             "name": "CurrentWasteCostRefreshDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[CurrentWasteCostRefreshDate].* FROM [dbo].[CurrentWasteCostRefreshDate] ",
               "dataSource": "SqlServerConn"
             }
@@ -18037,6 +18021,7 @@
             "name": "HoursBudget",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [fact].[HoursBudget].* FROM [fact].[HoursBudget] ",
               "dataSource": "SqlServerConn"
             },
@@ -18560,6 +18545,7 @@
             "name": "vw_Current WIP Report",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[vw_Current WIP Report].* FROM [dbo].[vw_Current WIP Report] ",
               "dataSource": "SqlServerConn"
             },
@@ -19572,6 +19558,7 @@
             "name": "WIP_RefreshDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[WIP_RefreshDate].* FROM [dbo].[WIP_RefreshDate] ",
               "dataSource": "SqlServerConn"
             }
@@ -19790,6 +19777,7 @@
             "name": "vw_MOT Pass Rate Report Trucks",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[vw_MOT Pass Rate Report Trucks].* FROM [dbo].[vw_MOT Pass Rate Report Trucks] ",
               "dataSource": "SqlServerConn"
             },
@@ -20853,6 +20841,7 @@
             "name": "MOT Pass Rate Trucks RefreshDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[MOT Pass Rate Trucks RefreshDate].* FROM [dbo].[MOT Pass Rate Trucks RefreshDate] ",
               "dataSource": "SqlServerConn"
             }
@@ -20903,6 +20892,7 @@
             "name": "CSI Time Intelligence",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[CSI Time Intelligence].* FROM [dbo].[CSI Time Intelligence] ",
               "dataSource": "SqlServerConn"
             },
@@ -21524,6 +21514,7 @@
             "name": "vw CSI New Sales",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[vw CSI New Sales].* FROM [dbo].[vw CSI New Sales] ",
               "dataSource": "SqlServerConn"
             },
@@ -23955,6 +23946,7 @@
             "name": "vw CSI Service",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[vw CSI Service].* FROM [dbo].[vw CSI Service] ",
               "dataSource": "SqlServerConn"
             },
@@ -25932,6 +25924,7 @@
             "name": "CSI New Sales Refresh Date",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[CSI New Sales Refresh Date].* FROM [dbo].[CSI New Sales Refresh Date] ",
               "dataSource": "SqlServerConn"
             }
@@ -25974,6 +25967,7 @@
             "name": "CSI Service Refresh Date",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[CSI Service Refresh Date].* FROM [dbo].[CSI Service Refresh Date] ",
               "dataSource": "SqlServerConn"
             }
@@ -26301,6 +26295,11 @@
             "name": "Contact Changed",
             "dataType": "string",
             "sourceColumn": "Contact Changed"
+          },
+          {
+            "name": "Company 1",
+            "dataType": "string",
+            "sourceColumn": "Company 1"
           }
         ],
         "partitions": [
@@ -26308,6 +26307,7 @@
             "name": "vw CSI Finance",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dbo].[vw CSI Finance].* FROM [dbo].[vw CSI Finance] ",
               "dataSource": "SqlServerConn"
             },
@@ -26644,6 +26644,14 @@
                   "        <int>114</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Company 1</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>84</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnWidths>",
                   "  <ColumnDisplayIndex>",
                   "    <item>",
@@ -26966,6 +26974,14 @@
                   "        <int>39</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Company 1</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>40</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnDisplayIndex>",
                   "  <ColumnFrozen />",
                   "  <ColumnChecked>",
@@ -27100,6 +27116,14 @@
                   "    <item>",
                   "      <key>",
                   "        <string>Contact Changed</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Company 1</string>",
                   "      </key>",
                   "      <value>",
                   "        <boolean>true</boolean>",
@@ -27917,6 +27941,14 @@
               "        <int>114</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Company 1</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>84</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnWidths>",
               "  <ColumnDisplayIndex>",
               "    <item>",
@@ -28239,6 +28271,14 @@
               "        <int>39</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Company 1</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>40</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnDisplayIndex>",
               "  <ColumnFrozen />",
               "  <ColumnChecked>",
@@ -28378,6 +28418,14 @@
               "        <boolean>true</boolean>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Company 1</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
               "  </ColumnChecked>",
               "  <ColumnFilter />",
               "  <SelectionFilter />",
@@ -28429,6 +28477,7 @@
             "name": "Technician",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [dim].[Technician].* FROM [dim].[Technician] ",
               "dataSource": "SqlServerConn"
             }
@@ -28533,6 +28582,7 @@
             "name": "TechnicianHours",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [fact].[TechnicianHours].* FROM [fact].[TechnicianHours] ",
               "dataSource": "SqlServerConn"
             },
@@ -28811,11 +28861,17 @@
           },
           {
             "name": "Workshop Sold Hours Against FlxBudget % Format",
-            "expression": "SWITCH(TRUE(),[Workshop Sold Hours Against FlxBudget %]>=1,1,0)"
+            "expression": [
+              "SWITCH(TRUE(),[Workshop Sold Hours Against FlxBudget %]>=1,1",
+              ",[Workshop Sold Hours Against FlxBudget %]>=.99 && [Workshop Sold Hours Against FlxBudget %]<1 ,2,0)"
+            ]
           },
           {
             "name": "Workshop Produced Against FlxBudget % Format",
-            "expression": "SWITCH(TRUE(),[Workshop Produced Hours Against FlxBudget %]>=1,1,0)"
+            "expression": [
+              "SWITCH(TRUE(),[Workshop Produced Hours Against FlxBudget %]>=1,1",
+              ",[Workshop Produced Hours Against FlxBudget %]>=.99 && [Workshop Produced Hours Against FlxBudget %]<1,2,0)"
+            ]
           },
           {
             "name": "Efficiency%Format",
@@ -29199,6 +29255,7 @@
             "name": "DepotHours",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [fact].[DepotHours].* FROM [fact].[DepotHours] ",
               "dataSource": "SqlServerConn"
             }
@@ -29253,6 +29310,7 @@
             "name": "TechnicianHoursDate",
             "dataView": "full",
             "source": {
+              "type": "query",
               "query": " SELECT [report].[TechnicianHoursDate].* FROM [report].[TechnicianHoursDate] ",
               "dataSource": "SqlServerConn"
             }
