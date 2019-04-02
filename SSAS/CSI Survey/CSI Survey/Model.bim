@@ -569,7 +569,7 @@
           },
           {
             "name": "Completed New Sales Survey Graph",
-            "expression": "CALCULATE([New Sales Sample Size],'vw CSI New Sales'[Survey Completed Y/N]=\"Y\",'vw CSI Finance'[Points TxT filter]=\"TRUE\")",
+            "expression": "CALCULATE([New Sales Sample Size],'vw CSI New Sales'[Survey Completed Y/N]=\"Y\",'vw CSI New Sales'[Points TxT filter]=\"TRUE\")",
             "formatString": "#,0"
           },
           {
@@ -1931,7 +1931,7 @@
             "name": "Question Filter",
             "dataType": "boolean",
             "isDataTypeInferred": true,
-            "expression": "IF(OR('vw CSI Service'[Question]=\"Overall performance\",'vw CSI Service'[Question]=\"Recommendation\"),FALSE(),TRUE())",
+            "expression": "IF(OR('vw CSI Service'[Question]=\"Overall pQuestionerformance\",'vw CSI Service'[Question]=\"Recommendation\"),FALSE(),TRUE())",
             "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
           },
           {
