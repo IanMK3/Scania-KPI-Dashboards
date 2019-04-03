@@ -1922,7 +1922,7 @@
               "",
               "VAR MAXDATE = MAX('vw CSI Service'[Interaction Date])",
               "RETURN",
-              "IF('vw CSI Service'[Interaction Date]>=DATE(YEAR(MAXDATE)-1,MONTH(MAXDATE)-1,DAY(MAXDATE))&&'vw CSI Service'[Interaction Date]<=MAXDATE,TRUE(),FALSE())"
+              "IF('vw CSI Service'[Interaction Date]>=DATE(YEAR(MAXDATE)-1,MONTH(MAXDATE),DAY(MAXDATE))&&'vw CSI Service'[Interaction Date]<=MAXDATE,TRUE(),FALSE())"
             ],
             "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
           },
@@ -3117,38 +3117,6 @@
               },
               {
                 "name": "Contact Changed",
-                "metadataPermission": "none"
-              },
-              {
-                "name": "Service MTD",
-                "metadataPermission": "none"
-              },
-              {
-                "name": "Service PM",
-                "metadataPermission": "none"
-              },
-              {
-                "name": "Service YTD",
-                "metadataPermission": "none"
-              },
-              {
-                "name": "Service LY",
-                "metadataPermission": "none"
-              },
-              {
-                "name": "Rollin 12 Months",
-                "metadataPermission": "none"
-              },
-              {
-                "name": "Question Filter",
-                "metadataPermission": "none"
-              },
-              {
-                "name": "Interval",
-                "metadataPermission": "none"
-              },
-              {
-                "name": "Question Copy",
                 "metadataPermission": "none"
               }
             ]
