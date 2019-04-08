@@ -289,9 +289,7 @@
             "isDataTypeInferred": true,
             "expression": [
               "",
-              "VAR MAXDATE = MAX('vw CSI New Sales'[Interaction Date])",
-              "RETURN",
-              "IF('vw CSI New Sales'[Interaction Date]>=DATE(YEAR(MAXDATE)-1,MONTH(MAXDATE),DAY(MAXDATE))&&'vw CSI New Sales'[Interaction Date]<=MAXDATE,TRUE(),FALSE())"
+              "IF('vw CSI New Sales'[Interval]>0&&'vw CSI New Sales'[Interval]<100,TRUE(),FALSE())"
             ],
             "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
           },
@@ -1175,11 +1173,70 @@
             "isDataTypeInferred": true,
             "expression": [
               "",
-              "VAR MAXDATE = MAX('vw CSI Finance'[Interaction Date])",
-              "RETURN",
-              "IF('vw CSI Finance'[Interaction Date]>=DATE(YEAR(MAXDATE)-1,MONTH(MAXDATE),DAY(MAXDATE))&&'vw CSI Finance'[Interaction Date]<=MAXDATE,TRUE(),FALSE())"
+              "IF('vw CSI Finance'[Interval]>0&&'vw CSI Finance'[Interval]<100,TRUE(),FALSE())"
             ],
             "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Interval",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MaxDate =",
+              "    MAX ( 'vw CSI Finance'[Interaction Date] )",
+              "RETURN",
+              "    IF (",
+              "        DATEDIFF ( 'vw CSI Finance'[Interaction Date], MaxDate, MONTH ) = 0,",
+              "        11,",
+              "        IF (",
+              "            DATEDIFF ( 'vw CSI Finance'[Interaction Date], MaxDate, MONTH ) = 1,",
+              "            10,",
+              "            IF (",
+              "                DATEDIFF ( 'vw CSI Finance'[Interaction Date], MaxDate, MONTH ) = 2,",
+              "                9,",
+              "                IF (",
+              "                    DATEDIFF ( 'vw CSI Finance'[Interaction Date], MaxDate, MONTH ) = 3,",
+              "                    8,",
+              "                    IF (",
+              "                        DATEDIFF ( 'vw CSI Finance'[Interaction Date], MaxDate, MONTH ) = 4,",
+              "                        7,",
+              "                        IF (",
+              "                            DATEDIFF ( 'vw CSI Finance'[Interaction Date], MaxDate, MONTH ) = 5,",
+              "                            6,",
+              "                            IF (",
+              "                                DATEDIFF ( 'vw CSI Finance'[Interaction Date], MaxDate, MONTH ) = 6,",
+              "                                5,",
+              "                                IF (",
+              "                                    DATEDIFF ( 'vw CSI Finance'[Interaction Date], MaxDate, MONTH ) = 7,",
+              "                                    4,",
+              "                                    IF (",
+              "                                        DATEDIFF ( 'vw CSI Finance'[Interaction Date], MaxDate, MONTH ) = 8,",
+              "                                        3,",
+              "                                        IF (",
+              "                                            DATEDIFF ( 'vw CSI Finance'[Interaction Date], MaxDate, MONTH ) = 9,",
+              "                                            2,",
+              "                                            IF (",
+              "                                                DATEDIFF ( 'vw CSI Finance'[Interaction Date], MaxDate, MONTH ) = 10,",
+              "                                                1,",
+              "                                                IF (",
+              "                                                    DATEDIFF ( 'vw CSI Finance'[Interaction Date], MaxDate, MONTH ) = 11,",
+              "                                                    0,",
+              "                                                    100",
+              "                                                )",
+              "                                            )",
+              "                                        )",
+              "                                    )",
+              "                                )",
+              "                            )",
+              "                        )",
+              "                    )",
+              "                )",
+              "            )",
+              "        )",
+              "    )"
+            ]
           }
         ],
         "partitions": [
@@ -1639,7 +1696,7 @@
         "columns": [
           {
             "name": "ServiceID",
-            "dataType": "int64",
+            "dataType": "string",
             "sourceColumn": "ServiceID"
           },
           {
@@ -1920,9 +1977,7 @@
             "isDataTypeInferred": true,
             "expression": [
               "",
-              "VAR MAXDATE = MAX('vw CSI Service'[Interaction Date])",
-              "RETURN",
-              "IF('vw CSI Service'[Interaction Date]>=DATE(YEAR(MAXDATE)-1,MONTH(MAXDATE),DAY(MAXDATE))&&'vw CSI Service'[Interaction Date]<=MAXDATE,TRUE(),FALSE())"
+              "IF('vw CSI Service'[Interval]<100,TRUE(),FALSE())"
             ],
             "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
           },
@@ -1931,7 +1986,11 @@
             "name": "Question Filter",
             "dataType": "boolean",
             "isDataTypeInferred": true,
-            "expression": "IF(OR('vw CSI Service'[Question]=\"Overall pQuestionerformance\",'vw CSI Service'[Question]=\"Recommendation\"),FALSE(),TRUE())",
+            "expression": [
+              "IF('vw CSI Service'[Question]=\"Overall performance\",FALSE(),",
+              "IF('vw CSI Service'[Question]=\"Fixed first visit (Yes/No)\",FALSE(),",
+              "IF('vw CSI Service'[Question]=\"Recommendation\",FALSE(),TRUE())))"
+            ],
             "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
           },
           {
@@ -2263,7 +2322,7 @@
           },
           {
             "name": "Service Index 2",
-            "expression": "0+CALCULATE(AVERAGE('vw CSI Service'[Index]),'vw CSI Service'[Points TxT filter]=\"TRUE\",'vw CSI Service'[Question Filter]=TRUE())",
+            "expression": "CALCULATE(AVERAGE('vw CSI Service'[Index]),'vw CSI Service'[Points TxT filter]=\"TRUE\",'vw CSI Service'[Question Filter]=TRUE())",
             "formatString": "0.0"
           },
           {
