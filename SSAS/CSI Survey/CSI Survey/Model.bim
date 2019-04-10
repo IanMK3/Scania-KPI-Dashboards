@@ -2414,6 +2414,23 @@
           {
             "name": "Last Updated",
             "expression": "\"Last Updated\"&\" \"&\":\""
+          },
+          {
+            "name": "Service Rank Dealer",
+            "expression": "IF(NOT(ISBLANK([CSI Service Index (Card 2)])),RANKX(ALLSELECTED('vw CSI Service'[Dealer]),'vw CSI Service'[CSI Service Index (Card 2)],,0),BLANK())"
+          },
+          {
+            "name": "Service Rank Main Dealer",
+            "expression": "IF(ISFILTERED('vw CSI Service'[Main dealer]),IF(NOT(ISBLANK([CSI Service Index (Card 2)])),RANKX(ALL('vw CSI Service'[Main dealer]),'vw CSI Service'[CSI Service Index (Card 2)],,0),BLANK()),\"All Ranks\")",
+            "formatString": "0"
+          },
+          {
+            "name": "Service Regional Rank",
+            "expression": "IF(NOT(ISBLANK([CSI Service Index (Card 2)])),RANKX(ALL('vw CSI Service'[Dealer]),'vw CSI Service'[CSI Service Index (Card 2)],,0),BLANK())"
+          },
+          {
+            "name": "Service Rank Network  Dealer",
+            "expression": "RANKX(ALL('vw CSI Service'[Dealer]),'vw CSI Service'[CSI Service Index (Card 2)],,0)"
           }
         ]
       },
