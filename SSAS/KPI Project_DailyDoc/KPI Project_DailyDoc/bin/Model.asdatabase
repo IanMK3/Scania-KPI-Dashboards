@@ -1489,6 +1489,16 @@
             "sourceColumn": "DW_DateModified",
             "formatString": "General Date",
             "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "Hours Mapping Name",
+            "dataType": "string",
+            "sourceColumn": "Hours Mapping Name"
+          },
+          {
+            "name": "MOT Preparer ID",
+            "dataType": "string",
+            "sourceColumn": "MOT Preparer ID"
           }
         ],
         "partitions": [
@@ -1609,6 +1619,22 @@
                   "        <int>116</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Hours Mapping Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>131</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MOT Preparer ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>111</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnWidths>",
                   "  <ColumnDisplayIndex>",
                   "    <item>",
@@ -1707,9 +1733,42 @@
                   "        <int>11</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Hours Mapping Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>12</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MOT Preparer ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>13</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnDisplayIndex>",
                   "  <ColumnFrozen />",
-                  "  <ColumnChecked />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Hours Mapping Name</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MOT Preparer ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
                   "  <ColumnFilter />",
                   "  <SelectionFilter />",
                   "  <FilterParameters />",
@@ -1847,6 +1906,22 @@
               "        <int>116</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Hours Mapping Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>131</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MOT Preparer ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>111</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnWidths>",
               "  <ColumnDisplayIndex>",
               "    <item>",
@@ -1945,9 +2020,42 @@
               "        <int>11</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Hours Mapping Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>12</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MOT Preparer ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>13</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnDisplayIndex>",
               "  <ColumnFrozen />",
-              "  <ColumnChecked />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>Hours Mapping Name</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MOT Preparer ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
               "  <ColumnFilter />",
               "  <SelectionFilter />",
               "  <FilterParameters />",
@@ -19778,10 +19886,7 @@
             "isDataTypeInferred": true,
             "expression": [
               "",
-              "VAR MaxDate=MAX('vw_MOT Pass Rate Report Trucks'[Date])",
-              "return",
-              "IF('vw_MOT Pass Rate Report Trucks'[Date]>=DATE(YEAR(MaxDate)-1,MONTH(MaxDate),01)&&'vw_MOT Pass Rate Report Trucks'[Date]<=MaxDate,TRUE(),FALSE()",
-              ")"
+              "IF('vw_MOT Pass Rate Report Trucks'[Interval]<100,TRUE(),FALSE())"
             ],
             "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
           },
@@ -19823,6 +19928,82 @@
             "name": "MOT File Type",
             "dataType": "string",
             "sourceColumn": "MOT File Type"
+          },
+          {
+            "type": "calculated",
+            "name": "Interval",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR MaxDate =",
+              "    MAX ( 'vw_MOT Pass Rate Report Trucks'[Date] )",
+              "RETURN",
+              "    IF (",
+              "        DATEDIFF ('vw_MOT Pass Rate Report Trucks'[Date], MaxDate, MONTH ) = 0,",
+              "        11,",
+              "        IF (",
+              "            DATEDIFF ( 'vw_MOT Pass Rate Report Trucks'[Date], MaxDate, MONTH ) = 1,",
+              "            10,",
+              "            IF (",
+              "                DATEDIFF (  'vw_MOT Pass Rate Report Trucks'[Date], MaxDate, MONTH ) = 2,",
+              "                9,",
+              "                IF (",
+              "                    DATEDIFF ( 'vw_MOT Pass Rate Report Trucks'[Date], MaxDate, MONTH ) = 3,",
+              "                    8,",
+              "                    IF (",
+              "                        DATEDIFF ( 'vw_MOT Pass Rate Report Trucks'[Date], MaxDate, MONTH ) = 4,",
+              "                        7,",
+              "                        IF (",
+              "                            DATEDIFF ('vw_MOT Pass Rate Report Trucks'[Date], MaxDate, MONTH ) = 5,",
+              "                            6,",
+              "                            IF (",
+              "                                DATEDIFF ('vw_MOT Pass Rate Report Trucks'[Date], MaxDate, MONTH ) = 6,",
+              "                                5,",
+              "                                IF (",
+              "                                    DATEDIFF ( 'vw_MOT Pass Rate Report Trucks'[Date], MaxDate, MONTH ) = 7,",
+              "                                    4,",
+              "                                    IF (",
+              "                                        DATEDIFF ( 'vw_MOT Pass Rate Report Trucks'[Date], MaxDate, MONTH ) = 8,",
+              "                                        3,",
+              "                                        IF (",
+              "                                            DATEDIFF (  'vw_MOT Pass Rate Report Trucks'[Date], MaxDate, MONTH ) = 9,",
+              "                                            2,",
+              "                                            IF (",
+              "                                                DATEDIFF ( 'vw_MOT Pass Rate Report Trucks'[Date], MaxDate, MONTH ) = 10,",
+              "                                                1,",
+              "                                                IF (",
+              "                                                    DATEDIFF ( 'vw_MOT Pass Rate Report Trucks'[Date] , MaxDate, MONTH ) = 11,",
+              "                                                    0,",
+              "                                                    100",
+              "                                                )",
+              "                                            )",
+              "                                        )",
+              "                                    )",
+              "                                )",
+              "                            )",
+              "                        )",
+              "                    )",
+              "                )",
+              "            )",
+              "        )",
+              "    )"
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "Pass Filter",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "IF('vw_MOT Pass Rate Report Trucks'[Test Result]=\"Pass\",TRUE(),FALSE())",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Test Count 2",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "IF('vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Actual File\",1,'vw_MOT Pass Rate Report Trucks'[Test Count])"
           }
         ],
         "partitions": [
@@ -20316,12 +20497,12 @@
           },
           {
             "name": "Fails",
-            "expression": "CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\",'vw_MOT Pass Rate Report Trucks'[Failure Item Severity]=\"F\"||'vw_MOT Pass Rate Report Trucks'[Failure Item Severity]=\"A\")",
+            "expression": "CALCULATE([MOT Total Test],FILTER('vw_MOT Pass Rate Report Trucks','vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\"||'vw_MOT Pass Rate Report Trucks'[Test Result]=\"ABANDONED\"))",
             "formatString": "#,0"
           },
           {
             "name": "PRS",
-            "expression": "CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PRS\")",
+            "expression": "0+CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PRS\")",
             "formatString": "#,0"
           },
           {
@@ -20372,8 +20553,8 @@
             "formatString": "#,0"
           },
           {
-            "name": "Total Tests",
-            "expression": "0+CALCULATE(DISTINCTCOUNT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Actual File\")+CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Correction\")",
+            "name": "Total Tests1",
+            "expression": "CALCULATE(DISTINCTCOUNT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Actual File\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")+CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Correction\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")",
             "formatString": "#,0"
           },
           {
@@ -20386,28 +20567,29 @@
               "",
               "IF (",
               "    [Selected MOT Period] = \"Last Year\",",
-              "    CALCULATE ( [Total Tests], 'vw_MOT Pass Rate Report Trucks'[MOT LY] = TRUE () ),",
+              "    CALCULATE ( [Total Tests1], 'vw_MOT Pass Rate Report Trucks'[MOT LY] = TRUE () ),",
               "    IF (",
               "        [Selected MOT Period] = \"Last Report Month\",",
               "        CALCULATE (",
-              "            [Total Tests],",
+              "            [Total Tests1],",
               "            'vw_MOT Pass Rate Report Trucks'[MOT LastReportMonth] = TRUE ()",
               "        ),",
               "        IF (",
               "            [Selected MOT Period] = \"Rolling 12 Months\",",
               "            CALCULATE (",
-              "                [Total Tests],",
+              "                [Total Tests1],",
               "                'vw_MOT Pass Rate Report Trucks'[MOT Rolling 12 Months] = TRUE ()",
               "            ),",
               "            IF (",
               "                [Selected MOT Period] = \"Year To Date\",",
-              "                CALCULATE ( [Total Tests], 'vw_MOT Pass Rate Report Trucks'[MOT YTD] = TRUE () ),",
-              "                [Total Tests]",
+              "                CALCULATE ( [Total Tests1], 'vw_MOT Pass Rate Report Trucks'[MOT YTD] = TRUE () ),",
+              "                [Total Tests1]",
               "            )",
               "        )",
               "    )",
               ")"
-            ]
+            ],
+            "formatString": "#,0"
           },
           {
             "name": "Reporting Period",
@@ -20438,6 +20620,58 @@
           {
             "name": "Fails Description Measure",
             "expression": "CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count]),'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\"||'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PRS\")"
+          },
+          {
+            "name": "Fails Description Measure Graph",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected MOT Period] = \"Last Year\",",
+              "    CALCULATE ( [Fails Description Measure], 'vw_MOT Pass Rate Report Trucks'[MOT LY] = TRUE () ),",
+              "    IF (",
+              "        [Selected MOT Period] = \"Last Report Month\",",
+              "        CALCULATE ([Fails Description Measure]",
+              "            ,",
+              "            'vw_MOT Pass Rate Report Trucks'[MOT LastReportMonth] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected MOT Period] = \"Rolling 12 Months\",",
+              "            CALCULATE (",
+              "              [Fails Description Measure],",
+              "                'vw_MOT Pass Rate Report Trucks'[MOT Rolling 12 Months] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected MOT Period] = \"Year To Date\",",
+              "                CALCULATE ([Fails Description Measure], 'vw_MOT Pass Rate Report Trucks'[MOT YTD] = TRUE () ),",
+              "                 [Fails Description Measure]",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ]
+          },
+          {
+            "name": "Total Distinct test",
+            "expression": "CALCULATE(DISTINCTCOUNT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Actual File\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")"
+          },
+          {
+            "name": "Total Test Sum Correction",
+            "expression": "CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Correction\")"
+          },
+          {
+            "name": "Copy of Passes",
+            "expression": "CALCULATE(COUNTROWS('vw_MOT Pass Rate Report Trucks'),DISTINCT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]),'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PASS\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Total Tests",
+            "expression": "CALCULATE(DISTINCTCOUNT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]),'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")+CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Correction\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Copy of Total Tests1",
+            "expression": "CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count 2]),DISTINCT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]))",
+            "formatString": "#,0"
           }
         ],
         "annotations": [
@@ -29431,6 +29665,122 @@
             "value": "report"
           }
         ]
+      },
+      {
+        "name": "vw_Dim Depot",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PoSCompany",
+            "dataType": "string",
+            "sourceColumn": "PoSCompany",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "BK_Depot",
+            "dataType": "int64",
+            "sourceColumn": "BK_Depot",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "Depot",
+            "dataType": "string",
+            "sourceColumn": "Depot",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Depot Number",
+            "dataType": "string",
+            "sourceColumn": "Depot Number",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Cost Centre",
+            "dataType": "string",
+            "sourceColumn": "Cost Centre",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Depot Type",
+            "dataType": "string",
+            "sourceColumn": "Depot Type",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Depot Status",
+            "dataType": "string",
+            "sourceColumn": "Depot Status",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Region",
+            "dataType": "int64",
+            "sourceColumn": "Region",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Post Code",
+            "dataType": "string",
+            "sourceColumn": "Post Code",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Hours Mapping Name",
+            "dataType": "string",
+            "sourceColumn": "Hours Mapping Name",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "MOT Preparer ID",
+            "dataType": "string",
+            "sourceColumn": "MOT Preparer ID",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DW_DateCreated",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateCreated",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "DW_DateModified",
+            "dataType": "dateTime",
+            "sourceColumn": "DW_DateModified",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "vw_Dim Depot",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[vw_Dim Depot].* FROM [dbo].[vw_Dim Depot] ",
+              "dataSource": "SqlServerConn"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[vw_Dim Depot].* FROM [dbo].[vw_Dim Depot] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "vw_Dim Depot"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
       }
     ],
     "relationships": [
@@ -29730,13 +30080,6 @@
         "toColumn": "Date"
       },
       {
-        "name": "8ad6ab47-bd75-43ae-8c9a-67442558b6b8",
-        "fromTable": "vw_MOT Pass Rate Report Trucks",
-        "fromColumn": "Depot ID",
-        "toTable": "Depot",
-        "toColumn": "ID"
-      },
-      {
         "name": "258b7045-eb32-442c-a146-c7b03694512f",
         "fromTable": "vw CSI New Sales",
         "fromColumn": "Region ID",
@@ -29782,6 +30125,13 @@
         "name": "806d523d-0add-4575-9321-83ab763c06ff",
         "fromTable": "TechnicianHours",
         "fromColumn": "Depot",
+        "toTable": "Depot",
+        "toColumn": "ID"
+      },
+      {
+        "name": "6a7e234a-6d82-40db-9cb0-a6198c4ffa44",
+        "fromTable": "vw_MOT Pass Rate Report Trucks",
+        "fromColumn": "Depot ID",
         "toTable": "Depot",
         "toColumn": "ID"
       }
