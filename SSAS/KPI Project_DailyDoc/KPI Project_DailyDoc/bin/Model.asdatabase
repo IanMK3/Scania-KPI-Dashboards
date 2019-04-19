@@ -20492,7 +20492,7 @@
           },
           {
             "name": "Passes",
-            "expression": "CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Pass\")",
+            "expression": "CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Pass\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")",
             "formatString": "#,0"
           },
           {
@@ -20553,7 +20553,7 @@
             "formatString": "#,0"
           },
           {
-            "name": "Total Tests1",
+            "name": "Total Tests",
             "expression": "CALCULATE(DISTINCTCOUNT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Actual File\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")+CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Correction\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")",
             "formatString": "#,0"
           },
@@ -20567,23 +20567,23 @@
               "",
               "IF (",
               "    [Selected MOT Period] = \"Last Year\",",
-              "    CALCULATE ( [Total Tests1], 'vw_MOT Pass Rate Report Trucks'[MOT LY] = TRUE () ),",
+              "    CALCULATE ( [Total Tests], 'vw_MOT Pass Rate Report Trucks'[MOT LY] = TRUE () ),",
               "    IF (",
               "        [Selected MOT Period] = \"Last Report Month\",",
               "        CALCULATE (",
-              "            [Total Tests1],",
+              "            [Total Tests],",
               "            'vw_MOT Pass Rate Report Trucks'[MOT LastReportMonth] = TRUE ()",
               "        ),",
               "        IF (",
               "            [Selected MOT Period] = \"Rolling 12 Months\",",
               "            CALCULATE (",
-              "                [Total Tests1],",
+              "                [Total Tests],",
               "                'vw_MOT Pass Rate Report Trucks'[MOT Rolling 12 Months] = TRUE ()",
               "            ),",
               "            IF (",
               "                [Selected MOT Period] = \"Year To Date\",",
-              "                CALCULATE ( [Total Tests1], 'vw_MOT Pass Rate Report Trucks'[MOT YTD] = TRUE () ),",
-              "                [Total Tests1]",
+              "                CALCULATE ( [Total Tests], 'vw_MOT Pass Rate Report Trucks'[MOT YTD] = TRUE () ),",
+              "                [Total Tests]",
               "            )",
               "        )",
               "    )",
@@ -20649,24 +20649,6 @@
               "    )",
               ")"
             ]
-          },
-          {
-            "name": "Total Distinct test",
-            "expression": "CALCULATE(DISTINCTCOUNT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Actual File\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")"
-          },
-          {
-            "name": "Total Test Sum Correction",
-            "expression": "CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Correction\")"
-          },
-          {
-            "name": "Copy of Passes",
-            "expression": "CALCULATE([Total Tests],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Pass\")",
-            "formatString": "#,0"
-          },
-          {
-            "name": "Total Tests",
-            "expression": "CALCULATE(DISTINCTCOUNT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]),'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")+CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Correction\")",
-            "formatString": "#,0"
           }
         ],
         "annotations": [
@@ -29776,6 +29758,200 @@
             "value": "dbo"
           }
         ]
+      },
+      {
+        "name": "vw_MOT Pass Rate Report Trucks DUPLICATE ID",
+        "columns": [
+          {
+            "name": "Vehicle ID",
+            "dataType": "double",
+            "sourceColumn": "Vehicle ID",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "Duplicates",
+            "dataType": "int64",
+            "sourceColumn": "Duplicates",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Test Count",
+            "dataType": "int64",
+            "sourceColumn": "Test Count",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "vw_MOT Pass Rate Report Trucks DUPLICATE ID",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[vw_MOT Pass Rate Report Trucks DUPLICATE ID].* FROM [dbo].[vw_MOT Pass Rate Report Trucks DUPLICATE ID] ",
+              "dataSource": "SqlServerConn"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Vehicle ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>77</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Duplicates</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>79</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Test Count</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>83</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Vehicle ID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Duplicates</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Test Count</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked />",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[vw_MOT Pass Rate Report Trucks DUPLICATE ID].* FROM [dbo].[vw_MOT Pass Rate Report Trucks DUPLICATE ID] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "vw_MOT Pass Rate Report Trucks DUPLICATE ID"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>Vehicle ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>77</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Duplicates</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>79</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Test Count</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>83</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>Vehicle ID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Duplicates</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Test Count</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked />",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
       }
     ],
     "relationships": [
@@ -30129,6 +30305,13 @@
         "fromColumn": "Depot ID",
         "toTable": "Depot",
         "toColumn": "ID"
+      },
+      {
+        "name": "fdb9c337-54cd-473c-8615-49ec2c64ead0",
+        "fromTable": "vw_MOT Pass Rate Report Trucks",
+        "fromColumn": "Vehicle ID",
+        "toTable": "vw_MOT Pass Rate Report Trucks DUPLICATE ID",
+        "toColumn": "Vehicle ID"
       }
     ],
     "roles": [
