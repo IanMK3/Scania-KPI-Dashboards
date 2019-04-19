@@ -20660,17 +20660,12 @@
           },
           {
             "name": "Copy of Passes",
-            "expression": "CALCULATE(COUNTROWS('vw_MOT Pass Rate Report Trucks'),DISTINCT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]),'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PASS\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")",
+            "expression": "CALCULATE([Total Tests],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Pass\")",
             "formatString": "#,0"
           },
           {
             "name": "Total Tests",
-            "expression": "CALCULATE(DISTINCTCOUNT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]),'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")+CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Correction\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")",
-            "formatString": "#,0"
-          },
-          {
-            "name": "Copy of Total Tests1",
-            "expression": "CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count 2]),DISTINCT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]))",
+            "expression": "CALCULATE(DISTINCTCOUNT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]),'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")+CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Correction\")",
             "formatString": "#,0"
           }
         ],

@@ -1696,7 +1696,7 @@
         "columns": [
           {
             "name": "ServiceID",
-            "dataType": "string",
+            "dataType": "int64",
             "sourceColumn": "ServiceID"
           },
           {
@@ -2061,6 +2061,18 @@
             "isDataTypeInferred": true,
             "expression": "'vw CSI Service'[Question]",
             "sortByColumn": "Question ID"
+          },
+          {
+            "name": "Date Inserted",
+            "dataType": "dateTime",
+            "sourceColumn": "Date Inserted",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"2057\" Group=\"ShortDate\" FormatString=\"dd/MM/yyyy\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
