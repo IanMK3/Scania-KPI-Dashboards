@@ -2446,44 +2446,6 @@
           {
             "name": "Service Rank Network  Dealer",
             "expression": "RANKX(ALL('vw CSI Service'[Dealer]),'vw CSI Service'[CSI Service Index (Card 2)],,0)"
-          },
-          {
-            "name": "Copy of CSI Service Index (Card 2)",
-            "expression": [
-              "",
-              "IF (",
-              "    [Selected Service Period] = \"Year To Date\",",
-              "    CALCULATE ( 'vw CSI Service'[Service Index 2], 'vw CSI Service'[Service YTD] = TRUE () ),",
-              "    IF (",
-              "        [Selected Service Period] = \"Previous Month\",",
-              "        CALCULATE (",
-              "            [Service Index 2],",
-              "            'vw CSI Service'[Service PM] = TRUE ()",
-              "        ),",
-              "        IF (",
-              "            [Selected Service Period] = \"Month To Date\",",
-              "            CALCULATE ( 'vw CSI Service'[Service Index 2], 'vw CSI Service'[Service MTD]=TRUE () ),",
-              "            IF (",
-              "                [Selected Service Period] = \"Rolling 12 Months\",",
-              "                CALCULATE (",
-              "                    [Service Index 2],",
-              "                    'vw CSI Service'[Rollin 12 Months] = TRUE ()",
-              "                ),",
-              "                IF (",
-              "                     [Selected Service Period] = \"Last Year\",",
-              "                    CALCULATE (",
-              "                        [Service Index 2],",
-              "                        'vw CSI Service'[Service LY] = TRUE ()",
-              "                    ),",
-              "                    [Service Index 2]",
-              "            )",
-              "        )",
-              "    )",
-              ")",
-              "",
-              ")"
-            ],
-            "formatString": "0.00000"
           }
         ]
       },
