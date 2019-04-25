@@ -20010,6 +20010,32 @@
               "IF(MONTH('vw_MOT Pass Rate Report Trucks'[Date])=MONTH(MaxDate)-1&&YEAR('vw_MOT Pass Rate Report Trucks'[Date])=YEAR(MaxDate),TRUE(),FALSE())"
             ],
             "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Failure Description2",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "'vw_MOT Pass Rate Report Trucks'[Failure Description]"
+          },
+          {
+            "type": "calculated",
+            "name": "Advisory Description",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "'vw_MOT Pass Rate Report Trucks'[Failure Description]"
+          },
+          {
+            "type": "calculated",
+            "name": "Failure Description3",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "'vw_MOT Pass Rate Report Trucks'[Failure Description]"
+          },
+          {
+            "name": "Description Filter",
+            "dataType": "string",
+            "sourceColumn": "Description Filter"
           }
         ],
         "partitions": [
@@ -20210,6 +20236,14 @@
                   "        <int>98</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Description Filter</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>110</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnWidths>",
                   "  <ColumnDisplayIndex>",
                   "    <item>",
@@ -20388,6 +20422,14 @@
                   "        <int>21</int>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Description Filter</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>22</int>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnDisplayIndex>",
                   "  <ColumnFrozen />",
                   "  <ColumnChecked>",
@@ -20479,6 +20521,14 @@
                   "        <boolean>true</boolean>",
                   "      </value>",
                   "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Description Filter</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
                   "  </ColumnChecked>",
                   "  <ColumnFilter />",
                   "  <SelectionFilter />",
@@ -20492,18 +20542,13 @@
         ],
         "measures": [
           {
-            "name": "Passes %",
-            "expression": "0+DIVIDE(CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Pass\"),[MOT Total Test])",
-            "formatString": "0.0%;-0.0%;0.0%"
-          },
-          {
             "name": "Passes",
             "expression": "0+CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Pass\")",
             "formatString": "#,0"
           },
           {
             "name": "Fails",
-            "expression": "0+CALCULATE([MOT Total Test],FILTER('vw_MOT Pass Rate Report Trucks','vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\"||'vw_MOT Pass Rate Report Trucks'[Test Result]=\"ABANDONED\"))",
+            "expression": "0+CALCULATE([MOT Total Test],FILTER('vw_MOT Pass Rate Report Trucks','vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\"))",
             "formatString": "#,0"
           },
           {
@@ -20529,33 +20574,8 @@
             "expression": "\"Please Click Here For\""
           },
           {
-            "name": "Fails %",
-            "expression": "DIVIDE(CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\"),[MOT Total Test])",
-            "formatString": "0.0%;-0.0%;0.0%"
-          },
-          {
-            "name": "PRS %",
-            "expression": "DIVIDE(CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PRS\"),[MOT Total Test])",
-            "formatString": "0.0%;-0.0%;0.0%"
-          },
-          {
-            "name": "Abandoned %",
-            "expression": "DIVIDE(CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Abandoned\"),[MOT Total Test])",
-            "formatString": "0.0%;-0.0%;0.0%"
-          },
-          {
             "name": "Advisories",
             "expression": "0+CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Failure Item Severity]=\"A\")",
-            "formatString": "#,0"
-          },
-          {
-            "name": "Pass Advisory",
-            "expression": "CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Pass\",'vw_MOT Pass Rate Report Trucks'[Failure Item Severity]=\"A\")",
-            "formatString": "#,0"
-          },
-          {
-            "name": "Fail Advisory",
-            "expression": "CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\",'vw_MOT Pass Rate Report Trucks'[Failure Item Severity]=\"A\")",
             "formatString": "#,0"
           },
           {
@@ -20631,7 +20651,7 @@
           },
           {
             "name": "Fails Description Measure",
-            "expression": "CALCULATE(COUNTROWS('vw_MOT Pass Rate Report Trucks'),'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\"||'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PRS\")"
+            "expression": "CALCULATE(COUNT('vw_MOT Pass Rate Report Trucks'[Failure Description]),'vw_MOT Pass Rate Report Trucks'[Description Filter]=\"FALSE\",'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\"||'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PRS\"||'vw_MOT Pass Rate Report Trucks'[Test Result]=\"ABANDONED\")"
           },
           {
             "name": "Fails Description Measure Graph",
@@ -20667,51 +20687,75 @@
             "expression": "0+CALCULATE([MOT Total Test],'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PROHIBITION\")"
           },
           {
-            "name": "Total Tests Card",
-            "expression": "0+CALCULATE(DISTINCTCOUNT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Actual File\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")+CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Correction\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")",
-            "formatString": "#,0"
+            "name": "Total Test Card",
+            "expression": "[Passes]+[Fails]+[PRS]+[Prohibition]+[Abandoned]"
           },
           {
-            "name": "MOT Total Test Card",
+            "name": "Pass %",
+            "expression": "DIVIDE([Passes],[Total Test Card])",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Fails Description Measure Graph2",
             "expression": [
               "",
               "IF (",
               "    [Selected MOT Period] = \"Last Year\",",
-              "    CALCULATE ( [Total Tests Card], 'vw_MOT Pass Rate Report Trucks'[MOT LY] = TRUE () ),",
+              "    CALCULATE ( [Fails Description Measure], 'vw_MOT Pass Rate Report Trucks'[MOT LY] = TRUE () ),",
               "    IF (",
               "        [Selected MOT Period] = \"Last Report Month\",",
-              "        CALCULATE (",
-              "            [Total Tests Card],",
+              "        CALCULATE ([Fails Description Measure]",
+              "            ,",
               "            'vw_MOT Pass Rate Report Trucks'[MOT LastReportMonth] = TRUE ()",
               "        ),",
               "        IF (",
               "            [Selected MOT Period] = \"Rolling 12 Months\",",
               "            CALCULATE (",
-              "                [Total Tests Card],",
+              "              [Fails Description Measure],",
               "                'vw_MOT Pass Rate Report Trucks'[MOT Rolling 12 Months] = TRUE ()",
               "            ),",
               "            IF (",
               "                [Selected MOT Period] = \"Year To Date\",",
-              "                CALCULATE ( [Total Tests Card], 'vw_MOT Pass Rate Report Trucks'[MOT YTD] = TRUE () ),",
-              "                IF (",
-              "                    [Selected MOT Period] = \"Previous Month\",",
-              "                    CALCULATE ( [Total Tests Card], 'vw_MOT Pass Rate Report Trucks'[MOT PM] = TRUE () ),",
-              "                    [Total Tests Card]",
-              "                )",
+              "                CALCULATE ([Fails Description Measure], 'vw_MOT Pass Rate Report Trucks'[MOT YTD] = TRUE () ),",
+              "                 [Fails Description Measure]",
               "            )",
               "        )",
               "    )",
               ")"
-            ],
-            "formatString": "#,0"
+            ]
           },
           {
-            "name": "Trial Total Test",
-            "expression": "CALCULATE(COUNT('vw_MOT Pass Rate Report Trucks'[Vehicle ID]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Actual File\",'vw_MOT Pass Rate Report Trucks'[Test Type]<>\"PAID RETEST\")+CALCULATE(SUM('vw_MOT Pass Rate Report Trucks'[Test Count]),'vw_MOT Pass Rate Report Trucks'[MOT File Type]=\"Correction\")"
+            "name": "Fails Description Measure Graph3",
+            "expression": [
+              "",
+              "IF (",
+              "    [Selected MOT Period] = \"Last Year\",",
+              "    CALCULATE ( [Fails Description Measure], 'vw_MOT Pass Rate Report Trucks'[MOT LY] = TRUE () ),",
+              "    IF (",
+              "        [Selected MOT Period] = \"Last Report Month\",",
+              "        CALCULATE ([Fails Description Measure]",
+              "            ,",
+              "            'vw_MOT Pass Rate Report Trucks'[MOT LastReportMonth] = TRUE ()",
+              "        ),",
+              "        IF (",
+              "            [Selected MOT Period] = \"Rolling 12 Months\",",
+              "            CALCULATE (",
+              "              [Fails Description Measure],",
+              "                'vw_MOT Pass Rate Report Trucks'[MOT Rolling 12 Months] = TRUE ()",
+              "            ),",
+              "            IF (",
+              "                [Selected MOT Period] = \"Year To Date\",",
+              "                CALCULATE ([Fails Description Measure], 'vw_MOT Pass Rate Report Trucks'[MOT YTD] = TRUE () ),",
+              "                 [Fails Description Measure]",
+              "            )",
+              "        )",
+              "    )",
+              ")"
+            ]
           },
           {
-            "name": "cccc",
-            "expression": "[Passes]+[Fails]+[PRS]+[Prohibition]"
+            "name": "Description Count",
+            "expression": "CALCULATE(COUNT('vw_MOT Pass Rate Report Trucks'[Failure Description]),'vw_MOT Pass Rate Report Trucks'[Description Filter]=\"FALSE\",'vw_MOT Pass Rate Report Trucks'[Test Result]=\"Fail\"||'vw_MOT Pass Rate Report Trucks'[Test Result]=\"PRS\"||'vw_MOT Pass Rate Report Trucks'[Test Result]=\"ABANDONED\")"
           }
         ],
         "annotations": [
@@ -20915,6 +20959,14 @@
               "        <int>98</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Description Filter</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>110</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnWidths>",
               "  <ColumnDisplayIndex>",
               "    <item>",
@@ -21093,6 +21145,14 @@
               "        <int>21</int>",
               "      </value>",
               "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Description Filter</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>22</int>",
+              "      </value>",
+              "    </item>",
               "  </ColumnDisplayIndex>",
               "  <ColumnFrozen />",
               "  <ColumnChecked>",
@@ -21179,6 +21239,14 @@
               "    <item>",
               "      <key>",
               "        <string>MOT File Type</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Description Filter</string>",
               "      </key>",
               "      <value>",
               "        <boolean>true</boolean>",
