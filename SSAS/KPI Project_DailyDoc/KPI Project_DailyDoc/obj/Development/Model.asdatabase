@@ -3941,6 +3941,17 @@
           {
             "name": "Other Sales vs Budget Format",
             "expression": "SWITCH(TRUE(),[Other Sales vs Budget]>=[Target Marker],1,[Other Sales vs Budget]=0.0,2,0)"
+          },
+          {
+            "name": "South East Parts Sales",
+            "expression": "CALCULATE([PartsSales],Region[Region]=\"South East\")",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
           }
         ],
         "annotations": [
@@ -4648,6 +4659,17 @@
           {
             "name": "B/C TurnOverToDoBudget",
             "expression": "(0+[BackCounterSales]-[BackCounterSalesBudget])*(-1)",
+            "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "South East Parts Budget",
+            "expression": "CALCULATE([PartsBudget],Region[Region]=\"South East\")",
             "formatString": "\"£\"#,0;-\"£\"#,0;\"£\"#,0",
             "annotations": [
               {
@@ -6019,33 +6041,63 @@
             "expression": "SWITCH(TRUE(),CurrentWIP[Current WIP]<=CurrentWIP[WIP Target],1,0)"
           },
           {
-            "name": "BS1",
-            "expression": [
-              "IF(CALCULATE([WIP Days],TechnicianHours[Category]=\"Bodyshop\")<=5,2,0)",
-              "        "
-            ]
-          },
-          {
-            "name": "WS1",
-            "expression": [
-              "IF(CALCULATE([WIP Days],TechnicianHours[Category]=\"Workshop\")<=3,1,0)",
-              "        "
-            ]
-          },
-          {
-            "name": "WS2",
-            "expression": "IF(CALCULATE([WIP Days],TechnicianHours[Category]=\"Workshop\")>3,4,0)"
-          },
-          {
-            "name": "BS2",
-            "expression": [
-              "IF(CALCULATE([WIP Days],TechnicianHours[Category]=\"Bodyshop\")>5,3,0)",
-              "        "
-            ]
-          },
-          {
             "name": "WIP Days Format",
             "expression": "IF([WIP Days]<=3,1,0)"
+          },
+          {
+            "name": "Target 2 Days",
+            "expression": "CALCULATE(DIVIDE([Produced Hours Budget],[WorkdaysInMonth]))*2",
+            "formatString": "#,0"
+          },
+          {
+            "name": "East Target 2 Days",
+            "expression": "CALCULATE([Target 2 Days],Region[Region]=\"East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "North Target 2 Days",
+            "expression": "CALCULATE([Target 2 Days],Region[Region]=\"North\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Scotland Target 2 Days",
+            "expression": "CALCULATE([Target 2 Days],Region[Region]=\"Scotland\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South East Target 2 Days",
+            "expression": "CALCULATE([Target 2 Days],Region[Region]=\"South East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South West Target 2 Days",
+            "expression": "CALCULATE([Target 2 Days],Region[Region]=\"South West\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "East Open Hours",
+            "expression": "CALCULATE([Current WIP],Region[Region]=\"East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "North Open Hours",
+            "expression": "CALCULATE([Current WIP],Region[Region]=\"North\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Scotland Open Hours",
+            "expression": "CALCULATE([Current WIP],Region[Region]=\"Scotland\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South East Open Hours",
+            "expression": "CALCULATE([Current WIP],Region[Region]=\"South East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South West Open Hours",
+            "expression": "CALCULATE([Current WIP],Region[Region]=\"South West\")",
+            "formatString": "#,0"
           }
         ],
         "annotations": [
@@ -18402,6 +18454,56 @@
             "name": "Annual Budget",
             "expression": "CALCULATE(HoursBudget[Hours Budget],YEAR('Date'[Date])=YEAR(TODAY()))",
             "formatString": "#,0"
+          },
+          {
+            "name": "East Sold Hours Budget",
+            "expression": "CALCULATE([Sold Hours Budget],Region[Region]=\"East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "North Sold Hours Budget",
+            "expression": "CALCULATE([Sold Hours Budget],Region[Region]=\"North\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Scotland Sold Hours Budget",
+            "expression": "CALCULATE([Sold Hours Budget],Region[Region]=\"Scotland\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South East Sold Hours Budget",
+            "expression": "CALCULATE([Sold Hours Budget],Region[Region]=\"South East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South West Sold Hours Budget",
+            "expression": "CALCULATE([Sold Hours Budget],Region[Region]=\"South West\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "East Produced Hours Budget",
+            "expression": "CALCULATE([Produced Hours Budget],Region[Region]=\"East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "North Produced Hours Budget",
+            "expression": "CALCULATE([Produced Hours Budget],Region[Region]=\"North\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Scotland Produced Hours Budget",
+            "expression": "CALCULATE([Produced Hours Budget],Region[Region]=\"Scotland\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South East Produced Hours Budget",
+            "expression": "CALCULATE([Produced Hours Budget],Region[Region]=\"South East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South West Produced Hours Budget",
+            "expression": "CALCULATE([Produced Hours Budget],Region[Region]=\"South West\")",
+            "formatString": "#,0"
           }
         ],
         "annotations": [
@@ -29429,12 +29531,39 @@
             "expression": "SWITCH(TRUE(),[Last Day Invoiced]>=[Daily Target],\"Focus Area :\",\"Focus Area : Hours Invoiced was Low\")"
           },
           {
-            "name": "Produced Hours Last Year1",
-            "expression": [
-              "0+CALCULATE(sum(TechnicianHours[Produced]),SAMEPERIODLASTYEAR('Date'[Date]))",
-              ""
-            ],
+            "name": "East Produced Hours",
+            "expression": "CALCULATE(TechnicianHours[Technician Produced Hours],Region[Region]=\"East\")",
             "formatString": "#,0"
+          },
+          {
+            "name": "North Produced Hours",
+            "expression": "CALCULATE(TechnicianHours[Technician Produced Hours],Region[Region]=\"North\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Scotland Produced Hours",
+            "expression": "CALCULATE(TechnicianHours[Technician Produced Hours],Region[Region]=\"Scotland\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South East Produced Hours",
+            "expression": "CALCULATE(TechnicianHours[Technician Produced Hours],Region[Region]=\"South East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South West Produced Hours",
+            "expression": "CALCULATE(TechnicianHours[Technician Produced Hours],Region[Region]=\"South West\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South East Efficiency",
+            "expression": "CALCULATE([Efficiency %],Region[Region]=\"South East\")",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Efficiency Target",
+            "expression": "1",
+            "formatString": "0%;-0%;0%"
           }
         ],
         "annotations": [
@@ -29936,8 +30065,89 @@
             "expression": "CALCULATE([DPP Invoiced Hours],'Depot'[Depot]=\"Gatwick\")"
           },
           {
-            "name": "CCCCCCCCCCC",
-            "expression": "CALCULATE(DepotHours[Depot Sold Hours],YEAR('Date'[Date])=YEAR(TODAY()))"
+            "name": "DPP Invoiced Hours Weekly YTD",
+            "expression": "CALCULATE(DepotHours[Depot Sold Hours],YEAR('Date'[Date])=YEAR(TODAY()))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "East DPP Invoice Hours",
+            "expression": "CALCULATE([DPP Invoiced Hours],Region[Region]=\"East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "North DPP Invoice Hours",
+            "expression": "CALCULATE([DPP Invoiced Hours],Region[Region]=\"North\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Scotland DPP Invoice Hours",
+            "expression": "CALCULATE([DPP Invoiced Hours],Region[Region]=\"Scotland\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South East  DPP Invoice Hours",
+            "expression": "CALCULATE([DPP Invoiced Hours],Region[Region]=\"South East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South West  DPP Invoice Hours",
+            "expression": "CALCULATE([DPP Invoiced Hours],Region[Region]=\"South West\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "East DPP Invoice Hours Weekly YTD",
+            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD],Region[Region]=\"East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Scotland DPP Invoice Hours Weekly YTD",
+            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD],Region[Region]=\"Scotland\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "North DPP Invoice Hours Weekly YTD",
+            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD],Region[Region]=\"North\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South East DPP Invoice Hours Weekly YTD",
+            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD],Region[Region]=\"South East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South West DPP Invoice Hours Weekly YTD",
+            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD],Region[Region]=\"South West\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Gatwick DPP Invoice Hours Weekly YTD",
+            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD],'Depot'[Depot]=\"Gatwick\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "East Invoiced Hours MTD",
+            "expression": "CALCULATE(DepotHours[Depot Sold Hours],Region[Region]=\"East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "North Invoiced Hours MTD",
+            "expression": "CALCULATE(DepotHours[Depot Sold Hours],Region[Region]=\"North\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Scotland Invoiced Hours MTD",
+            "expression": "CALCULATE(DepotHours[Depot Sold Hours],Region[Region]=\"Scotland\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South East Invoiced Hours MTD",
+            "expression": "CALCULATE(DepotHours[Depot Sold Hours],Region[Region]=\"South East\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "South West Invoiced Hours MTD",
+            "expression": "CALCULATE(DepotHours[Depot Sold Hours],Region[Region]=\"South West\")",
+            "formatString": "#,0"
           }
         ],
         "annotations": [
