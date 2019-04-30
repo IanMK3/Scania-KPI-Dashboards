@@ -3952,6 +3952,16 @@
                 "value": "<Format Format=\"Currency\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
               }
             ]
+          },
+          {
+            "name": "Parts Sales %",
+            "expression": "0+CALCULATE(DIVIDE([PartsSales],[PartsBudget]))",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "Days Of Month %",
+            "expression": "DIVIDE([ElapsedWorkingDaysInMonth],[WorkdaysInMonth])",
+            "formatString": "0.0%;-0.0%;0.0%"
           }
         ],
         "annotations": [
@@ -18446,11 +18456,6 @@
             "formatString": "#,0"
           },
           {
-            "name": "DDP Invoiced Budget",
-            "expression": "DIVIDE(CALCULATE(HoursBudget[Hours Budget],MONTH(HoursBudget[Date])=MONTH(TODAY())&&YEAR(HoursBudget[Date])=YEAR(TODAY())),[ElapsedWorkingDaysInMonth])",
-            "formatString": "#,0"
-          },
-          {
             "name": "Annual Budget",
             "expression": "CALCULATE(HoursBudget[Hours Budget],YEAR('Date'[Date])=YEAR(TODAY()))",
             "formatString": "#,0"
@@ -29564,6 +29569,31 @@
             "name": "Efficiency Target",
             "expression": "1",
             "formatString": "0%;-0%;0%"
+          },
+          {
+            "name": "Produced Hours %",
+            "expression": "0+CALCULATE(DIVIDE(TechnicianHours[Technician Produced Hours],[Produced Hours Budget]))",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "East Txt",
+            "expression": "\"EAST\""
+          },
+          {
+            "name": "North Txt",
+            "expression": "\"NORTH\""
+          },
+          {
+            "name": "Scotland Txt",
+            "expression": "\"SCOTLAND\""
+          },
+          {
+            "name": "South East Txt",
+            "expression": "\"SOUTH EAST\""
+          },
+          {
+            "name": "South WestTxt",
+            "expression": "\"SOUTH WEST\""
           }
         ],
         "annotations": [
@@ -29860,7 +29890,15 @@
             "name": "Week Of Year",
             "dataType": "int64",
             "isDataTypeInferred": false,
-            "expression": "WEEKNUM(DepotHours[Date],2)"
+            "expression": "WEEKNUM(DepotHours[Date],1)"
+          },
+          {
+            "type": "calculated",
+            "name": "Week of Year(Reporting)",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "IF(WEEKNUM(DepotHours[Date],1)=WEEKNUM(TODAY(),1)||WEEKNUM(DepotHours[Date],1)=WEEKNUM(TODAY(),1)-1||WEEKNUM(DepotHours[Date],1)=WEEKNUM(TODAY(),1)-2||WEEKNUM(DepotHours[Date],1)=WEEKNUM(TODAY(),1)-3,TRUE(),FALSE())",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
           }
         ],
         "partitions": [
@@ -30057,7 +30095,7 @@
           },
           {
             "name": "DPP Invoiced Hours",
-            "expression": "CALCULATE(DepotHours[Depot Sold Hours],WEEKNUM('DepotHours'[Date],2)=WEEKNUM(TODAY(),2))",
+            "expression": "CALCULATE(DepotHours[Depot Sold Hours],WEEKNUM('DepotHours'[Date],1)=WEEKNUM(TODAY(),1))",
             "formatString": "#,0"
           },
           {
@@ -30065,7 +30103,7 @@
             "expression": "CALCULATE([DPP Invoiced Hours],'Depot'[Depot]=\"Gatwick\")"
           },
           {
-            "name": "DPP Invoiced Hours Weekly YTD",
+            "name": "DPP Invoiced Hours Weekly YTD1",
             "expression": "CALCULATE(DepotHours[Depot Sold Hours],YEAR('Date'[Date])=YEAR(TODAY()))",
             "formatString": "#,0"
           },
@@ -30096,32 +30134,32 @@
           },
           {
             "name": "East DPP Invoice Hours Weekly YTD",
-            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD],Region[Region]=\"East\")",
+            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD1],Region[Region]=\"East\")",
             "formatString": "#,0"
           },
           {
             "name": "Scotland DPP Invoice Hours Weekly YTD",
-            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD],Region[Region]=\"Scotland\")",
+            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD1],Region[Region]=\"Scotland\")",
             "formatString": "#,0"
           },
           {
             "name": "North DPP Invoice Hours Weekly YTD",
-            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD],Region[Region]=\"North\")",
+            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD1],Region[Region]=\"North\")",
             "formatString": "#,0"
           },
           {
             "name": "South East DPP Invoice Hours Weekly YTD",
-            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD],Region[Region]=\"South East\")",
+            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD1],Region[Region]=\"South East\")",
             "formatString": "#,0"
           },
           {
             "name": "South West DPP Invoice Hours Weekly YTD",
-            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD],Region[Region]=\"South West\")",
+            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD1],Region[Region]=\"South West\")",
             "formatString": "#,0"
           },
           {
             "name": "Gatwick DPP Invoice Hours Weekly YTD",
-            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD],'Depot'[Depot]=\"Gatwick\")",
+            "expression": "CALCULATE([DPP Invoiced Hours Weekly YTD1],'Depot'[Depot]=\"Gatwick\")",
             "formatString": "#,0"
           },
           {
@@ -30148,6 +30186,21 @@
             "name": "South West Invoiced Hours MTD",
             "expression": "CALCULATE(DepotHours[Depot Sold Hours],Region[Region]=\"South West\")",
             "formatString": "#,0"
+          },
+          {
+            "name": "Sold Hours %",
+            "expression": "0+CALCULATE(DIVIDE([Depot Sold Hours],[Sold Hours Budget]))",
+            "formatString": "0.0%;-0.0%;0.0%"
+          },
+          {
+            "name": "DPP Invoiced Hours Weekly YTD",
+            "expression": "CALCULATE(DepotHours[Depot Sold Hours],WEEKNUM('DepotHours'[Date],2)=WEEKNUM(TODAY(),2)||WEEKNUM('DepotHours'[Date],2)=WEEKNUM(TODAY(),2)-1||WEEKNUM('DepotHours'[Date],2)=WEEKNUM(TODAY(),2)-2||WEEKNUM('DepotHours'[Date],2)=WEEKNUM(TODAY(),2)-3)",
+            "formatString": "#,0"
+          },
+          {
+            "name": "DPP Current Week",
+            "expression": "WEEKNUM(TODAY(),1)",
+            "formatString": "0"
           }
         ],
         "annotations": [
