@@ -6,7 +6,8 @@
       <Options>
         <ServerName>sgbsql01.database.windows.net</ServerName>
         <PathOnServer>/SSISDB/KPI_Dashboards/Scania CSV Ingest</PathOnServer>
-        <StartObjectID>Ingest Master.dtsx</StartObjectID>
+        <StartObjectID>Archive CSV Files.dtsx</StartObjectID>
+        <Run64BitRuntime>false</Run64BitRuntime>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
