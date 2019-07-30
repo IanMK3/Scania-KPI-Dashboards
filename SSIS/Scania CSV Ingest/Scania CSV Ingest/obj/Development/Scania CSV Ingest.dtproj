@@ -2989,10 +2989,10 @@
                 <SSIS:Property SSIS:Name="Name">Ingest from Blob 3</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">339</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">347</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{7BDD8C5C-C1E4-4C06-88A6-175DE7D60213}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{4C29E919-83FE-4B4C-9620-3DC210E54D85}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
