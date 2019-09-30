@@ -1,0 +1,2 @@
+﻿Opening repositories:
+C:\Vamsi\Scania\src\Scania-KPI-Dashboards

@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Scania CSV Ingest</Name>
-    <LastWriteTime>2019-08-01T10:13:48.9936007Z</LastWriteTime>
+    <LastWriteTime>2019-09-30T19:43:18.4454356Z</LastWriteTime>
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -23,7 +23,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Ingest from Blob 3.dtsx</Name>
-      <LastWriteTime>2019-07-30T15:43:29.6976274Z</LastWriteTime>
+      <LastWriteTime>2019-09-30T22:21:34.6562677Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
