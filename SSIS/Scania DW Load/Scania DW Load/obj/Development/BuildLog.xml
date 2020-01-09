@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Scania DW Load</Name>
-    <LastWriteTime>2019-09-16T04:57:24.2146514Z</LastWriteTime>
+    <LastWriteTime>2020-01-09T04:22:41.6428818Z</LastWriteTime>
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,7 +13,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Import Facts From Staging.dtsx</Name>
-      <LastWriteTime>2019-09-30T22:50:33.7278071Z</LastWriteTime>
+      <LastWriteTime>2020-01-09T04:42:23.7656422Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>

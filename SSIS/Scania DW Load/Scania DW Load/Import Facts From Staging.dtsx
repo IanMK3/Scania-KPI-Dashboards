@@ -12,8 +12,8 @@
   DTS:ObjectName="Import Dimensions From Staging"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="263"
-  DTS:VersionGUID="{87422595-9223-44F3-851B-22B900312E84}">
+  DTS:VersionBuild="266"
+  DTS:VersionGUID="{A2008D2A-C7C5-4A58-9DD2-D63E45B8D08A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -2441,7 +2441,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2483,7 +2483,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2531,7 +2531,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Get Max WasteCost Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2575,7 +2575,7 @@ where [refTable].[Nominal] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Merge BWC"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -2611,7 +2611,7 @@ where [refTable].[Nominal] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Truncate tmp WasteCost"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -6124,7 +6124,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Get Distinct File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9512,7 +9512,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9554,7 +9554,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9602,7 +9602,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Merge DepotHours"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9632,7 +9632,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Truncate tmp depot hours"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9807,7 +9807,7 @@ where [refTable].[Cost Centre] = ?</property>
                           externalMetadataColumnId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].ExternalColumns[Hours Taken]"
                           lineageId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].Columns[Hours Taken]"
                           name="Hours Taken"
-                          precision="38"
+                          precision="18"
                           scale="2"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
@@ -9818,7 +9818,7 @@ where [refTable].[Cost Centre] = ?</property>
                           externalMetadataColumnId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].ExternalColumns[Hours Sold]"
                           lineageId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].Columns[Hours Sold]"
                           name="Hours Sold"
-                          precision="38"
+                          precision="18"
                           scale="2"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
@@ -9854,13 +9854,13 @@ where [refTable].[Cost Centre] = ?</property>
                           refId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].ExternalColumns[Hours Taken]"
                           dataType="numeric"
                           name="Hours Taken"
-                          precision="38"
+                          precision="18"
                           scale="2" />
                         <externalMetadataColumn
                           refId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].ExternalColumns[Hours Sold]"
                           dataType="numeric"
                           name="Hours Sold"
-                          precision="38"
+                          precision="18"
                           scale="2" />
                         <externalMetadataColumn
                           refId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].ExternalColumns[Date]"
@@ -9891,14 +9891,14 @@ where [refTable].[Cost Centre] = ?</property>
                           dataType="numeric"
                           lineageId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Error Output].Columns[Hours Taken]"
                           name="Hours Taken"
-                          precision="38"
+                          precision="18"
                           scale="2" />
                         <outputColumn
                           refId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Error Output].Columns[Hours Sold]"
                           dataType="numeric"
                           lineageId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Error Output].Columns[Hours Sold]"
                           name="Hours Sold"
-                          precision="38"
+                          precision="18"
                           scale="2" />
                         <outputColumn
                           refId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Error Output].Columns[Date]"
@@ -10184,7 +10184,7 @@ where [refTable].[PosCompany] = ?</property>
                           refId="Package\Load Depot Hours\Load hours from BI to temp\tmp table.Inputs[OLE DB Destination Input].Columns[Hours Taken]"
                           cachedDataType="numeric"
                           cachedName="Hours Taken"
-                          cachedPrecision="38"
+                          cachedPrecision="18"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Load Depot Hours\Load hours from BI to temp\tmp table.Inputs[OLE DB Destination Input].ExternalColumns[Taken]"
                           lineageId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Taken]" />
@@ -10192,7 +10192,7 @@ where [refTable].[PosCompany] = ?</property>
                           refId="Package\Load Depot Hours\Load hours from BI to temp\tmp table.Inputs[OLE DB Destination Input].Columns[Hours Sold]"
                           cachedDataType="numeric"
                           cachedName="Hours Sold"
-                          cachedPrecision="38"
+                          cachedPrecision="18"
                           cachedScale="2"
                           externalMetadataColumnId="Package\Load Depot Hours\Load hours from BI to temp\tmp table.Inputs[OLE DB Destination Input].ExternalColumns[Sold]"
                           lineageId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Sold]" />
@@ -10295,36 +10295,6 @@ where [refTable].[PosCompany] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Inputs[Union All Input 1].Columns[Hours Taken]"
-                          cachedDataType="numeric"
-                          cachedName="Hours Taken"
-                          cachedPrecision="38"
-                          cachedScale="2"
-                          lineageId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].Columns[Hours Taken]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Taken]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Inputs[Union All Input 1].Columns[Hours Sold]"
-                          cachedDataType="numeric"
-                          cachedName="Hours Sold"
-                          cachedPrecision="38"
-                          cachedScale="2"
-                          lineageId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].Columns[Hours Sold]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Sold]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
                           refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Inputs[Union All Input 1].Columns[Date]"
                           cachedDataType="dbDate"
                           cachedName="Date"
@@ -10365,6 +10335,36 @@ where [refTable].[PosCompany] = ?</property>
                               name="OutputColumnLineageID">#{Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Category]}</property>
                           </properties>
                         </inputColumn>
+                        <inputColumn
+                          refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Inputs[Union All Input 1].Columns[Hours Taken]"
+                          cachedDataType="numeric"
+                          cachedName="Hours Taken"
+                          cachedPrecision="18"
+                          cachedScale="2"
+                          lineageId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].Columns[Hours Taken]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Taken]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Inputs[Union All Input 1].Columns[Hours Sold]"
+                          cachedDataType="numeric"
+                          cachedName="Hours Sold"
+                          cachedPrecision="18"
+                          cachedScale="2"
+                          lineageId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].Columns[Hours Sold]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Sold]}</property>
+                          </properties>
+                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -10386,36 +10386,6 @@ where [refTable].[PosCompany] = ?</property>
                               dataType="System.Int32"
                               description="Output column lineage ID"
                               name="OutputColumnLineageID">#{Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[PosCompany]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Inputs[Union All Input 2].Columns[Hours Taken]"
-                          cachedDataType="numeric"
-                          cachedName="Hours Taken"
-                          cachedPrecision="38"
-                          cachedScale="2"
-                          lineageId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].Columns[Hours Taken]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Taken]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Inputs[Union All Input 2].Columns[Hours Sold]"
-                          cachedDataType="numeric"
-                          cachedName="Hours Sold"
-                          cachedPrecision="38"
-                          cachedScale="2"
-                          lineageId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].Columns[Hours Sold]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Sold]}</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -10459,6 +10429,36 @@ where [refTable].[PosCompany] = ?</property>
                               name="OutputColumnLineageID">#{Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Category]}</property>
                           </properties>
                         </inputColumn>
+                        <inputColumn
+                          refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Inputs[Union All Input 2].Columns[Hours Taken]"
+                          cachedDataType="numeric"
+                          cachedName="Hours Taken"
+                          cachedPrecision="18"
+                          cachedScale="2"
+                          lineageId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].Columns[Hours Taken]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Taken]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Inputs[Union All Input 2].Columns[Hours Sold]"
+                          cachedDataType="numeric"
+                          cachedName="Hours Sold"
+                          cachedPrecision="18"
+                          cachedScale="2"
+                          lineageId="Package\Load Depot Hours\Load hours from BI to temp\Get Hours from BI.Outputs[OLE DB Source Output].Columns[Hours Sold]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Sold]}</property>
+                          </properties>
+                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -10483,20 +10483,6 @@ where [refTable].[PosCompany] = ?</property>
                           lineageId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[PosCompany]"
                           name="PosCompany" />
                         <outputColumn
-                          refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Taken]"
-                          dataType="numeric"
-                          lineageId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Taken]"
-                          name="Hours Taken"
-                          precision="38"
-                          scale="2" />
-                        <outputColumn
-                          refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Sold]"
-                          dataType="numeric"
-                          lineageId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Sold]"
-                          name="Hours Sold"
-                          precision="38"
-                          scale="2" />
-                        <outputColumn
                           refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Date]"
                           dataType="dbDate"
                           lineageId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Date]"
@@ -10513,6 +10499,20 @@ where [refTable].[PosCompany] = ?</property>
                           length="8"
                           lineageId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Category]"
                           name="Category" />
+                        <outputColumn
+                          refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Taken]"
+                          dataType="numeric"
+                          lineageId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Taken]"
+                          name="Hours Taken"
+                          precision="18"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Sold]"
+                          dataType="numeric"
+                          lineageId="Package\Load Depot Hours\Load hours from BI to temp\Union All.Outputs[Union All Output 1].Columns[Hours Sold]"
+                          name="Hours Sold"
+                          precision="18"
+                          scale="2" />
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -12157,7 +12157,7 @@ where [refTable].[Branch Code Integer] = ?</property>
                           refId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\DW - Insert into temp table.Inputs[OLE DB Destination Input].Columns[BudgetType]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="12"
+                          cachedLength="13"
                           cachedName="BudgetType"
                           externalMetadataColumnId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\DW - Insert into temp table.Inputs[OLE DB Destination Input].ExternalColumns[BudgetType]"
                           lineageId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\Union All.Outputs[Union All Output 1].Columns[BudgetType]" />
@@ -12496,7 +12496,7 @@ where [refTable].[Branch Code Integer] = ?</property>
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BudgetType]"
-                          length="12"
+                          length="13"
                           lineageId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[BudgetType]"
                           name="BudgetType"
                           truncationRowDisposition="FailComponent" />
@@ -12534,7 +12534,7 @@ where [refTable].[Branch Code Integer] = ?</property>
                           refId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BudgetType]"
                           codePage="1252"
                           dataType="str"
-                          length="12"
+                          length="13"
                           name="BudgetType" />
                       </externalMetadataColumns>
                     </output>
@@ -12579,7 +12579,7 @@ where [refTable].[Branch Code Integer] = ?</property>
                           refId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BudgetType]"
                           codePage="1252"
                           dataType="str"
-                          length="12"
+                          length="13"
                           lineageId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BudgetType]"
                           name="BudgetType" />
                         <outputColumn
@@ -12699,7 +12699,7 @@ where [refTable].[Branch Code Integer] = ?</property>
                           refId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\Union All.Inputs[Union All Input 1].Columns[BudgetType]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="12"
+                          cachedLength="13"
                           cachedName="BudgetType"
                           lineageId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[BudgetType]">
                           <properties>
@@ -12806,7 +12806,7 @@ where [refTable].[Branch Code Integer] = ?</property>
                           refId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\Union All.Inputs[Union All Input 3].Columns[BudgetType]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="12"
+                          cachedLength="13"
                           cachedName="BudgetType"
                           lineageId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[BudgetType]">
                           <properties>
@@ -12873,7 +12873,7 @@ where [refTable].[Branch Code Integer] = ?</property>
                           refId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\Union All.Outputs[Union All Output 1].Columns[BudgetType]"
                           codePage="1252"
                           dataType="str"
-                          length="12"
+                          length="13"
                           lineageId="Package\Load Hours Sold Budget\Staging - Get SoldHoursBudget 1\Union All.Outputs[Union All Output 1].Columns[BudgetType]"
                           name="BudgetType" />
                       </outputColumns>
@@ -16670,7 +16670,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -16712,7 +16712,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -16760,7 +16760,7 @@ where [refTable].[Nominal] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Get MaxBodyShopHours Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -16804,7 +16804,7 @@ where [refTable].[Nominal] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Merge Bodyshop Hours"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -16840,7 +16840,7 @@ where [refTable].[Nominal] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Truncate tmp Bodyshop Hours"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -20763,7 +20763,7 @@ where [refTable].[Technician] = ? and [refTable].[Depot] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Get Distinct File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -28153,7 +28153,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -28195,7 +28195,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -28243,7 +28243,7 @@ where [refTable].[PosCompany] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Get Max WarrantyOutstandingAmount Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -28287,7 +28287,7 @@ where [refTable].[PosCompany] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Merge WarrantyOutstandingAmount"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -28323,7 +28323,7 @@ where [refTable].[PosCompany] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Truncate tmp WarrantyOutstandingAmount"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -31010,7 +31010,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Get Distinct File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -31212,7 +31212,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - End Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -31254,7 +31254,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Audit - Start Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -31302,7 +31302,7 @@ where [refTable].[Cost Centre] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="DW - Get MaxSGBTechHours Date"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -31346,7 +31346,7 @@ where [refTable].[Cost Centre] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Merge TechHours"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -31382,7 +31382,7 @@ where [refTable].[Cost Centre] = ?</property>
               DTS:LocaleID="-1"
               DTS:ObjectName="DW - Truncate tmp SGBTechHours"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -36367,7 +36367,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Staging - Get Distinct SGBTechHours  File Dates"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -37504,7 +37504,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
           PanelSize="244.8,713.6"
           Size="244.8,756.8"
           Id="Package\Load Hours Sold Budget"
-          TopLeft="127.100000000001,5080.7" />
+          TopLeft="127.100000000001,5081.31176471446" />
         <NodeLayout
           Size="157.6,42.4"
           Id="Package\Load Revenue\Audit - End Task"
@@ -39018,26 +39018,26 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="48.0000000000001,267.200000000001"
+              EndConnector="48.0000000000004,267.811764714462"
               Start="0,0"
-              End="48.0000000000001,259.700000000001">
+              End="48.0000000000004,260.311764714462">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,129.6" />
+                    End="0,129.905882357231" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,129.6"
-                    Point2="0,133.6"
-                    Point3="4,133.6" />
+                    Point1="0,129.905882357231"
+                    Point2="0,133.905882357231"
+                    Point3="4,133.905882357231" />
                   <mssgle:LineSegment
-                    End="44.0000000000001,133.6" />
+                    End="44.0000000000004,133.905882357231" />
                   <mssgle:CubicBezierSegment
-                    Point1="44.0000000000001,133.6"
-                    Point2="48.0000000000001,133.6"
-                    Point3="48.0000000000001,137.6" />
+                    Point1="44.0000000000004,133.905882357231"
+                    Point2="48.0000000000004,133.905882357231"
+                    Point3="48.0000000000004,137.905882357231" />
                   <mssgle:LineSegment
-                    End="48.0000000000001,259.700000000001" />
+                    End="48.0000000000004,260.311764714462" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -39116,30 +39116,30 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="249.500000000001,5837.5">
+          TopLeft="249.500000000001,5838.11176471446">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="133.08,112"
+              EndConnector="133.08,111.388235285538"
               Start="0,0"
-              End="133.08,104.5">
+              End="133.08,103.888235285538">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,74.4575835475578" />
+                    End="0,74.0290337154476" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,74.4575835475578"
-                    Point2="0,78.4575835475578"
-                    Point3="4,78.4575835475578" />
+                    Point1="0,74.0290337154476"
+                    Point2="0,78.0290337154476"
+                    Point3="4,78.0290337154476" />
                   <mssgle:LineSegment
-                    End="129.08,78.4575835475578" />
+                    End="129.08,78.0290337154476" />
                   <mssgle:CubicBezierSegment
-                    Point1="129.08,78.4575835475578"
-                    Point2="133.08,78.4575835475578"
-                    Point3="133.08,82.4575835475578" />
+                    Point1="129.08,78.0290337154476"
+                    Point2="133.08,78.0290337154476"
+                    Point3="133.08,82.0290337154476" />
                   <mssgle:LineSegment
-                    End="133.08,104.5" />
+                    End="133.08,103.888235285538" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -41211,9 +41211,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -41247,9 +41245,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -41355,9 +41351,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -41771,9 +41765,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -41807,9 +41799,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -41843,9 +41833,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -41879,9 +41867,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -42028,9 +42014,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -42064,9 +42048,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -42100,9 +42082,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -42136,9 +42116,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -45615,10 +45593,6 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\Derived Column"
-          TopLeft="350.4,612" />
-        <NodeLayout
           Size="129.6,41.6"
           Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\Union All 1"
           TopLeft="131.428573666787,498.541180657516" />
@@ -45627,9 +45601,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
           Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\insert into error table"
           TopLeft="640.8,808.611764714462" />
         <NodeLayout
-          Size="120,41.6"
-          Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\Multicast"
-          TopLeft="523.2,575.011764714462" />
+          Size="152.8,41.6"
+          Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\Derived Column"
+          TopLeft="350.4,612" />
         <NodeLayout
           Size="120,41.6"
           Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\Union All"
@@ -45642,6 +45616,10 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
           Size="246.4,42.4"
           Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\Add Unknown Depot Error Message"
           TopLeft="408.1,414.111764714462" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\Multicast"
+          TopLeft="523.2,575.011764714462" />
         <NodeLayout
           Size="228,41.6"
           Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\Staging -  Get Technician Hours"
@@ -45663,6 +45641,10 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
           Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\Multicast 1"
           TopLeft="194.9,311.9" />
         <NodeLayout
+          Size="176,42.4"
+          Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\Add Unknown Depot"
+          TopLeft="171.3,414.111764714462" />
+        <NodeLayout
           Size="208,41.6"
           Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\DW - Insert into temp table"
           TopLeft="50.52857141884,780.276470571076" />
@@ -45670,10 +45652,6 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
           Size="122.4,42.4"
           Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\Add Date"
           TopLeft="470.1,720.7" />
-        <NodeLayout
-          Size="176,42.4"
-          Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\Add Unknown Depot"
-          TopLeft="171.3,414.111764714462" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Load Workshop and Bodyshop Hours\Foreach File Date\Staging - Get SGBTechHours\Union All 2"
@@ -45703,7 +45681,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -45737,7 +45717,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -45771,7 +45753,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -45805,7 +45789,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -45839,7 +45825,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -45873,7 +45861,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -45907,7 +45897,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -45941,7 +45933,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -45975,7 +45969,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -46009,7 +46005,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -46187,7 +46185,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -46221,7 +46221,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -46249,7 +46251,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -46283,7 +46287,9 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -46316,7 +46322,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -46326,7 +46332,7 @@ where [refTable].[LowerCaseTechnician] = ? and [refTable].[Depot] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

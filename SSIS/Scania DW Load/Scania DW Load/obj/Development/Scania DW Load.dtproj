@@ -154,10 +154,10 @@
                 <SSIS:Property SSIS:Name="Name">Import Dimensions From Staging</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">263</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">265</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{87422595-9223-44F3-851B-22B900312E84}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{0A5CC8F4-50E3-4A19-A9B2-37E2C8D76412}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -306,10 +306,10 @@
                 <SSIS:Property SSIS:Name="Name">Import Dimensions From Staging</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">328</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">312</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{67E37CD0-802F-4673-8FA6-DBA513943F3A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{9F7B42AB-CC86-43DE-855E-D4DBD4104E1B}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
